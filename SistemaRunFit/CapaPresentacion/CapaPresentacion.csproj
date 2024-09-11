@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBF28FDA-6C84-44C4-8D82-CC11B432D201}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>CapaPresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>W:\MatiasWD\BunifuDLL\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>W:\MatiasWD\GUNA\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcercaDe.Designer.cs">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarVenta.Designer.cs">
+      <DependentUpon>frmBuscarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarCliente.Designer.cs">
+      <DependentUpon>frmListarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProducto.Designer.cs">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedor.Designer.cs">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarVenta.Designer.cs">
+      <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporte.Designer.cs">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAcercaDe.resx">
+      <DependentUpon>frmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarVenta.resx">
+      <DependentUpon>frmBuscarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarCliente.resx">
+      <DependentUpon>frmListarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProducto.resx">
+      <DependentUpon>frmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedor.resx">
+      <DependentUpon>frmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarVenta.resx">
+      <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporte.resx">
+      <DependentUpon>frmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
+      <Project>{f9d187a4-15ed-4e59-acf6-dfa68358e4fa}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{01c733be-e51e-4a68-8a9c-8f3110bf3b41}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
