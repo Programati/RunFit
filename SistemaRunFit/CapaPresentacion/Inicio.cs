@@ -83,7 +83,7 @@ namespace CapaPresentacion
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            abrirFormulario(btnProveedores, new frmProveedor());
+            abrirFormulario(btnProveedores, new frmListarProveedor());
         }
         private void btnReportes_Click(object sender, EventArgs e)
         {

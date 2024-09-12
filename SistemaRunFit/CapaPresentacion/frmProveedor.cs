@@ -20,70 +20,26 @@ namespace CapaPresentacion
 
         private void LimpiarCampos()
         {
-            txtProveedor.Clear();
+            txtRSocialProveedor.Clear();
+            txtDireccionProveedor.Clear();
             txtCuitProveedor.Clear();
             txtDescripcionProveedor.Clear();
-            txtProveedor.Focus();
+            txtTelefonoProveedor.Clear();
+            txtEmailProveedor.Clear();
+            txtDescripcionProveedor.Clear();
+            txtRSocialProveedor.Focus();
         }
-        private void LimpiarPorProveedor()
-        {
-            cmbBuscarPorProveedor.SelectedIndex = -1;
-            txtBuscarPorProveedor.Clear();
-        }
-
-        private void btnLimpiarPorProveedor_Click(object sender, EventArgs e)
-        {
-            LimpiarPorProveedor();
-        }
-
-        private void btnLimpiarCamposUser_Click(object sender, EventArgs e)
+        
+        private void btnLimpiarCamposProvedor_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-        private bool camposValidados()
+        private void btnVolverProveedor_Click(object sender, EventArgs e)
         {
-
-            bool proveedorVacio = string.IsNullOrEmpty(txtProveedor.Text);
-            bool cuitVacio = string.IsNullOrEmpty(txtCuitProveedor.Text);
-            bool descripcionVacio = string.IsNullOrEmpty(txtDescripcionProveedor.Text);
-
-            if (proveedorVacio || cuitVacio || descripcionVacio)
-            {
-                MessageBox.Show("Debe completar todos los campos!", "Atencion!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
-        }
-
-        private void btnGuardarProveedor_Click(object sender, EventArgs e)
-        {
-            if (camposValidados())
-            {
-                string proveedor = txtProveedor.Text;
-
-                var confirmacion = MessageBox.Show(
-                    $"¿Desea agregar al proveedor {proveedor} al sistema?",
-                    "Confirmación",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-                if (confirmacion == DialogResult.Yes)
-                {
-                    MessageBox.Show("Datos guardados exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                    int n = dgvListaProveedor.Rows.Add();
-                    //Colocamos la información en el renglon creado
-                    dgvListaProveedor.Rows[n].Cells[2].Value = txtCuitProveedor.Text;
-                    dgvListaProveedor.Rows[n].Cells[3].Value = txtProveedor.Text;
-                    dgvListaProveedor.Rows[n].Cells[4].Value = txtDescripcionProveedor.Text;
-                    //Borrar cuando se integre la BD
-                    LimpiarCampos();
-
-
-                }
-            }
+            this.Close();
         }
     }
 }
+    
+
