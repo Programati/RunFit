@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Navigation;
+using Guna.UI.WinForms;
 
 namespace CapaPresentacion
 {
