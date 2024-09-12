@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.pnlContenedorMenu = new System.Windows.Forms.Panel();
-            this.panelSubMantenedor = new System.Windows.Forms.Panel();
-            this.subVentas = new System.Windows.Forms.Panel();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.lblFitLogoMenu = new System.Windows.Forms.Label();
-            this.panelContenedorFormularios = new System.Windows.Forms.Panel();
             this.btnAcercaDe = new Guna.UI.WinForms.GunaGradientButton();
+            this.panelSubMantenedor = new System.Windows.Forms.Panel();
             this.btnProducto = new Guna.UI.WinForms.GunaGradientButton();
             this.btnCategoria = new Guna.UI.WinForms.GunaGradientButton();
-            this.btnMantenedor = new Guna.UI.WinForms.GunaGradientButton();
+            this.btnStock = new Guna.UI.WinForms.GunaGradientButton();
             this.btnReportes = new Guna.UI.WinForms.GunaGradientButton();
             this.btnProveedores = new Guna.UI.WinForms.GunaGradientButton();
+            this.subVentas = new System.Windows.Forms.Panel();
             this.btnBuscarVentas = new Guna.UI.WinForms.GunaGradientButton();
             this.btnRegistrarVentas = new Guna.UI.WinForms.GunaGradientButton();
             this.btnVentas = new Guna.UI.WinForms.GunaGradientButton();
             this.btnUsuario = new Guna.UI.WinForms.GunaGradientButton();
             this.btnClientes = new Guna.UI.WinForms.GunaGradientButton();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelContenedorFormularios = new System.Windows.Forms.Panel();
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
@@ -59,7 +59,7 @@
             this.pnlContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.pnlContenedorMenu.Controls.Add(this.btnAcercaDe);
             this.pnlContenedorMenu.Controls.Add(this.panelSubMantenedor);
-            this.pnlContenedorMenu.Controls.Add(this.btnMantenedor);
+            this.pnlContenedorMenu.Controls.Add(this.btnStock);
             this.pnlContenedorMenu.Controls.Add(this.btnReportes);
             this.pnlContenedorMenu.Controls.Add(this.btnProveedores);
             this.pnlContenedorMenu.Controls.Add(this.subVentas);
@@ -72,60 +72,6 @@
             this.pnlContenedorMenu.Name = "pnlContenedorMenu";
             this.pnlContenedorMenu.Size = new System.Drawing.Size(133, 561);
             this.pnlContenedorMenu.TabIndex = 3;
-            // 
-            // panelSubMantenedor
-            // 
-            this.panelSubMantenedor.Controls.Add(this.btnProducto);
-            this.panelSubMantenedor.Controls.Add(this.btnCategoria);
-            this.panelSubMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMantenedor.Location = new System.Drawing.Point(0, 380);
-            this.panelSubMantenedor.Name = "panelSubMantenedor";
-            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 49);
-            this.panelSubMantenedor.TabIndex = 17;
-            // 
-            // subVentas
-            // 
-            this.subVentas.Controls.Add(this.btnBuscarVentas);
-            this.subVentas.Controls.Add(this.btnRegistrarVentas);
-            this.subVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subVentas.Location = new System.Drawing.Point(0, 210);
-            this.subVentas.Name = "subVentas";
-            this.subVentas.Size = new System.Drawing.Size(133, 50);
-            this.subVentas.TabIndex = 3;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.BackColor = System.Drawing.Color.White;
-            this.pnlLogo.Controls.Add(this.lblFitLogoMenu);
-            this.pnlLogo.Controls.Add(this.pictureBox1);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(133, 90);
-            this.pnlLogo.TabIndex = 0;
-            // 
-            // lblFitLogoMenu
-            // 
-            this.lblFitLogoMenu.AutoSize = true;
-            this.lblFitLogoMenu.BackColor = System.Drawing.Color.White;
-            this.lblFitLogoMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblFitLogoMenu.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFitLogoMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.lblFitLogoMenu.Location = new System.Drawing.Point(77, 53);
-            this.lblFitLogoMenu.Name = "lblFitLogoMenu";
-            this.lblFitLogoMenu.Size = new System.Drawing.Size(42, 30);
-            this.lblFitLogoMenu.TabIndex = 4;
-            this.lblFitLogoMenu.Text = "FIT";
-            // 
-            // panelContenedorFormularios
-            // 
-            this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
-            this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
-            this.panelContenedorFormularios.Name = "panelContenedorFormularios";
-            this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.panelContenedorFormularios.Size = new System.Drawing.Size(951, 561);
-            this.panelContenedorFormularios.TabIndex = 4;
             // 
             // btnAcercaDe
             // 
@@ -156,6 +102,16 @@
             this.btnAcercaDe.Text = "ACERCA DE";
             this.btnAcercaDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnAcercaDe.Click += new System.EventHandler(this.btnAcercaDe_Click);
+            // 
+            // panelSubMantenedor
+            // 
+            this.panelSubMantenedor.Controls.Add(this.btnProducto);
+            this.panelSubMantenedor.Controls.Add(this.btnCategoria);
+            this.panelSubMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMantenedor.Location = new System.Drawing.Point(0, 380);
+            this.panelSubMantenedor.Name = "panelSubMantenedor";
+            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 49);
+            this.panelSubMantenedor.TabIndex = 17;
             // 
             // btnProducto
             // 
@@ -221,35 +177,35 @@
             this.btnCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
-            // btnMantenedor
+            // btnStock
             // 
-            this.btnMantenedor.Animated = true;
-            this.btnMantenedor.AnimationHoverSpeed = 0.07F;
-            this.btnMantenedor.AnimationSpeed = 0.03F;
-            this.btnMantenedor.BaseColor1 = System.Drawing.Color.Transparent;
-            this.btnMantenedor.BaseColor2 = System.Drawing.Color.Transparent;
-            this.btnMantenedor.BorderColor = System.Drawing.Color.Black;
-            this.btnMantenedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMantenedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMantenedor.FocusedColor = System.Drawing.Color.Empty;
-            this.btnMantenedor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMantenedor.ForeColor = System.Drawing.Color.White;
-            this.btnMantenedor.Image = ((System.Drawing.Image)(resources.GetObject("btnMantenedor.Image")));
-            this.btnMantenedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMantenedor.Location = new System.Drawing.Point(0, 340);
-            this.btnMantenedor.Name = "btnMantenedor";
-            this.btnMantenedor.OnHoverBaseColor1 = System.Drawing.Color.White;
-            this.btnMantenedor.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
-            this.btnMantenedor.OnHoverBorderColor = System.Drawing.Color.White;
-            this.btnMantenedor.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnMantenedor.OnHoverImage = null;
-            this.btnMantenedor.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMantenedor.Size = new System.Drawing.Size(133, 40);
-            this.btnMantenedor.TabIndex = 16;
-            this.btnMantenedor.Text = "MANTENEDOR";
-            this.btnMantenedor.TextOffsetX = -8;
-            this.btnMantenedor.Click += new System.EventHandler(this.btnMantenedor_Click);
+            this.btnStock.Animated = true;
+            this.btnStock.AnimationHoverSpeed = 0.07F;
+            this.btnStock.AnimationSpeed = 0.03F;
+            this.btnStock.BaseColor1 = System.Drawing.Color.Transparent;
+            this.btnStock.BaseColor2 = System.Drawing.Color.Transparent;
+            this.btnStock.BorderColor = System.Drawing.Color.Black;
+            this.btnStock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStock.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnStock.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStock.FocusedColor = System.Drawing.Color.Empty;
+            this.btnStock.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStock.ForeColor = System.Drawing.Color.White;
+            this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
+            this.btnStock.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnStock.Location = new System.Drawing.Point(0, 340);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.OnHoverBaseColor1 = System.Drawing.Color.White;
+            this.btnStock.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnStock.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btnStock.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnStock.OnHoverImage = null;
+            this.btnStock.OnPressedColor = System.Drawing.Color.Black;
+            this.btnStock.Size = new System.Drawing.Size(133, 40);
+            this.btnStock.TabIndex = 16;
+            this.btnStock.Text = "STOCK ...";
+            this.btnStock.TextOffsetX = -8;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // btnReportes
             // 
@@ -311,6 +267,16 @@
             this.btnProveedores.Text = "PROVEEDORES";
             this.btnProveedores.TextOffsetX = -8;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
+            // 
+            // subVentas
+            // 
+            this.subVentas.Controls.Add(this.btnBuscarVentas);
+            this.subVentas.Controls.Add(this.btnRegistrarVentas);
+            this.subVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subVentas.Location = new System.Drawing.Point(0, 210);
+            this.subVentas.Name = "subVentas";
+            this.subVentas.Size = new System.Drawing.Size(133, 50);
+            this.subVentas.TabIndex = 3;
             // 
             // btnBuscarVentas
             // 
@@ -471,6 +437,30 @@
             this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BackColor = System.Drawing.Color.White;
+            this.pnlLogo.Controls.Add(this.lblFitLogoMenu);
+            this.pnlLogo.Controls.Add(this.pictureBox1);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(133, 90);
+            this.pnlLogo.TabIndex = 0;
+            // 
+            // lblFitLogoMenu
+            // 
+            this.lblFitLogoMenu.AutoSize = true;
+            this.lblFitLogoMenu.BackColor = System.Drawing.Color.White;
+            this.lblFitLogoMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblFitLogoMenu.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFitLogoMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.lblFitLogoMenu.Location = new System.Drawing.Point(77, 53);
+            this.lblFitLogoMenu.Name = "lblFitLogoMenu";
+            this.lblFitLogoMenu.Size = new System.Drawing.Size(42, 30);
+            this.lblFitLogoMenu.TabIndex = 4;
+            this.lblFitLogoMenu.Text = "FIT";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Run;
@@ -480,6 +470,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelContenedorFormularios
+            // 
+            this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
+            this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
+            this.panelContenedorFormularios.Name = "panelContenedorFormularios";
+            this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(951, 561);
+            this.panelContenedorFormularios.TabIndex = 4;
             // 
             // Inicio
             // 
@@ -511,7 +511,7 @@
         private Guna.UI.WinForms.GunaGradientButton btnBuscarVentas;
         private Guna.UI.WinForms.GunaGradientButton btnProveedores;
         private Guna.UI.WinForms.GunaGradientButton btnReportes;
-        private Guna.UI.WinForms.GunaGradientButton btnMantenedor;
+        private Guna.UI.WinForms.GunaGradientButton btnStock;
         private System.Windows.Forms.Panel panelSubMantenedor;
         private Guna.UI.WinForms.GunaGradientButton btnCategoria;
         private Guna.UI.WinForms.GunaGradientButton btnProducto;

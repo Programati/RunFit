@@ -60,12 +60,11 @@ namespace CapaPresentacion
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            abrirFormulario(btnUsuario, new frmUsuario());
+            abrirFormulario(btnUsuario, new frmListarUsuario());
         }
         public void btnClientes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            //abrirFormulario(btnClientes, new frmCliente());
             abrirFormulario(btnClientes, new frmListarCliente());
         }
         private void btnVentas_Click_1(object sender, EventArgs e)
@@ -90,7 +89,7 @@ namespace CapaPresentacion
             OcultarSubMenu();
             abrirFormulario(btnReportes, new frmReporte());
         }
-        private void btnMantenedor_Click(object sender, EventArgs e)
+        private void btnStock_Click(object sender, EventArgs e)
         {
             MostrarSubmenu(panelSubMantenedor);
         }
@@ -100,7 +99,7 @@ namespace CapaPresentacion
         }
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnProducto, new frmProducto());
+            abrirFormulario(btnProducto, new frmListarProducto());
         }
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {

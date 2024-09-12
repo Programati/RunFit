@@ -52,14 +52,14 @@
             this.pnlBusquedaCliente = new Guna.UI.WinForms.GunaShadowPanel();
             this.lblBuscarPorCliente = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCliente = new Guna.UI.WinForms.GunaTextBox();
-            this.btnLimpiarCliente = new Guna.UI.WinForms.GunaTileButton();
-            this.btnBuscarCliente = new Guna.UI.WinForms.GunaTileButton();
+            this.pnlContenedorCliente = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnLimpiarCliente = new Guna.UI.WinForms.GunaTileButton();
+            this.btnBuscarCliente = new Guna.UI.WinForms.GunaTileButton();
             this.btnNuevoCliente = new Guna.UI.WinForms.GunaButton();
-            this.pnlContenedorCliente = new System.Windows.Forms.Panel();
             this.grbListaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.pnlBusquedaCliente.SuspendLayout();
@@ -82,7 +82,7 @@
             this.grbListaCliente.Location = new System.Drawing.Point(0, 100);
             this.grbListaCliente.Name = "grbListaCliente";
             this.grbListaCliente.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbListaCliente.Size = new System.Drawing.Size(992, 279);
+            this.grbListaCliente.Size = new System.Drawing.Size(992, 311);
             this.grbListaCliente.TabIndex = 10;
             this.grbListaCliente.Text = "Lista de Clientes";
             this.grbListaCliente.TextLocation = new System.Drawing.Point(10, 8);
@@ -138,7 +138,7 @@
             this.dgvListaClientes.ReadOnly = true;
             this.dgvListaClientes.RowHeadersVisible = false;
             this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaClientes.Size = new System.Drawing.Size(988, 247);
+            this.dgvListaClientes.Size = new System.Drawing.Size(988, 279);
             this.dgvListaClientes.TabIndex = 0;
             this.dgvListaClientes.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaClientes.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -314,6 +314,68 @@
             this.txtBuscarCliente.TabIndex = 52;
             this.txtBuscarCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // pnlContenedorCliente
+            // 
+            this.pnlContenedorCliente.Controls.Add(this.grbListaCliente);
+            this.pnlContenedorCliente.Controls.Add(this.pnlBusquedaCliente);
+            this.pnlContenedorCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedorCliente.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenedorCliente.Name = "pnlContenedorCliente";
+            this.pnlContenedorCliente.Size = new System.Drawing.Size(992, 411);
+            this.pnlContenedorCliente.TabIndex = 12;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 68;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn2.Width = 83;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "null";
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 68;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 83;
+            // 
             // btnLimpiarCliente
             // 
             this.btnLimpiarCliente.AnimationHoverSpeed = 0.07F;
@@ -368,58 +430,6 @@
             this.btnBuscarCliente.Size = new System.Drawing.Size(35, 30);
             this.btnBuscarCliente.TabIndex = 55;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 68;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 83;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "null";
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Width = 68;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 83;
-            // 
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.AnimationHoverSpeed = 0.07F;
@@ -448,22 +458,12 @@
             this.btnNuevoCliente.Text = "Nuevo";
             this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
-            // pnlContenedorCliente
-            // 
-            this.pnlContenedorCliente.Controls.Add(this.grbListaCliente);
-            this.pnlContenedorCliente.Controls.Add(this.pnlBusquedaCliente);
-            this.pnlContenedorCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedorCliente.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenedorCliente.Name = "pnlContenedorCliente";
-            this.pnlContenedorCliente.Size = new System.Drawing.Size(992, 379);
-            this.pnlContenedorCliente.TabIndex = 12;
-            // 
             // frmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(992, 379);
+            this.ClientSize = new System.Drawing.Size(992, 411);
             this.Controls.Add(this.pnlContenedorCliente);
             this.Name = "frmListarCliente";
             this.Text = "frmListarCliente";

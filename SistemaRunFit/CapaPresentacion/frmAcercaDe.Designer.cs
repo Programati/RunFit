@@ -45,7 +45,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(276, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(313, 105);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(286, 145);
             this.pictureBox1.TabIndex = 0;
@@ -56,10 +56,10 @@
             this.label1.AutoEllipsis = true;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(254, 52);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(183, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 33);
+            this.label1.Size = new System.Drawing.Size(546, 56);
             this.label1.TabIndex = 1;
             this.label1.Text = "Trabajo Grupal Taller 2";
             // 
@@ -69,7 +69,7 @@
             this.lblSoftAcerca.AutoSize = true;
             this.lblSoftAcerca.BackColor = System.Drawing.Color.Transparent;
             this.lblSoftAcerca.Font = new System.Drawing.Font("Century Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoftAcerca.Location = new System.Drawing.Point(168, 270);
+            this.lblSoftAcerca.Location = new System.Drawing.Point(194, 270);
             this.lblSoftAcerca.Name = "lblSoftAcerca";
             this.lblSoftAcerca.Size = new System.Drawing.Size(524, 42);
             this.lblSoftAcerca.TabIndex = 2;
@@ -82,8 +82,8 @@
             this.label3.AutoEllipsis = true;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(140, 328);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(194, 328);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 33);
             this.label3.TabIndex = 3;
@@ -94,8 +94,8 @@
             this.label4.AutoEllipsis = true;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(334, 364);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(360, 383);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(358, 33);
             this.label4.TabIndex = 4;
@@ -106,8 +106,8 @@
             this.label5.AutoEllipsis = true;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(334, 421);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(340, 440);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(378, 33);
             this.label5.TabIndex = 5;
