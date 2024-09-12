@@ -111,12 +111,12 @@
             this.txtEmailProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmailProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailProveedor.Location = new System.Drawing.Point(123, 302);
-            this.txtEmailProveedor.MaxLength = 12;
+            this.txtEmailProveedor.MaxLength = 30;
             this.txtEmailProveedor.Name = "txtEmailProveedor";
             this.txtEmailProveedor.PasswordChar = '\0';
             this.txtEmailProveedor.Radius = 10;
             this.txtEmailProveedor.SelectedText = "";
-            this.txtEmailProveedor.Size = new System.Drawing.Size(183, 26);
+            this.txtEmailProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtEmailProveedor.TabIndex = 78;
             this.txtEmailProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -135,7 +135,7 @@
             this.btnVolverProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverProveedor.Image")));
             this.btnVolverProveedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVolverProveedor.Location = new System.Drawing.Point(676, 388);
+            this.btnVolverProveedor.Location = new System.Drawing.Point(738, 389);
             this.btnVolverProveedor.Name = "btnVolverProveedor";
             this.btnVolverProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -176,9 +176,10 @@
             this.txtTelefonoProveedor.PasswordChar = '\0';
             this.txtTelefonoProveedor.Radius = 10;
             this.txtTelefonoProveedor.SelectedText = "";
-            this.txtTelefonoProveedor.Size = new System.Drawing.Size(183, 26);
+            this.txtTelefonoProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtTelefonoProveedor.TabIndex = 75;
             this.txtTelefonoProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTelefonoProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoProveedor_KeyPress);
             // 
             // label2
             // 
@@ -203,11 +204,12 @@
             this.txtDireccionProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDireccionProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionProveedor.Location = new System.Drawing.Point(123, 199);
+            this.txtDireccionProveedor.MaxLength = 100;
             this.txtDireccionProveedor.Name = "txtDireccionProveedor";
             this.txtDireccionProveedor.PasswordChar = '\0';
             this.txtDireccionProveedor.Radius = 10;
             this.txtDireccionProveedor.SelectedText = "";
-            this.txtDireccionProveedor.Size = new System.Drawing.Size(183, 26);
+            this.txtDireccionProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtDireccionProveedor.TabIndex = 73;
             this.txtDireccionProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -226,7 +228,7 @@
             this.btnLimpiarCamposProvedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposProvedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposProvedor.Image")));
             this.btnLimpiarCamposProvedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCamposProvedor.Location = new System.Drawing.Point(525, 342);
+            this.btnLimpiarCamposProvedor.Location = new System.Drawing.Point(587, 343);
             this.btnLimpiarCamposProvedor.Name = "btnLimpiarCamposProvedor";
             this.btnLimpiarCamposProvedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposProvedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -254,7 +256,7 @@
             this.btnGuardarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProveedor.Image")));
             this.btnGuardarProveedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarProveedor.Location = new System.Drawing.Point(340, 342);
+            this.btnGuardarProveedor.Location = new System.Drawing.Point(402, 343);
             this.btnGuardarProveedor.Name = "btnGuardarProveedor";
             this.btnGuardarProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -265,6 +267,7 @@
             this.btnGuardarProveedor.Size = new System.Drawing.Size(106, 41);
             this.btnGuardarProveedor.TabIndex = 71;
             this.btnGuardarProveedor.Text = "Guardar";
+            this.btnGuardarProveedor.Click += new System.EventHandler(this.btnGuardarProveedor_Click);
             // 
             // txtDescripcionProveedor
             // 
@@ -277,7 +280,8 @@
             this.txtDescripcionProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtDescripcionProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDescripcionProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionProveedor.Location = new System.Drawing.Point(452, 123);
+            this.txtDescripcionProveedor.Location = new System.Drawing.Point(525, 123);
+            this.txtDescripcionProveedor.Multiline = true;
             this.txtDescripcionProveedor.Name = "txtDescripcionProveedor";
             this.txtDescripcionProveedor.PasswordChar = '\0';
             this.txtDescripcionProveedor.Radius = 10;
@@ -290,7 +294,7 @@
             this.lblDescripProv.AutoSize = true;
             this.lblDescripProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripProv.ForeColor = System.Drawing.Color.White;
-            this.lblDescripProv.Location = new System.Drawing.Point(364, 123);
+            this.lblDescripProv.Location = new System.Drawing.Point(437, 123);
             this.lblDescripProv.Name = "lblDescripProv";
             this.lblDescripProv.Size = new System.Drawing.Size(82, 16);
             this.lblDescripProv.TabIndex = 42;
@@ -319,14 +323,15 @@
             this.txtCuitProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCuitProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCuitProveedor.Location = new System.Drawing.Point(123, 141);
-            this.txtCuitProveedor.MaxLength = 12;
+            this.txtCuitProveedor.MaxLength = 11;
             this.txtCuitProveedor.Name = "txtCuitProveedor";
             this.txtCuitProveedor.PasswordChar = '\0';
             this.txtCuitProveedor.Radius = 10;
             this.txtCuitProveedor.SelectedText = "";
-            this.txtCuitProveedor.Size = new System.Drawing.Size(183, 26);
+            this.txtCuitProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtCuitProveedor.TabIndex = 40;
             this.txtCuitProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCuitProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuitProveedor_KeyPress);
             // 
             // lblNombreProv
             // 
@@ -351,11 +356,12 @@
             this.txtRSocialProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtRSocialProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRSocialProveedor.Location = new System.Drawing.Point(123, 88);
+            this.txtRSocialProveedor.MaxLength = 100;
             this.txtRSocialProveedor.Name = "txtRSocialProveedor";
             this.txtRSocialProveedor.PasswordChar = '\0';
             this.txtRSocialProveedor.Radius = 10;
             this.txtRSocialProveedor.SelectedText = "";
-            this.txtRSocialProveedor.Size = new System.Drawing.Size(183, 26);
+            this.txtRSocialProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtRSocialProveedor.TabIndex = 36;
             this.txtRSocialProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

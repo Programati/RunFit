@@ -37,7 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAgregaritemVta = new Guna.UI.WinForms.GunaButton();
             this.lblNombrePtoVta = new Guna.UI.WinForms.GunaLabel();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
+            this.txtNomPtoRegVtas = new Guna.UI.WinForms.GunaTextBox();
             this.txtBuscarCodigoVta = new Guna.UI.WinForms.GunaTextBox();
             this.txtLimpiarBuscarPtoVta = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarCodigoVta = new Guna.UI.WinForms.GunaLabel();
@@ -48,9 +48,9 @@
             this.pnlNumVta = new Guna.UI.WinForms.GunaShadowPanel();
             this.pnlDetalleVta = new System.Windows.Forms.Panel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaTextBox3 = new Guna.UI.WinForms.GunaTextBox();
+            this.txtNombreRegVta = new Guna.UI.WinForms.GunaTextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaTextBox2 = new Guna.UI.WinForms.GunaTextBox();
+            this.txtApellidoRegVta = new Guna.UI.WinForms.GunaTextBox();
             this.btnLimpiarBuscarClteVta = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarClteVta = new Guna.UI.WinForms.GunaLabel();
             this.btnBuscarClteVta = new Guna.UI.WinForms.GunaTileButton();
@@ -103,7 +103,7 @@
             // 
             this.panel1.Controls.Add(this.btnAgregaritemVta);
             this.panel1.Controls.Add(this.lblNombrePtoVta);
-            this.panel1.Controls.Add(this.gunaTextBox1);
+            this.panel1.Controls.Add(this.txtNomPtoRegVtas);
             this.panel1.Controls.Add(this.txtBuscarCodigoVta);
             this.panel1.Controls.Add(this.txtLimpiarBuscarPtoVta);
             this.panel1.Controls.Add(this.lblBuscarCodigoVta);
@@ -155,24 +155,25 @@
             this.lblNombrePtoVta.TabIndex = 77;
             this.lblNombrePtoVta.Text = "Nombre del \r\n  Producto";
             // 
-            // gunaTextBox1
+            // txtNomPtoRegVtas
             // 
-            this.gunaTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTextBox1.Location = new System.Drawing.Point(153, 36);
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.Radius = 10;
-            this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(183, 26);
-            this.gunaTextBox1.TabIndex = 76;
-            this.gunaTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNomPtoRegVtas.BackColor = System.Drawing.Color.Transparent;
+            this.txtNomPtoRegVtas.BaseColor = System.Drawing.Color.White;
+            this.txtNomPtoRegVtas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtNomPtoRegVtas.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNomPtoRegVtas.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNomPtoRegVtas.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtNomPtoRegVtas.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNomPtoRegVtas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomPtoRegVtas.Location = new System.Drawing.Point(153, 36);
+            this.txtNomPtoRegVtas.Name = "txtNomPtoRegVtas";
+            this.txtNomPtoRegVtas.PasswordChar = '\0';
+            this.txtNomPtoRegVtas.Radius = 10;
+            this.txtNomPtoRegVtas.ReadOnly = true;
+            this.txtNomPtoRegVtas.SelectedText = "";
+            this.txtNomPtoRegVtas.Size = new System.Drawing.Size(183, 26);
+            this.txtNomPtoRegVtas.TabIndex = 76;
+            this.txtNomPtoRegVtas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBuscarCodigoVta
             // 
@@ -185,6 +186,7 @@
             this.txtBuscarCodigoVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarCodigoVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCodigoVta.Location = new System.Drawing.Point(436, 28);
+            this.txtBuscarCodigoVta.MaxLength = 4;
             this.txtBuscarCodigoVta.Name = "txtBuscarCodigoVta";
             this.txtBuscarCodigoVta.PasswordChar = '\0';
             this.txtBuscarCodigoVta.Radius = 10;
@@ -192,6 +194,7 @@
             this.txtBuscarCodigoVta.Size = new System.Drawing.Size(182, 26);
             this.txtBuscarCodigoVta.TabIndex = 62;
             this.txtBuscarCodigoVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarCodigoVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCodigoVta_KeyPress_1);
             // 
             // txtLimpiarBuscarPtoVta
             // 
@@ -218,6 +221,7 @@
             this.txtLimpiarBuscarPtoVta.Radius = 5;
             this.txtLimpiarBuscarPtoVta.Size = new System.Drawing.Size(35, 30);
             this.txtLimpiarBuscarPtoVta.TabIndex = 74;
+            this.txtLimpiarBuscarPtoVta.Click += new System.EventHandler(this.txtLimpiarBuscarPtoVta_Click);
             // 
             // lblBuscarCodigoVta
             // 
@@ -289,6 +293,7 @@
             this.txtCantidadItenVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCantidadItenVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidadItenVta.Location = new System.Drawing.Point(153, 75);
+            this.txtCantidadItenVta.MaxLength = 2;
             this.txtCantidadItenVta.Name = "txtCantidadItenVta";
             this.txtCantidadItenVta.PasswordChar = '\0';
             this.txtCantidadItenVta.Radius = 10;
@@ -296,6 +301,7 @@
             this.txtCantidadItenVta.Size = new System.Drawing.Size(115, 26);
             this.txtCantidadItenVta.TabIndex = 53;
             this.txtCantidadItenVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadItenVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadItenVta_KeyPress_1);
             // 
             // pnlNumVta
             // 
@@ -314,9 +320,9 @@
             // pnlDetalleVta
             // 
             this.pnlDetalleVta.Controls.Add(this.gunaLabel2);
-            this.pnlDetalleVta.Controls.Add(this.gunaTextBox3);
+            this.pnlDetalleVta.Controls.Add(this.txtNombreRegVta);
             this.pnlDetalleVta.Controls.Add(this.gunaLabel1);
-            this.pnlDetalleVta.Controls.Add(this.gunaTextBox2);
+            this.pnlDetalleVta.Controls.Add(this.txtApellidoRegVta);
             this.pnlDetalleVta.Controls.Add(this.btnLimpiarBuscarClteVta);
             this.pnlDetalleVta.Controls.Add(this.lblBuscarClteVta);
             this.pnlDetalleVta.Controls.Add(this.btnBuscarClteVta);
@@ -339,24 +345,25 @@
             this.gunaLabel2.TabIndex = 73;
             this.gunaLabel2.Text = "Nombre:";
             // 
-            // gunaTextBox3
+            // txtNombreRegVta
             // 
-            this.gunaTextBox3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTextBox3.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox3.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox3.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.gunaTextBox3.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTextBox3.Location = new System.Drawing.Point(511, 56);
-            this.gunaTextBox3.Name = "gunaTextBox3";
-            this.gunaTextBox3.PasswordChar = '\0';
-            this.gunaTextBox3.Radius = 10;
-            this.gunaTextBox3.SelectedText = "";
-            this.gunaTextBox3.Size = new System.Drawing.Size(183, 26);
-            this.gunaTextBox3.TabIndex = 74;
-            this.gunaTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombreRegVta.BackColor = System.Drawing.Color.Transparent;
+            this.txtNombreRegVta.BaseColor = System.Drawing.Color.White;
+            this.txtNombreRegVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtNombreRegVta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNombreRegVta.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNombreRegVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtNombreRegVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNombreRegVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreRegVta.Location = new System.Drawing.Point(511, 56);
+            this.txtNombreRegVta.Name = "txtNombreRegVta";
+            this.txtNombreRegVta.PasswordChar = '\0';
+            this.txtNombreRegVta.Radius = 10;
+            this.txtNombreRegVta.ReadOnly = true;
+            this.txtNombreRegVta.SelectedText = "";
+            this.txtNombreRegVta.Size = new System.Drawing.Size(183, 26);
+            this.txtNombreRegVta.TabIndex = 74;
+            this.txtNombreRegVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // gunaLabel1
             // 
@@ -369,24 +376,25 @@
             this.gunaLabel1.TabIndex = 71;
             this.gunaLabel1.Text = "Apellido:";
             // 
-            // gunaTextBox2
+            // txtApellidoRegVta
             // 
-            this.gunaTextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTextBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaTextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.gunaTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox2.FocusedBaseColor = System.Drawing.Color.White;
-            this.gunaTextBox2.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.gunaTextBox2.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.gunaTextBox2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTextBox2.Location = new System.Drawing.Point(511, 18);
-            this.gunaTextBox2.Name = "gunaTextBox2";
-            this.gunaTextBox2.PasswordChar = '\0';
-            this.gunaTextBox2.Radius = 10;
-            this.gunaTextBox2.SelectedText = "";
-            this.gunaTextBox2.Size = new System.Drawing.Size(183, 26);
-            this.gunaTextBox2.TabIndex = 72;
-            this.gunaTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtApellidoRegVta.BackColor = System.Drawing.Color.Transparent;
+            this.txtApellidoRegVta.BaseColor = System.Drawing.Color.White;
+            this.txtApellidoRegVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtApellidoRegVta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtApellidoRegVta.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtApellidoRegVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtApellidoRegVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtApellidoRegVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoRegVta.Location = new System.Drawing.Point(511, 18);
+            this.txtApellidoRegVta.Name = "txtApellidoRegVta";
+            this.txtApellidoRegVta.PasswordChar = '\0';
+            this.txtApellidoRegVta.Radius = 10;
+            this.txtApellidoRegVta.ReadOnly = true;
+            this.txtApellidoRegVta.SelectedText = "";
+            this.txtApellidoRegVta.Size = new System.Drawing.Size(183, 26);
+            this.txtApellidoRegVta.TabIndex = 72;
+            this.txtApellidoRegVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnLimpiarBuscarClteVta
             // 
@@ -413,6 +421,7 @@
             this.btnLimpiarBuscarClteVta.Radius = 5;
             this.btnLimpiarBuscarClteVta.Size = new System.Drawing.Size(35, 30);
             this.btnLimpiarBuscarClteVta.TabIndex = 64;
+            this.btnLimpiarBuscarClteVta.Click += new System.EventHandler(this.btnLimpiarBuscarClteVta_Click);
             // 
             // lblBuscarClteVta
             // 
@@ -450,6 +459,7 @@
             this.btnBuscarClteVta.Radius = 5;
             this.btnBuscarClteVta.Size = new System.Drawing.Size(35, 30);
             this.btnBuscarClteVta.TabIndex = 59;
+            this.btnBuscarClteVta.Click += new System.EventHandler(this.btnBuscarClteVta_Click);
             // 
             // txtBuscarDniVta
             // 
@@ -462,6 +472,7 @@
             this.txtBuscarDniVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarDniVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarDniVta.Location = new System.Drawing.Point(175, 20);
+            this.txtBuscarDniVta.MaxLength = 8;
             this.txtBuscarDniVta.Name = "txtBuscarDniVta";
             this.txtBuscarDniVta.PasswordChar = '\0';
             this.txtBuscarDniVta.Radius = 10;
@@ -469,6 +480,7 @@
             this.txtBuscarDniVta.Size = new System.Drawing.Size(183, 26);
             this.txtBuscarDniVta.TabIndex = 67;
             this.txtBuscarDniVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarDniVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarDniVta_KeyPress_1);
             // 
             // lblTituloCltesRegVtas
             // 
@@ -679,7 +691,7 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaButton btnAgregaritemVta;
         private Guna.UI.WinForms.GunaLabel lblNombrePtoVta;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
+        private Guna.UI.WinForms.GunaTextBox txtNomPtoRegVtas;
         private Guna.UI.WinForms.GunaTextBox txtBuscarCodigoVta;
         private Guna.UI.WinForms.GunaTileButton txtLimpiarBuscarPtoVta;
         private Guna.UI.WinForms.GunaLabel lblBuscarCodigoVta;
@@ -690,9 +702,9 @@
         private Guna.UI.WinForms.GunaShadowPanel pnlNumVta;
         private System.Windows.Forms.Panel pnlDetalleVta;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox3;
+        private Guna.UI.WinForms.GunaTextBox txtNombreRegVta;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox2;
+        private Guna.UI.WinForms.GunaTextBox txtApellidoRegVta;
         private Guna.UI.WinForms.GunaTileButton btnLimpiarBuscarClteVta;
         private Guna.UI.WinForms.GunaLabel lblBuscarClteVta;
         private Guna.UI.WinForms.GunaTileButton btnBuscarClteVta;

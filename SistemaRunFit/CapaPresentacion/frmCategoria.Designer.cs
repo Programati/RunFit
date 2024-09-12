@@ -143,10 +143,10 @@
             this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.LineLeft = 2;
             this.grbListaUsuarios.LineRight = 2;
-            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 184);
+            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 222);
             this.grbListaUsuarios.Name = "grbListaUsuarios";
             this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbListaUsuarios.Size = new System.Drawing.Size(800, 196);
+            this.grbListaUsuarios.Size = new System.Drawing.Size(907, 227);
             this.grbListaUsuarios.TabIndex = 55;
             this.grbListaUsuarios.Text = "Lista de Categorias";
             this.grbListaUsuarios.TextLocation = new System.Drawing.Point(10, 8);
@@ -190,7 +190,7 @@
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersVisible = false;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategoria.Size = new System.Drawing.Size(796, 164);
+            this.dgvCategoria.Size = new System.Drawing.Size(903, 195);
             this.dgvCategoria.TabIndex = 0;
             this.dgvCategoria.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvCategoria.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -267,7 +267,7 @@
             this.pnlBusquedaCategoria.Name = "pnlBusquedaCategoria";
             this.pnlBusquedaCategoria.Radius = 5;
             this.pnlBusquedaCategoria.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaCategoria.Size = new System.Drawing.Size(800, 86);
+            this.pnlBusquedaCategoria.Size = new System.Drawing.Size(907, 86);
             this.pnlBusquedaCategoria.TabIndex = 56;
             // 
             // pnlBuscarCateg
@@ -278,7 +278,7 @@
             this.pnlBuscarCateg.Controls.Add(this.cmbBuscarCategoria);
             this.pnlBuscarCateg.Controls.Add(this.txtBuscarCategoria);
             this.pnlBuscarCateg.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBuscarCateg.Location = new System.Drawing.Point(163, 0);
+            this.pnlBuscarCateg.Location = new System.Drawing.Point(270, 0);
             this.pnlBuscarCateg.Name = "pnlBuscarCateg";
             this.pnlBuscarCateg.Size = new System.Drawing.Size(637, 86);
             this.pnlBuscarCateg.TabIndex = 55;
@@ -433,7 +433,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 380);
+            this.ClientSize = new System.Drawing.Size(907, 449);
             this.Controls.Add(this.btnLimpiarCategoria);
             this.Controls.Add(this.btnGuardarCategoria);
             this.Controls.Add(this.pnlBusquedaCategoria);
