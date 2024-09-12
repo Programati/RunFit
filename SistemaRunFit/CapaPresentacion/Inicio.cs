@@ -1,4 +1,4 @@
-﻿using Guna.UI.WinForms;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI.WinForms;
 
 namespace CapaPresentacion
 {
@@ -60,12 +61,11 @@ namespace CapaPresentacion
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            abrirFormulario(btnUsuario, new frmUsuario());
+            abrirFormulario(btnUsuario, new frmListarUsuario());
         }
         public void btnClientes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            //abrirFormulario(btnClientes, new frmCliente());
             abrirFormulario(btnClientes, new frmListarCliente());
         }
         private void btnVentas_Click_1(object sender, EventArgs e)
@@ -83,14 +83,14 @@ namespace CapaPresentacion
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            abrirFormulario(btnProveedores, new frmProveedor());
+            abrirFormulario(btnProveedores, new frmListarProveedor());
         }
         private void btnReportes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             abrirFormulario(btnReportes, new frmReporte());
         }
-        private void btnMantenedor_Click(object sender, EventArgs e)
+        private void btnStock_Click(object sender, EventArgs e)
         {
             MostrarSubmenu(panelSubMantenedor);
         }
@@ -100,7 +100,7 @@ namespace CapaPresentacion
         }
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnProducto, new frmProducto());
+            abrirFormulario(btnProducto, new frmListarProducto());
         }
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {

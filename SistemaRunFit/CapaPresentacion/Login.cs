@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Guna.UI.WinForms;
 using CapaNegocio;
 using CapaEntidad;
+
 
 namespace CapaPresentacion
 {
@@ -55,6 +56,14 @@ namespace CapaPresentacion
             else
             {
                 MessageBox.Show("No se encontro el usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
             }
         }
     }

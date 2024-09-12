@@ -13,13 +13,10 @@ namespace CapaPresentacion
 {
     public partial class frmListarCliente : Form
     {
-        private static GunaGradientButton menuActivo = null;
-        private static Form formularioActivo = null;
         public frmListarCliente()
         {
             InitializeComponent();
             txtBuscarCliente.Focus();
-            //
         }
 
         private void btnLimpiarCliente_Click(object sender, EventArgs e)
