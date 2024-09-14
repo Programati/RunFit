@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
+            this.btnLimpiarUser = new Guna.UI.WinForms.GunaTileButton();
+            this.btnBuscarUser = new Guna.UI.WinForms.GunaTileButton();
+            this.txtBuscarUser = new Guna.UI.WinForms.GunaTextBox();
+            this.lblBuscarPorUser = new Guna.UI.WinForms.GunaLabel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaUser = new Guna.UI.WinForms.GunaDataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -41,11 +46,6 @@
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
-            this.lblBuscarPorUser = new Guna.UI.WinForms.GunaLabel();
-            this.txtBuscarUser = new Guna.UI.WinForms.GunaTextBox();
-            this.btnBuscarUser = new Guna.UI.WinForms.GunaTileButton();
-            this.btnLimpiarUser = new Guna.UI.WinForms.GunaTileButton();
             this.pnlContenedorUser = new System.Windows.Forms.Panel();
             this.pnlBusquedaUser.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
@@ -69,6 +69,120 @@
             this.pnlBusquedaUser.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaUser.Size = new System.Drawing.Size(800, 100);
             this.pnlBusquedaUser.TabIndex = 1;
+            // 
+            // btnNuevoUser
+            // 
+            this.btnNuevoUser.AnimationHoverSpeed = 0.07F;
+            this.btnNuevoUser.AnimationSpeed = 0.03F;
+            this.btnNuevoUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnNuevoUser.BaseColor = System.Drawing.Color.White;
+            this.btnNuevoUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnNuevoUser.BorderSize = 2;
+            this.btnNuevoUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNuevoUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNuevoUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoUser.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoUser.Image")));
+            this.btnNuevoUser.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnNuevoUser.Location = new System.Drawing.Point(20, 33);
+            this.btnNuevoUser.Name = "btnNuevoUser";
+            this.btnNuevoUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoUser.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNuevoUser.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevoUser.OnHoverImage = null;
+            this.btnNuevoUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNuevoUser.Radius = 10;
+            this.btnNuevoUser.Size = new System.Drawing.Size(100, 34);
+            this.btnNuevoUser.TabIndex = 70;
+            this.btnNuevoUser.Text = "Nuevo";
+            this.btnNuevoUser.Click += new System.EventHandler(this.btnNuevoUser_Click);
+            // 
+            // btnLimpiarUser
+            // 
+            this.btnLimpiarUser.AnimationHoverSpeed = 0.07F;
+            this.btnLimpiarUser.AnimationSpeed = 0.03F;
+            this.btnLimpiarUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarUser.BaseColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnLimpiarUser.BorderSize = 2;
+            this.btnLimpiarUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLimpiarUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnLimpiarUser.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarUser.Image")));
+            this.btnLimpiarUser.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnLimpiarUser.Location = new System.Drawing.Point(425, 35);
+            this.btnLimpiarUser.Name = "btnLimpiarUser";
+            this.btnLimpiarUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnLimpiarUser.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarUser.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnLimpiarUser.OnHoverImage = null;
+            this.btnLimpiarUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnLimpiarUser.Radius = 5;
+            this.btnLimpiarUser.Size = new System.Drawing.Size(35, 30);
+            this.btnLimpiarUser.TabIndex = 56;
+            this.btnLimpiarUser.Click += new System.EventHandler(this.btnLimpiarUser_Click);
+            // 
+            // btnBuscarUser
+            // 
+            this.btnBuscarUser.AnimationHoverSpeed = 0.07F;
+            this.btnBuscarUser.AnimationSpeed = 0.03F;
+            this.btnBuscarUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarUser.BaseColor = System.Drawing.Color.Transparent;
+            this.btnBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnBuscarUser.BorderSize = 2;
+            this.btnBuscarUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBuscarUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnBuscarUser.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUser.Image")));
+            this.btnBuscarUser.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnBuscarUser.Location = new System.Drawing.Point(384, 35);
+            this.btnBuscarUser.Name = "btnBuscarUser";
+            this.btnBuscarUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnBuscarUser.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnBuscarUser.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnBuscarUser.OnHoverImage = null;
+            this.btnBuscarUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBuscarUser.Radius = 5;
+            this.btnBuscarUser.Size = new System.Drawing.Size(35, 30);
+            this.btnBuscarUser.TabIndex = 55;
+            this.btnBuscarUser.Click += new System.EventHandler(this.btnBuscarUser_Click);
+            // 
+            // txtBuscarUser
+            // 
+            this.txtBuscarUser.BackColor = System.Drawing.Color.Transparent;
+            this.txtBuscarUser.BaseColor = System.Drawing.Color.White;
+            this.txtBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtBuscarUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscarUser.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtBuscarUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtBuscarUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtBuscarUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarUser.Location = new System.Drawing.Point(193, 37);
+            this.txtBuscarUser.MaxLength = 8;
+            this.txtBuscarUser.Name = "txtBuscarUser";
+            this.txtBuscarUser.PasswordChar = '\0';
+            this.txtBuscarUser.Radius = 10;
+            this.txtBuscarUser.SelectedText = "";
+            this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
+            this.txtBuscarUser.TabIndex = 52;
+            this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarUser_KeyPress);
+            // 
+            // lblBuscarPorUser
+            // 
+            this.lblBuscarPorUser.AutoSize = true;
+            this.lblBuscarPorUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarPorUser.ForeColor = System.Drawing.Color.White;
+            this.lblBuscarPorUser.Location = new System.Drawing.Point(136, 42);
+            this.lblBuscarPorUser.Name = "lblBuscarPorUser";
+            this.lblBuscarPorUser.Size = new System.Drawing.Size(51, 16);
+            this.lblBuscarPorUser.TabIndex = 1;
+            this.lblBuscarPorUser.Text = "Buscar";
             // 
             // grbListaUsuarios
             // 
@@ -94,21 +208,21 @@
             // 
             // dgvListaUser
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaUser.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaUser.ColumnHeadersHeight = 18;
             this.dgvListaUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -118,14 +232,14 @@
             this.Apellido,
             this.Nombre});
             this.dgvListaUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaUser.EnableHeadersVisualStyles = false;
             this.dgvListaUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -212,117 +326,6 @@
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
             this.Nombre.Width = 82;
-            // 
-            // btnNuevoUser
-            // 
-            this.btnNuevoUser.AnimationHoverSpeed = 0.07F;
-            this.btnNuevoUser.AnimationSpeed = 0.03F;
-            this.btnNuevoUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnNuevoUser.BaseColor = System.Drawing.Color.White;
-            this.btnNuevoUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnNuevoUser.BorderSize = 2;
-            this.btnNuevoUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevoUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnNuevoUser.FocusedColor = System.Drawing.Color.Empty;
-            this.btnNuevoUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoUser.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoUser.Image")));
-            this.btnNuevoUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnNuevoUser.Location = new System.Drawing.Point(20, 33);
-            this.btnNuevoUser.Name = "btnNuevoUser";
-            this.btnNuevoUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoUser.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnNuevoUser.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnNuevoUser.OnHoverImage = null;
-            this.btnNuevoUser.OnPressedColor = System.Drawing.Color.Black;
-            this.btnNuevoUser.Radius = 10;
-            this.btnNuevoUser.Size = new System.Drawing.Size(100, 34);
-            this.btnNuevoUser.TabIndex = 70;
-            this.btnNuevoUser.Text = "Nuevo";
-            this.btnNuevoUser.Click += new System.EventHandler(this.btnNuevoUser_Click);
-            // 
-            // lblBuscarPorUser
-            // 
-            this.lblBuscarPorUser.AutoSize = true;
-            this.lblBuscarPorUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarPorUser.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarPorUser.Location = new System.Drawing.Point(136, 42);
-            this.lblBuscarPorUser.Name = "lblBuscarPorUser";
-            this.lblBuscarPorUser.Size = new System.Drawing.Size(51, 16);
-            this.lblBuscarPorUser.TabIndex = 1;
-            this.lblBuscarPorUser.Text = "Buscar";
-            // 
-            // txtBuscarUser
-            // 
-            this.txtBuscarUser.BackColor = System.Drawing.Color.Transparent;
-            this.txtBuscarUser.BaseColor = System.Drawing.Color.White;
-            this.txtBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtBuscarUser.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscarUser.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtBuscarUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtBuscarUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBuscarUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarUser.Location = new System.Drawing.Point(193, 37);
-            this.txtBuscarUser.Name = "txtBuscarUser";
-            this.txtBuscarUser.PasswordChar = '\0';
-            this.txtBuscarUser.Radius = 10;
-            this.txtBuscarUser.SelectedText = "";
-            this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
-            this.txtBuscarUser.TabIndex = 52;
-            this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnBuscarUser
-            // 
-            this.btnBuscarUser.AnimationHoverSpeed = 0.07F;
-            this.btnBuscarUser.AnimationSpeed = 0.03F;
-            this.btnBuscarUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarUser.BaseColor = System.Drawing.Color.Transparent;
-            this.btnBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnBuscarUser.BorderSize = 2;
-            this.btnBuscarUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarUser.FocusedColor = System.Drawing.Color.Empty;
-            this.btnBuscarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnBuscarUser.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUser.Image")));
-            this.btnBuscarUser.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarUser.Location = new System.Drawing.Point(384, 35);
-            this.btnBuscarUser.Name = "btnBuscarUser";
-            this.btnBuscarUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnBuscarUser.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnBuscarUser.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBuscarUser.OnHoverImage = null;
-            this.btnBuscarUser.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscarUser.Radius = 5;
-            this.btnBuscarUser.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarUser.TabIndex = 55;
-            // 
-            // btnLimpiarUser
-            // 
-            this.btnLimpiarUser.AnimationHoverSpeed = 0.07F;
-            this.btnLimpiarUser.AnimationSpeed = 0.03F;
-            this.btnLimpiarUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarUser.BaseColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnLimpiarUser.BorderSize = 2;
-            this.btnLimpiarUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarUser.FocusedColor = System.Drawing.Color.Empty;
-            this.btnLimpiarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnLimpiarUser.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarUser.Image")));
-            this.btnLimpiarUser.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLimpiarUser.Location = new System.Drawing.Point(425, 35);
-            this.btnLimpiarUser.Name = "btnLimpiarUser";
-            this.btnLimpiarUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnLimpiarUser.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnLimpiarUser.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnLimpiarUser.OnHoverImage = null;
-            this.btnLimpiarUser.OnPressedColor = System.Drawing.Color.Black;
-            this.btnLimpiarUser.Radius = 5;
-            this.btnLimpiarUser.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarUser.TabIndex = 56;
-            this.btnLimpiarUser.Click += new System.EventHandler(this.btnLimpiarUser_Click);
             // 
             // pnlContenedorUser
             // 
