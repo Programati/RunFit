@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaEntidad
+namespace CapaDeEntidades
 {
-    public class Categoria
+    public class Marca
     {
-        public int idCategoria { get; set; }
+        public int idMarca { get; set; }
         public string nombre { get; set; }
         public string fechaAlta { get; set; }
         public string fechaBaja { get; set; }
-
     }
 }

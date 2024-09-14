@@ -493,6 +493,7 @@
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.pnlContenedorMenu.ResumeLayout(false);
             this.panelSubMantenedor.ResumeLayout(false);
             this.subVentas.ResumeLayout(false);

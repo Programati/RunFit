@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDeEntidades;
 using Guna.UI.WinForms;
 
 namespace CapaPresentacion
 {
     public partial class Inicio : Form
     {
+        private static Usuario UsuarioActual = null;
         private static GunaGradientButton menuActivo = null;
         private static Form formularioActivo = null;
 
@@ -22,8 +24,9 @@ namespace CapaPresentacion
         Color colorVerde = Color.FromArgb(77, 163, 108);
         Color colorClaro = Color.FromArgb(227, 211, 154);
         Color colorRojo = Color.FromArgb(235, 57, 32);
-        public Inicio()
+        public Inicio(Usuario objUsuario)
         {
+            UsuarioActual = objUsuario;
             InitializeComponent();
             IniciarSubMenuOculto();
         }
@@ -133,7 +136,22 @@ namespace CapaPresentacion
 
         }
 
-       
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
+            if (UsuarioActual.oRol.idRol == 2)
+            {
+                btnClientes.Visible = false;
+                btnRegistrarVentas.Visible = false;
+            }
+            if (UsuarioActual.oRol.idRol == 3)
+            {
+                btnUsuario.Visible = false;
+                btnProveedores.Visible = false;
+                btnReportes.Visible = false;
+                btnStock.Visible = false;
+            }
+        }
     }   
 
 }

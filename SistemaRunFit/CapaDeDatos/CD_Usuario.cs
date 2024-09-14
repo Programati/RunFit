@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDeEntidades;
 
-using System.Data;
-using System.Data.SqlClient;
-using CapaEntidad;
-
-namespace CapaDatos
+namespace CapaDeDatos
 {
     public class CD_Usuario
     {
@@ -24,7 +23,7 @@ namespace CapaDatos
             {
                 try
                 {
-                    string query = "Select id_usuario, nombre_usuario, password from usuarios";
+                    string query = "select id_usuario, nombre_usuario, password, id_rol from USUARIOS";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -39,8 +38,8 @@ namespace CapaDatos
                             {
                                 idUsuario = Convert.ToInt32(dr["id_usuario"]),
                                 nombreUsuario = dr["nombre_usuario"].ToString(),
-                                passwordUsuario = dr["password"].ToString()
-
+                                passwordUsuario = dr["password"].ToString(),
+                                oRol = new Rol { idRol = Convert.ToInt32(dr["id_rol"]) }
                             });
                         }
                     }
@@ -50,7 +49,7 @@ namespace CapaDatos
                     lista = new List<Usuario>();
                 }
             }
-                return lista;
+            return lista;
         }
     }
 }

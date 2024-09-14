@@ -232,20 +232,20 @@
     <None Include="Resources\Run.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
-      <Project>{f9d187a4-15ed-4e59-acf6-dfa68358e4fa}</Project>
-      <Name>CapaEntidad</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
-      <Project>{01c733be-e51e-4a68-8a9c-8f3110bf3b41}</Project>
-      <Name>CapaNegocio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\editar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fotoProducto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDeEntidades\CapaDeEntidades.csproj">
+      <Project>{611eb2d3-771b-4b30-b09e-b664ac1901d0}</Project>
+      <Name>CapaDeEntidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaDeNegocios\CapaDeNegocios.csproj">
+      <Project>{44cc3d2f-379b-4aef-af25-0049c2409bbb}</Project>
+      <Name>CapaDeNegocios</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
