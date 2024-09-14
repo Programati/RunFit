@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosPersonalesCliente = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnVolverCliente = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarContenedorCliente = new Guna.UI.WinForms.GunaButton();
@@ -148,7 +148,7 @@
             this.btnLimpiarContenedorCliente.BorderSize = 2;
             this.btnLimpiarContenedorCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarContenedorCliente.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarContenedorCliente.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarContenedorCliente.FocusedColor = System.Drawing.Color.LightGray;
             this.btnLimpiarContenedorCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarContenedorCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarContenedorCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarContenedorCliente.Image")));
@@ -162,7 +162,7 @@
             this.btnLimpiarContenedorCliente.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarContenedorCliente.Radius = 10;
             this.btnLimpiarContenedorCliente.Size = new System.Drawing.Size(100, 41);
-            this.btnLimpiarContenedorCliente.TabIndex = 69;
+            this.btnLimpiarContenedorCliente.TabIndex = 1;
             this.btnLimpiarContenedorCliente.Text = "Limpiar";
             this.btnLimpiarContenedorCliente.Click += new System.EventHandler(this.btnLimpiarContenedorCliente_Click);
             // 
@@ -692,9 +692,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;

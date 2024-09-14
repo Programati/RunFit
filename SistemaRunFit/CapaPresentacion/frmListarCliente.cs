@@ -51,5 +51,29 @@ namespace CapaPresentacion
             ListarNuevoCliente.Show();
         }
 
+        private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            if (EsDniMuyCorto())
+            {
+                return;
+            }
+        }
+        private bool EsDniMuyCorto()
+        {
+            if (txtBuscarCliente.Text.Length < 7)
+            {
+                MessageBox.Show("El número de DNI es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
     }
 }

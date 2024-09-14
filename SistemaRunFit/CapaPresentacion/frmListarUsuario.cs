@@ -49,5 +49,31 @@ namespace CapaPresentacion
             CrearNuevoUsuario.Show();
             CrearNuevoUsuario.FormClosing += frm_closing;
         }
+
+        private void btnBuscarUser_Click(object sender, EventArgs e)
+        {
+            if (EsDniMuyCorto())
+            {
+                return;
+            }
+        }
+
+        private bool EsDniMuyCorto()
+        {
+            if (txtBuscarUser.Text.Length < 7)
+            {
+                MessageBox.Show("El número de DNI es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
+
+        private void txtBuscarUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
