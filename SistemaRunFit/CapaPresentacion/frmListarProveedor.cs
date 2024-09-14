@@ -18,13 +18,7 @@ namespace CapaPresentacion
         }
         private void LimpiarPorProveedor()
         {
-            cmbBuscarPorProveedor.SelectedIndex = -1;
             txtBuscarPorProveedor.Clear();
-        }
-
-        private void btnLimpiarPorProveedor_Click(object sender, EventArgs e)
-        {
-            LimpiarPorProveedor();
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
@@ -52,6 +46,11 @@ namespace CapaPresentacion
 
             CrearNuevoProveedor.Show();
             CrearNuevoProveedor.FormClosing += frm_closing;
+        }
+
+        private void btnLimpiarPorProveedor_Click_1(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Clear();
         }
     }
 

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedor));
             this.pnlDatosProveedor = new Guna.UI.WinForms.GunaShadowPanel();
-            this.lblTituloNuevoProveedor = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmailProveedor = new Guna.UI.WinForms.GunaTextBox();
             this.btnVolverProveedor = new Guna.UI.WinForms.GunaButton();
@@ -53,7 +52,6 @@
             // 
             this.pnlDatosProveedor.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosProveedor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.pnlDatosProveedor.Controls.Add(this.lblTituloNuevoProveedor);
             this.pnlDatosProveedor.Controls.Add(this.label3);
             this.pnlDatosProveedor.Controls.Add(this.txtEmailProveedor);
             this.pnlDatosProveedor.Controls.Add(this.btnVolverProveedor);
@@ -74,26 +72,15 @@
             this.pnlDatosProveedor.Name = "pnlDatosProveedor";
             this.pnlDatosProveedor.Radius = 5;
             this.pnlDatosProveedor.ShadowColor = System.Drawing.Color.Black;
-            this.pnlDatosProveedor.Size = new System.Drawing.Size(929, 438);
+            this.pnlDatosProveedor.Size = new System.Drawing.Size(382, 491);
             this.pnlDatosProveedor.TabIndex = 71;
-            // 
-            // lblTituloNuevoProveedor
-            // 
-            this.lblTituloNuevoProveedor.AutoSize = true;
-            this.lblTituloNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloNuevoProveedor.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloNuevoProveedor.Location = new System.Drawing.Point(264, 31);
-            this.lblTituloNuevoProveedor.Name = "lblTituloNuevoProveedor";
-            this.lblTituloNuevoProveedor.Size = new System.Drawing.Size(358, 33);
-            this.lblTituloNuevoProveedor.TabIndex = 80;
-            this.lblTituloNuevoProveedor.Text = "Agregar Nuevo Proveedor";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 302);
+            this.label3.Location = new System.Drawing.Point(19, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 16);
             this.label3.TabIndex = 79;
@@ -110,7 +97,7 @@
             this.txtEmailProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtEmailProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmailProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailProveedor.Location = new System.Drawing.Point(123, 302);
+            this.txtEmailProveedor.Location = new System.Drawing.Point(111, 177);
             this.txtEmailProveedor.MaxLength = 30;
             this.txtEmailProveedor.Name = "txtEmailProveedor";
             this.txtEmailProveedor.PasswordChar = '\0';
@@ -135,7 +122,7 @@
             this.btnVolverProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverProveedor.Image")));
             this.btnVolverProveedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVolverProveedor.Location = new System.Drawing.Point(738, 389);
+            this.btnVolverProveedor.Location = new System.Drawing.Point(231, 416);
             this.btnVolverProveedor.Name = "btnVolverProveedor";
             this.btnVolverProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -143,7 +130,7 @@
             this.btnVolverProveedor.OnHoverImage = null;
             this.btnVolverProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnVolverProveedor.Radius = 10;
-            this.btnVolverProveedor.Size = new System.Drawing.Size(100, 41);
+            this.btnVolverProveedor.Size = new System.Drawing.Size(100, 40);
             this.btnVolverProveedor.TabIndex = 77;
             this.btnVolverProveedor.Text = "Volver";
             this.btnVolverProveedor.Click += new System.EventHandler(this.btnVolverProveedor_Click);
@@ -153,7 +140,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 252);
+            this.label1.Location = new System.Drawing.Point(19, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 16);
             this.label1.TabIndex = 76;
@@ -170,7 +157,7 @@
             this.txtTelefonoProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtTelefonoProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTelefonoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoProveedor.Location = new System.Drawing.Point(123, 252);
+            this.txtTelefonoProveedor.Location = new System.Drawing.Point(111, 135);
             this.txtTelefonoProveedor.MaxLength = 12;
             this.txtTelefonoProveedor.Name = "txtTelefonoProveedor";
             this.txtTelefonoProveedor.PasswordChar = '\0';
@@ -186,7 +173,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(19, 199);
+            this.label2.Location = new System.Drawing.Point(19, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 74;
@@ -203,7 +190,7 @@
             this.txtDireccionProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtDireccionProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDireccionProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionProveedor.Location = new System.Drawing.Point(123, 199);
+            this.txtDireccionProveedor.Location = new System.Drawing.Point(111, 93);
             this.txtDireccionProveedor.MaxLength = 100;
             this.txtDireccionProveedor.Name = "txtDireccionProveedor";
             this.txtDireccionProveedor.PasswordChar = '\0';
@@ -228,7 +215,7 @@
             this.btnLimpiarCamposProvedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposProvedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposProvedor.Image")));
             this.btnLimpiarCamposProvedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCamposProvedor.Location = new System.Drawing.Point(587, 343);
+            this.btnLimpiarCamposProvedor.Location = new System.Drawing.Point(231, 370);
             this.btnLimpiarCamposProvedor.Name = "btnLimpiarCamposProvedor";
             this.btnLimpiarCamposProvedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposProvedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -236,7 +223,7 @@
             this.btnLimpiarCamposProvedor.OnHoverImage = null;
             this.btnLimpiarCamposProvedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarCamposProvedor.Radius = 10;
-            this.btnLimpiarCamposProvedor.Size = new System.Drawing.Size(106, 41);
+            this.btnLimpiarCamposProvedor.Size = new System.Drawing.Size(100, 40);
             this.btnLimpiarCamposProvedor.TabIndex = 72;
             this.btnLimpiarCamposProvedor.Text = "Limpiar";
             this.btnLimpiarCamposProvedor.Click += new System.EventHandler(this.btnLimpiarCamposProvedor_Click);
@@ -256,7 +243,7 @@
             this.btnGuardarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProveedor.Image")));
             this.btnGuardarProveedor.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarProveedor.Location = new System.Drawing.Point(402, 343);
+            this.btnGuardarProveedor.Location = new System.Drawing.Point(111, 416);
             this.btnGuardarProveedor.Name = "btnGuardarProveedor";
             this.btnGuardarProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -264,7 +251,7 @@
             this.btnGuardarProveedor.OnHoverImage = null;
             this.btnGuardarProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardarProveedor.Radius = 10;
-            this.btnGuardarProveedor.Size = new System.Drawing.Size(106, 41);
+            this.btnGuardarProveedor.Size = new System.Drawing.Size(100, 40);
             this.btnGuardarProveedor.TabIndex = 71;
             this.btnGuardarProveedor.Text = "Guardar";
             this.btnGuardarProveedor.Click += new System.EventHandler(this.btnGuardarProveedor_Click);
@@ -280,13 +267,13 @@
             this.txtDescripcionProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtDescripcionProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDescripcionProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionProveedor.Location = new System.Drawing.Point(525, 123);
+            this.txtDescripcionProveedor.Location = new System.Drawing.Point(111, 209);
             this.txtDescripcionProveedor.Multiline = true;
             this.txtDescripcionProveedor.Name = "txtDescripcionProveedor";
             this.txtDescripcionProveedor.PasswordChar = '\0';
             this.txtDescripcionProveedor.Radius = 10;
             this.txtDescripcionProveedor.SelectedText = "";
-            this.txtDescripcionProveedor.Size = new System.Drawing.Size(307, 155);
+            this.txtDescripcionProveedor.Size = new System.Drawing.Size(220, 155);
             this.txtDescripcionProveedor.TabIndex = 43;
             // 
             // lblDescripProv
@@ -294,7 +281,7 @@
             this.lblDescripProv.AutoSize = true;
             this.lblDescripProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripProv.ForeColor = System.Drawing.Color.White;
-            this.lblDescripProv.Location = new System.Drawing.Point(437, 123);
+            this.lblDescripProv.Location = new System.Drawing.Point(19, 224);
             this.lblDescripProv.Name = "lblDescripProv";
             this.lblDescripProv.Size = new System.Drawing.Size(82, 16);
             this.lblDescripProv.TabIndex = 42;
@@ -305,7 +292,7 @@
             this.lblCuitProv.AutoSize = true;
             this.lblCuitProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCuitProv.ForeColor = System.Drawing.Color.White;
-            this.lblCuitProv.Location = new System.Drawing.Point(19, 141);
+            this.lblCuitProv.Location = new System.Drawing.Point(19, 60);
             this.lblCuitProv.Name = "lblCuitProv";
             this.lblCuitProv.Size = new System.Drawing.Size(34, 16);
             this.lblCuitProv.TabIndex = 41;
@@ -322,7 +309,7 @@
             this.txtCuitProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtCuitProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCuitProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuitProveedor.Location = new System.Drawing.Point(123, 141);
+            this.txtCuitProveedor.Location = new System.Drawing.Point(111, 55);
             this.txtCuitProveedor.MaxLength = 11;
             this.txtCuitProveedor.Name = "txtCuitProveedor";
             this.txtCuitProveedor.PasswordChar = '\0';
@@ -338,7 +325,7 @@
             this.lblNombreProv.AutoSize = true;
             this.lblNombreProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreProv.ForeColor = System.Drawing.Color.White;
-            this.lblNombreProv.Location = new System.Drawing.Point(19, 88);
+            this.lblNombreProv.Location = new System.Drawing.Point(17, 22);
             this.lblNombreProv.Name = "lblNombreProv";
             this.lblNombreProv.Size = new System.Drawing.Size(88, 16);
             this.lblNombreProv.TabIndex = 37;
@@ -355,7 +342,7 @@
             this.txtRSocialProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtRSocialProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtRSocialProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRSocialProveedor.Location = new System.Drawing.Point(123, 88);
+            this.txtRSocialProveedor.Location = new System.Drawing.Point(111, 17);
             this.txtRSocialProveedor.MaxLength = 100;
             this.txtRSocialProveedor.Name = "txtRSocialProveedor";
             this.txtRSocialProveedor.PasswordChar = '\0';
@@ -369,7 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 438);
+            this.ClientSize = new System.Drawing.Size(382, 491);
             this.Controls.Add(this.pnlDatosProveedor);
             this.Name = "frmProveedor";
             this.Text = "Proveedores";
@@ -382,7 +369,6 @@
         #endregion
 
         private Guna.UI.WinForms.GunaShadowPanel pnlDatosProveedor;
-        private System.Windows.Forms.Label lblTituloNuevoProveedor;
         private System.Windows.Forms.Label label3;
         private Guna.UI.WinForms.GunaTextBox txtEmailProveedor;
         private Guna.UI.WinForms.GunaButton btnVolverProveedor;

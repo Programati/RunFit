@@ -489,6 +489,7 @@
             this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";

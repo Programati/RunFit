@@ -29,93 +29,64 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrarVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gunaShadowPanel1 = new Guna.UI.WinForms.GunaShadowPanel();
-            this.lblNumVta = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lblNumeroVenta = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnAgregaritemVta = new Guna.UI.WinForms.GunaButton();
-            this.lblNombrePtoVta = new Guna.UI.WinForms.GunaLabel();
             this.txtNomPtoRegVtas = new Guna.UI.WinForms.GunaTextBox();
             this.txtBuscarCodigoVta = new Guna.UI.WinForms.GunaTextBox();
-            this.txtLimpiarBuscarPtoVta = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarCodigoVta = new Guna.UI.WinForms.GunaLabel();
             this.lblCantidadVta = new Guna.UI.WinForms.GunaLabel();
             this.lblTituloPtosRegVtas = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarPtoVta = new Guna.UI.WinForms.GunaTileButton();
             this.txtCantidadItenVta = new Guna.UI.WinForms.GunaTextBox();
             this.pnlNumVta = new Guna.UI.WinForms.GunaShadowPanel();
-            this.pnlDetalleVta = new System.Windows.Forms.Panel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.txtNombreRegVta = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.txtApellidoRegVta = new Guna.UI.WinForms.GunaTextBox();
-            this.btnLimpiarBuscarClteVta = new Guna.UI.WinForms.GunaTileButton();
+            this.lblNyApRegistrarVenta = new Guna.UI.WinForms.GunaLabel();
+            this.txtNyApeRegVta = new Guna.UI.WinForms.GunaTextBox();
             this.lblBuscarClteVta = new Guna.UI.WinForms.GunaLabel();
             this.btnBuscarClteVta = new Guna.UI.WinForms.GunaTileButton();
             this.txtBuscarDniVta = new Guna.UI.WinForms.GunaTextBox();
-            this.lblTituloCltesRegVtas = new Guna.UI.WinForms.GunaLabel();
-            this.lblFormularioRegVta = new Guna.UI.WinForms.GunaLabel();
             this.dgvDetalleVta = new Guna.UI.WinForms.GunaDataGridView();
-            this.Nombre_Prov = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuit_Prev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTituloSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.grbDetalleVta = new Guna.UI.WinForms.GunaGroupBox();
             this.lblMontoSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnConfirmarVta = new Guna.UI.WinForms.GunaButton();
-            this.gunaShadowPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlFinalVenta = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblFechaVenta = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtStockRegistrarVenta = new Guna.UI.WinForms.GunaTextBox();
+            this.lblStockRegistrarVenta = new Guna.UI.WinForms.GunaLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbImgProductoVenta = new System.Windows.Forms.PictureBox();
             this.pnlNumVta.SuspendLayout();
-            this.pnlDetalleVta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVta)).BeginInit();
             this.grbDetalleVta.SuspendLayout();
+            this.pnlFinalVenta.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgProductoVenta)).BeginInit();
             this.SuspendLayout();
             // 
-            // gunaShadowPanel1
+            // lblNumeroVenta
             // 
-            this.gunaShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaShadowPanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.gunaShadowPanel1.Controls.Add(this.lblNumVta);
-            this.gunaShadowPanel1.Controls.Add(this.panel1);
-            this.gunaShadowPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaShadowPanel1.Location = new System.Drawing.Point(0, 91);
-            this.gunaShadowPanel1.Name = "gunaShadowPanel1";
-            this.gunaShadowPanel1.Radius = 5;
-            this.gunaShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.gunaShadowPanel1.Size = new System.Drawing.Size(977, 118);
-            this.gunaShadowPanel1.TabIndex = 82;
-            // 
-            // lblNumVta
-            // 
-            this.lblNumVta.AutoSize = true;
-            this.lblNumVta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblNumVta.Location = new System.Drawing.Point(42, 36);
-            this.lblNumVta.Name = "lblNumVta";
-            this.lblNumVta.Size = new System.Drawing.Size(97, 19);
-            this.lblNumVta.TabIndex = 61;
-            this.lblNumVta.Text = "Num Venta";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnAgregaritemVta);
-            this.panel1.Controls.Add(this.lblNombrePtoVta);
-            this.panel1.Controls.Add(this.txtNomPtoRegVtas);
-            this.panel1.Controls.Add(this.txtBuscarCodigoVta);
-            this.panel1.Controls.Add(this.txtLimpiarBuscarPtoVta);
-            this.panel1.Controls.Add(this.lblBuscarCodigoVta);
-            this.panel1.Controls.Add(this.lblCantidadVta);
-            this.panel1.Controls.Add(this.lblTituloPtosRegVtas);
-            this.panel1.Controls.Add(this.txtBuscarPtoVta);
-            this.panel1.Controls.Add(this.txtCantidadItenVta);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(221, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(756, 118);
-            this.panel1.TabIndex = 55;
+            this.lblNumeroVenta.AutoSize = true;
+            this.lblNumeroVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroVenta.ForeColor = System.Drawing.Color.White;
+            this.lblNumeroVenta.Location = new System.Drawing.Point(35, 24);
+            this.lblNumeroVenta.Name = "lblNumeroVenta";
+            this.lblNumeroVenta.Size = new System.Drawing.Size(127, 38);
+            this.lblNumeroVenta.TabIndex = 61;
+            this.lblNumeroVenta.Text = "COMPROBANTE\r\nN° XXXX";
+            this.lblNumeroVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAgregaritemVta
             // 
@@ -132,7 +103,7 @@
             this.btnAgregaritemVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnAgregaritemVta.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregaritemVta.Image")));
             this.btnAgregaritemVta.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAgregaritemVta.Location = new System.Drawing.Point(455, 60);
+            this.btnAgregaritemVta.Location = new System.Drawing.Point(280, 106);
             this.btnAgregaritemVta.Name = "btnAgregaritemVta";
             this.btnAgregaritemVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnAgregaritemVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -140,20 +111,10 @@
             this.btnAgregaritemVta.OnHoverImage = null;
             this.btnAgregaritemVta.OnPressedColor = System.Drawing.Color.Black;
             this.btnAgregaritemVta.Radius = 10;
-            this.btnAgregaritemVta.Size = new System.Drawing.Size(140, 41);
+            this.btnAgregaritemVta.Size = new System.Drawing.Size(95, 41);
             this.btnAgregaritemVta.TabIndex = 75;
-            this.btnAgregaritemVta.Text = "Agregar Item";
-            // 
-            // lblNombrePtoVta
-            // 
-            this.lblNombrePtoVta.AutoSize = true;
-            this.lblNombrePtoVta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombrePtoVta.ForeColor = System.Drawing.Color.White;
-            this.lblNombrePtoVta.Location = new System.Drawing.Point(61, 30);
-            this.lblNombrePtoVta.Name = "lblNombrePtoVta";
-            this.lblNombrePtoVta.Size = new System.Drawing.Size(88, 32);
-            this.lblNombrePtoVta.TabIndex = 77;
-            this.lblNombrePtoVta.Text = "Nombre del \r\n  Producto";
+            this.btnAgregaritemVta.Text = "Agregar";
+            this.btnAgregaritemVta.Click += new System.EventHandler(this.btnAgregaritemVta_Click);
             // 
             // txtNomPtoRegVtas
             // 
@@ -161,17 +122,18 @@
             this.txtNomPtoRegVtas.BaseColor = System.Drawing.Color.White;
             this.txtNomPtoRegVtas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.txtNomPtoRegVtas.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNomPtoRegVtas.Enabled = false;
             this.txtNomPtoRegVtas.FocusedBaseColor = System.Drawing.Color.White;
             this.txtNomPtoRegVtas.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtNomPtoRegVtas.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNomPtoRegVtas.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomPtoRegVtas.Location = new System.Drawing.Point(153, 36);
+            this.txtNomPtoRegVtas.Location = new System.Drawing.Point(97, 78);
             this.txtNomPtoRegVtas.Name = "txtNomPtoRegVtas";
             this.txtNomPtoRegVtas.PasswordChar = '\0';
             this.txtNomPtoRegVtas.Radius = 10;
             this.txtNomPtoRegVtas.ReadOnly = true;
             this.txtNomPtoRegVtas.SelectedText = "";
-            this.txtNomPtoRegVtas.Size = new System.Drawing.Size(183, 26);
+            this.txtNomPtoRegVtas.Size = new System.Drawing.Size(278, 26);
             this.txtNomPtoRegVtas.TabIndex = 76;
             this.txtNomPtoRegVtas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -185,76 +147,49 @@
             this.txtBuscarCodigoVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarCodigoVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarCodigoVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarCodigoVta.Location = new System.Drawing.Point(436, 28);
+            this.txtBuscarCodigoVta.Location = new System.Drawing.Point(97, 22);
             this.txtBuscarCodigoVta.MaxLength = 4;
             this.txtBuscarCodigoVta.Name = "txtBuscarCodigoVta";
             this.txtBuscarCodigoVta.PasswordChar = '\0';
             this.txtBuscarCodigoVta.Radius = 10;
             this.txtBuscarCodigoVta.SelectedText = "";
-            this.txtBuscarCodigoVta.Size = new System.Drawing.Size(182, 26);
+            this.txtBuscarCodigoVta.Size = new System.Drawing.Size(98, 26);
             this.txtBuscarCodigoVta.TabIndex = 62;
             this.txtBuscarCodigoVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarCodigoVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCodigoVta_KeyPress_1);
             // 
-            // txtLimpiarBuscarPtoVta
-            // 
-            this.txtLimpiarBuscarPtoVta.AnimationHoverSpeed = 0.07F;
-            this.txtLimpiarBuscarPtoVta.AnimationSpeed = 0.03F;
-            this.txtLimpiarBuscarPtoVta.BackColor = System.Drawing.Color.Transparent;
-            this.txtLimpiarBuscarPtoVta.BaseColor = System.Drawing.Color.Transparent;
-            this.txtLimpiarBuscarPtoVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtLimpiarBuscarPtoVta.BorderSize = 2;
-            this.txtLimpiarBuscarPtoVta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtLimpiarBuscarPtoVta.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.txtLimpiarBuscarPtoVta.FocusedColor = System.Drawing.Color.Empty;
-            this.txtLimpiarBuscarPtoVta.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.txtLimpiarBuscarPtoVta.ForeColor = System.Drawing.Color.White;
-            this.txtLimpiarBuscarPtoVta.Image = ((System.Drawing.Image)(resources.GetObject("txtLimpiarBuscarPtoVta.Image")));
-            this.txtLimpiarBuscarPtoVta.ImageSize = new System.Drawing.Size(25, 25);
-            this.txtLimpiarBuscarPtoVta.Location = new System.Drawing.Point(678, 18);
-            this.txtLimpiarBuscarPtoVta.Name = "txtLimpiarBuscarPtoVta";
-            this.txtLimpiarBuscarPtoVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.txtLimpiarBuscarPtoVta.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.txtLimpiarBuscarPtoVta.OnHoverForeColor = System.Drawing.Color.White;
-            this.txtLimpiarBuscarPtoVta.OnHoverImage = null;
-            this.txtLimpiarBuscarPtoVta.OnPressedColor = System.Drawing.Color.Black;
-            this.txtLimpiarBuscarPtoVta.Radius = 5;
-            this.txtLimpiarBuscarPtoVta.Size = new System.Drawing.Size(35, 30);
-            this.txtLimpiarBuscarPtoVta.TabIndex = 74;
-            this.txtLimpiarBuscarPtoVta.Click += new System.EventHandler(this.txtLimpiarBuscarPtoVta_Click);
-            // 
             // lblBuscarCodigoVta
             // 
             this.lblBuscarCodigoVta.AutoSize = true;
-            this.lblBuscarCodigoVta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarCodigoVta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarCodigoVta.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarCodigoVta.Location = new System.Drawing.Point(349, 30);
+            this.lblBuscarCodigoVta.Location = new System.Drawing.Point(6, 26);
             this.lblBuscarCodigoVta.Name = "lblBuscarCodigoVta";
-            this.lblBuscarCodigoVta.Size = new System.Drawing.Size(81, 32);
+            this.lblBuscarCodigoVta.Size = new System.Drawing.Size(74, 18);
             this.lblBuscarCodigoVta.TabIndex = 63;
-            this.lblBuscarCodigoVta.Text = "Buscar por \r\n  Codigo:";
+            this.lblBuscarCodigoVta.Text = "CODIGO";
             // 
             // lblCantidadVta
             // 
             this.lblCantidadVta.AutoSize = true;
-            this.lblCantidadVta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadVta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantidadVta.ForeColor = System.Drawing.Color.White;
-            this.lblCantidadVta.Location = new System.Drawing.Point(66, 85);
+            this.lblCantidadVta.Location = new System.Drawing.Point(6, 54);
             this.lblCantidadVta.Name = "lblCantidadVta";
-            this.lblCantidadVta.Size = new System.Drawing.Size(69, 16);
+            this.lblCantidadVta.Size = new System.Drawing.Size(85, 18);
             this.lblCantidadVta.TabIndex = 56;
-            this.lblCantidadVta.Text = "Cantidad";
+            this.lblCantidadVta.Text = "CANTIDAD";
             // 
             // lblTituloPtosRegVtas
             // 
             this.lblTituloPtosRegVtas.AutoSize = true;
-            this.lblTituloPtosRegVtas.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloPtosRegVtas.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloPtosRegVtas.Location = new System.Drawing.Point(2, 3);
+            this.lblTituloPtosRegVtas.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloPtosRegVtas.ForeColor = System.Drawing.Color.White;
+            this.lblTituloPtosRegVtas.Location = new System.Drawing.Point(6, 82);
             this.lblTituloPtosRegVtas.Name = "lblTituloPtosRegVtas";
-            this.lblTituloPtosRegVtas.Size = new System.Drawing.Size(147, 21);
+            this.lblTituloPtosRegVtas.Size = new System.Drawing.Size(90, 18);
             this.lblTituloPtosRegVtas.TabIndex = 65;
-            this.lblTituloPtosRegVtas.Text = "Ingresar Producto";
+            this.lblTituloPtosRegVtas.Text = "PRODUCTO";
             // 
             // txtBuscarPtoVta
             // 
@@ -271,7 +206,7 @@
             this.txtBuscarPtoVta.ForeColor = System.Drawing.Color.White;
             this.txtBuscarPtoVta.Image = ((System.Drawing.Image)(resources.GetObject("txtBuscarPtoVta.Image")));
             this.txtBuscarPtoVta.ImageSize = new System.Drawing.Size(25, 25);
-            this.txtBuscarPtoVta.Location = new System.Drawing.Point(636, 18);
+            this.txtBuscarPtoVta.Location = new System.Drawing.Point(201, 20);
             this.txtBuscarPtoVta.Name = "txtBuscarPtoVta";
             this.txtBuscarPtoVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.txtBuscarPtoVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -292,13 +227,13 @@
             this.txtCantidadItenVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtCantidadItenVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCantidadItenVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadItenVta.Location = new System.Drawing.Point(153, 75);
+            this.txtCantidadItenVta.Location = new System.Drawing.Point(97, 50);
             this.txtCantidadItenVta.MaxLength = 2;
             this.txtCantidadItenVta.Name = "txtCantidadItenVta";
             this.txtCantidadItenVta.PasswordChar = '\0';
             this.txtCantidadItenVta.Radius = 10;
             this.txtCantidadItenVta.SelectedText = "";
-            this.txtCantidadItenVta.Size = new System.Drawing.Size(115, 26);
+            this.txtCantidadItenVta.Size = new System.Drawing.Size(60, 26);
             this.txtCantidadItenVta.TabIndex = 53;
             this.txtCantidadItenVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadItenVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadItenVta_KeyPress_1);
@@ -307,132 +242,60 @@
             // 
             this.pnlNumVta.BackColor = System.Drawing.Color.Transparent;
             this.pnlNumVta.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.pnlNumVta.Controls.Add(this.pnlDetalleVta);
-            this.pnlNumVta.Controls.Add(this.lblFormularioRegVta);
+            this.pnlNumVta.Controls.Add(this.groupBox3);
+            this.pnlNumVta.Controls.Add(this.groupBox2);
+            this.pnlNumVta.Controls.Add(this.groupBox1);
             this.pnlNumVta.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNumVta.Location = new System.Drawing.Point(0, 0);
             this.pnlNumVta.Name = "pnlNumVta";
+            this.pnlNumVta.Padding = new System.Windows.Forms.Padding(10);
             this.pnlNumVta.Radius = 5;
             this.pnlNumVta.ShadowColor = System.Drawing.Color.Black;
-            this.pnlNumVta.Size = new System.Drawing.Size(977, 91);
+            this.pnlNumVta.Size = new System.Drawing.Size(795, 231);
             this.pnlNumVta.TabIndex = 78;
             // 
-            // pnlDetalleVta
+            // lblNyApRegistrarVenta
             // 
-            this.pnlDetalleVta.Controls.Add(this.gunaLabel2);
-            this.pnlDetalleVta.Controls.Add(this.txtNombreRegVta);
-            this.pnlDetalleVta.Controls.Add(this.gunaLabel1);
-            this.pnlDetalleVta.Controls.Add(this.txtApellidoRegVta);
-            this.pnlDetalleVta.Controls.Add(this.btnLimpiarBuscarClteVta);
-            this.pnlDetalleVta.Controls.Add(this.lblBuscarClteVta);
-            this.pnlDetalleVta.Controls.Add(this.btnBuscarClteVta);
-            this.pnlDetalleVta.Controls.Add(this.txtBuscarDniVta);
-            this.pnlDetalleVta.Controls.Add(this.lblTituloCltesRegVtas);
-            this.pnlDetalleVta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlDetalleVta.Location = new System.Drawing.Point(221, 0);
-            this.pnlDetalleVta.Name = "pnlDetalleVta";
-            this.pnlDetalleVta.Size = new System.Drawing.Size(756, 91);
-            this.pnlDetalleVta.TabIndex = 55;
+            this.lblNyApRegistrarVenta.AutoSize = true;
+            this.lblNyApRegistrarVenta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNyApRegistrarVenta.ForeColor = System.Drawing.Color.White;
+            this.lblNyApRegistrarVenta.Location = new System.Drawing.Point(6, 24);
+            this.lblNyApRegistrarVenta.Name = "lblNyApRegistrarVenta";
+            this.lblNyApRegistrarVenta.Size = new System.Drawing.Size(61, 18);
+            this.lblNyApRegistrarVenta.TabIndex = 73;
+            this.lblNyApRegistrarVenta.Text = "Cliente";
             // 
-            // gunaLabel2
+            // txtNyApeRegVta
             // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel2.Location = new System.Drawing.Point(430, 58);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(63, 16);
-            this.gunaLabel2.TabIndex = 73;
-            this.gunaLabel2.Text = "Nombre:";
-            // 
-            // txtNombreRegVta
-            // 
-            this.txtNombreRegVta.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombreRegVta.BaseColor = System.Drawing.Color.White;
-            this.txtNombreRegVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtNombreRegVta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombreRegVta.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtNombreRegVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtNombreRegVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNombreRegVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreRegVta.Location = new System.Drawing.Point(511, 56);
-            this.txtNombreRegVta.Name = "txtNombreRegVta";
-            this.txtNombreRegVta.PasswordChar = '\0';
-            this.txtNombreRegVta.Radius = 10;
-            this.txtNombreRegVta.ReadOnly = true;
-            this.txtNombreRegVta.SelectedText = "";
-            this.txtNombreRegVta.Size = new System.Drawing.Size(183, 26);
-            this.txtNombreRegVta.TabIndex = 74;
-            this.txtNombreRegVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel1.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel1.Location = new System.Drawing.Point(430, 20);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(67, 16);
-            this.gunaLabel1.TabIndex = 71;
-            this.gunaLabel1.Text = "Apellido:";
-            // 
-            // txtApellidoRegVta
-            // 
-            this.txtApellidoRegVta.BackColor = System.Drawing.Color.Transparent;
-            this.txtApellidoRegVta.BaseColor = System.Drawing.Color.White;
-            this.txtApellidoRegVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtApellidoRegVta.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtApellidoRegVta.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtApellidoRegVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtApellidoRegVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtApellidoRegVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoRegVta.Location = new System.Drawing.Point(511, 18);
-            this.txtApellidoRegVta.Name = "txtApellidoRegVta";
-            this.txtApellidoRegVta.PasswordChar = '\0';
-            this.txtApellidoRegVta.Radius = 10;
-            this.txtApellidoRegVta.ReadOnly = true;
-            this.txtApellidoRegVta.SelectedText = "";
-            this.txtApellidoRegVta.Size = new System.Drawing.Size(183, 26);
-            this.txtApellidoRegVta.TabIndex = 72;
-            this.txtApellidoRegVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnLimpiarBuscarClteVta
-            // 
-            this.btnLimpiarBuscarClteVta.AnimationHoverSpeed = 0.07F;
-            this.btnLimpiarBuscarClteVta.AnimationSpeed = 0.03F;
-            this.btnLimpiarBuscarClteVta.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarBuscarClteVta.BaseColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarBuscarClteVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnLimpiarBuscarClteVta.BorderSize = 2;
-            this.btnLimpiarBuscarClteVta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarBuscarClteVta.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarBuscarClteVta.FocusedColor = System.Drawing.Color.Empty;
-            this.btnLimpiarBuscarClteVta.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnLimpiarBuscarClteVta.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBuscarClteVta.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarBuscarClteVta.Image")));
-            this.btnLimpiarBuscarClteVta.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLimpiarBuscarClteVta.Location = new System.Drawing.Point(233, 52);
-            this.btnLimpiarBuscarClteVta.Name = "btnLimpiarBuscarClteVta";
-            this.btnLimpiarBuscarClteVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnLimpiarBuscarClteVta.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscarClteVta.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBuscarClteVta.OnHoverImage = null;
-            this.btnLimpiarBuscarClteVta.OnPressedColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscarClteVta.Radius = 5;
-            this.btnLimpiarBuscarClteVta.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarBuscarClteVta.TabIndex = 64;
-            this.btnLimpiarBuscarClteVta.Click += new System.EventHandler(this.btnLimpiarBuscarClteVta_Click);
+            this.txtNyApeRegVta.BackColor = System.Drawing.Color.Transparent;
+            this.txtNyApeRegVta.BaseColor = System.Drawing.Color.White;
+            this.txtNyApeRegVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtNyApeRegVta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNyApeRegVta.Enabled = false;
+            this.txtNyApeRegVta.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtNyApeRegVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtNyApeRegVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNyApeRegVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNyApeRegVta.Location = new System.Drawing.Point(73, 20);
+            this.txtNyApeRegVta.Name = "txtNyApeRegVta";
+            this.txtNyApeRegVta.PasswordChar = '\0';
+            this.txtNyApeRegVta.Radius = 10;
+            this.txtNyApeRegVta.ReadOnly = true;
+            this.txtNyApeRegVta.SelectedText = "";
+            this.txtNyApeRegVta.Size = new System.Drawing.Size(265, 26);
+            this.txtNyApeRegVta.TabIndex = 72;
+            this.txtNyApeRegVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblBuscarClteVta
             // 
             this.lblBuscarClteVta.AutoSize = true;
-            this.lblBuscarClteVta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarClteVta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarClteVta.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarClteVta.Location = new System.Drawing.Point(84, 16);
+            this.lblBuscarClteVta.Location = new System.Drawing.Point(344, 24);
             this.lblBuscarClteVta.Name = "lblBuscarClteVta";
-            this.lblBuscarClteVta.Size = new System.Drawing.Size(77, 32);
+            this.lblBuscarClteVta.Size = new System.Drawing.Size(34, 18);
             this.lblBuscarClteVta.TabIndex = 66;
-            this.lblBuscarClteVta.Text = "Buscar por\r\n DNI:";
+            this.lblBuscarClteVta.Text = "DNI";
             // 
             // btnBuscarClteVta
             // 
@@ -449,7 +312,7 @@
             this.btnBuscarClteVta.ForeColor = System.Drawing.Color.White;
             this.btnBuscarClteVta.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClteVta.Image")));
             this.btnBuscarClteVta.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarClteVta.Location = new System.Drawing.Point(191, 52);
+            this.btnBuscarClteVta.Location = new System.Drawing.Point(540, 19);
             this.btnBuscarClteVta.Name = "btnBuscarClteVta";
             this.btnBuscarClteVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnBuscarClteVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -471,77 +334,58 @@
             this.txtBuscarDniVta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarDniVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarDniVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarDniVta.Location = new System.Drawing.Point(175, 20);
+            this.txtBuscarDniVta.Location = new System.Drawing.Point(381, 20);
             this.txtBuscarDniVta.MaxLength = 8;
             this.txtBuscarDniVta.Name = "txtBuscarDniVta";
             this.txtBuscarDniVta.PasswordChar = '\0';
             this.txtBuscarDniVta.Radius = 10;
             this.txtBuscarDniVta.SelectedText = "";
-            this.txtBuscarDniVta.Size = new System.Drawing.Size(183, 26);
+            this.txtBuscarDniVta.Size = new System.Drawing.Size(153, 26);
             this.txtBuscarDniVta.TabIndex = 67;
             this.txtBuscarDniVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarDniVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarDniVta_KeyPress_1);
             // 
-            // lblTituloCltesRegVtas
-            // 
-            this.lblTituloCltesRegVtas.AutoSize = true;
-            this.lblTituloCltesRegVtas.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCltesRegVtas.ForeColor = System.Drawing.Color.Black;
-            this.lblTituloCltesRegVtas.Location = new System.Drawing.Point(7, 9);
-            this.lblTituloCltesRegVtas.Name = "lblTituloCltesRegVtas";
-            this.lblTituloCltesRegVtas.Size = new System.Drawing.Size(72, 21);
-            this.lblTituloCltesRegVtas.TabIndex = 70;
-            this.lblTituloCltesRegVtas.Text = "Clientes";
-            // 
-            // lblFormularioRegVta
-            // 
-            this.lblFormularioRegVta.AutoSize = true;
-            this.lblFormularioRegVta.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormularioRegVta.ForeColor = System.Drawing.Color.White;
-            this.lblFormularioRegVta.Location = new System.Drawing.Point(41, 32);
-            this.lblFormularioRegVta.Name = "lblFormularioRegVta";
-            this.lblFormularioRegVta.Size = new System.Drawing.Size(124, 50);
-            this.lblFormularioRegVta.TabIndex = 0;
-            this.lblFormularioRegVta.Text = "Registro de\r\n    Ventas";
-            // 
             // dgvDetalleVta
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvDetalleVta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvDetalleVta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleVta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleVta.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetalleVta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleVta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetalleVta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleVta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleVta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleVta.ColumnHeadersHeight = 18;
             this.dgvDetalleVta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre_Prov,
-            this.Cuit_Prev,
-            this.Column1,
-            this.Accion});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleVta.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Codigo,
+            this.Producto,
+            this.Cantidad,
+            this.Eliminar,
+            this.SubTotal});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleVta.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetalleVta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleVta.EnableHeadersVisualStyles = false;
             this.dgvDetalleVta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvDetalleVta.Location = new System.Drawing.Point(3, 29);
+            this.dgvDetalleVta.Location = new System.Drawing.Point(2, 30);
             this.dgvDetalleVta.Name = "dgvDetalleVta";
+            this.dgvDetalleVta.ReadOnly = true;
             this.dgvDetalleVta.RowHeadersVisible = false;
             this.dgvDetalleVta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleVta.Size = new System.Drawing.Size(971, 174);
+            this.dgvDetalleVta.Size = new System.Drawing.Size(791, 235);
             this.dgvDetalleVta.TabIndex = 0;
             this.dgvDetalleVta.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvDetalleVta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -557,7 +401,7 @@
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.Height = 18;
-            this.dgvDetalleVta.ThemeStyle.ReadOnly = false;
+            this.dgvDetalleVta.ThemeStyle.ReadOnly = true;
             this.dgvDetalleVta.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvDetalleVta.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetalleVta.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -566,38 +410,16 @@
             this.dgvDetalleVta.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvDetalleVta.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // Nombre_Prov
-            // 
-            this.Nombre_Prov.HeaderText = "Codigo";
-            this.Nombre_Prov.Name = "Nombre_Prov";
-            // 
-            // Cuit_Prev
-            // 
-            this.Cuit_Prev.HeaderText = "Producto";
-            this.Cuit_Prev.Name = "Cuit_Prev";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Cantidad";
-            this.Column1.Name = "Column1";
-            // 
-            // Accion
-            // 
-            this.Accion.HeaderText = "Accion";
-            this.Accion.Name = "Accion";
-            this.Accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // lblTituloSubtotalVta
             // 
             this.lblTituloSubtotalVta.AutoSize = true;
             this.lblTituloSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(12, 426);
+            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(521, 12);
             this.lblTituloSubtotalVta.Name = "lblTituloSubtotalVta";
-            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(129, 28);
+            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(88, 28);
             this.lblTituloSubtotalVta.TabIndex = 80;
-            this.lblTituloSubtotalVta.Text = "SUBTOTAL:";
+            this.lblTituloSubtotalVta.Text = "TOTAL:";
             // 
             // grbDetalleVta
             // 
@@ -605,15 +427,17 @@
             this.grbDetalleVta.BaseColor = System.Drawing.Color.White;
             this.grbDetalleVta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbDetalleVta.Controls.Add(this.dgvDetalleVta);
+            this.grbDetalleVta.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbDetalleVta.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDetalleVta.ForeColor = System.Drawing.Color.White;
             this.grbDetalleVta.LineBottom = 2;
             this.grbDetalleVta.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbDetalleVta.LineLeft = 2;
             this.grbDetalleVta.LineRight = 2;
-            this.grbDetalleVta.Location = new System.Drawing.Point(0, 208);
+            this.grbDetalleVta.Location = new System.Drawing.Point(0, 231);
             this.grbDetalleVta.Name = "grbDetalleVta";
-            this.grbDetalleVta.Size = new System.Drawing.Size(977, 206);
+            this.grbDetalleVta.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbDetalleVta.Size = new System.Drawing.Size(795, 267);
             this.grbDetalleVta.TabIndex = 79;
             this.grbDetalleVta.Text = "Detalle de venta N°:";
             this.grbDetalleVta.TextLocation = new System.Drawing.Point(10, 8);
@@ -623,7 +447,7 @@
             this.lblMontoSubtotalVta.AutoSize = true;
             this.lblMontoSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontoSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(156, 426);
+            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(615, 12);
             this.lblMontoSubtotalVta.Name = "lblMontoSubtotalVta";
             this.lblMontoSubtotalVta.Size = new System.Drawing.Size(142, 28);
             this.lblMontoSubtotalVta.TabIndex = 81;
@@ -644,7 +468,7 @@
             this.btnConfirmarVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnConfirmarVta.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmarVta.Image")));
             this.btnConfirmarVta.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnConfirmarVta.Location = new System.Drawing.Point(732, 425);
+            this.btnConfirmarVta.Location = new System.Drawing.Point(3, 6);
             this.btnConfirmarVta.Name = "btnConfirmarVta";
             this.btnConfirmarVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnConfirmarVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -655,70 +479,240 @@
             this.btnConfirmarVta.Size = new System.Drawing.Size(166, 40);
             this.btnConfirmarVta.TabIndex = 83;
             this.btnConfirmarVta.Text = "CONFIRMAR";
+            this.btnConfirmarVta.Click += new System.EventHandler(this.btnConfirmarVta_Click);
+            // 
+            // pnlFinalVenta
+            // 
+            this.pnlFinalVenta.AutoSize = true;
+            this.pnlFinalVenta.Controls.Add(this.btnConfirmarVta);
+            this.pnlFinalVenta.Controls.Add(this.lblMontoSubtotalVta);
+            this.pnlFinalVenta.Controls.Add(this.lblTituloSubtotalVta);
+            this.pnlFinalVenta.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlFinalVenta.Location = new System.Drawing.Point(0, 504);
+            this.pnlFinalVenta.Name = "pnlFinalVenta";
+            this.pnlFinalVenta.Size = new System.Drawing.Size(795, 49);
+            this.pnlFinalVenta.TabIndex = 84;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(39, 143);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(112, 27);
+            this.dateTimePicker1.TabIndex = 76;
+            // 
+            // lblFechaVenta
+            // 
+            this.lblFechaVenta.AutoSize = true;
+            this.lblFechaVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaVenta.ForeColor = System.Drawing.Color.White;
+            this.lblFechaVenta.Location = new System.Drawing.Point(66, 122);
+            this.lblFechaVenta.Name = "lblFechaVenta";
+            this.lblFechaVenta.Size = new System.Drawing.Size(58, 19);
+            this.lblFechaVenta.TabIndex = 77;
+            this.lblFechaVenta.Text = "Fecha";
+            this.lblFechaVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtStockRegistrarVenta
+            // 
+            this.txtStockRegistrarVenta.BackColor = System.Drawing.Color.Transparent;
+            this.txtStockRegistrarVenta.BaseColor = System.Drawing.Color.White;
+            this.txtStockRegistrarVenta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtStockRegistrarVenta.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtStockRegistrarVenta.Enabled = false;
+            this.txtStockRegistrarVenta.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtStockRegistrarVenta.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtStockRegistrarVenta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtStockRegistrarVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockRegistrarVenta.Location = new System.Drawing.Point(97, 110);
+            this.txtStockRegistrarVenta.MaxLength = 2;
+            this.txtStockRegistrarVenta.Name = "txtStockRegistrarVenta";
+            this.txtStockRegistrarVenta.PasswordChar = '\0';
+            this.txtStockRegistrarVenta.Radius = 10;
+            this.txtStockRegistrarVenta.SelectedText = "";
+            this.txtStockRegistrarVenta.Size = new System.Drawing.Size(60, 26);
+            this.txtStockRegistrarVenta.TabIndex = 78;
+            this.txtStockRegistrarVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblStockRegistrarVenta
+            // 
+            this.lblStockRegistrarVenta.AutoSize = true;
+            this.lblStockRegistrarVenta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockRegistrarVenta.ForeColor = System.Drawing.Color.White;
+            this.lblStockRegistrarVenta.Location = new System.Drawing.Point(35, 114);
+            this.lblStockRegistrarVenta.Name = "lblStockRegistrarVenta";
+            this.lblStockRegistrarVenta.Size = new System.Drawing.Size(56, 18);
+            this.lblStockRegistrarVenta.TabIndex = 79;
+            this.lblStockRegistrarVenta.Text = "STOCK";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblNumeroVenta);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.lblFechaVenta);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(10, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(172, 211);
+            this.groupBox1.TabIndex = 80;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtBuscarDniVta);
+            this.groupBox2.Controls.Add(this.btnBuscarClteVta);
+            this.groupBox2.Controls.Add(this.lblBuscarClteVta);
+            this.groupBox2.Controls.Add(this.txtNyApeRegVta);
+            this.groupBox2.Controls.Add(this.lblNyApRegistrarVenta);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(182, 10);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(603, 55);
+            this.groupBox2.TabIndex = 81;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Cliente";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pbImgProductoVenta);
+            this.groupBox3.Controls.Add(this.txtBuscarPtoVta);
+            this.groupBox3.Controls.Add(this.txtBuscarCodigoVta);
+            this.groupBox3.Controls.Add(this.lblStockRegistrarVenta);
+            this.groupBox3.Controls.Add(this.lblBuscarCodigoVta);
+            this.groupBox3.Controls.Add(this.txtStockRegistrarVenta);
+            this.groupBox3.Controls.Add(this.btnAgregaritemVta);
+            this.groupBox3.Controls.Add(this.lblCantidadVta);
+            this.groupBox3.Controls.Add(this.txtNomPtoRegVtas);
+            this.groupBox3.Controls.Add(this.txtCantidadItenVta);
+            this.groupBox3.Controls.Add(this.lblTituloPtosRegVtas);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(182, 65);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(603, 156);
+            this.groupBox3.TabIndex = 82;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Producto";
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 78;
+            // 
+            // Producto
+            // 
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 87;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 92;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 83;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SubTotal.HeaderText = "SUB TOTAL";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Width = 96;
+            // 
+            // pbImgProductoVenta
+            // 
+            this.pbImgProductoVenta.Image = global::CapaPresentacion.Properties.Resources.fotoProducto;
+            this.pbImgProductoVenta.Location = new System.Drawing.Point(440, 15);
+            this.pbImgProductoVenta.Name = "pbImgProductoVenta";
+            this.pbImgProductoVenta.Size = new System.Drawing.Size(135, 135);
+            this.pbImgProductoVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImgProductoVenta.TabIndex = 80;
+            this.pbImgProductoVenta.TabStop = false;
             // 
             // frmRegistrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 477);
-            this.Controls.Add(this.btnConfirmarVta);
-            this.Controls.Add(this.gunaShadowPanel1);
-            this.Controls.Add(this.pnlNumVta);
-            this.Controls.Add(this.lblTituloSubtotalVta);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(795, 553);
+            this.Controls.Add(this.pnlFinalVenta);
             this.Controls.Add(this.grbDetalleVta);
-            this.Controls.Add(this.lblMontoSubtotalVta);
+            this.Controls.Add(this.pnlNumVta);
             this.Name = "frmRegistrarVenta";
             this.Text = "Registrar Ventas";
-            this.gunaShadowPanel1.ResumeLayout(false);
-            this.gunaShadowPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pnlNumVta.ResumeLayout(false);
-            this.pnlNumVta.PerformLayout();
-            this.pnlDetalleVta.ResumeLayout(false);
-            this.pnlDetalleVta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVta)).EndInit();
             this.grbDetalleVta.ResumeLayout(false);
+            this.pnlFinalVenta.ResumeLayout(false);
+            this.pnlFinalVenta.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImgProductoVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaShadowPanel gunaShadowPanel1;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblNumVta;
-        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblNumeroVenta;
         private Guna.UI.WinForms.GunaButton btnAgregaritemVta;
-        private Guna.UI.WinForms.GunaLabel lblNombrePtoVta;
         private Guna.UI.WinForms.GunaTextBox txtNomPtoRegVtas;
         private Guna.UI.WinForms.GunaTextBox txtBuscarCodigoVta;
-        private Guna.UI.WinForms.GunaTileButton txtLimpiarBuscarPtoVta;
         private Guna.UI.WinForms.GunaLabel lblBuscarCodigoVta;
         private Guna.UI.WinForms.GunaLabel lblCantidadVta;
         private Guna.UI.WinForms.GunaLabel lblTituloPtosRegVtas;
         private Guna.UI.WinForms.GunaTileButton txtBuscarPtoVta;
         private Guna.UI.WinForms.GunaTextBox txtCantidadItenVta;
         private Guna.UI.WinForms.GunaShadowPanel pnlNumVta;
-        private System.Windows.Forms.Panel pnlDetalleVta;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaTextBox txtNombreRegVta;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaTextBox txtApellidoRegVta;
-        private Guna.UI.WinForms.GunaTileButton btnLimpiarBuscarClteVta;
+        private Guna.UI.WinForms.GunaLabel lblNyApRegistrarVenta;
+        private Guna.UI.WinForms.GunaTextBox txtNyApeRegVta;
         private Guna.UI.WinForms.GunaLabel lblBuscarClteVta;
         private Guna.UI.WinForms.GunaTileButton btnBuscarClteVta;
         private Guna.UI.WinForms.GunaTextBox txtBuscarDniVta;
-        private Guna.UI.WinForms.GunaLabel lblTituloCltesRegVtas;
-        private Guna.UI.WinForms.GunaLabel lblFormularioRegVta;
         private Guna.UI.WinForms.GunaDataGridView dgvDetalleVta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Prov;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Prev;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewButtonColumn Accion;
         private Bunifu.Framework.UI.BunifuCustomLabel lblTituloSubtotalVta;
         private Guna.UI.WinForms.GunaGroupBox grbDetalleVta;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMontoSubtotalVta;
         private Guna.UI.WinForms.GunaButton btnConfirmarVta;
+        private System.Windows.Forms.Panel pnlFinalVenta;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblFechaVenta;
+        private Guna.UI.WinForms.GunaLabel lblStockRegistrarVenta;
+        private Guna.UI.WinForms.GunaTextBox txtStockRegistrarVenta;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.PictureBox pbImgProductoVenta;
     }
 }
