@@ -12,6 +12,10 @@ using System.Windows.Forms;
 using System.Windows.Navigation;
 using Guna.UI.WinForms;
 
+using CapaDeEntidades;
+using CapaDeNegocios;
+using CapaPresentacion.Utilidades;
+
 namespace CapaPresentacion
 {
     public partial class frmUsuario : Form
@@ -104,7 +108,7 @@ namespace CapaPresentacion
             txtEmailUser.Clear();
             txtUsuario.Clear();
             txtPassUser.Clear();
-            cmbTipoUsuarioUser.SelectedIndex = -1;
+            cmbTipoUsuarioUser.SelectedIndex = 2;
             rdbtnMasculinoUser.Checked = false;
             rdbtnFemeninoUser.Checked = false;
             dtpFechaUser.Value = DateTime.Now;
@@ -113,7 +117,7 @@ namespace CapaPresentacion
 
         private void btnLimpiarCamposUser_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            LimpiarCampos();            
         }
 
         private void btnVolverCliente_Click(object sender, EventArgs e)
@@ -165,6 +169,20 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void frmUsuario_Load(object sender, EventArgs e)
+        {
+            List<Rol> ListaRol = new CN_Rol().Listar();
+            foreach (Rol item in ListaRol)
+            {
+                cmbTipoUsuarioUser.Items.Add(new Rol() { /*idRol = item.idRol,*/ nombreRol = item.nombreRol });
+            }
+            cmbTipoUsuarioUser.DisplayMember = "nombreRol";
+            //cmbTipoUsuarioUser.ValueMember = "idRol";
+            cmbTipoUsuarioUser.SelectedIndex = 2;
+            //Rol valor = (Rol)cmbTipoUsuarioUser.SelectedItem;
+            //MessageBox.Show(valor.idRol.ToString());
         }
     }
 }

@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="Nombre_Prov.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Cuit_Prev.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Direccion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Descrip_Proveedor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAgZJREFUaEPtmb1OAlEQRrHxEQgVhaWt3bL0vgAJlSWlvoU/HR2xpPUhLKClp6Iw
+        UaOJJj4B1282eyMLsw67M3tZCCc5xWZ255shQTeXxpE/TuEDfIcuxzd4D+ne2kGDcUNz3sHaQZ8uDRcl
+        VzwxpHvo3trhP12Jbe8Lwhm8go/QD7atT/AGXsATGITVgV8gN1gZP2AlC53Da0jNP2EmuNlsul6v54bD
+        oZvNZm65XLptWCwWbjweu8Fg4NrtdqZn6g98hvRlv4SlFvqGmcatVsv1+303Go3cfD5Px9FDvagn9aaM
+        9Vz4BQuTPFzFwBKrC/k5aKCiJA/uGj8HDVSU5MHpdJq2Cs9kMtEvUCML8987TWhL/eemP2GZRqFYz4W3
+        sDD0xkhL+HectH31+Dz4Cml49dvrrhYw43AXiKLIdTqd9CpL2ZrPo2ArcheosgbNEMM4tDVohhjGoa1B
+        M8QwDm0NmiGGcWhr0AwxjENbg2aIYRzaGjRDDOPQ1qAZYhiHtgbNEMM4tDVohhjGoa1BM8QwDm0NmiGG
+        cWhr0AwxjENbg2aIYRzaGjRDDOPQ1qAZYhiHtgbNEMM4tDVoRm5YHMeu2+2mV1nK1nweBVuRu0AV+DwK
+        tuK4QBF8HgVbcRgLhDhq1x6p57HaNKRm7OKo3fTH8I2j9gCWOlLPY+OovULNjtT3gEbjFwcOAoPvxH/o
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnLimpiarPorProveedor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -189,45 +228,6 @@
         4KVEOxFWL4EYx7mwtbWlzY5WIsMprF4AY9hb6UTUXCBxhJOT5MeFHoFXwNcJHmXKy8sj5UDSKMYJhpO9
         rF4bfcLcPankGU7M2LhTV1RU2MaT30HSKeZN3ACv4jNBUsrPiaQ23ugmJ94K4434jz/+lOFPDX+ywHz9
         XVNKyv9HsgJ6iW7KmQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="Nombre_Prov.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Cuit_Prev.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Direccion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Descrip_Proveedor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAgZJREFUaEPtmb1OAlEQRrHxEQgVhaWt3bL0vgAJlSWlvoU/HR2xpPUhLKClp6Iw
-        UaOJJj4B1282eyMLsw67M3tZCCc5xWZ255shQTeXxpE/TuEDfIcuxzd4D+ne2kGDcUNz3sHaQZ8uDRcl
-        VzwxpHvo3trhP12Jbe8Lwhm8go/QD7atT/AGXsATGITVgV8gN1gZP2AlC53Da0jNP2EmuNlsul6v54bD
-        oZvNZm65XLptWCwWbjweu8Fg4NrtdqZn6g98hvRlv4SlFvqGmcatVsv1+303Go3cfD5Px9FDvagn9aaM
-        9Vz4BQuTPFzFwBKrC/k5aKCiJA/uGj8HDVSU5MHpdJq2Cs9kMtEvUCML8987TWhL/eemP2GZRqFYz4W3
-        sDD0xkhL+HectH31+Dz4Cml49dvrrhYw43AXiKLIdTqd9CpL2ZrPo2ArcheosgbNEMM4tDVohhjGoa1B
-        M8QwDm0NmiGGcWhr0AwxjENbg2aIYRzaGjRDDOPQ1qAZYhiHtgbNEMM4tDVohhjGoa1BM8QwDm0NmiGG
-        cWhr0AwxjENbg2aIYRzaGjRDDOPQ1qAZYhiHtgbNEMM4tDVoRm5YHMeu2+2mV1nK1nweBVuRu0AV+DwK
-        tuK4QBF8HgVbcRgLhDhq1x6p57HaNKRm7OKo3fTH8I2j9gCWOlLPY+OovULNjtT3gEbjFwcOAoPvxH/o
-        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="dataGridViewImageColumn2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

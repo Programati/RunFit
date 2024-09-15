@@ -1,29 +1,24 @@
-﻿using System;
+﻿using CapaDeEntidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaDeEntidades;
 
 namespace CapaDeDatos
 {
-    public class CD_Usuario
+    public class CD_Rol
     {
-        /*
-         * Aqi vamos a hacer:
-         Las peticiones a la BD con las sentencias SQL
-         */
-
-        public List<Usuario> ListarUsuarios()
+        public List<Rol> Listar()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Rol> Lista = new List<Rol>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    string query = "select id_usuario, nombre_usuario, password, id_rol from USUARIOS";
+                    string query = "select id_rol, nombre_rol, fecha_alta, fecha_baja from ROL";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -34,12 +29,12 @@ namespace CapaDeDatos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Usuario()
+                            Lista.Add(new Rol()
                             {
-                                idUsuario = Convert.ToInt32(dr["id_usuario"]),
-                                nombreUsuario = dr["nombre_usuario"].ToString(),
-                                passwordUsuario = dr["password"].ToString(),
-                                oRol = new Rol { idRol = Convert.ToInt32(dr["id_rol"]) }
+                                idRol = Convert.ToInt32(dr["id_rol"]),
+                                nombreRol = dr["nombre_rol"].ToString(),
+                                fechaAlta = dr["fecha_alta"].ToString(),
+                                fechaBaja = dr["fecha_baja"].ToString()
                             });
                         }
                         dr.Close();
@@ -48,10 +43,10 @@ namespace CapaDeDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Usuario>();
+                    Lista = new List<Rol>();
                 }
             }
-            return lista;
+            return Lista;
         }
     }
 }

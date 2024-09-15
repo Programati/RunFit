@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbListaCliente = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaClientes = new Guna.UI.WinForms.GunaDataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -73,7 +73,7 @@
             this.grbListaCliente.BorderColor = System.Drawing.Color.Black;
             this.grbListaCliente.Controls.Add(this.dgvListaClientes);
             this.grbListaCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaCliente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaCliente.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaCliente.ForeColor = System.Drawing.Color.White;
             this.grbListaCliente.LineBottom = 2;
             this.grbListaCliente.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
@@ -89,21 +89,23 @@
             // 
             // dgvListaClientes
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaClientes.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaClientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListaClientes.ColumnHeadersHeight = 34;
             this.dgvListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -122,21 +124,23 @@
             this.Manzana,
             this.Casa});
             this.dgvListaClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaClientes.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaClientes.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaClientes.EnableHeadersVisualStyles = false;
             this.dgvListaClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaClientes.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaClientes.MultiSelect = false;
             this.dgvListaClientes.Name = "dgvListaClientes";
             this.dgvListaClientes.ReadOnly = true;
             this.dgvListaClientes.RowHeadersVisible = false;
+            this.dgvListaClientes.RowTemplate.Height = 28;
             this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaClientes.Size = new System.Drawing.Size(988, 279);
             this.dgvListaClientes.TabIndex = 0;
@@ -159,16 +163,16 @@
             this.dgvListaClientes.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaClientes.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaClientes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvListaClientes.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvListaClientes.ThemeStyle.RowsStyle.Height = 28;
             this.dgvListaClientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaClientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // Editar
             // 
             this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.NullValue = "null";
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "null";
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
             this.Editar.HeaderText = "Editar";
             this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -176,7 +180,7 @@
             this.Editar.ReadOnly = true;
             this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Width = 68;
+            this.Editar.Width = 72;
             // 
             // Eliminar
             // 
@@ -188,7 +192,7 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 83;
+            this.Eliminar.Width = 87;
             // 
             // Dni
             // 
@@ -196,7 +200,7 @@
             this.Dni.HeaderText = "DNI";
             this.Dni.Name = "Dni";
             this.Dni.ReadOnly = true;
-            this.Dni.Width = 53;
+            this.Dni.Width = 57;
             // 
             // Apellido
             // 
@@ -204,7 +208,7 @@
             this.Apellido.HeaderText = "Apellido";
             this.Apellido.Name = "Apellido";
             this.Apellido.ReadOnly = true;
-            this.Apellido.Width = 86;
+            this.Apellido.Width = 90;
             // 
             // Nombre
             // 
@@ -212,7 +216,7 @@
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 82;
+            this.Nombre.Width = 86;
             // 
             // Telefono
             // 
@@ -220,7 +224,7 @@
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 84;
+            this.Telefono.Width = 88;
             // 
             // Email
             // 
@@ -228,7 +232,7 @@
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
-            this.Email.Width = 66;
+            this.Email.Width = 70;
             // 
             // FechaNacimiento
             // 
@@ -236,7 +240,7 @@
             this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
             this.FechaNacimiento.Name = "FechaNacimiento";
             this.FechaNacimiento.ReadOnly = true;
-            this.FechaNacimiento.Width = 135;
+            this.FechaNacimiento.Width = 152;
             // 
             // Sexo
             // 
@@ -244,7 +248,7 @@
             this.Sexo.HeaderText = "Sexo";
             this.Sexo.Name = "Sexo";
             this.Sexo.ReadOnly = true;
-            this.Sexo.Width = 60;
+            this.Sexo.Width = 64;
             // 
             // Calle
             // 
@@ -252,7 +256,7 @@
             this.Calle.HeaderText = "Calle";
             this.Calle.Name = "Calle";
             this.Calle.ReadOnly = true;
-            this.Calle.Width = 65;
+            this.Calle.Width = 69;
             // 
             // Altura
             // 
@@ -260,7 +264,7 @@
             this.Altura.HeaderText = "Altura";
             this.Altura.Name = "Altura";
             this.Altura.ReadOnly = true;
-            this.Altura.Width = 70;
+            this.Altura.Width = 74;
             // 
             // Piso
             // 
@@ -268,7 +272,7 @@
             this.Piso.HeaderText = "Piso";
             this.Piso.Name = "Piso";
             this.Piso.ReadOnly = true;
-            this.Piso.Width = 55;
+            this.Piso.Width = 59;
             // 
             // Depto
             // 
@@ -276,7 +280,7 @@
             this.Depto.HeaderText = "Depto";
             this.Depto.Name = "Depto";
             this.Depto.ReadOnly = true;
-            this.Depto.Width = 68;
+            this.Depto.Width = 72;
             // 
             // Manzana
             // 
@@ -284,7 +288,7 @@
             this.Manzana.HeaderText = "Manzana";
             this.Manzana.Name = "Manzana";
             this.Manzana.ReadOnly = true;
-            this.Manzana.Width = 91;
+            this.Manzana.Width = 95;
             // 
             // Casa
             // 
@@ -292,7 +296,7 @@
             this.Casa.HeaderText = "Casa";
             this.Casa.Name = "Casa";
             this.Casa.ReadOnly = true;
-            this.Casa.Width = 64;
+            this.Casa.Width = 68;
             // 
             // pnlBusquedaCliente
             // 
@@ -439,9 +443,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
