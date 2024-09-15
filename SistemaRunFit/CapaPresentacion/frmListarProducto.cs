@@ -47,5 +47,31 @@ namespace CapaPresentacion
         {
             txtBuscarProducto.Clear();
         }
+
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            if (EsCodigoMuyCorto())
+            {
+                return;
+            }
+        }
+        private bool EsCodigoMuyCorto()
+        {
+            if (txtBuscarProducto.Text.Length < 4)
+            {
+                MessageBox.Show("El CODIGO del Producto es muy corto, vuelva intentar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
     }
 }

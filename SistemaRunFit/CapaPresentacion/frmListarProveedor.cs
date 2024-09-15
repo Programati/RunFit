@@ -52,6 +52,31 @@ namespace CapaPresentacion
         {
             txtBuscarPorProveedor.Clear();
         }
+
+        private void txtBuscarPorProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBuscarPorProveedor_Click(object sender, EventArgs e)
+        {
+            if (EsCuitMuyCorto())
+            {
+                return;
+            }
+        }
+        private bool EsCuitMuyCorto()
+        {
+            if (txtBuscarPorProveedor.Text.Length < 10)
+            {
+                MessageBox.Show("El número del CUIT del Proveedor es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
     }
 
 }
