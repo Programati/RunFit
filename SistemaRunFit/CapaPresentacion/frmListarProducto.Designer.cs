@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+=======
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+>>>>>>> rama-julio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarProducto));
             this.pnlContenedorProducto = new System.Windows.Forms.Panel();
             this.grbListaProducto = new Guna.UI.WinForms.GunaGroupBox();
@@ -67,11 +74,13 @@
             this.pnlContenedorProducto.Controls.Add(this.pnlBusquedaProducto);
             this.pnlContenedorProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorProducto.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenedorProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContenedorProducto.Name = "pnlContenedorProducto";
-            this.pnlContenedorProducto.Size = new System.Drawing.Size(800, 450);
+            this.pnlContenedorProducto.Size = new System.Drawing.Size(1067, 554);
             this.pnlContenedorProducto.TabIndex = 0;
             // 
             // grbListaProducto
+<<<<<<< HEAD
             // 
             this.grbListaProducto.BackColor = System.Drawing.Color.Transparent;
             this.grbListaProducto.BaseColor = System.Drawing.Color.White;
@@ -394,9 +403,345 @@
             this.lblBuscarProducto.Size = new System.Drawing.Size(55, 16);
             this.lblBuscarProducto.TabIndex = 1;
             this.lblBuscarProducto.Text = "Codigo";
+=======
+            // 
+            this.grbListaProducto.BackColor = System.Drawing.Color.Transparent;
+            this.grbListaProducto.BaseColor = System.Drawing.Color.White;
+            this.grbListaProducto.BorderColor = System.Drawing.Color.Black;
+            this.grbListaProducto.Controls.Add(this.dgvListaProducto);
+            this.grbListaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbListaProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaProducto.ForeColor = System.Drawing.Color.White;
+            this.grbListaProducto.LineBottom = 2;
+            this.grbListaProducto.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.grbListaProducto.LineLeft = 2;
+            this.grbListaProducto.LineRight = 2;
+            this.grbListaProducto.Location = new System.Drawing.Point(0, 123);
+            this.grbListaProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbListaProducto.Name = "grbListaProducto";
+            this.grbListaProducto.Padding = new System.Windows.Forms.Padding(3, 37, 3, 2);
+            this.grbListaProducto.Size = new System.Drawing.Size(1067, 431);
+            this.grbListaProducto.TabIndex = 60;
+            this.grbListaProducto.Text = "Lista de Productos";
+            this.grbListaProducto.TextLocation = new System.Drawing.Point(10, 8);
+>>>>>>> rama-julio
             // 
             // txtBuscarProducto
             // 
+<<<<<<< HEAD
+=======
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvListaProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaProducto.BackgroundColor = System.Drawing.Color.White;
+            this.dgvListaProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaProducto.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvListaProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaProducto.ColumnHeadersHeight = 34;
+            this.dgvListaProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Editar,
+            this.Eliminar,
+            this.ID,
+            this.Producto,
+            this.PrecioCompra,
+            this.PrecioVenta,
+            this.Stock,
+            this.StockMinimo,
+            this.Marca,
+            this.Categoria,
+            this.Proveedor,
+            this.ImagenProducto});
+            this.dgvListaProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProducto.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvListaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvListaProducto.EnableHeadersVisualStyles = false;
+            this.dgvListaProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
+            this.dgvListaProducto.Location = new System.Drawing.Point(3, 37);
+            this.dgvListaProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvListaProducto.Name = "dgvListaProducto";
+            this.dgvListaProducto.ReadOnly = true;
+            this.dgvListaProducto.RowHeadersVisible = false;
+            this.dgvListaProducto.RowHeadersWidth = 51;
+            this.dgvListaProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaProducto.Size = new System.Drawing.Size(1061, 392);
+            this.dgvListaProducto.TabIndex = 0;
+            this.dgvListaProducto.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
+            this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvListaProducto.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvListaProducto.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.Height = 34;
+            this.dgvListaProducto.ThemeStyle.ReadOnly = true;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            this.dgvListaProducto.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProducto.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            this.dgvListaProducto.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = "null";
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 80;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 99;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 53;
+            // 
+            // Producto
+            // 
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 109;
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PrecioCompra.HeaderText = "Precio Compra";
+            this.PrecioCompra.MinimumWidth = 6;
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
+            this.PrecioCompra.Width = 160;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PrecioVenta.HeaderText = "Precio Venta";
+            this.PrecioVenta.MinimumWidth = 6;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 141;
+            // 
+            // Stock
+            // 
+            this.Stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 6;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 81;
+            // 
+            // StockMinimo
+            // 
+            this.StockMinimo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StockMinimo.HeaderText = "Stock Mínimo";
+            this.StockMinimo.MinimumWidth = 6;
+            this.StockMinimo.Name = "StockMinimo";
+            this.StockMinimo.ReadOnly = true;
+            this.StockMinimo.Width = 146;
+            // 
+            // Marca
+            // 
+            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 89;
+            // 
+            // Categoria
+            // 
+            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.MinimumWidth = 6;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 117;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 6;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 121;
+            // 
+            // ImagenProducto
+            // 
+            this.ImagenProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ImagenProducto.HeaderText = "Imagen";
+            this.ImagenProducto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.ImagenProducto.MinimumWidth = 6;
+            this.ImagenProducto.Name = "ImagenProducto";
+            this.ImagenProducto.ReadOnly = true;
+            this.ImagenProducto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ImagenProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // pnlBusquedaProducto
+            // 
+            this.pnlBusquedaProducto.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBusquedaProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaProducto.Controls.Add(this.btnNuevoProducto);
+            this.pnlBusquedaProducto.Controls.Add(this.btnLimpiarBuscarProducto);
+            this.pnlBusquedaProducto.Controls.Add(this.btnBuscarProducto);
+            this.pnlBusquedaProducto.Controls.Add(this.lblBuscarProducto);
+            this.pnlBusquedaProducto.Controls.Add(this.txtBuscarProducto);
+            this.pnlBusquedaProducto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBusquedaProducto.Location = new System.Drawing.Point(0, 0);
+            this.pnlBusquedaProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlBusquedaProducto.Name = "pnlBusquedaProducto";
+            this.pnlBusquedaProducto.Radius = 5;
+            this.pnlBusquedaProducto.ShadowColor = System.Drawing.Color.Black;
+            this.pnlBusquedaProducto.Size = new System.Drawing.Size(1067, 123);
+            this.pnlBusquedaProducto.TabIndex = 58;
+            // 
+            // btnNuevoProducto
+            // 
+            this.btnNuevoProducto.AnimationHoverSpeed = 0.07F;
+            this.btnNuevoProducto.AnimationSpeed = 0.03F;
+            this.btnNuevoProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnNuevoProducto.BaseColor = System.Drawing.Color.White;
+            this.btnNuevoProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnNuevoProducto.BorderSize = 2;
+            this.btnNuevoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNuevoProducto.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNuevoProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
+            this.btnNuevoProducto.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnNuevoProducto.Location = new System.Drawing.Point(27, 41);
+            this.btnNuevoProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevoProducto.Name = "btnNuevoProducto";
+            this.btnNuevoProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNuevoProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevoProducto.OnHoverImage = null;
+            this.btnNuevoProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNuevoProducto.Radius = 10;
+            this.btnNuevoProducto.Size = new System.Drawing.Size(133, 42);
+            this.btnNuevoProducto.TabIndex = 71;
+            this.btnNuevoProducto.Text = "Nuevo";
+            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
+            // 
+            // btnLimpiarBuscarProducto
+            // 
+            this.btnLimpiarBuscarProducto.AnimationHoverSpeed = 0.07F;
+            this.btnLimpiarBuscarProducto.AnimationSpeed = 0.03F;
+            this.btnLimpiarBuscarProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarBuscarProducto.BaseColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnLimpiarBuscarProducto.BorderSize = 2;
+            this.btnLimpiarBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarBuscarProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLimpiarBuscarProducto.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarBuscarProducto.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnLimpiarBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarBuscarProducto.Image")));
+            this.btnLimpiarBuscarProducto.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnLimpiarBuscarProducto.Location = new System.Drawing.Point(569, 43);
+            this.btnLimpiarBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarBuscarProducto.Name = "btnLimpiarBuscarProducto";
+            this.btnLimpiarBuscarProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnLimpiarBuscarProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscarProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscarProducto.OnHoverImage = null;
+            this.btnLimpiarBuscarProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscarProducto.Radius = 5;
+            this.btnLimpiarBuscarProducto.Size = new System.Drawing.Size(47, 37);
+            this.btnLimpiarBuscarProducto.TabIndex = 56;
+            this.btnLimpiarBuscarProducto.Click += new System.EventHandler(this.btnLimpiarBuscarProducto_Click);
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.AnimationHoverSpeed = 0.07F;
+            this.btnBuscarProducto.AnimationSpeed = 0.03F;
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarProducto.BaseColor = System.Drawing.Color.Transparent;
+            this.btnBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnBuscarProducto.BorderSize = 2;
+            this.btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBuscarProducto.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnBuscarProducto.Location = new System.Drawing.Point(515, 43);
+            this.btnBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnBuscarProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnBuscarProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.OnHoverImage = null;
+            this.btnBuscarProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBuscarProducto.Radius = 5;
+            this.btnBuscarProducto.Size = new System.Drawing.Size(47, 37);
+            this.btnBuscarProducto.TabIndex = 55;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // lblBuscarProducto
+            // 
+            this.lblBuscarProducto.AutoSize = true;
+            this.lblBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.lblBuscarProducto.Location = new System.Drawing.Point(181, 52);
+            this.lblBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarProducto.Name = "lblBuscarProducto";
+            this.lblBuscarProducto.Size = new System.Drawing.Size(70, 19);
+            this.lblBuscarProducto.TabIndex = 1;
+            this.lblBuscarProducto.Text = "Codigo";
+            // 
+            // txtBuscarProducto
+            // 
+>>>>>>> rama-julio
             this.txtBuscarProducto.BackColor = System.Drawing.Color.Transparent;
             this.txtBuscarProducto.BaseColor = System.Drawing.Color.White;
             this.txtBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
@@ -405,21 +750,35 @@
             this.txtBuscarProducto.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarProducto.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.txtBuscarProducto.Location = new System.Drawing.Point(197, 37);
+=======
+            this.txtBuscarProducto.Location = new System.Drawing.Point(263, 46);
+            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarProducto.MaxLength = 4;
+>>>>>>> rama-julio
             this.txtBuscarProducto.Name = "txtBuscarProducto";
             this.txtBuscarProducto.PasswordChar = '\0';
             this.txtBuscarProducto.Radius = 10;
             this.txtBuscarProducto.SelectedText = "";
+<<<<<<< HEAD
             this.txtBuscarProducto.Size = new System.Drawing.Size(183, 26);
             this.txtBuscarProducto.TabIndex = 52;
             this.txtBuscarProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+=======
+            this.txtBuscarProducto.Size = new System.Drawing.Size(244, 36);
+            this.txtBuscarProducto.TabIndex = 52;
+            this.txtBuscarProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarProducto_KeyPress);
+>>>>>>> rama-julio
             // 
             // frmListarProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.pnlContenedorProducto);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListarProducto";
             this.Text = "frmListarProducto";
             this.pnlContenedorProducto.ResumeLayout(false);

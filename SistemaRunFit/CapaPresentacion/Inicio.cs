@@ -152,6 +152,11 @@ namespace CapaPresentacion
                 btnStock.Visible = false;
             }
         }
+
+        private void btnMarca_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(btnMarca, new frmMarca());
+        }
     }   
 
 }
