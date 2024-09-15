@@ -66,6 +66,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMarca.Designer.cs">
+      <DependentUpon>frmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarUsuario.resx">
       <DependentUpon>frmListarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMarca.resx">
+      <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducto.resx">
       <DependentUpon>frmProducto.cs</DependentUpon>

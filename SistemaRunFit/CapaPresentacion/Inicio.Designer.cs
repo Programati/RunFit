@@ -47,6 +47,7 @@
             this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
+            this.btnMarca = new Guna.UI.WinForms.GunaGradientButton();
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
@@ -83,13 +84,12 @@
             this.btnAcercaDe.BorderColor = System.Drawing.Color.Black;
             this.btnAcercaDe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAcercaDe.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAcercaDe.FocusedColor = System.Drawing.Color.Empty;
             this.btnAcercaDe.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
             this.btnAcercaDe.Image = ((System.Drawing.Image)(resources.GetObject("btnAcercaDe.Image")));
             this.btnAcercaDe.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAcercaDe.Location = new System.Drawing.Point(0, 429);
+            this.btnAcercaDe.Location = new System.Drawing.Point(0, 463);
             this.btnAcercaDe.Name = "btnAcercaDe";
             this.btnAcercaDe.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnAcercaDe.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -106,11 +106,12 @@
             // panelSubMantenedor
             // 
             this.panelSubMantenedor.Controls.Add(this.btnProducto);
+            this.panelSubMantenedor.Controls.Add(this.btnMarca);
             this.panelSubMantenedor.Controls.Add(this.btnCategoria);
             this.panelSubMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMantenedor.Location = new System.Drawing.Point(0, 380);
             this.panelSubMantenedor.Name = "panelSubMantenedor";
-            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 49);
+            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 77);
             this.panelSubMantenedor.TabIndex = 17;
             // 
             // btnProducto
@@ -124,7 +125,7 @@
             this.btnProducto.BorderSize = 1;
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProducto.FocusedColor = System.Drawing.Color.Empty;
             this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.Color.Black;
@@ -139,7 +140,7 @@
             this.btnProducto.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnProducto.OnHoverImage = null;
             this.btnProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnProducto.Size = new System.Drawing.Size(133, 25);
+            this.btnProducto.Size = new System.Drawing.Size(133, 27);
             this.btnProducto.TabIndex = 1;
             this.btnProducto.Text = "Producto";
             this.btnProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -481,6 +482,37 @@
             this.panelContenedorFormularios.Size = new System.Drawing.Size(951, 561);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
+            // btnMarca
+            // 
+            this.btnMarca.Animated = true;
+            this.btnMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMarca.AnimationSpeed = 0.03F;
+            this.btnMarca.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.btnMarca.BaseColor2 = System.Drawing.Color.WhiteSmoke;
+            this.btnMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMarca.BorderSize = 1;
+            this.btnMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMarca.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMarca.FocusedColor = System.Drawing.Color.Empty;
+            this.btnMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarca.ForeColor = System.Drawing.Color.Black;
+            this.btnMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMarca.Image")));
+            this.btnMarca.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnMarca.ImageSize = new System.Drawing.Size(15, 15);
+            this.btnMarca.Location = new System.Drawing.Point(0, 52);
+            this.btnMarca.Name = "btnMarca";
+            this.btnMarca.OnHoverBaseColor1 = System.Drawing.Color.White;
+            this.btnMarca.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnMarca.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btnMarca.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMarca.OnHoverImage = null;
+            this.btnMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMarca.Size = new System.Drawing.Size(133, 25);
+            this.btnMarca.TabIndex = 19;
+            this.btnMarca.Text = "Marca";
+            this.btnMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,6 +555,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel panelContenedorFormularios;
+        private Guna.UI.WinForms.GunaGradientButton btnMarca;
     }
 }
 
