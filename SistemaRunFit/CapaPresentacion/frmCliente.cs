@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using CapaDeEntidades;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,17 @@ namespace CapaPresentacion
 {
     public partial class frmCliente : Form
     {
+        private static Domicilio DomicilioDGV = null;
         Color colorAzul = Color.FromArgb(6, 71, 109);
         public frmCliente()
         {
             InitializeComponent();
             txtNombreCliente.Focus();
+        }
+        public frmCliente(Domicilio DomicilioEditar)
+        {
+            DomicilioDGV = DomicilioEditar;
+            InitializeComponent();
         }
 
         private void txtNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -296,12 +303,50 @@ namespace CapaPresentacion
 
         private void btnVolverCliente_Click(object sender, EventArgs e)
         {
+            DomicilioDGV = null;
             this.Close();
         }
 
         private void frmCliente_Load(object sender, EventArgs e)
         {
+            /*
+             Si EDITAMOS un CLIENTE, vamos a traer todos los datos y rellenar los campos
+             */
+            if (DomicilioDGV != null)
+            {
+                char sexo = DomicilioDGV.oPersona.sexo;
 
+                txtNombreCliente.Text = DomicilioDGV.oPersona.nombre;
+                txtApellidoCliente.Text = DomicilioDGV.oPersona.apellido;
+                txtDniCliente.Text = DomicilioDGV.oPersona.dni;
+                txtTelefonoCliente.Text = DomicilioDGV.oPersona.telefono;
+                txtEmailCliente.Text = DomicilioDGV.oPersona.email;
+                if (sexo == 'M')rdbtnMasculinoCliente.Checked = true;
+                else rdbtnFemeninoCliente.Checked = true;
+
+                string fechaString = DomicilioDGV.oPersona.fechaNacimiento;
+                DateTime fecha = DateTime.Parse(fechaString);
+                dtpFechaCliente.Value = fecha;
+
+                txtCalleCliente.Text = DomicilioDGV.calle;
+                txtAlturaCliente.Text = DomicilioDGV.altura;
+
+                if (DomicilioDGV.departamento != "")
+                {
+                    chbActivarOpcion1Cliente.Checked = true;
+                    txtPisoCliente.Text = DomicilioDGV.piso;
+                    txtDeptoCliente.Text = DomicilioDGV.departamento;
+                }
+                if (DomicilioDGV.casa != "")
+                {
+                    chbActivarOpcion2Cliente.Checked = true;
+                    txtCasaCliente.Text = DomicilioDGV.casa;
+                    txtManzanaCliente.Text = DomicilioDGV.manzana;
+                }
+                
+                btnVolverCliente.Focus();
+
+            }
         }
     }
 }

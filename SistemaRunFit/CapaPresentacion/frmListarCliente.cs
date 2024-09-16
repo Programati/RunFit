@@ -1,4 +1,6 @@
-﻿using Guna.UI.WinForms;
+﻿using CapaDeEntidades;
+using CapaDeNegocios;
+using Guna.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +76,40 @@ namespace CapaPresentacion
                 return true;
             }
             return false;
+        }
+
+        private void frmListarCliente_Load(object sender, EventArgs e)
+        {
+            List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
+            
+            foreach (Domicilio item in ListaDomicilio)
+            {
+                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo, item.idDomicilio, item.calle, item.altura, item.casa, item.manzana, item.departamento, item.piso });
+            }
+        }
+
+        private void dgvListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListaClientes.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex;
+                if (n >= 0)
+                {
+                    
+                    Domicilio DomicilioEditar = new Domicilio() { idDomicilio = Convert.ToInt32(dgvListaClientes.Rows[n].Cells["idDomicilio"].Value), calle = dgvListaClientes.Rows[n].Cells["Calle"].Value.ToString(), altura = dgvListaClientes.Rows[n].Cells["Altura"].Value.ToString(), casa = dgvListaClientes.Rows[n].Cells["Casa"].Value.ToString(), manzana = dgvListaClientes.Rows[n].Cells["Manzana"].Value.ToString(), departamento = dgvListaClientes.Rows[n].Cells["Departamento"].Value.ToString(), piso = dgvListaClientes.Rows[n].Cells["Piso"].Value.ToString(), oPersona = new Persona() { idPersona = Convert.ToInt32(dgvListaClientes.Rows[n].Cells["idPersona"].Value), dni = dgvListaClientes.Rows[n].Cells["Dni"].Value.ToString(), nombre = dgvListaClientes.Rows[n].Cells["Nombre"].Value.ToString(), apellido = dgvListaClientes.Rows[n].Cells["Apellido"].Value.ToString(), email = dgvListaClientes.Rows[n].Cells["Email"].Value.ToString(), telefono = dgvListaClientes.Rows[n].Cells["Telefono"].Value.ToString(), fechaNacimiento = dgvListaClientes.Rows[n].Cells["FechaNacimiento"].Value.ToString(), sexo = Convert.ToChar(dgvListaClientes.Rows[n].Cells["Sexo"].Value) } };
+
+                    frmCliente CrearNuevoCliente = new frmCliente(DomicilioEditar);
+
+                    CrearNuevoCliente.TopLevel = false;
+                    pnlContenedorCliente.Controls.Clear();
+                    pnlContenedorCliente.Controls.Add(CrearNuevoCliente);
+                    CrearNuevoCliente.FormBorderStyle = FormBorderStyle.None;
+                    CrearNuevoCliente.Dock = DockStyle.Fill;
+
+                    CrearNuevoCliente.Show();
+                    CrearNuevoCliente.FormClosing += frm_closing;
+                }
+            }
         }
     }
 }
