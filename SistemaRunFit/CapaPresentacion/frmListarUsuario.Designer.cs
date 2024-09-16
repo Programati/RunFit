@@ -246,6 +246,7 @@
             this.dgvListaUser.EnableHeadersVisualStyles = false;
             this.dgvListaUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaUser.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaUser.MultiSelect = false;
             this.dgvListaUser.Name = "dgvListaUser";
             this.dgvListaUser.ReadOnly = true;
             this.dgvListaUser.RowHeadersVisible = false;

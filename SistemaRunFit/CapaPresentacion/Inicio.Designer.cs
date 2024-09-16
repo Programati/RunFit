@@ -70,9 +70,8 @@
             this.pnlContenedorMenu.Controls.Add(this.pnlLogo);
             this.pnlContenedorMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlContenedorMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenedorMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContenedorMenu.Name = "pnlContenedorMenu";
-            this.pnlContenedorMenu.Size = new System.Drawing.Size(177, 690);
+            this.pnlContenedorMenu.Size = new System.Drawing.Size(133, 561);
             this.pnlContenedorMenu.TabIndex = 3;
             // 
             // btnAcercaDe
@@ -85,13 +84,13 @@
             this.btnAcercaDe.BorderColor = System.Drawing.Color.Black;
             this.btnAcercaDe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAcercaDe.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAcercaDe.FocusedColor = System.Drawing.Color.Empty;
             this.btnAcercaDe.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
             this.btnAcercaDe.Image = ((System.Drawing.Image)(resources.GetObject("btnAcercaDe.Image")));
             this.btnAcercaDe.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAcercaDe.Location = new System.Drawing.Point(0, 570);
-            this.btnAcercaDe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcercaDe.Location = new System.Drawing.Point(0, 457);
             this.btnAcercaDe.Name = "btnAcercaDe";
             this.btnAcercaDe.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnAcercaDe.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -99,7 +98,7 @@
             this.btnAcercaDe.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnAcercaDe.OnHoverImage = null;
             this.btnAcercaDe.OnPressedColor = System.Drawing.Color.Black;
-            this.btnAcercaDe.Size = new System.Drawing.Size(177, 49);
+            this.btnAcercaDe.Size = new System.Drawing.Size(133, 40);
             this.btnAcercaDe.TabIndex = 18;
             this.btnAcercaDe.Text = "ACERCA DE";
             this.btnAcercaDe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -111,10 +110,9 @@
             this.panelSubMantenedor.Controls.Add(this.btnMarca);
             this.panelSubMantenedor.Controls.Add(this.btnCategoria);
             this.panelSubMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMantenedor.Location = new System.Drawing.Point(0, 467);
-            this.panelSubMantenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSubMantenedor.Location = new System.Drawing.Point(0, 380);
             this.panelSubMantenedor.Name = "panelSubMantenedor";
-            this.panelSubMantenedor.Size = new System.Drawing.Size(177, 95);
+            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 77);
             this.panelSubMantenedor.TabIndex = 17;
             // 
             // btnProducto
@@ -135,8 +133,7 @@
             this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
             this.btnProducto.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnProducto.ImageSize = new System.Drawing.Size(15, 15);
-            this.btnProducto.Location = new System.Drawing.Point(0, 31);
-            this.btnProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProducto.Location = new System.Drawing.Point(0, 25);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnProducto.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -144,7 +141,7 @@
             this.btnProducto.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnProducto.OnHoverImage = null;
             this.btnProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnProducto.Size = new System.Drawing.Size(177, 33);
+            this.btnProducto.Size = new System.Drawing.Size(133, 27);
             this.btnProducto.TabIndex = 1;
             this.btnProducto.Text = "Producto";
             this.btnProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -168,8 +165,7 @@
             this.btnMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMarca.Image")));
             this.btnMarca.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnMarca.ImageSize = new System.Drawing.Size(15, 15);
-            this.btnMarca.Location = new System.Drawing.Point(0, 64);
-            this.btnMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMarca.Location = new System.Drawing.Point(0, 52);
             this.btnMarca.Name = "btnMarca";
             this.btnMarca.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnMarca.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -177,7 +173,7 @@
             this.btnMarca.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnMarca.OnHoverImage = null;
             this.btnMarca.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMarca.Size = new System.Drawing.Size(177, 31);
+            this.btnMarca.Size = new System.Drawing.Size(133, 25);
             this.btnMarca.TabIndex = 19;
             this.btnMarca.Text = "Marca";
             this.btnMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -202,7 +198,6 @@
             this.btnCategoria.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnCategoria.ImageSize = new System.Drawing.Size(15, 15);
             this.btnCategoria.Location = new System.Drawing.Point(0, 0);
-            this.btnCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnCategoria.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -210,7 +205,7 @@
             this.btnCategoria.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnCategoria.OnHoverImage = null;
             this.btnCategoria.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCategoria.Size = new System.Drawing.Size(177, 31);
+            this.btnCategoria.Size = new System.Drawing.Size(133, 25);
             this.btnCategoria.TabIndex = 0;
             this.btnCategoria.Text = "Categoria";
             this.btnCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -232,8 +227,7 @@
             this.btnStock.ForeColor = System.Drawing.Color.White;
             this.btnStock.Image = ((System.Drawing.Image)(resources.GetObject("btnStock.Image")));
             this.btnStock.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnStock.Location = new System.Drawing.Point(0, 418);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStock.Location = new System.Drawing.Point(0, 340);
             this.btnStock.Name = "btnStock";
             this.btnStock.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnStock.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -241,7 +235,7 @@
             this.btnStock.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnStock.OnHoverImage = null;
             this.btnStock.OnPressedColor = System.Drawing.Color.Black;
-            this.btnStock.Size = new System.Drawing.Size(177, 49);
+            this.btnStock.Size = new System.Drawing.Size(133, 40);
             this.btnStock.TabIndex = 16;
             this.btnStock.Text = "STOCK ...";
             this.btnStock.TextOffsetX = -8;
@@ -263,8 +257,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnReportes.Location = new System.Drawing.Point(0, 369);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReportes.Location = new System.Drawing.Point(0, 300);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnReportes.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -272,7 +265,7 @@
             this.btnReportes.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnReportes.OnHoverImage = null;
             this.btnReportes.OnPressedColor = System.Drawing.Color.Black;
-            this.btnReportes.Size = new System.Drawing.Size(177, 49);
+            this.btnReportes.Size = new System.Drawing.Size(133, 40);
             this.btnReportes.TabIndex = 15;
             this.btnReportes.Text = "REPORTES";
             this.btnReportes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -295,8 +288,7 @@
             this.btnProveedores.ForeColor = System.Drawing.Color.White;
             this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
             this.btnProveedores.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnProveedores.Location = new System.Drawing.Point(0, 320);
-            this.btnProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 260);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnProveedores.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -304,7 +296,7 @@
             this.btnProveedores.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnProveedores.OnHoverImage = null;
             this.btnProveedores.OnPressedColor = System.Drawing.Color.Black;
-            this.btnProveedores.Size = new System.Drawing.Size(177, 49);
+            this.btnProveedores.Size = new System.Drawing.Size(133, 40);
             this.btnProveedores.TabIndex = 14;
             this.btnProveedores.Text = "PROVEEDORES";
             this.btnProveedores.TextOffsetX = -8;
@@ -315,10 +307,9 @@
             this.subVentas.Controls.Add(this.btnBuscarVentas);
             this.subVentas.Controls.Add(this.btnRegistrarVentas);
             this.subVentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subVentas.Location = new System.Drawing.Point(0, 258);
-            this.subVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subVentas.Location = new System.Drawing.Point(0, 210);
             this.subVentas.Name = "subVentas";
-            this.subVentas.Size = new System.Drawing.Size(177, 62);
+            this.subVentas.Size = new System.Drawing.Size(133, 50);
             this.subVentas.TabIndex = 3;
             // 
             // btnBuscarVentas
@@ -340,8 +331,7 @@
             this.btnBuscarVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarVentas.Image")));
             this.btnBuscarVentas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnBuscarVentas.ImageSize = new System.Drawing.Size(15, 15);
-            this.btnBuscarVentas.Location = new System.Drawing.Point(0, 31);
-            this.btnBuscarVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarVentas.Location = new System.Drawing.Point(0, 25);
             this.btnBuscarVentas.Name = "btnBuscarVentas";
             this.btnBuscarVentas.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnBuscarVentas.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -349,7 +339,7 @@
             this.btnBuscarVentas.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnBuscarVentas.OnHoverImage = null;
             this.btnBuscarVentas.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscarVentas.Size = new System.Drawing.Size(177, 31);
+            this.btnBuscarVentas.Size = new System.Drawing.Size(133, 25);
             this.btnBuscarVentas.TabIndex = 16;
             this.btnBuscarVentas.Text = "Buscar";
             this.btnBuscarVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -375,7 +365,6 @@
             this.btnRegistrarVentas.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRegistrarVentas.ImageSize = new System.Drawing.Size(15, 15);
             this.btnRegistrarVentas.Location = new System.Drawing.Point(0, 0);
-            this.btnRegistrarVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistrarVentas.Name = "btnRegistrarVentas";
             this.btnRegistrarVentas.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnRegistrarVentas.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -383,7 +372,7 @@
             this.btnRegistrarVentas.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnRegistrarVentas.OnHoverImage = null;
             this.btnRegistrarVentas.OnPressedColor = System.Drawing.Color.Black;
-            this.btnRegistrarVentas.Size = new System.Drawing.Size(177, 31);
+            this.btnRegistrarVentas.Size = new System.Drawing.Size(133, 25);
             this.btnRegistrarVentas.TabIndex = 15;
             this.btnRegistrarVentas.Text = "Registrar";
             this.btnRegistrarVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -406,8 +395,7 @@
             this.btnVentas.ForeColor = System.Drawing.Color.White;
             this.btnVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnVentas.Image")));
             this.btnVentas.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVentas.Location = new System.Drawing.Point(0, 209);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVentas.Location = new System.Drawing.Point(0, 170);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnVentas.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -415,7 +403,7 @@
             this.btnVentas.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnVentas.OnHoverImage = null;
             this.btnVentas.OnPressedColor = System.Drawing.Color.Black;
-            this.btnVentas.Size = new System.Drawing.Size(177, 49);
+            this.btnVentas.Size = new System.Drawing.Size(133, 40);
             this.btnVentas.TabIndex = 10;
             this.btnVentas.Text = "VENTAS";
             this.btnVentas.TextOffsetX = -8;
@@ -438,8 +426,7 @@
             this.btnUsuario.ForeColor = System.Drawing.Color.White;
             this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
             this.btnUsuario.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnUsuario.Location = new System.Drawing.Point(0, 160);
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUsuario.Location = new System.Drawing.Point(0, 130);
             this.btnUsuario.Name = "btnUsuario";
             this.btnUsuario.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnUsuario.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -447,7 +434,7 @@
             this.btnUsuario.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnUsuario.OnHoverImage = null;
             this.btnUsuario.OnPressedColor = System.Drawing.Color.Black;
-            this.btnUsuario.Size = new System.Drawing.Size(177, 49);
+            this.btnUsuario.Size = new System.Drawing.Size(133, 40);
             this.btnUsuario.TabIndex = 9;
             this.btnUsuario.Text = "USUARIOS";
             this.btnUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -470,8 +457,7 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnClientes.Location = new System.Drawing.Point(0, 111);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClientes.Location = new System.Drawing.Point(0, 90);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnClientes.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -479,7 +465,7 @@
             this.btnClientes.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnClientes.OnHoverImage = null;
             this.btnClientes.OnPressedColor = System.Drawing.Color.Black;
-            this.btnClientes.Size = new System.Drawing.Size(177, 49);
+            this.btnClientes.Size = new System.Drawing.Size(133, 40);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "PERSONAS";
             this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -492,9 +478,8 @@
             this.pnlLogo.Controls.Add(this.pictureBox1);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(177, 111);
+            this.pnlLogo.Size = new System.Drawing.Size(133, 90);
             this.pnlLogo.TabIndex = 0;
             // 
             // lblFitLogoMenu
@@ -504,20 +489,18 @@
             this.lblFitLogoMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblFitLogoMenu.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFitLogoMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.lblFitLogoMenu.Location = new System.Drawing.Point(103, 65);
-            this.lblFitLogoMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFitLogoMenu.Location = new System.Drawing.Point(77, 53);
             this.lblFitLogoMenu.Name = "lblFitLogoMenu";
-            this.lblFitLogoMenu.Size = new System.Drawing.Size(52, 38);
+            this.lblFitLogoMenu.Size = new System.Drawing.Size(42, 30);
             this.lblFitLogoMenu.TabIndex = 4;
             this.lblFitLogoMenu.Text = "FIT";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Run;
-            this.pictureBox1.Location = new System.Drawing.Point(-13, -25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(-10, -20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 135);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -526,23 +509,21 @@
             // 
             this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
             this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorFormularios.Location = new System.Drawing.Point(177, 0);
-            this.panelContenedorFormularios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
-            this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.panelContenedorFormularios.Size = new System.Drawing.Size(1268, 690);
+            this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1445, 690);
+            this.ClientSize = new System.Drawing.Size(1028, 561);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";

@@ -14,7 +14,6 @@ using Guna.UI.WinForms;
 
 using CapaDeEntidades;
 using CapaDeNegocios;
-using CapaPresentacion.Utilidades;
 
 namespace CapaPresentacion
 {

@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-=======
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
->>>>>>> rama-julio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarProveedor));
             this.pnlContenedorDatosProveedor = new System.Windows.Forms.Panel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
@@ -71,9 +65,8 @@
             this.pnlContenedorDatosProveedor.Controls.Add(this.pnlBusquedaProv);
             this.pnlContenedorDatosProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorDatosProveedor.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenedorDatosProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContenedorDatosProveedor.Name = "pnlContenedorDatosProveedor";
-            this.pnlContenedorDatosProveedor.Size = new System.Drawing.Size(923, 572);
+            this.pnlContenedorDatosProveedor.Size = new System.Drawing.Size(692, 465);
             this.pnlContenedorDatosProveedor.TabIndex = 54;
             // 
             // grbListaUsuarios
@@ -89,31 +82,24 @@
             this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.LineLeft = 2;
             this.grbListaUsuarios.LineRight = 2;
-            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 123);
-            this.grbListaUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 100);
             this.grbListaUsuarios.Name = "grbListaUsuarios";
-            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(3, 37, 3, 2);
-            this.grbListaUsuarios.Size = new System.Drawing.Size(923, 449);
+            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaUsuarios.Size = new System.Drawing.Size(692, 365);
             this.grbListaUsuarios.TabIndex = 54;
             this.grbListaUsuarios.Text = "Lista de Proveedores";
             this.grbListaUsuarios.TextLocation = new System.Drawing.Point(10, 8);
             // 
             // dgvListaProveedor
             // 
-<<<<<<< HEAD
             this.dgvListaProveedor.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-=======
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
->>>>>>> rama-julio
             this.dgvListaProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaProveedor.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-<<<<<<< HEAD
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,17 +110,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListaProveedor.ColumnHeadersHeight = 34;
-=======
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvListaProveedor.ColumnHeadersHeight = 18;
->>>>>>> rama-julio
             this.dgvListaProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_Prov,
             this.Cuit_Prev,
@@ -145,7 +120,6 @@
             this.Editar,
             this.Eliminar});
             this.dgvListaProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-<<<<<<< HEAD
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,27 +133,12 @@
             this.dgvListaProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaProveedor.Location = new System.Drawing.Point(2, 30);
             this.dgvListaProveedor.MultiSelect = false;
-=======
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaProveedor.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvListaProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvListaProveedor.EnableHeadersVisualStyles = false;
-            this.dgvListaProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvListaProveedor.Location = new System.Drawing.Point(3, 37);
-            this.dgvListaProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> rama-julio
             this.dgvListaProveedor.Name = "dgvListaProveedor";
             this.dgvListaProveedor.ReadOnly = true;
             this.dgvListaProveedor.RowHeadersVisible = false;
             this.dgvListaProveedor.RowHeadersWidth = 51;
             this.dgvListaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProveedor.Size = new System.Drawing.Size(917, 410);
+            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 333);
             this.dgvListaProveedor.TabIndex = 0;
             this.dgvListaProveedor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -211,11 +170,7 @@
             this.Nombre_Prov.MinimumWidth = 6;
             this.Nombre_Prov.Name = "Nombre_Prov";
             this.Nombre_Prov.ReadOnly = true;
-<<<<<<< HEAD
             this.Nombre_Prov.Width = 117;
-=======
-            this.Nombre_Prov.Width = 141;
->>>>>>> rama-julio
             // 
             // Cuit_Prev
             // 
@@ -224,11 +179,7 @@
             this.Cuit_Prev.MinimumWidth = 6;
             this.Cuit_Prev.Name = "Cuit_Prev";
             this.Cuit_Prev.ReadOnly = true;
-<<<<<<< HEAD
             this.Cuit_Prev.Width = 62;
-=======
-            this.Cuit_Prev.Width = 71;
->>>>>>> rama-julio
             // 
             // Direccion
             // 
@@ -237,10 +188,6 @@
             this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
-<<<<<<< HEAD
-=======
-            this.Direccion.Width = 119;
->>>>>>> rama-julio
             // 
             // Telefono
             // 
@@ -249,11 +196,7 @@
             this.Telefono.MinimumWidth = 6;
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
-<<<<<<< HEAD
             this.Telefono.Width = 88;
-=======
-            this.Telefono.Width = 106;
->>>>>>> rama-julio
             // 
             // Email
             // 
@@ -262,11 +205,7 @@
             this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
-<<<<<<< HEAD
             this.Email.Width = 70;
-=======
-            this.Email.Width = 80;
->>>>>>> rama-julio
             // 
             // Descrip_Proveedor
             // 
@@ -275,11 +214,7 @@
             this.Descrip_Proveedor.MinimumWidth = 6;
             this.Descrip_Proveedor.Name = "Descrip_Proveedor";
             this.Descrip_Proveedor.ReadOnly = true;
-<<<<<<< HEAD
             this.Descrip_Proveedor.Width = 111;
-=======
-            this.Descrip_Proveedor.Width = 134;
->>>>>>> rama-julio
             // 
             // Editar
             // 
@@ -290,11 +225,7 @@
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-<<<<<<< HEAD
             this.Editar.Width = 53;
-=======
-            this.Editar.Width = 57;
->>>>>>> rama-julio
             // 
             // Eliminar
             // 
@@ -305,11 +236,7 @@
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-<<<<<<< HEAD
             this.Eliminar.Width = 68;
-=======
-            this.Eliminar.Width = 76;
->>>>>>> rama-julio
             // 
             // pnlBusquedaProv
             // 
@@ -322,11 +249,10 @@
             this.pnlBusquedaProv.Controls.Add(this.lblBuscarProv);
             this.pnlBusquedaProv.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBusquedaProv.Location = new System.Drawing.Point(0, 0);
-            this.pnlBusquedaProv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlBusquedaProv.Name = "pnlBusquedaProv";
             this.pnlBusquedaProv.Radius = 5;
             this.pnlBusquedaProv.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaProv.Size = new System.Drawing.Size(923, 123);
+            this.pnlBusquedaProv.Size = new System.Drawing.Size(692, 100);
             this.pnlBusquedaProv.TabIndex = 0;
             // 
             // btnLimpiarPorProveedor
@@ -344,8 +270,7 @@
             this.btnLimpiarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarPorProveedor.Image")));
             this.btnLimpiarPorProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLimpiarPorProveedor.Location = new System.Drawing.Point(564, 43);
-            this.btnLimpiarPorProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarPorProveedor.Location = new System.Drawing.Point(423, 35);
             this.btnLimpiarPorProveedor.Name = "btnLimpiarPorProveedor";
             this.btnLimpiarPorProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnLimpiarPorProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -353,7 +278,7 @@
             this.btnLimpiarPorProveedor.OnHoverImage = null;
             this.btnLimpiarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarPorProveedor.Radius = 5;
-            this.btnLimpiarPorProveedor.Size = new System.Drawing.Size(47, 37);
+            this.btnLimpiarPorProveedor.Size = new System.Drawing.Size(35, 30);
             this.btnLimpiarPorProveedor.TabIndex = 56;
             this.btnLimpiarPorProveedor.Click += new System.EventHandler(this.btnLimpiarPorProveedor_Click_1);
             // 
@@ -372,8 +297,7 @@
             this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
             this.btnNuevoProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnNuevoProveedor.Location = new System.Drawing.Point(35, 41);
-            this.btnNuevoProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevoProveedor.Location = new System.Drawing.Point(26, 33);
             this.btnNuevoProveedor.Name = "btnNuevoProveedor";
             this.btnNuevoProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -381,7 +305,7 @@
             this.btnNuevoProveedor.OnHoverImage = null;
             this.btnNuevoProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnNuevoProveedor.Radius = 10;
-            this.btnNuevoProveedor.Size = new System.Drawing.Size(133, 42);
+            this.btnNuevoProveedor.Size = new System.Drawing.Size(100, 34);
             this.btnNuevoProveedor.TabIndex = 70;
             this.btnNuevoProveedor.Text = "Nuevo";
             this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
@@ -401,8 +325,7 @@
             this.btnBuscarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnBuscarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPorProveedor.Image")));
             this.btnBuscarPorProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarPorProveedor.Location = new System.Drawing.Point(509, 43);
-            this.btnBuscarPorProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarPorProveedor.Location = new System.Drawing.Point(382, 35);
             this.btnBuscarPorProveedor.Name = "btnBuscarPorProveedor";
             this.btnBuscarPorProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnBuscarPorProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -410,7 +333,7 @@
             this.btnBuscarPorProveedor.OnHoverImage = null;
             this.btnBuscarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscarPorProveedor.Radius = 5;
-            this.btnBuscarPorProveedor.Size = new System.Drawing.Size(47, 37);
+            this.btnBuscarPorProveedor.Size = new System.Drawing.Size(35, 30);
             this.btnBuscarPorProveedor.TabIndex = 55;
             this.btnBuscarPorProveedor.Click += new System.EventHandler(this.btnBuscarPorProveedor_Click);
             // 
@@ -424,14 +347,13 @@
             this.txtBuscarPorProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarPorProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarPorProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarPorProveedor.Location = new System.Drawing.Point(257, 46);
-            this.txtBuscarPorProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarPorProveedor.Location = new System.Drawing.Point(193, 37);
             this.txtBuscarPorProveedor.MaxLength = 11;
             this.txtBuscarPorProveedor.Name = "txtBuscarPorProveedor";
             this.txtBuscarPorProveedor.PasswordChar = '\0';
             this.txtBuscarPorProveedor.Radius = 10;
             this.txtBuscarPorProveedor.SelectedText = "";
-            this.txtBuscarPorProveedor.Size = new System.Drawing.Size(244, 36);
+            this.txtBuscarPorProveedor.Size = new System.Drawing.Size(183, 29);
             this.txtBuscarPorProveedor.TabIndex = 52;
             this.txtBuscarPorProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarPorProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPorProveedor_KeyPress);
@@ -441,10 +363,9 @@
             this.lblBuscarProv.AutoSize = true;
             this.lblBuscarProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarProv.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarProv.Location = new System.Drawing.Point(181, 52);
-            this.lblBuscarProv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarProv.Location = new System.Drawing.Point(136, 42);
             this.lblBuscarProv.Name = "lblBuscarProv";
-            this.lblBuscarProv.Size = new System.Drawing.Size(64, 19);
+            this.lblBuscarProv.Size = new System.Drawing.Size(51, 16);
             this.lblBuscarProv.TabIndex = 1;
             this.lblBuscarProv.Text = "Buscar";
             // 
@@ -456,7 +377,6 @@
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 125;
             // 
             // dataGridViewImageColumn2
             // 
@@ -466,15 +386,13 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 125;
             // 
             // frmListarProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 572);
+            this.ClientSize = new System.Drawing.Size(692, 465);
             this.Controls.Add(this.pnlContenedorDatosProveedor);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListarProveedor";
             this.Text = "Proveedores";
             this.pnlContenedorDatosProveedor.ResumeLayout(false);
