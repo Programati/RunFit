@@ -35,7 +35,7 @@
             this.lblCategoriaProd = new System.Windows.Forms.Label();
             this.txtCategoria = new Guna.UI.WinForms.GunaTextBox();
             this.btnGuardarCategoria = new Guna.UI.WinForms.GunaButton();
-            this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
+            this.grbListaCategorias = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvCategoria = new Guna.UI.WinForms.GunaDataGridView();
             this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -46,7 +46,7 @@
             this.btnBuscarCategoria = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorCateg = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCategoria = new Guna.UI.WinForms.GunaTextBox();
-            this.grbListaUsuarios.SuspendLayout();
+            this.grbListaCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.pnlBusquedaCategoria.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.txtCategoria.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.Location = new System.Drawing.Point(95, 13);
+            this.txtCategoria.MaxLength = 30;
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.PasswordChar = '\0';
             this.txtCategoria.Radius = 10;
@@ -81,6 +82,7 @@
             this.txtCategoria.Size = new System.Drawing.Size(228, 26);
             this.txtCategoria.TabIndex = 36;
             this.txtCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
             // 
             // btnGuardarCategoria
             // 
@@ -110,29 +112,30 @@
             this.btnGuardarCategoria.Text = "Guardar";
             this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
             // 
-            // grbListaUsuarios
+            // grbListaCategorias
             // 
-            this.grbListaUsuarios.BackColor = System.Drawing.Color.Transparent;
-            this.grbListaUsuarios.BaseColor = System.Drawing.Color.White;
-            this.grbListaUsuarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.grbListaUsuarios.Controls.Add(this.dgvCategoria);
-            this.grbListaUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbListaUsuarios.ForeColor = System.Drawing.Color.White;
-            this.grbListaUsuarios.LineBottom = 2;
-            this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.grbListaUsuarios.LineLeft = 2;
-            this.grbListaUsuarios.LineRight = 2;
-            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 100);
-            this.grbListaUsuarios.Name = "grbListaUsuarios";
-            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbListaUsuarios.Size = new System.Drawing.Size(907, 234);
-            this.grbListaUsuarios.TabIndex = 55;
-            this.grbListaUsuarios.Text = "Lista de Categorias";
-            this.grbListaUsuarios.TextLocation = new System.Drawing.Point(10, 8);
+            this.grbListaCategorias.BackColor = System.Drawing.Color.Transparent;
+            this.grbListaCategorias.BaseColor = System.Drawing.Color.White;
+            this.grbListaCategorias.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.grbListaCategorias.Controls.Add(this.dgvCategoria);
+            this.grbListaCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbListaCategorias.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaCategorias.ForeColor = System.Drawing.Color.White;
+            this.grbListaCategorias.LineBottom = 2;
+            this.grbListaCategorias.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.grbListaCategorias.LineLeft = 2;
+            this.grbListaCategorias.LineRight = 2;
+            this.grbListaCategorias.Location = new System.Drawing.Point(0, 100);
+            this.grbListaCategorias.Name = "grbListaCategorias";
+            this.grbListaCategorias.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaCategorias.Size = new System.Drawing.Size(907, 234);
+            this.grbListaCategorias.TabIndex = 55;
+            this.grbListaCategorias.Text = "Lista de Categorias";
+            this.grbListaCategorias.TextLocation = new System.Drawing.Point(10, 8);
             // 
             // dgvCategoria
             // 
+            this.dgvCategoria.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvCategoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -144,20 +147,23 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCategoria.ColumnHeadersHeight = 18;
+            this.dgvCategoria.ColumnHeadersHeight = 34;
             this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnEditarDataGrid,
             this.Eliminar,
             this.ID,
             this.Categoria});
+            this.dgvCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -166,6 +172,7 @@
             this.dgvCategoria.EnableHeadersVisualStyles = false;
             this.dgvCategoria.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvCategoria.Location = new System.Drawing.Point(2, 30);
+            this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersVisible = false;
@@ -182,10 +189,10 @@
             this.dgvCategoria.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvCategoria.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvCategoria.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvCategoria.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategoria.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCategoria.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvCategoria.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvCategoria.ThemeStyle.HeaderStyle.Height = 18;
+            this.dgvCategoria.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvCategoria.ThemeStyle.ReadOnly = true;
             this.dgvCategoria.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -206,7 +213,7 @@
             this.btnEditarDataGrid.ReadOnly = true;
             this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditarDataGrid.Width = 68;
+            this.btnEditarDataGrid.Width = 72;
             // 
             // Eliminar
             // 
@@ -216,7 +223,7 @@
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 64;
+            this.Eliminar.Width = 68;
             // 
             // ID
             // 
@@ -225,7 +232,7 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 43;
+            this.ID.Width = 47;
             // 
             // Categoria
             // 
@@ -234,7 +241,6 @@
             this.Categoria.HeaderText = "Categoria";
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 96;
             // 
             // pnlBusquedaCategoria
             // 
@@ -310,6 +316,7 @@
             this.txtBuscarCategoria.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCategoria.Location = new System.Drawing.Point(450, 13);
+            this.txtBuscarCategoria.MaxLength = 30;
             this.txtBuscarCategoria.Name = "txtBuscarCategoria";
             this.txtBuscarCategoria.PasswordChar = '\0';
             this.txtBuscarCategoria.Radius = 10;
@@ -317,6 +324,7 @@
             this.txtBuscarCategoria.Size = new System.Drawing.Size(183, 26);
             this.txtBuscarCategoria.TabIndex = 52;
             this.txtBuscarCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCategoria_KeyPress);
             // 
             // frmCategoria
             // 
@@ -324,11 +332,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(907, 334);
-            this.Controls.Add(this.grbListaUsuarios);
+            this.Controls.Add(this.grbListaCategorias);
             this.Controls.Add(this.pnlBusquedaCategoria);
             this.Name = "frmCategoria";
             this.Text = "Categorias";
-            this.grbListaUsuarios.ResumeLayout(false);
+            this.grbListaCategorias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.pnlBusquedaCategoria.ResumeLayout(false);
             this.pnlBusquedaCategoria.PerformLayout();
@@ -339,7 +347,7 @@
         #endregion
         private System.Windows.Forms.Label lblCategoriaProd;
         private Guna.UI.WinForms.GunaTextBox txtCategoria;
-        private Guna.UI.WinForms.GunaGroupBox grbListaUsuarios;
+        private Guna.UI.WinForms.GunaGroupBox grbListaCategorias;
         private Guna.UI.WinForms.GunaDataGridView dgvCategoria;
         private Guna.UI.WinForms.GunaShadowPanel pnlBusquedaCategoria;
         private Guna.UI.WinForms.GunaTileButton btnBuscarCategoria;

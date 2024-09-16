@@ -36,8 +36,8 @@
             this.btnLimpiarBuscarVta = new Guna.UI.WinForms.GunaTileButton();
             this.btnBuscarBuscarVta = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorVta = new Guna.UI.WinForms.GunaLabel();
-            this.cmbBuscarPorUser = new Guna.UI.WinForms.GunaComboBox();
             this.txtBuscarUser = new Guna.UI.WinForms.GunaTextBox();
+            this.cmbBuscarPorUser = new Guna.UI.WinForms.GunaComboBox();
             this.grbDetalleBusqueda = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvDetalleVta = new Guna.UI.WinForms.GunaDataGridView();
             this.dgvcolumnNumFactBuscarVta = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,6 +130,25 @@
             this.lblBuscarPorVta.TabIndex = 1;
             this.lblBuscarPorVta.Text = "Buscar";
             // 
+            // txtBuscarUser
+            // 
+            this.txtBuscarUser.BackColor = System.Drawing.Color.Transparent;
+            this.txtBuscarUser.BaseColor = System.Drawing.Color.White;
+            this.txtBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtBuscarUser.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBuscarUser.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtBuscarUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtBuscarUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtBuscarUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarUser.Location = new System.Drawing.Point(260, 37);
+            this.txtBuscarUser.Name = "txtBuscarUser";
+            this.txtBuscarUser.PasswordChar = '\0';
+            this.txtBuscarUser.Radius = 10;
+            this.txtBuscarUser.SelectedText = "";
+            this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
+            this.txtBuscarUser.TabIndex = 52;
+            this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cmbBuscarPorUser
             // 
             this.cmbBuscarPorUser.BackColor = System.Drawing.Color.Transparent;
@@ -155,25 +174,6 @@
             this.cmbBuscarPorUser.Size = new System.Drawing.Size(169, 24);
             this.cmbBuscarPorUser.TabIndex = 45;
             // 
-            // txtBuscarUser
-            // 
-            this.txtBuscarUser.BackColor = System.Drawing.Color.Transparent;
-            this.txtBuscarUser.BaseColor = System.Drawing.Color.White;
-            this.txtBuscarUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtBuscarUser.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBuscarUser.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtBuscarUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtBuscarUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBuscarUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarUser.Location = new System.Drawing.Point(260, 37);
-            this.txtBuscarUser.Name = "txtBuscarUser";
-            this.txtBuscarUser.PasswordChar = '\0';
-            this.txtBuscarUser.Radius = 10;
-            this.txtBuscarUser.SelectedText = "";
-            this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
-            this.txtBuscarUser.TabIndex = 52;
-            this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // grbDetalleBusqueda
             // 
             this.grbDetalleBusqueda.BackColor = System.Drawing.Color.Transparent;
@@ -181,7 +181,7 @@
             this.grbDetalleBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbDetalleBusqueda.Controls.Add(this.dgvDetalleVta);
             this.grbDetalleBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbDetalleBusqueda.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbDetalleBusqueda.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDetalleBusqueda.ForeColor = System.Drawing.Color.White;
             this.grbDetalleBusqueda.LineBottom = 2;
             this.grbDetalleBusqueda.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
@@ -197,7 +197,9 @@
             // 
             // dgvDetalleVta
             // 
+            this.dgvDetalleVta.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
             this.dgvDetalleVta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleVta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleVta.BackgroundColor = System.Drawing.Color.White;
@@ -212,7 +214,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetalleVta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetalleVta.ColumnHeadersHeight = 18;
+            this.dgvDetalleVta.ColumnHeadersHeight = 34;
             this.dgvDetalleVta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvcolumnNumFactBuscarVta,
             this.dgvcolumnFechaBuscarVta,
@@ -232,6 +234,7 @@
             this.dgvDetalleVta.EnableHeadersVisualStyles = false;
             this.dgvDetalleVta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvDetalleVta.Location = new System.Drawing.Point(2, 30);
+            this.dgvDetalleVta.MultiSelect = false;
             this.dgvDetalleVta.Name = "dgvDetalleVta";
             this.dgvDetalleVta.ReadOnly = true;
             this.dgvDetalleVta.RowHeadersVisible = false;
@@ -251,7 +254,7 @@
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvDetalleVta.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvDetalleVta.ThemeStyle.HeaderStyle.Height = 18;
+            this.dgvDetalleVta.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvDetalleVta.ThemeStyle.ReadOnly = true;
             this.dgvDetalleVta.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvDetalleVta.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -267,7 +270,7 @@
             this.dgvcolumnNumFactBuscarVta.HeaderText = "N° de Factura";
             this.dgvcolumnNumFactBuscarVta.Name = "dgvcolumnNumFactBuscarVta";
             this.dgvcolumnNumFactBuscarVta.ReadOnly = true;
-            this.dgvcolumnNumFactBuscarVta.Width = 119;
+            this.dgvcolumnNumFactBuscarVta.Width = 109;
             // 
             // dgvcolumnFechaBuscarVta
             // 
@@ -275,7 +278,7 @@
             this.dgvcolumnFechaBuscarVta.HeaderText = "Fecha de venta";
             this.dgvcolumnFechaBuscarVta.Name = "dgvcolumnFechaBuscarVta";
             this.dgvcolumnFechaBuscarVta.ReadOnly = true;
-            this.dgvcolumnFechaBuscarVta.Width = 130;
+            this.dgvcolumnFechaBuscarVta.Width = 119;
             // 
             // dgvcolumnClienteBuscarVta
             // 
@@ -291,7 +294,7 @@
             this.dgvcolumnMtoTotalBuscarVta.HeaderText = "Monto Total";
             this.dgvcolumnMtoTotalBuscarVta.Name = "dgvcolumnMtoTotalBuscarVta";
             this.dgvcolumnMtoTotalBuscarVta.ReadOnly = true;
-            this.dgvcolumnMtoTotalBuscarVta.Width = 105;
+            this.dgvcolumnMtoTotalBuscarVta.Width = 96;
             // 
             // Accion
             // 
