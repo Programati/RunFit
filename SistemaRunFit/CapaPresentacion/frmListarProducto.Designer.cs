@@ -77,7 +77,7 @@
             this.grbListaProducto.BorderColor = System.Drawing.Color.Black;
             this.grbListaProducto.Controls.Add(this.dgvListaProducto);
             this.grbListaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaProducto.ForeColor = System.Drawing.Color.White;
             this.grbListaProducto.LineBottom = 2;
             this.grbListaProducto.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));

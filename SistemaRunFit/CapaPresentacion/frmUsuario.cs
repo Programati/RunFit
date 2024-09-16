@@ -19,8 +19,14 @@ namespace CapaPresentacion
 {
     public partial class frmUsuario : Form
     {
+        private static Usuario UsuarioDGV = null;
         public frmUsuario()
         {
+            InitializeComponent();
+        }
+        public frmUsuario(Usuario UsuarioEditar)
+        {
+            UsuarioDGV = UsuarioEditar;
             InitializeComponent();
         }
 
@@ -121,6 +127,8 @@ namespace CapaPresentacion
 
         private void btnVolverCliente_Click(object sender, EventArgs e)
         {
+            //Limpiamos el USUARIO que trajimos del DGV
+            UsuarioDGV = null;
             this.Close();
         }
 
@@ -175,13 +183,30 @@ namespace CapaPresentacion
             List<Rol> ListaRol = new CN_Rol().Listar();
             foreach (Rol item in ListaRol)
             {
-                cmbTipoUsuarioUser.Items.Add(new Rol() { /*idRol = item.idRol,*/ nombreRol = item.nombreRol });
+                cmbTipoUsuarioUser.Items.Add(new Rol() { idRol = item.idRol, nombreRol = item.nombreRol });
             }
             cmbTipoUsuarioUser.DisplayMember = "nombreRol";
-            //cmbTipoUsuarioUser.ValueMember = "idRol";
+            cmbTipoUsuarioUser.ValueMember = "idRol";
             cmbTipoUsuarioUser.SelectedIndex = 2;
-            //Rol valor = (Rol)cmbTipoUsuarioUser.SelectedItem;
-            //MessageBox.Show(valor.idRol.ToString());
+
+
+            /*
+             Si EDITAMOS un USUARIO, vamos a traer todos los datos y rellenar los campos
+             */
+            if (UsuarioDGV != null)
+            {
+                txtNombreUser.Text = "";
+                txtUsuario.Text = UsuarioDGV.nombreUsuario;
+                foreach (Rol item in cmbTipoUsuarioUser.Items)
+                {
+                    if ((int)item.idRol == UsuarioDGV.oRol.idRol)
+                    {
+                        int IndiceCombo = cmbTipoUsuarioUser.Items.IndexOf(item);
+                        cmbTipoUsuarioUser.SelectedIndex = IndiceCombo;
+                        break;
+                    }
+                }
+            }
         }
     }
 }

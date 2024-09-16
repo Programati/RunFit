@@ -18,14 +18,16 @@ namespace CapaDeDatos
 
         public List<Usuario> ListarUsuarios()
         {
-            List<Usuario> lista = new List<Usuario>();
+            List<Usuario> Lista = new List<Usuario>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    string query = "select id_usuario, nombre_usuario, password, id_rol from USUARIOS";
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT u.id_usuario, u.nombre_usuario, u.password, u.fecha_alta, u.fecha_baja, u.id_persona, r.id_rol, r.nombre_rol from USUARIOS u");
+                    query.AppendLine("inner join ROL r on r.id_rol = u.id_rol");
 
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -34,12 +36,15 @@ namespace CapaDeDatos
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Usuario()
+                            Lista.Add(new Usuario()
                             {
                                 idUsuario = Convert.ToInt32(dr["id_usuario"]),
                                 nombreUsuario = dr["nombre_usuario"].ToString(),
                                 passwordUsuario = dr["password"].ToString(),
-                                oRol = new Rol { idRol = Convert.ToInt32(dr["id_rol"]) }
+                                fechaAlta = dr["fecha_alta"].ToString(),
+                                fechaBaja = dr["fecha_baja"].ToString(),
+                                oRol = new Rol { idRol = Convert.ToInt32(dr["id_rol"]), nombreRol = dr["nombre_rol"].ToString() },
+                                oPersona = new Persona { idPersona = Convert.ToInt32(dr["id_persona"]) }
                             });
                         }
                         dr.Close();
@@ -48,10 +53,10 @@ namespace CapaDeDatos
                 }
                 catch (Exception ex)
                 {
-                    lista = new List<Usuario>();
+                    Lista = new List<Usuario>();
                 }
             }
-            return lista;
+            return Lista;
         }
     }
 }

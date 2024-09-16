@@ -70,7 +70,7 @@
             // 
             this.grbListaCliente.BackColor = System.Drawing.Color.Transparent;
             this.grbListaCliente.BaseColor = System.Drawing.Color.White;
-            this.grbListaCliente.BorderColor = System.Drawing.Color.Black;
+            this.grbListaCliente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaCliente.Controls.Add(this.dgvListaClientes);
             this.grbListaCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbListaCliente.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
