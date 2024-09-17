@@ -12,15 +12,26 @@ using System.Windows.Forms;
 using System.Windows.Navigation;
 using Guna.UI.WinForms;
 
+using CapaDeEntidades;
+using CapaDeNegocios;
+
 namespace CapaPresentacion
 {
     public partial class frmUsuario : Form
     {
+        private static Usuario UsuarioDGV = null;
         public frmUsuario()
         {
             InitializeComponent();
+            this.Load += new EventHandler(frmUsuario_Load);
         }
-
+        public frmUsuario(Usuario UsuarioEditar)
+        {
+            UsuarioDGV = UsuarioEditar;
+            InitializeComponent();
+            
+        }
+              
         private void btnGuardarUser_Click(object sender, EventArgs e)
         {
             if (camposValidados())
@@ -104,7 +115,7 @@ namespace CapaPresentacion
             txtEmailUser.Clear();
             txtUsuario.Clear();
             txtPassUser.Clear();
-            cmbTipoUsuarioUser.SelectedIndex = -1;
+            cmbTipoUsuarioUser.SelectedIndex = 2;
             rdbtnMasculinoUser.Checked = false;
             rdbtnFemeninoUser.Checked = false;
             dtpFechaUser.Value = DateTime.Now;
@@ -113,11 +124,13 @@ namespace CapaPresentacion
 
         private void btnLimpiarCamposUser_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            LimpiarCampos();            
         }
 
         private void btnVolverCliente_Click(object sender, EventArgs e)
         {
+            //Limpiamos el USUARIO que trajimos del DGV
+            UsuarioDGV = null;
             this.Close();
         }
 
@@ -164,6 +177,39 @@ namespace CapaPresentacion
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void frmUsuario_Load(object sender, EventArgs e)
+        {
+            //Pone el foco en el nombre del usuaio al abrir el formulario usuario
+            txtNombreUser.Focus();
+            List<Rol> ListaRol = new CN_Rol().Listar();
+            foreach (Rol item in ListaRol)
+            {
+                cmbTipoUsuarioUser.Items.Add(new Rol() { idRol = item.idRol, nombreRol = item.nombreRol });
+            }
+            cmbTipoUsuarioUser.DisplayMember = "nombreRol";
+            cmbTipoUsuarioUser.ValueMember = "idRol";
+            cmbTipoUsuarioUser.SelectedIndex = 2;
+
+
+            /*
+             Si EDITAMOS un USUARIO, vamos a traer todos los datos y rellenar los campos
+             */
+            if (UsuarioDGV != null)
+            {
+                txtNombreUser.Text = "";
+                txtUsuario.Text = UsuarioDGV.nombreUsuario;
+                foreach (Rol item in cmbTipoUsuarioUser.Items)
+                {
+                    if ((int)item.idRol == UsuarioDGV.oRol.idRol)
+                    {
+                        int IndiceCombo = cmbTipoUsuarioUser.Items.IndexOf(item);
+                        cmbTipoUsuarioUser.SelectedIndex = IndiceCombo;
+                        break;
+                    }
+                }
             }
         }
     }

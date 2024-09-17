@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI.WinForms;
-using CapaNegocio;
-using CapaEntidad;
+using CapaDeEntidades;
+using CapaDeNegocios;
 
 
 namespace CapaPresentacion
@@ -46,7 +46,7 @@ namespace CapaPresentacion
 
             if(ousuario != null)
             {
-                Inicio formInicioMenu = new Inicio();
+                Inicio formInicioMenu = new Inicio(ousuario);
 
                 formInicioMenu.Show();
                 this.Hide();

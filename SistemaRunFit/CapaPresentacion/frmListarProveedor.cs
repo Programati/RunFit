@@ -12,24 +12,26 @@ namespace CapaPresentacion
 {
     public partial class frmListarProveedor : Form
     {
-        public frmListarProveedor()
+        private Inicio _inicioForm;
+        public frmListarProveedor(Inicio inicioForm)
         {
             InitializeComponent();
+            _inicioForm = inicioForm;
+            _inicioForm.PnlContenedorMenu.Enabled= false;
+            this.Load += new EventHandler(frmListarProveedor_Load);
+        }
+        private void frmListarProveedor_Load(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Focus();
         }
         private void LimpiarPorProveedor()
         {
-            cmbBuscarPorProveedor.SelectedIndex = -1;
             txtBuscarPorProveedor.Clear();
-        }
-
-        private void btnLimpiarPorProveedor_Click(object sender, EventArgs e)
-        {
-            LimpiarPorProveedor();
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor();
+            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor(_inicioForm);
 
             ListarNuevoProveedor.TopLevel = false;
             pnlContenedorDatosProveedor.Controls.Clear();
@@ -52,6 +54,45 @@ namespace CapaPresentacion
 
             CrearNuevoProveedor.Show();
             CrearNuevoProveedor.FormClosing += frm_closing;
+        }
+
+        private void btnLimpiarPorProveedor_Click_1(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Clear();
+        }
+
+        private void txtBuscarPorProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBuscarPorProveedor_Click(object sender, EventArgs e)
+        {
+            if (EsCuitMuyCorto())
+            {
+                return;
+            }
+        }
+        private bool EsCuitMuyCorto()
+        {
+            if (txtBuscarPorProveedor.Text.Length < 10)
+            {
+                MessageBox.Show("El número del CUIT del Proveedor es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (_inicioForm != null)
+            {
+                _inicioForm.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 
