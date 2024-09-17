@@ -15,10 +15,12 @@ namespace CapaPresentacion
 {
     public partial class frmListarCliente : Form
     {
+        
         public frmListarCliente()
         {
             InitializeComponent();
             this.Load += new EventHandler(frmListarCliente_Load);
+            
         }
 
         

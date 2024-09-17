@@ -79,12 +79,13 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+       
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
             //Pone el foco en el txtbox buscar usuario
             txtBuscarUser.Focus();
-            //Mostrar todos los usuarios
+            dgvListaUser.Rows.Clear();
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)

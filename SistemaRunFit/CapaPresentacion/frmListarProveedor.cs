@@ -12,9 +12,12 @@ namespace CapaPresentacion
 {
     public partial class frmListarProveedor : Form
     {
-        public frmListarProveedor()
+        private Inicio _inicioForm;
+        public frmListarProveedor(Inicio inicioForm)
         {
             InitializeComponent();
+            _inicioForm = inicioForm;
+            inicioForm.PnlContenedorMenu.Enabled= false;
         }
         private void LimpiarPorProveedor()
         {
@@ -23,7 +26,7 @@ namespace CapaPresentacion
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor();
+            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor(_inicioForm);
 
             ListarNuevoProveedor.TopLevel = false;
             pnlContenedorDatosProveedor.Controls.Clear();
