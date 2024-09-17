@@ -194,9 +194,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.ClientSize = new System.Drawing.Size(601, 318);
+            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblFit);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblContrasena);

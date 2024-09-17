@@ -54,10 +54,20 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnLimpiarBuscarCategoria_Click(object sender, EventArgs e)
+        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
-            cmbBuscarCategoria.SelectedIndex = -1;
-            txtBuscarCategoria.Clear();
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBuscarCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

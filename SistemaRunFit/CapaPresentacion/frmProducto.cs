@@ -15,8 +15,12 @@ namespace CapaPresentacion
         public frmProducto()
         {
             InitializeComponent();
+            this.Load += new EventHandler(frmProducto_Load);
         }
-
+        private void frmProducto_Load(object sender, EventArgs e)
+        {
+            txtNombreProducto.Focus();
+        }
         private void btnVolverUser_Click(object sender, EventArgs e)
         {
             this.Close();

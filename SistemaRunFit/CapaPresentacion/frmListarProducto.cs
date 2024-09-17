@@ -8,15 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CapaPresentacion
 {
     public partial class frmListarProducto : Form
     {
-        public frmListarProducto()
+        Inicio _inicio;
+        public frmListarProducto(Inicio inicio)
         {
             InitializeComponent();
+            _inicio = inicio;
+            _inicio.PnlContenedorMenu.Enabled = false;
+            this.Load += new EventHandler(frmListarProducto_Load);
         }
-
+        private void frmListarProducto_Load(object sender, EventArgs e)
+        {
+            txtBuscarProducto.Focus();
+        }
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             frmProducto CrearNuevoProducto = new frmProducto();
@@ -32,7 +40,7 @@ namespace CapaPresentacion
         }
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarProducto ListarNuevoProducto = new frmListarProducto();
+            frmListarProducto ListarNuevoProducto = new frmListarProducto(_inicio);
 
             ListarNuevoProducto.TopLevel = false;
             pnlContenedorProducto.Controls.Clear();
@@ -46,6 +54,42 @@ namespace CapaPresentacion
         private void btnLimpiarBuscarProducto_Click(object sender, EventArgs e)
         {
             txtBuscarProducto.Clear();
+        }
+
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            if (EsCodigoMuyCorto())
+            {
+                return;
+            }
+        }
+        private bool EsCodigoMuyCorto()
+        {
+            if (txtBuscarProducto.Text.Length < 4)
+            {
+                MessageBox.Show("El CODIGO del Producto es muy corto, vuelva intentar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
+        }
+
+        private void btnMenuClientes_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

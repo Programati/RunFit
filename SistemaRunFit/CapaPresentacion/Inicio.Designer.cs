@@ -33,6 +33,7 @@
             this.btnAcercaDe = new Guna.UI.WinForms.GunaGradientButton();
             this.panelSubMantenedor = new System.Windows.Forms.Panel();
             this.btnProducto = new Guna.UI.WinForms.GunaGradientButton();
+            this.btnMarca = new Guna.UI.WinForms.GunaGradientButton();
             this.btnCategoria = new Guna.UI.WinForms.GunaGradientButton();
             this.btnStock = new Guna.UI.WinForms.GunaGradientButton();
             this.btnReportes = new Guna.UI.WinForms.GunaGradientButton();
@@ -89,7 +90,7 @@
             this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
             this.btnAcercaDe.Image = ((System.Drawing.Image)(resources.GetObject("btnAcercaDe.Image")));
             this.btnAcercaDe.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAcercaDe.Location = new System.Drawing.Point(0, 429);
+            this.btnAcercaDe.Location = new System.Drawing.Point(0, 457);
             this.btnAcercaDe.Name = "btnAcercaDe";
             this.btnAcercaDe.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnAcercaDe.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -106,11 +107,12 @@
             // panelSubMantenedor
             // 
             this.panelSubMantenedor.Controls.Add(this.btnProducto);
+            this.panelSubMantenedor.Controls.Add(this.btnMarca);
             this.panelSubMantenedor.Controls.Add(this.btnCategoria);
             this.panelSubMantenedor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMantenedor.Location = new System.Drawing.Point(0, 380);
             this.panelSubMantenedor.Name = "panelSubMantenedor";
-            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 49);
+            this.panelSubMantenedor.Size = new System.Drawing.Size(133, 77);
             this.panelSubMantenedor.TabIndex = 17;
             // 
             // btnProducto
@@ -124,7 +126,6 @@
             this.btnProducto.BorderSize = 1;
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProducto.FocusedColor = System.Drawing.Color.Empty;
             this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.Color.Black;
@@ -139,11 +140,43 @@
             this.btnProducto.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.btnProducto.OnHoverImage = null;
             this.btnProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnProducto.Size = new System.Drawing.Size(133, 25);
+            this.btnProducto.Size = new System.Drawing.Size(133, 27);
             this.btnProducto.TabIndex = 1;
             this.btnProducto.Text = "Producto";
             this.btnProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
+            // btnMarca
+            // 
+            this.btnMarca.Animated = true;
+            this.btnMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMarca.AnimationSpeed = 0.03F;
+            this.btnMarca.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.btnMarca.BaseColor2 = System.Drawing.Color.WhiteSmoke;
+            this.btnMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMarca.BorderSize = 1;
+            this.btnMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMarca.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMarca.FocusedColor = System.Drawing.Color.Empty;
+            this.btnMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMarca.ForeColor = System.Drawing.Color.Black;
+            this.btnMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMarca.Image")));
+            this.btnMarca.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnMarca.ImageSize = new System.Drawing.Size(15, 15);
+            this.btnMarca.Location = new System.Drawing.Point(0, 52);
+            this.btnMarca.Name = "btnMarca";
+            this.btnMarca.OnHoverBaseColor1 = System.Drawing.Color.White;
+            this.btnMarca.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnMarca.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btnMarca.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMarca.OnHoverImage = null;
+            this.btnMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMarca.Size = new System.Drawing.Size(133, 25);
+            this.btnMarca.TabIndex = 19;
+            this.btnMarca.Text = "Marca";
+            this.btnMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
             // 
             // btnCategoria
             // 
@@ -290,7 +323,6 @@
             this.btnBuscarVentas.BorderSize = 1;
             this.btnBuscarVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarVentas.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBuscarVentas.FocusedColor = System.Drawing.Color.Empty;
             this.btnBuscarVentas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarVentas.ForeColor = System.Drawing.Color.Black;
@@ -371,7 +403,7 @@
             this.btnVentas.OnPressedColor = System.Drawing.Color.Black;
             this.btnVentas.Size = new System.Drawing.Size(133, 40);
             this.btnVentas.TabIndex = 10;
-            this.btnVentas.Text = "VENTAS";
+            this.btnVentas.Text = "VENTAS ...";
             this.btnVentas.TextOffsetX = -8;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click_1);
             // 
@@ -433,7 +465,7 @@
             this.btnClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnClientes.Size = new System.Drawing.Size(133, 40);
             this.btnClientes.TabIndex = 1;
-            this.btnClientes.Text = "PERSONAS";
+            this.btnClientes.Text = "CLIENTES";
             this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
@@ -478,7 +510,7 @@
             this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
             this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.panelContenedorFormularios.Size = new System.Drawing.Size(951, 561);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
             // Inicio
@@ -486,12 +518,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.ClientSize = new System.Drawing.Size(1028, 561);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.pnlContenedorMenu.ResumeLayout(false);
             this.panelSubMantenedor.ResumeLayout(false);
             this.subVentas.ResumeLayout(false);
@@ -521,6 +555,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel panelContenedorFormularios;
+        private Guna.UI.WinForms.GunaGradientButton btnMarca;
     }
 }
 

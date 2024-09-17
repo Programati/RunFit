@@ -120,7 +120,7 @@
             this.btnVolverCliente.BorderSize = 2;
             this.btnVolverCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolverCliente.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnVolverCliente.FocusedColor = System.Drawing.Color.Empty;
+            this.btnVolverCliente.FocusedColor = System.Drawing.Color.White;
             this.btnVolverCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverCliente.Image")));
@@ -134,7 +134,7 @@
             this.btnVolverCliente.OnPressedColor = System.Drawing.Color.Black;
             this.btnVolverCliente.Radius = 10;
             this.btnVolverCliente.Size = new System.Drawing.Size(100, 41);
-            this.btnVolverCliente.TabIndex = 70;
+            this.btnVolverCliente.TabIndex = 17;
             this.btnVolverCliente.Text = "Volver";
             this.btnVolverCliente.Click += new System.EventHandler(this.btnVolverCliente_Click);
             // 
@@ -148,7 +148,7 @@
             this.btnLimpiarContenedorCliente.BorderSize = 2;
             this.btnLimpiarContenedorCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarContenedorCliente.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarContenedorCliente.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarContenedorCliente.FocusedColor = System.Drawing.Color.LightGray;
             this.btnLimpiarContenedorCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarContenedorCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarContenedorCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarContenedorCliente.Image")));
@@ -162,7 +162,7 @@
             this.btnLimpiarContenedorCliente.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarContenedorCliente.Radius = 10;
             this.btnLimpiarContenedorCliente.Size = new System.Drawing.Size(100, 41);
-            this.btnLimpiarContenedorCliente.TabIndex = 69;
+            this.btnLimpiarContenedorCliente.TabIndex = 18;
             this.btnLimpiarContenedorCliente.Text = "Limpiar";
             this.btnLimpiarContenedorCliente.Click += new System.EventHandler(this.btnLimpiarContenedorCliente_Click);
             // 
@@ -217,7 +217,7 @@
             this.txtPisoCliente.Radius = 10;
             this.txtPisoCliente.SelectedText = "";
             this.txtPisoCliente.Size = new System.Drawing.Size(91, 26);
-            this.txtPisoCliente.TabIndex = 46;
+            this.txtPisoCliente.TabIndex = 12;
             this.txtPisoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPisoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPisoCliente_KeyPress);
             // 
@@ -249,7 +249,7 @@
             this.txtDeptoCliente.Radius = 10;
             this.txtDeptoCliente.SelectedText = "";
             this.txtDeptoCliente.Size = new System.Drawing.Size(91, 26);
-            this.txtDeptoCliente.TabIndex = 44;
+            this.txtDeptoCliente.TabIndex = 13;
             this.txtDeptoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnGuardarCliente
@@ -262,7 +262,7 @@
             this.btnGuardarCliente.BorderSize = 2;
             this.btnGuardarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarCliente.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardarCliente.FocusedColor = System.Drawing.Color.Empty;
+            this.btnGuardarCliente.FocusedColor = System.Drawing.Color.White;
             this.btnGuardarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCliente.Image")));
@@ -276,7 +276,7 @@
             this.btnGuardarCliente.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardarCliente.Radius = 10;
             this.btnGuardarCliente.Size = new System.Drawing.Size(100, 41);
-            this.btnGuardarCliente.TabIndex = 68;
+            this.btnGuardarCliente.TabIndex = 16;
             this.btnGuardarCliente.Text = "Guardar";
             this.btnGuardarCliente.Click += new System.EventHandler(this.btnGuardarCliente_Click);
             // 
@@ -289,7 +289,7 @@
             this.dtpFechaCliente.Location = new System.Drawing.Point(715, 52);
             this.dtpFechaCliente.Name = "dtpFechaCliente";
             this.dtpFechaCliente.Size = new System.Drawing.Size(154, 23);
-            this.dtpFechaCliente.TabIndex = 10;
+            this.dtpFechaCliente.TabIndex = 7;
             // 
             // grbOpcion2Cliente
             // 
@@ -353,7 +353,7 @@
             this.txtCasaCliente.Radius = 10;
             this.txtCasaCliente.SelectedText = "";
             this.txtCasaCliente.Size = new System.Drawing.Size(91, 26);
-            this.txtCasaCliente.TabIndex = 40;
+            this.txtCasaCliente.TabIndex = 15;
             this.txtCasaCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCasaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCasaCliente_KeyPress);
             // 
@@ -374,7 +374,7 @@
             this.txtManzanaCliente.Radius = 10;
             this.txtManzanaCliente.SelectedText = "";
             this.txtManzanaCliente.Size = new System.Drawing.Size(91, 26);
-            this.txtManzanaCliente.TabIndex = 42;
+            this.txtManzanaCliente.TabIndex = 14;
             this.txtManzanaCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtManzanaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtManzanaCliente_KeyPress);
             // 
@@ -387,7 +387,7 @@
             this.grbSexo.Location = new System.Drawing.Point(318, 29);
             this.grbSexo.Name = "grbSexo";
             this.grbSexo.Size = new System.Drawing.Size(246, 55);
-            this.grbSexo.TabIndex = 52;
+            this.grbSexo.TabIndex = 6;
             this.grbSexo.TabStop = false;
             this.grbSexo.Text = "Sexo";
             // 
@@ -429,7 +429,7 @@
             this.chbActivarOpcion2Cliente.Location = new System.Drawing.Point(800, 218);
             this.chbActivarOpcion2Cliente.Name = "chbActivarOpcion2Cliente";
             this.chbActivarOpcion2Cliente.Size = new System.Drawing.Size(69, 20);
-            this.chbActivarOpcion2Cliente.TabIndex = 52;
+            this.chbActivarOpcion2Cliente.TabIndex = 11;
             this.chbActivarOpcion2Cliente.Text = "Activar";
             this.chbActivarOpcion2Cliente.CheckedChanged += new System.EventHandler(this.chbActivarOpcion2Cliente_CheckedChanged);
             // 
@@ -450,7 +450,7 @@
             this.txtEmailCliente.Radius = 10;
             this.txtEmailCliente.SelectedText = "";
             this.txtEmailCliente.Size = new System.Drawing.Size(183, 26);
-            this.txtEmailCliente.TabIndex = 46;
+            this.txtEmailCliente.TabIndex = 5;
             this.txtEmailCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // chbActivarOpcion1Cliente
@@ -466,7 +466,7 @@
             this.chbActivarOpcion1Cliente.Location = new System.Drawing.Point(495, 218);
             this.chbActivarOpcion1Cliente.Name = "chbActivarOpcion1Cliente";
             this.chbActivarOpcion1Cliente.Size = new System.Drawing.Size(69, 20);
-            this.chbActivarOpcion1Cliente.TabIndex = 51;
+            this.chbActivarOpcion1Cliente.TabIndex = 10;
             this.chbActivarOpcion1Cliente.Text = "Activar";
             this.chbActivarOpcion1Cliente.CheckedChanged += new System.EventHandler(this.chbActivarOpcion1Cliente_CheckedChanged);
             // 
@@ -524,7 +524,7 @@
             this.txtAlturaCliente.Radius = 10;
             this.txtAlturaCliente.SelectedText = "";
             this.txtAlturaCliente.Size = new System.Drawing.Size(91, 26);
-            this.txtAlturaCliente.TabIndex = 38;
+            this.txtAlturaCliente.TabIndex = 9;
             this.txtAlturaCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtAlturaCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlturaCliente_KeyPress);
             // 
@@ -546,7 +546,7 @@
             this.txtTelefonoCliente.Radius = 10;
             this.txtTelefonoCliente.SelectedText = "";
             this.txtTelefonoCliente.Size = new System.Drawing.Size(183, 25);
-            this.txtTelefonoCliente.TabIndex = 44;
+            this.txtTelefonoCliente.TabIndex = 4;
             this.txtTelefonoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefonoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoCliente_KeyPress);
             // 
@@ -578,7 +578,7 @@
             this.txtCalleCliente.Radius = 10;
             this.txtCalleCliente.SelectedText = "";
             this.txtCalleCliente.Size = new System.Drawing.Size(271, 26);
-            this.txtCalleCliente.TabIndex = 36;
+            this.txtCalleCliente.TabIndex = 8;
             this.txtCalleCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTelefonoCliente
@@ -621,7 +621,7 @@
             this.txtDniCliente.Radius = 10;
             this.txtDniCliente.SelectedText = "";
             this.txtDniCliente.Size = new System.Drawing.Size(183, 25);
-            this.txtDniCliente.TabIndex = 39;
+            this.txtDniCliente.TabIndex = 3;
             this.txtDniCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDniCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniCliente_KeyPress);
             // 
@@ -653,7 +653,7 @@
             this.txtApellidoCliente.Radius = 10;
             this.txtApellidoCliente.SelectedText = "";
             this.txtApellidoCliente.Size = new System.Drawing.Size(183, 25);
-            this.txtApellidoCliente.TabIndex = 37;
+            this.txtApellidoCliente.TabIndex = 2;
             this.txtApellidoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtApellidoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoCliente_KeyPress);
             // 
@@ -685,7 +685,7 @@
             this.txtNombreCliente.Radius = 10;
             this.txtNombreCliente.SelectedText = "";
             this.txtNombreCliente.Size = new System.Drawing.Size(183, 25);
-            this.txtNombreCliente.TabIndex = 35;
+            this.txtNombreCliente.TabIndex = 1;
             this.txtNombreCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCliente_KeyPress);
             // 
@@ -722,6 +722,7 @@
             this.Controls.Add(this.pnlDatosPersonalesCliente);
             this.Name = "frmCliente";
             this.Text = "frmCliente";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             this.pnlDatosPersonalesCliente.ResumeLayout(false);
             this.pnlDatosPersonalesCliente.PerformLayout();
             this.grbOpcion1Cliente.ResumeLayout(false);

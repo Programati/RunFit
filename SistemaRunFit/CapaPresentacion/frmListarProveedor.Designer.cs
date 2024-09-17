@@ -44,21 +44,18 @@
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlBusquedaProv = new Guna.UI.WinForms.GunaShadowPanel();
-            this.btnNuevoProveedor = new Guna.UI.WinForms.GunaButton();
-            this.pnlBuscarProveedor = new System.Windows.Forms.Panel();
-            this.lblTituloProveedores = new Guna.UI.WinForms.GunaLabel();
+            this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
+            this.btnNuevoProveedor = new Guna.UI.WinForms.GunaButton();
             this.btnBuscarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
-            this.lblBuscarProv = new Guna.UI.WinForms.GunaLabel();
-            this.cmbBuscarPorProveedor = new Guna.UI.WinForms.GunaComboBox();
             this.txtBuscarPorProveedor = new Guna.UI.WinForms.GunaTextBox();
+            this.lblBuscarProv = new Guna.UI.WinForms.GunaLabel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlContenedorDatosProveedor.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProveedor)).BeginInit();
             this.pnlBusquedaProv.SuspendLayout();
-            this.pnlBuscarProveedor.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedorDatosProveedor
@@ -70,7 +67,7 @@
             this.pnlContenedorDatosProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorDatosProveedor.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorDatosProveedor.Name = "pnlContenedorDatosProveedor";
-            this.pnlContenedorDatosProveedor.Size = new System.Drawing.Size(972, 465);
+            this.pnlContenedorDatosProveedor.Size = new System.Drawing.Size(692, 465);
             this.pnlContenedorDatosProveedor.TabIndex = 54;
             // 
             // grbListaUsuarios
@@ -79,22 +76,24 @@
             this.grbListaUsuarios.BaseColor = System.Drawing.Color.White;
             this.grbListaUsuarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.Controls.Add(this.dgvListaProveedor);
-            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaUsuarios.ForeColor = System.Drawing.Color.White;
             this.grbListaUsuarios.LineBottom = 2;
             this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.LineLeft = 2;
             this.grbListaUsuarios.LineRight = 2;
-            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 86);
+            this.grbListaUsuarios.Location = new System.Drawing.Point(0, 100);
             this.grbListaUsuarios.Name = "grbListaUsuarios";
             this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbListaUsuarios.Size = new System.Drawing.Size(970, 352);
+            this.grbListaUsuarios.Size = new System.Drawing.Size(692, 365);
             this.grbListaUsuarios.TabIndex = 54;
             this.grbListaUsuarios.Text = "Lista de Proveedores";
             this.grbListaUsuarios.TextLocation = new System.Drawing.Point(10, 8);
             // 
             // dgvListaProveedor
             // 
+            this.dgvListaProveedor.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -106,11 +105,12 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvListaProveedor.ColumnHeadersHeight = 18;
+            this.dgvListaProveedor.ColumnHeadersHeight = 34;
             this.dgvListaProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_Prov,
             this.Cuit_Prev,
@@ -133,12 +133,14 @@
             this.dgvListaProveedor.EnableHeadersVisualStyles = false;
             this.dgvListaProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaProveedor.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaProveedor.MultiSelect = false;
             this.dgvListaProveedor.Name = "dgvListaProveedor";
             this.dgvListaProveedor.ReadOnly = true;
             this.dgvListaProveedor.RowHeadersVisible = false;
+            this.dgvListaProveedor.RowHeadersWidth = 51;
             this.dgvListaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProveedor.Size = new System.Drawing.Size(966, 320);
-            this.dgvListaProveedor.TabIndex = 0;
+            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 333);
+            this.dgvListaProveedor.TabIndex = 5;
             this.dgvListaProveedor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -152,7 +154,7 @@
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Height = 18;
+            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvListaProveedor.ThemeStyle.ReadOnly = true;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -166,43 +168,54 @@
             // 
             this.Nombre_Prov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Nombre_Prov.HeaderText = "Razon Social";
+            this.Nombre_Prov.MinimumWidth = 6;
             this.Nombre_Prov.Name = "Nombre_Prov";
             this.Nombre_Prov.ReadOnly = true;
-            this.Nombre_Prov.Width = 113;
+            this.Nombre_Prov.Width = 117;
             // 
             // Cuit_Prev
             // 
             this.Cuit_Prev.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cuit_Prev.HeaderText = "CUIT";
+            this.Cuit_Prev.MinimumWidth = 6;
             this.Cuit_Prev.Name = "Cuit_Prev";
             this.Cuit_Prev.ReadOnly = true;
-            this.Cuit_Prev.Width = 58;
+            this.Cuit_Prev.Width = 62;
             // 
             // Direccion
             // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Direccion.HeaderText = "Direccioin";
+            this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
             // 
             // Telefono
             // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 88;
             // 
             // Email
             // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
+            this.Email.Width = 70;
             // 
             // Descrip_Proveedor
             // 
             this.Descrip_Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Descrip_Proveedor.HeaderText = "Descripcion";
+            this.Descrip_Proveedor.MinimumWidth = 6;
             this.Descrip_Proveedor.Name = "Descrip_Proveedor";
             this.Descrip_Proveedor.ReadOnly = true;
-            this.Descrip_Proveedor.Width = 107;
+            this.Descrip_Proveedor.Width = 111;
             // 
             // Editar
             // 
@@ -210,9 +223,10 @@
             this.Editar.HeaderText = "Editar";
             this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Width = 49;
+            this.Editar.Width = 53;
             // 
             // Eliminar
             // 
@@ -220,75 +234,56 @@
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 64;
+            this.Eliminar.Width = 68;
             // 
             // pnlBusquedaProv
             // 
             this.pnlBusquedaProv.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaProv.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaProv.Controls.Add(this.btnCancelar);
+            this.pnlBusquedaProv.Controls.Add(this.btnLimpiarPorProveedor);
             this.pnlBusquedaProv.Controls.Add(this.btnNuevoProveedor);
-            this.pnlBusquedaProv.Controls.Add(this.pnlBuscarProveedor);
+            this.pnlBusquedaProv.Controls.Add(this.btnBuscarPorProveedor);
+            this.pnlBusquedaProv.Controls.Add(this.txtBuscarPorProveedor);
+            this.pnlBusquedaProv.Controls.Add(this.lblBuscarProv);
             this.pnlBusquedaProv.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBusquedaProv.Location = new System.Drawing.Point(0, 0);
             this.pnlBusquedaProv.Name = "pnlBusquedaProv";
             this.pnlBusquedaProv.Radius = 5;
             this.pnlBusquedaProv.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaProv.Size = new System.Drawing.Size(972, 86);
+            this.pnlBusquedaProv.Size = new System.Drawing.Size(692, 100);
             this.pnlBusquedaProv.TabIndex = 0;
             // 
-            // btnNuevoProveedor
+            // btnCancelar
             // 
-            this.btnNuevoProveedor.AnimationHoverSpeed = 0.07F;
-            this.btnNuevoProveedor.AnimationSpeed = 0.03F;
-            this.btnNuevoProveedor.BackColor = System.Drawing.Color.Transparent;
-            this.btnNuevoProveedor.BaseColor = System.Drawing.Color.White;
-            this.btnNuevoProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnNuevoProveedor.BorderSize = 2;
-            this.btnNuevoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevoProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.Empty;
-            this.btnNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
-            this.btnNuevoProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnNuevoProveedor.Location = new System.Drawing.Point(26, 27);
-            this.btnNuevoProveedor.Name = "btnNuevoProveedor";
-            this.btnNuevoProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnNuevoProveedor.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnNuevoProveedor.OnHoverImage = null;
-            this.btnNuevoProveedor.OnPressedColor = System.Drawing.Color.Black;
-            this.btnNuevoProveedor.Radius = 10;
-            this.btnNuevoProveedor.Size = new System.Drawing.Size(143, 34);
-            this.btnNuevoProveedor.TabIndex = 70;
-            this.btnNuevoProveedor.Text = "Agregar Nuevo";
-            this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
-            // 
-            // pnlBuscarProveedor
-            // 
-            this.pnlBuscarProveedor.Controls.Add(this.lblTituloProveedores);
-            this.pnlBuscarProveedor.Controls.Add(this.btnLimpiarPorProveedor);
-            this.pnlBuscarProveedor.Controls.Add(this.btnBuscarPorProveedor);
-            this.pnlBuscarProveedor.Controls.Add(this.lblBuscarProv);
-            this.pnlBuscarProveedor.Controls.Add(this.cmbBuscarPorProveedor);
-            this.pnlBuscarProveedor.Controls.Add(this.txtBuscarPorProveedor);
-            this.pnlBuscarProveedor.Location = new System.Drawing.Point(175, 0);
-            this.pnlBuscarProveedor.Name = "pnlBuscarProveedor";
-            this.pnlBuscarProveedor.Size = new System.Drawing.Size(783, 80);
-            this.pnlBuscarProveedor.TabIndex = 55;
-            // 
-            // lblTituloProveedores
-            // 
-            this.lblTituloProveedores.AutoSize = true;
-            this.lblTituloProveedores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProveedores.ForeColor = System.Drawing.Color.White;
-            this.lblTituloProveedores.Location = new System.Drawing.Point(592, 34);
-            this.lblTituloProveedores.Name = "lblTituloProveedores";
-            this.lblTituloProveedores.Size = new System.Drawing.Size(138, 25);
-            this.lblTituloProveedores.TabIndex = 57;
-            this.lblTituloProveedores.Text = "Proveedores";
+            this.btnCancelar.AnimationHoverSpeed = 0.07F;
+            this.btnCancelar.AnimationSpeed = 0.03F;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.BaseColor = System.Drawing.Color.White;
+            this.btnCancelar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnCancelar.BorderSize = 2;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCancelar.FocusedColor = System.Drawing.Color.Red;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCancelar.Location = new System.Drawing.Point(539, 33);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnCancelar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCancelar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCancelar.OnHoverImage = null;
+            this.btnCancelar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCancelar.Radius = 10;
+            this.btnCancelar.Size = new System.Drawing.Size(113, 37);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "MENU";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpiarPorProveedor
             // 
@@ -300,12 +295,12 @@
             this.btnLimpiarPorProveedor.BorderSize = 2;
             this.btnLimpiarPorProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarPorProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarPorProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarPorProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarPorProveedor.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnLimpiarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarPorProveedor.Image")));
             this.btnLimpiarPorProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLimpiarPorProveedor.Location = new System.Drawing.Point(498, 31);
+            this.btnLimpiarPorProveedor.Location = new System.Drawing.Point(423, 35);
             this.btnLimpiarPorProveedor.Name = "btnLimpiarPorProveedor";
             this.btnLimpiarPorProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnLimpiarPorProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -314,7 +309,36 @@
             this.btnLimpiarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarPorProveedor.Radius = 5;
             this.btnLimpiarPorProveedor.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarPorProveedor.TabIndex = 56;
+            this.btnLimpiarPorProveedor.TabIndex = 3;
+            this.btnLimpiarPorProveedor.Click += new System.EventHandler(this.btnLimpiarPorProveedor_Click_1);
+            // 
+            // btnNuevoProveedor
+            // 
+            this.btnNuevoProveedor.AnimationHoverSpeed = 0.07F;
+            this.btnNuevoProveedor.AnimationSpeed = 0.03F;
+            this.btnNuevoProveedor.BackColor = System.Drawing.Color.Transparent;
+            this.btnNuevoProveedor.BaseColor = System.Drawing.Color.White;
+            this.btnNuevoProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnNuevoProveedor.BorderSize = 2;
+            this.btnNuevoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.White;
+            this.btnNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
+            this.btnNuevoProveedor.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnNuevoProveedor.Location = new System.Drawing.Point(26, 33);
+            this.btnNuevoProveedor.Name = "btnNuevoProveedor";
+            this.btnNuevoProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnNuevoProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnNuevoProveedor.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnNuevoProveedor.OnHoverImage = null;
+            this.btnNuevoProveedor.OnPressedColor = System.Drawing.Color.Black;
+            this.btnNuevoProveedor.Radius = 10;
+            this.btnNuevoProveedor.Size = new System.Drawing.Size(100, 34);
+            this.btnNuevoProveedor.TabIndex = 4;
+            this.btnNuevoProveedor.Text = "Nuevo";
+            this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
             // 
             // btnBuscarPorProveedor
             // 
@@ -326,12 +350,12 @@
             this.btnBuscarPorProveedor.BorderSize = 2;
             this.btnBuscarPorProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarPorProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarPorProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarPorProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnBuscarPorProveedor.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnBuscarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnBuscarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPorProveedor.Image")));
             this.btnBuscarPorProveedor.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarPorProveedor.Location = new System.Drawing.Point(457, 31);
+            this.btnBuscarPorProveedor.Location = new System.Drawing.Point(382, 35);
             this.btnBuscarPorProveedor.Name = "btnBuscarPorProveedor";
             this.btnBuscarPorProveedor.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnBuscarPorProveedor.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -340,42 +364,8 @@
             this.btnBuscarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscarPorProveedor.Radius = 5;
             this.btnBuscarPorProveedor.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarPorProveedor.TabIndex = 55;
-            // 
-            // lblBuscarProv
-            // 
-            this.lblBuscarProv.AutoSize = true;
-            this.lblBuscarProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarProv.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarProv.Location = new System.Drawing.Point(7, 38);
-            this.lblBuscarProv.Name = "lblBuscarProv";
-            this.lblBuscarProv.Size = new System.Drawing.Size(81, 16);
-            this.lblBuscarProv.TabIndex = 1;
-            this.lblBuscarProv.Text = "Buscar por:";
-            // 
-            // cmbBuscarPorProveedor
-            // 
-            this.cmbBuscarPorProveedor.BackColor = System.Drawing.Color.Transparent;
-            this.cmbBuscarPorProveedor.BaseColor = System.Drawing.Color.White;
-            this.cmbBuscarPorProveedor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.cmbBuscarPorProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbBuscarPorProveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbBuscarPorProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBuscarPorProveedor.FocusedColor = System.Drawing.Color.Empty;
-            this.cmbBuscarPorProveedor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBuscarPorProveedor.ForeColor = System.Drawing.Color.Black;
-            this.cmbBuscarPorProveedor.FormattingEnabled = true;
-            this.cmbBuscarPorProveedor.Items.AddRange(new object[] {
-            "CUIT",
-            "Razon Social"});
-            this.cmbBuscarPorProveedor.Location = new System.Drawing.Point(92, 34);
-            this.cmbBuscarPorProveedor.Margin = new System.Windows.Forms.Padding(1);
-            this.cmbBuscarPorProveedor.Name = "cmbBuscarPorProveedor";
-            this.cmbBuscarPorProveedor.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.cmbBuscarPorProveedor.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmbBuscarPorProveedor.Radius = 10;
-            this.cmbBuscarPorProveedor.Size = new System.Drawing.Size(169, 24);
-            this.cmbBuscarPorProveedor.TabIndex = 45;
+            this.btnBuscarPorProveedor.TabIndex = 2;
+            this.btnBuscarPorProveedor.Click += new System.EventHandler(this.btnBuscarPorProveedor_Click);
             // 
             // txtBuscarPorProveedor
             // 
@@ -387,14 +377,27 @@
             this.txtBuscarPorProveedor.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarPorProveedor.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarPorProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarPorProveedor.Location = new System.Drawing.Point(265, 33);
+            this.txtBuscarPorProveedor.Location = new System.Drawing.Point(193, 37);
+            this.txtBuscarPorProveedor.MaxLength = 11;
             this.txtBuscarPorProveedor.Name = "txtBuscarPorProveedor";
             this.txtBuscarPorProveedor.PasswordChar = '\0';
             this.txtBuscarPorProveedor.Radius = 10;
             this.txtBuscarPorProveedor.SelectedText = "";
-            this.txtBuscarPorProveedor.Size = new System.Drawing.Size(183, 26);
-            this.txtBuscarPorProveedor.TabIndex = 52;
+            this.txtBuscarPorProveedor.Size = new System.Drawing.Size(183, 29);
+            this.txtBuscarPorProveedor.TabIndex = 1;
             this.txtBuscarPorProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarPorProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPorProveedor_KeyPress);
+            // 
+            // lblBuscarProv
+            // 
+            this.lblBuscarProv.AutoSize = true;
+            this.lblBuscarProv.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarProv.ForeColor = System.Drawing.Color.White;
+            this.lblBuscarProv.Location = new System.Drawing.Point(136, 42);
+            this.lblBuscarProv.Name = "lblBuscarProv";
+            this.lblBuscarProv.Size = new System.Drawing.Size(51, 16);
+            this.lblBuscarProv.TabIndex = 1;
+            this.lblBuscarProv.Text = "Buscar";
             // 
             // dataGridViewImageColumn1
             // 
@@ -402,6 +405,7 @@
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // dataGridViewImageColumn2
@@ -410,13 +414,14 @@
             this.dataGridViewImageColumn2.HeaderText = "Eliminar";
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // frmListarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 465);
+            this.ClientSize = new System.Drawing.Size(692, 465);
             this.Controls.Add(this.pnlContenedorDatosProveedor);
             this.Name = "frmListarProveedor";
             this.Text = "Proveedores";
@@ -424,8 +429,7 @@
             this.grbListaUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProveedor)).EndInit();
             this.pnlBusquedaProv.ResumeLayout(false);
-            this.pnlBuscarProveedor.ResumeLayout(false);
-            this.pnlBuscarProveedor.PerformLayout();
+            this.pnlBusquedaProv.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +439,14 @@
         private System.Windows.Forms.Panel pnlContenedorDatosProveedor;
         private Guna.UI.WinForms.GunaGroupBox grbListaUsuarios;
         private Guna.UI.WinForms.GunaDataGridView dgvListaProveedor;
+        private Guna.UI.WinForms.GunaShadowPanel pnlBusquedaProv;
+        private Guna.UI.WinForms.GunaButton btnNuevoProveedor;
+        private Guna.UI.WinForms.GunaTileButton btnLimpiarPorProveedor;
+        private Guna.UI.WinForms.GunaTileButton btnBuscarPorProveedor;
+        private Guna.UI.WinForms.GunaLabel lblBuscarProv;
+        private Guna.UI.WinForms.GunaTextBox txtBuscarPorProveedor;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Prov;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Prev;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
@@ -443,16 +455,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descrip_Proveedor;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private Guna.UI.WinForms.GunaShadowPanel pnlBusquedaProv;
-        private Guna.UI.WinForms.GunaButton btnNuevoProveedor;
-        private System.Windows.Forms.Panel pnlBuscarProveedor;
-        private Guna.UI.WinForms.GunaLabel lblTituloProveedores;
-        private Guna.UI.WinForms.GunaTileButton btnLimpiarPorProveedor;
-        private Guna.UI.WinForms.GunaTileButton btnBuscarPorProveedor;
-        private Guna.UI.WinForms.GunaLabel lblBuscarProv;
-        private Guna.UI.WinForms.GunaComboBox cmbBuscarPorProveedor;
-        private Guna.UI.WinForms.GunaTextBox txtBuscarPorProveedor;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private Guna.UI.WinForms.GunaButton btnCancelar;
     }
 }
