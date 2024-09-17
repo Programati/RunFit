@@ -403,7 +403,7 @@
             this.btnVentas.OnPressedColor = System.Drawing.Color.Black;
             this.btnVentas.Size = new System.Drawing.Size(133, 40);
             this.btnVentas.TabIndex = 10;
-            this.btnVentas.Text = "VENTAS";
+            this.btnVentas.Text = "VENTAS ...";
             this.btnVentas.TextOffsetX = -8;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click_1);
             // 
@@ -465,7 +465,7 @@
             this.btnClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnClientes.Size = new System.Drawing.Size(133, 40);
             this.btnClientes.TabIndex = 1;
-            this.btnClientes.Text = "PERSONAS";
+            this.btnClientes.Text = "CLIENTES";
             this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
