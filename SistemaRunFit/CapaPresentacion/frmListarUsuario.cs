@@ -18,7 +18,7 @@ namespace CapaPresentacion
         public frmListarUsuario()
         {
             InitializeComponent();
-            this.Load += new EventHandler(frmListarUsuario_Load);
+           // this.Load += new EventHandler(frmListarUsuario_Load);
         }
 
         private void btnLimpiarUser_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace CapaPresentacion
         {
             //Pone el foco en el txtbox buscar usuario
             //txtBuscarUser.Focus();
-            dgvListaUser.Rows.Clear();
+            //dgvListaUser.Rows.Clear();
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)

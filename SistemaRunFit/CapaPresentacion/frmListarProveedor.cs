@@ -80,6 +80,15 @@ namespace CapaPresentacion
             }
             return false;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (_inicioForm != null)
+            {
+                _inicioForm.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+            }
+            this.Close(); // Cierra el formulario actual
+        }
     }
 
 }
