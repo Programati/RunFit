@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Guna.UI.WinForms;
 
 namespace CapaPresentacion
@@ -8,6 +9,11 @@ namespace CapaPresentacion
         public frmRegistrarVenta()
         {
             InitializeComponent();
+            this.Load += new EventHandler(frmRegistrarVenta_Load);
+        }
+        private void frmRegistrarVenta_Load(object sender, EventArgs e)
+        {
+            txtBuscarDniVta.Focus();
         }
 
         private void btnBuscarClteVta_Click(object sender, System.EventArgs e)

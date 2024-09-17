@@ -24,8 +24,9 @@ namespace CapaPresentacion
         public frmCliente()
         {
             InitializeComponent();
-            txtNombreCliente.Focus();
+            this.Load += new EventHandler(frmCliente_Load);
         }
+       
         public frmCliente(Domicilio DomicilioEditar)
         {
             DomicilioDGV = DomicilioEditar;
@@ -309,6 +310,8 @@ namespace CapaPresentacion
 
         private void frmCliente_Load(object sender, EventArgs e)
         {
+            //Pone el foco en el nombre del cliente al abrir el formulario cliente
+            txtNombreCliente.Focus();
             /*
              Si EDITAMOS un CLIENTE, vamos a traer todos los datos y rellenar los campos
              */

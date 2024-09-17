@@ -18,9 +18,10 @@ namespace CapaPresentacion
         public frmListarCliente()
         {
             InitializeComponent();
-            txtBuscarCliente.Focus();
+            this.Load += new EventHandler(frmListarCliente_Load);
         }
 
+        
         private void btnLimpiarCliente_Click(object sender, EventArgs e)
         {
             txtBuscarCliente.Clear();
@@ -80,6 +81,7 @@ namespace CapaPresentacion
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
+            txtBuscarCliente.Focus();
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)

@@ -18,6 +18,7 @@ namespace CapaPresentacion
         public frmListarUsuario()
         {
             InitializeComponent();
+            this.Load += new EventHandler(frmListarUsuario_Load);
         }
 
         private void btnLimpiarUser_Click(object sender, EventArgs e)
@@ -81,12 +82,14 @@ namespace CapaPresentacion
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
+            //Pone el foco en el txtbox buscar usuario
+            txtBuscarUser.Focus();
             //Mostrar todos los usuarios
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] {CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.fechaBaja != null ? "Activo" : "Inactivo"});
+                dgvListaUser.Rows.Add(new object[] {CapaPresentacion.Properties.Resources.Culture, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.fechaBaja != null ? "Activo" : "Inactivo"});
             }
         }
 

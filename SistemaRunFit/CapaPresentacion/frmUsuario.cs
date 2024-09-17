@@ -23,13 +23,15 @@ namespace CapaPresentacion
         public frmUsuario()
         {
             InitializeComponent();
+            this.Load += new EventHandler(frmUsuario_Load);
         }
         public frmUsuario(Usuario UsuarioEditar)
         {
             UsuarioDGV = UsuarioEditar;
             InitializeComponent();
+            
         }
-
+              
         private void btnGuardarUser_Click(object sender, EventArgs e)
         {
             if (camposValidados())
@@ -180,6 +182,8 @@ namespace CapaPresentacion
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
+            //Pone el foco en el nombre del usuaio al abrir el formulario usuario
+            txtNombreUser.Focus();
             List<Rol> ListaRol = new CN_Rol().Listar();
             foreach (Rol item in ListaRol)
             {
