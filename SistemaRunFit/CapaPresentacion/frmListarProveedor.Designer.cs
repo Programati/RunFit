@@ -44,6 +44,7 @@
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlBusquedaProv = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
             this.btnNuevoProveedor = new Guna.UI.WinForms.GunaButton();
             this.btnBuscarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
@@ -51,7 +52,6 @@
             this.lblBuscarProv = new Guna.UI.WinForms.GunaLabel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.pnlContenedorDatosProveedor.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProveedor)).BeginInit();
@@ -140,7 +140,7 @@
             this.dgvListaProveedor.RowHeadersWidth = 51;
             this.dgvListaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaProveedor.Size = new System.Drawing.Size(688, 333);
-            this.dgvListaProveedor.TabIndex = 0;
+            this.dgvListaProveedor.TabIndex = 5;
             this.dgvListaProveedor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -257,6 +257,34 @@
             this.pnlBusquedaProv.Size = new System.Drawing.Size(692, 100);
             this.pnlBusquedaProv.TabIndex = 0;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.AnimationHoverSpeed = 0.07F;
+            this.btnCancelar.AnimationSpeed = 0.03F;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.BaseColor = System.Drawing.Color.White;
+            this.btnCancelar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnCancelar.BorderSize = 2;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCancelar.FocusedColor = System.Drawing.Color.Red;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCancelar.Location = new System.Drawing.Point(539, 33);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnCancelar.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCancelar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCancelar.OnHoverImage = null;
+            this.btnCancelar.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCancelar.Radius = 10;
+            this.btnCancelar.Size = new System.Drawing.Size(113, 37);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "MENU";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // btnLimpiarPorProveedor
             // 
             this.btnLimpiarPorProveedor.AnimationHoverSpeed = 0.07F;
@@ -267,7 +295,7 @@
             this.btnLimpiarPorProveedor.BorderSize = 2;
             this.btnLimpiarPorProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarPorProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarPorProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarPorProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarPorProveedor.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnLimpiarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarPorProveedor.Image")));
@@ -281,7 +309,7 @@
             this.btnLimpiarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarPorProveedor.Radius = 5;
             this.btnLimpiarPorProveedor.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarPorProveedor.TabIndex = 56;
+            this.btnLimpiarPorProveedor.TabIndex = 3;
             this.btnLimpiarPorProveedor.Click += new System.EventHandler(this.btnLimpiarPorProveedor_Click_1);
             // 
             // btnNuevoProveedor
@@ -294,7 +322,7 @@
             this.btnNuevoProveedor.BorderSize = 2;
             this.btnNuevoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevoProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
@@ -308,7 +336,7 @@
             this.btnNuevoProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnNuevoProveedor.Radius = 10;
             this.btnNuevoProveedor.Size = new System.Drawing.Size(100, 34);
-            this.btnNuevoProveedor.TabIndex = 70;
+            this.btnNuevoProveedor.TabIndex = 4;
             this.btnNuevoProveedor.Text = "Nuevo";
             this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
             // 
@@ -322,7 +350,7 @@
             this.btnBuscarPorProveedor.BorderSize = 2;
             this.btnBuscarPorProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarPorProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarPorProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarPorProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnBuscarPorProveedor.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnBuscarPorProveedor.ForeColor = System.Drawing.Color.White;
             this.btnBuscarPorProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarPorProveedor.Image")));
@@ -336,7 +364,7 @@
             this.btnBuscarPorProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscarPorProveedor.Radius = 5;
             this.btnBuscarPorProveedor.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarPorProveedor.TabIndex = 55;
+            this.btnBuscarPorProveedor.TabIndex = 2;
             this.btnBuscarPorProveedor.Click += new System.EventHandler(this.btnBuscarPorProveedor_Click);
             // 
             // txtBuscarPorProveedor
@@ -356,7 +384,7 @@
             this.txtBuscarPorProveedor.Radius = 10;
             this.txtBuscarPorProveedor.SelectedText = "";
             this.txtBuscarPorProveedor.Size = new System.Drawing.Size(183, 29);
-            this.txtBuscarPorProveedor.TabIndex = 52;
+            this.txtBuscarPorProveedor.TabIndex = 1;
             this.txtBuscarPorProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarPorProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPorProveedor_KeyPress);
             // 
@@ -388,34 +416,6 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.AnimationHoverSpeed = 0.07F;
-            this.btnCancelar.AnimationSpeed = 0.03F;
-            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.BaseColor = System.Drawing.Color.White;
-            this.btnCancelar.BorderColor = System.Drawing.Color.Red;
-            this.btnCancelar.BorderSize = 2;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCancelar.FocusedColor = System.Drawing.Color.Red;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCancelar.Location = new System.Drawing.Point(539, 33);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnCancelar.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnCancelar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCancelar.OnHoverImage = null;
-            this.btnCancelar.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCancelar.Radius = 10;
-            this.btnCancelar.Size = new System.Drawing.Size(113, 37);
-            this.btnCancelar.TabIndex = 83;
-            this.btnCancelar.Text = "MENU";
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmListarProveedor
             // 
