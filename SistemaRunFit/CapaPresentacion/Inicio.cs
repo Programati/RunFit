@@ -1,12 +1,5 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDeEntidades;
 using Guna.UI.WinForms;
@@ -24,6 +17,7 @@ namespace CapaPresentacion
         Color colorVerde = Color.FromArgb(77, 163, 108);
         Color colorClaro = Color.FromArgb(227, 211, 154);
         Color colorRojo = Color.FromArgb(235, 57, 32);
+
         public Inicio(Usuario objUsuario)
         {
             UsuarioActual = objUsuario;
@@ -36,6 +30,7 @@ namespace CapaPresentacion
             subVentas.Visible = false;
             panelSubMantenedor.Visible = false;
         }
+
         protected void OcultarSubMenu()
         {
             if (subVentas.Visible == true)
@@ -50,7 +45,7 @@ namespace CapaPresentacion
 
         private void MostrarSubmenu(Panel Submenu)
         {
-            if(Submenu.Visible == false)
+            if (Submenu.Visible == false)
             {
                 OcultarSubMenu();
                 Submenu.Visible = true;
@@ -66,45 +61,59 @@ namespace CapaPresentacion
             OcultarSubMenu();
             abrirFormulario(btnUsuario, new frmListarUsuario());
         }
+
         public void btnClientes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             abrirFormulario(btnClientes, new frmListarCliente());
         }
+
         private void btnVentas_Click_1(object sender, EventArgs e)
         {
             MostrarSubmenu(subVentas);
         }
+
         private void btnRegistrarVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnRegistrarVentas, new frmRegistrarVenta());
+            // Crear el formulario y pasar la referencia de 'this'
+            frmRegistrarVenta frmVenta = new frmRegistrarVenta(this);
+            abrirFormulario(btnRegistrarVentas, frmVenta);
+            pnlContenedorMenu.Enabled = false;
         }
+
         private void btnBuscarVentas_Click(object sender, EventArgs e)
         {
             abrirFormulario(btnBuscarVentas, new frmBuscarVenta());
         }
+
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             abrirFormulario(btnProveedores, new frmListarProveedor());
+
         }
+
         private void btnReportes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
             abrirFormulario(btnReportes, new frmReporte());
         }
+
         private void btnStock_Click(object sender, EventArgs e)
         {
             MostrarSubmenu(panelSubMantenedor);
         }
+
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             abrirFormulario(btnCategoria, new frmCategoria());
         }
+
         private void btnProducto_Click(object sender, EventArgs e)
         {
             abrirFormulario(btnProducto, new frmListarProducto());
         }
+
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
@@ -113,18 +122,20 @@ namespace CapaPresentacion
 
         private void abrirFormulario(GunaGradientButton menu, Form formulario)
         {
-            if (menuActivo != null) 
+            if (menuActivo != null)
             {
                 menuActivo.BaseColor1 = Color.Transparent;
                 menuActivo.BaseColor2 = Color.Transparent;
                 menuActivo.ForeColor = Color.White;
-            } 
+            }
             menu.BaseColor1 = Color.White;
             menu.BaseColor2 = colorClaro;
             menu.ForeColor = colorAzul;
             menuActivo = menu;
 
-            if (formularioActivo != null ) formularioActivo.Close();
+            if (formularioActivo != null)
+                formularioActivo.Close();
+
             formularioActivo = formulario;
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
@@ -133,12 +144,10 @@ namespace CapaPresentacion
 
             panelContenedorFormularios.Controls.Add(formulario);
             formulario.Show();
-
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-
             if (UsuarioActual.oRol.idRol == 2)
             {
                 btnClientes.Visible = false;
@@ -157,6 +166,10 @@ namespace CapaPresentacion
         {
             abrirFormulario(btnMarca, new frmMarca());
         }
-    }   
 
+        public Panel PnlContenedorMenu
+        {
+            get { return pnlContenedorMenu; }
+        }
+    }
 }
