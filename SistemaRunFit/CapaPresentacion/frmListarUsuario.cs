@@ -84,7 +84,7 @@ namespace CapaPresentacion
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
             //Pone el foco en el txtbox buscar usuario
-            txtBuscarUser.Focus();
+            //txtBuscarUser.Focus();
             dgvListaUser.Rows.Clear();
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
