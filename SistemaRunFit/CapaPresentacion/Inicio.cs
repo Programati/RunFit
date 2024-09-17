@@ -29,6 +29,7 @@ namespace CapaPresentacion
         {
             subVentas.Visible = false;
             panelSubMantenedor.Visible = false;
+            
         }
 
         protected void OcultarSubMenu()
@@ -65,7 +66,8 @@ namespace CapaPresentacion
         public void btnClientes_Click(object sender, EventArgs e)
         {
             OcultarSubMenu();
-            abrirFormulario(btnClientes, new frmListarCliente());
+            frmListarCliente frmClientes = new frmListarCliente(this);
+            abrirFormulario(btnClientes, frmClientes);
         }
 
         private void btnVentas_Click_1(object sender, EventArgs e)
@@ -169,7 +171,9 @@ namespace CapaPresentacion
 
         public Panel PnlContenedorMenu
         {
-            get { return pnlContenedorMenu; }
+            get {
+                return pnlContenedorMenu;
+            }
         }
     }
 }

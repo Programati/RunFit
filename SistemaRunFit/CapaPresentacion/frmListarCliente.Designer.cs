@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grbListaCliente = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaClientes = new Guna.UI.WinForms.GunaDataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -62,6 +62,7 @@
             this.pnlContenedorCliente = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.grbListaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.pnlBusquedaCliente.SuspendLayout();
@@ -92,22 +93,22 @@
             // dgvListaClientes
             // 
             this.dgvListaClientes.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvListaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaClientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvListaClientes.ColumnHeadersHeight = 34;
             this.dgvListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -128,14 +129,14 @@
             this.Departamento,
             this.Piso});
             this.dgvListaClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaClientes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaClientes.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvListaClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaClientes.EnableHeadersVisualStyles = false;
             this.dgvListaClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -175,9 +176,9 @@
             // Editar
             // 
             this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "null";
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.NullValue = "null";
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle18;
             this.Editar.HeaderText = "Editar";
             this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -323,6 +324,7 @@
             // 
             this.pnlBusquedaCliente.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaCliente.Controls.Add(this.btnMenuClientes);
             this.pnlBusquedaCliente.Controls.Add(this.btnLimpiarCliente);
             this.pnlBusquedaCliente.Controls.Add(this.btnBuscarCliente);
             this.pnlBusquedaCliente.Controls.Add(this.btnNuevoCliente);
@@ -464,9 +466,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -483,6 +485,34 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnMenuClientes
+            // 
+            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
+            this.btnMenuClientes.AnimationSpeed = 0.03F;
+            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
+            this.btnMenuClientes.BorderColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.BorderSize = 2;
+            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
+            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Name = "btnMenuClientes";
+            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuClientes.OnHoverImage = null;
+            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.Radius = 10;
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.TabIndex = 84;
+            this.btnMenuClientes.Text = "MENU";
+            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
             // 
             // frmListarCliente
             // 
@@ -533,5 +563,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Manzana;
         private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Piso;
+        private Guna.UI.WinForms.GunaButton btnMenuClientes;
     }
 }

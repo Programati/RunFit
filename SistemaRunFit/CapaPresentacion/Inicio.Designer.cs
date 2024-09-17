@@ -126,7 +126,6 @@
             this.btnProducto.BorderSize = 1;
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProducto.FocusedColor = System.Drawing.Color.Empty;
             this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.Color.Black;
@@ -324,7 +323,6 @@
             this.btnBuscarVentas.BorderSize = 1;
             this.btnBuscarVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarVentas.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBuscarVentas.FocusedColor = System.Drawing.Color.Empty;
             this.btnBuscarVentas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarVentas.ForeColor = System.Drawing.Color.Black;

@@ -17,7 +17,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             _inicioForm = inicioForm;
-            inicioForm.PnlContenedorMenu.Enabled= false;
+            _inicioForm.PnlContenedorMenu.Enabled= false;
         }
         private void LimpiarPorProveedor()
         {

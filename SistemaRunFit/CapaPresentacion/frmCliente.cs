@@ -21,6 +21,7 @@ namespace CapaPresentacion
     {
         private static Domicilio DomicilioDGV = null;
         Color colorAzul = Color.FromArgb(6, 71, 109);
+
         public frmCliente()
         {
             InitializeComponent();
