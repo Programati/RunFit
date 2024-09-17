@@ -18,7 +18,7 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicioForm = inicioForm;
             _inicioForm.PnlContenedorMenu.Enabled= false;
-            this.Load += new EventHandler(frmListarProveedor_Load);
+            
         }
         private void frmListarProveedor_Load(object sender, EventArgs e)
         {

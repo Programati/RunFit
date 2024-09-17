@@ -20,7 +20,7 @@ namespace CapaPresentacion
             txtCuitProveedor.MaxLength = 11;
             txtRSocialProveedor.MaxLength = 20;
             txtDescripcionProveedor.MaxLength = 150;
-            this.Load += new EventHandler(frmProveedor_Load);
+            
         }
         private void frmProveedor_Load(object sender, EventArgs e)
         {

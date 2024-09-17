@@ -19,7 +19,6 @@ namespace CapaPresentacion
         public frmListarCliente(Inicio frminicio)
         {
             InitializeComponent();
-            //this.Load += new EventHandler(frmListarCliente_Load);
             _inicio = frminicio;
             frminicio.PnlContenedorMenu.Enabled= false;
         }

@@ -19,7 +19,7 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicio = inicio;
             _inicio.PnlContenedorMenu.Enabled = false;
-            this.Load += new EventHandler(frmListarProducto_Load);
+            
         }
         private void frmListarProducto_Load(object sender, EventArgs e)
         {
