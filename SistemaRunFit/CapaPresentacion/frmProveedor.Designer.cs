@@ -360,6 +360,7 @@
             this.Controls.Add(this.pnlDatosProveedor);
             this.Name = "frmProveedor";
             this.Text = "Proveedores";
+            this.Load += new System.EventHandler(this.frmProveedor_Load_1);
             this.pnlDatosProveedor.ResumeLayout(false);
             this.pnlDatosProveedor.PerformLayout();
             this.ResumeLayout(false);

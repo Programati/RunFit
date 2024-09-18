@@ -16,8 +16,9 @@ namespace CapaPresentacion
         public frmCategoria()
         {
             InitializeComponent();
-            txtCategoria.Focus();
+            
         }
+      
                
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
@@ -68,6 +69,11 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void frmCategoria_Load_1(object sender, EventArgs e)
+        {
+            txtCategoria.Focus();
         }
     }
 }

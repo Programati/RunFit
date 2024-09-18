@@ -20,6 +20,7 @@ namespace CapaPresentacion
             _inicioForm.PnlContenedorMenu.Enabled= false;
             
         }
+        
         private void frmListarProveedor_Load(object sender, EventArgs e)
         {
             txtBuscarPorProveedor.Focus();
@@ -94,6 +95,11 @@ namespace CapaPresentacion
                 _inicioForm.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void frmListarProveedor_Load_1(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Focus();
         }
     }
 

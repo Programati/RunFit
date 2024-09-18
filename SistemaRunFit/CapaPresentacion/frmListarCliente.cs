@@ -85,7 +85,7 @@ namespace CapaPresentacion
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-            txtBuscarCliente.Focus();
+           txtBuscarCliente.Focus();
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)

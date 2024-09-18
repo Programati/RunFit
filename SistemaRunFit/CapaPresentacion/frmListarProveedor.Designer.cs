@@ -425,6 +425,7 @@
             this.Controls.Add(this.pnlContenedorDatosProveedor);
             this.Name = "frmListarProveedor";
             this.Text = "Proveedores";
+            this.Load += new System.EventHandler(this.frmListarProveedor_Load_1);
             this.pnlContenedorDatosProveedor.ResumeLayout(false);
             this.grbListaUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProveedor)).EndInit();

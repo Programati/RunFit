@@ -21,10 +21,7 @@ namespace CapaPresentacion
             _inicio.PnlContenedorMenu.Enabled = false;
             
         }
-        private void frmListarProducto_Load(object sender, EventArgs e)
-        {
-            txtBuscarProducto.Focus();
-        }
+       
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             frmProducto CrearNuevoProducto = new frmProducto();
@@ -91,6 +88,11 @@ namespace CapaPresentacion
 
             }
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void frmListarProducto_Load_1(object sender, EventArgs e)
+        {
+            txtBuscarProducto.Focus();
         }
     }
 }

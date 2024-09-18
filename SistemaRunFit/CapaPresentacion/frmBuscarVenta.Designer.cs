@@ -77,7 +77,7 @@
             this.btnLimpiarBuscarVta.BorderSize = 2;
             this.btnLimpiarBuscarVta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarBuscarVta.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarBuscarVta.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarBuscarVta.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarBuscarVta.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnLimpiarBuscarVta.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarBuscarVta.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarBuscarVta.Image")));
@@ -91,7 +91,7 @@
             this.btnLimpiarBuscarVta.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarBuscarVta.Radius = 5;
             this.btnLimpiarBuscarVta.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarBuscarVta.TabIndex = 56;
+            this.btnLimpiarBuscarVta.TabIndex = 4;
             // 
             // btnBuscarBuscarVta
             // 
@@ -103,7 +103,7 @@
             this.btnBuscarBuscarVta.BorderSize = 2;
             this.btnBuscarBuscarVta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarBuscarVta.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarBuscarVta.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarBuscarVta.FocusedColor = System.Drawing.Color.White;
             this.btnBuscarBuscarVta.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnBuscarBuscarVta.ForeColor = System.Drawing.Color.White;
             this.btnBuscarBuscarVta.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarBuscarVta.Image")));
@@ -117,7 +117,7 @@
             this.btnBuscarBuscarVta.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscarBuscarVta.Radius = 5;
             this.btnBuscarBuscarVta.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarBuscarVta.TabIndex = 55;
+            this.btnBuscarBuscarVta.TabIndex = 3;
             // 
             // lblBuscarPorVta
             // 
@@ -146,7 +146,7 @@
             this.txtBuscarUser.Radius = 10;
             this.txtBuscarUser.SelectedText = "";
             this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
-            this.txtBuscarUser.TabIndex = 52;
+            this.txtBuscarUser.TabIndex = 2;
             this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmbBuscarPorUser
@@ -172,7 +172,7 @@
             this.cmbBuscarPorUser.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbBuscarPorUser.Radius = 10;
             this.cmbBuscarPorUser.Size = new System.Drawing.Size(169, 24);
-            this.cmbBuscarPorUser.TabIndex = 45;
+            this.cmbBuscarPorUser.TabIndex = 1;
             // 
             // grbDetalleBusqueda
             // 
@@ -240,7 +240,7 @@
             this.dgvDetalleVta.RowHeadersVisible = false;
             this.dgvDetalleVta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleVta.Size = new System.Drawing.Size(603, 342);
-            this.dgvDetalleVta.TabIndex = 0;
+            this.dgvDetalleVta.TabIndex = 5;
             this.dgvDetalleVta.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvDetalleVta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvDetalleVta.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -317,6 +317,7 @@
             this.Controls.Add(this.pnlBusquedaVta);
             this.Name = "frmBuscarVenta";
             this.Text = "Buscar Ventas";
+            this.Load += new System.EventHandler(this.frmBuscarVenta_Load);
             this.pnlBusquedaVta.ResumeLayout(false);
             this.pnlBusquedaVta.PerformLayout();
             this.grbDetalleBusqueda.ResumeLayout(false);
