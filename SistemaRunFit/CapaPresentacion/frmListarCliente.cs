@@ -84,6 +84,8 @@ namespace CapaPresentacion
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'runFitDataSet.PERSONAS' Puede moverla o quitarla según sea necesario.
+            this.pERSONASTableAdapter.Fill(this.runFitDataSet.PERSONAS);
             txtBuscarCliente.Focus();
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             

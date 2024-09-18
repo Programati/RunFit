@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.pnlContenedorMenu = new System.Windows.Forms.Panel();
             this.btnAcercaDe = new Guna.UI.WinForms.GunaGradientButton();
@@ -48,6 +49,7 @@
             this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
@@ -513,6 +515,12 @@
             this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,7 +529,7 @@
             this.ClientSize = new System.Drawing.Size(1028, 561);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";
@@ -556,6 +564,7 @@
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel panelContenedorFormularios;
         private Guna.UI.WinForms.GunaGradientButton btnMarca;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }
 

@@ -158,7 +158,7 @@
   <data name="btnMarca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAABLJJREFUaEPtmllIdVUYhh1T0avQCFQcgpJQDBQsEA0inEUv0oJuFKsbJae7CLpy
+        DQAACw0B7QfALAAABLJJREFUaEPtmllIdVUYhh1T0avQCFQcgpJQDBQsEA0inEUv0oJuFKsbJae7CLpy
         wItmulOhRK8SvTNooCAUlShKBUH9AxUHyKnZztf7Ltay7Tl7n8Gz9/lP0QMP/3Gftdb3Lo977XX2/hP+
         5z/Mi/A3LV//a0iCH0Px8wuYAuOaZ+AplMTEROnt7ZW+vj71msf0e2wTNzwIa+Bb8EeogmZnZ8vCwoIY
         +DonJ8dMgrLtm7AacoyY8Bz0QWuQW6ampkpPT4+cnJzo6P9wenqq3mMbu74WWYO1XOc7eKtYRkaG5Ofn
@@ -383,4 +383,7 @@
         NP/RHNL/UH5+/wGk8bMUT8PECwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
