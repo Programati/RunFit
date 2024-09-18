@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Collections;
 
 namespace CapaDeDatos
 {
@@ -58,6 +59,88 @@ namespace CapaDeDatos
                 }
             }
             return Lista;
+        }
+
+        public int Registrar(Domicilio ObjDomicilio, out string Mensaje)
+        {
+            int IdDomicilioGenerado = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARDOMICILIO", oconexion);
+                    cmd.Parameters.AddWithValue("calle", ObjDomicilio.calle);
+                    cmd.Parameters.AddWithValue("altura", ObjDomicilio.altura);
+                    cmd.Parameters.AddWithValue("casa", ObjDomicilio.casa);
+                    cmd.Parameters.AddWithValue("manzana", ObjDomicilio.manzana);
+                    cmd.Parameters.AddWithValue("departamento", ObjDomicilio.departamento);
+                    cmd.Parameters.AddWithValue("piso", ObjDomicilio.piso);
+                    cmd.Parameters.AddWithValue("id_persona", ObjDomicilio.oPersona.idPersona);
+
+                    cmd.Parameters.Add("IdDomicilioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    IdDomicilioGenerado = (int)cmd.Parameters["IdDomicilioResultado"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch (Exception ex) 
+            {
+                IdDomicilioGenerado = 0;
+                Mensaje = ex.Message;
+            }
+            return IdDomicilioGenerado;
+        }
+
+        public bool Editar(Domicilio ObjDomicilio, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                  SqlCommand cmd = new SqlCommand("SP_EDITARDOMICILIO", oconexion);
+                    cmd.Parameters.AddWithValue("@id_domicilio", ObjDomicilio.idDomicilio);
+                    cmd.Parameters.AddWithValue("calle", ObjDomicilio.calle);
+                    cmd.Parameters.AddWithValue("altura", ObjDomicilio.altura);
+                    cmd.Parameters.AddWithValue("casa", ObjDomicilio.casa);
+                    cmd.Parameters.AddWithValue("manzana", ObjDomicilio.manzana);
+                    cmd.Parameters.AddWithValue("departamento", ObjDomicilio.departamento);
+                    cmd.Parameters.AddWithValue("piso", ObjDomicilio.piso);
+                    cmd.Parameters.AddWithValue("id_persona", ObjDomicilio.oPersona.idPersona);
+
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
         }
     }
 }

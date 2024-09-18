@@ -1,4 +1,5 @@
 ﻿using CapaDeEntidades;
+using CapaDeNegocios;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.WebSockets;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
@@ -179,6 +181,13 @@ namespace CapaPresentacion
 
         private void btnGuardarCliente_Click(object sender, EventArgs e)
         {
+            string MensajeDomicilio = string.Empty;
+            string MensajePersona = string.Empty;
+            int IdPersonaGenerada = 0;
+            bool VerdadPersonaGenerada = false;
+            int IdDomicilioGenerado = 0;
+            bool VerdadDomicilioGenerado = false;
+
             if (datosPersonalesValidados() && datosDomicilioValidados())
             {
                 var confirmacion = MessageBox.Show(
@@ -190,9 +199,70 @@ namespace CapaPresentacion
 
                 if (confirmacion == DialogResult.Yes)
                 {
-                    // Aquí puedes agregar el código para guardar los datos
-                    MessageBox.Show("Los datos se guardaron exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    limpiarFormCliente();
+                    // Seteo la fecha para la BD
+                    string fechaFormateada = dtpFechaCliente.Value.ToString("yyyy-MM-dd");
+                    //Cargo la persona
+                    Persona PersonaNueva = new Persona()
+                    {
+                        idPersona = txtIdPersona.Text != "" ? Convert.ToInt32(txtIdPersona.Text) : IdPersonaGenerada,
+                        nombre = txtNombreCliente.Text,
+                        apellido = txtApellidoCliente.Text,
+                        dni = txtDniCliente.Text,
+                        telefono = txtTelefonoCliente.Text,
+                        email = txtEmailCliente.Text,
+                        fechaNacimiento = fechaFormateada,
+                        sexo = rdbtnMasculinoCliente.Checked == true ? Convert.ToChar('M') : Convert.ToChar('F')
+                    };
+
+                    //Si hay dato en txtIdPersona, EDITAMOS
+                    if(txtIdPersona.Text != "")
+                    {
+                        VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
+                        IdPersonaGenerada = PersonaNueva.idPersona;
+                    }
+                    //Si no hay dato en txtIdPersona REGISTRAMOS
+                    else
+                    {
+                        IdPersonaGenerada = new CN_Persona().Registrar(PersonaNueva, out MensajePersona);
+                    }
+
+
+                    Domicilio DomicilioNuevo = new Domicilio()
+                    {
+                        idDomicilio = txtIdDomicilio.Text != "" ? Convert.ToInt32(txtIdDomicilio.Text) : IdDomicilioGenerado,
+                        calle = txtCalleCliente.Text,
+                        altura = txtAlturaCliente.Text,
+                        manzana = txtManzanaCliente.Text,
+                        casa = txtCasaCliente.Text,
+                        piso = txtPisoCliente.Text,
+                        departamento = txtDeptoCliente.Text,
+                        oPersona = new Persona() { idPersona = IdPersonaGenerada }
+                    };
+
+                    //Si hay dato en txtIdDomicilio, EDITAMOS
+                    if (txtIdDomicilio.Text != "")
+                    {
+                        VerdadDomicilioGenerado = new CN_Domicilio().Editar(DomicilioNuevo, out MensajeDomicilio);
+                        IdPersonaGenerada = PersonaNueva.idPersona;
+                    }
+                    //Si no hay dato en txtIdDomicilio REGISTRAMOS
+                    else
+                    {
+                        IdDomicilioGenerado = new CN_Domicilio().Registrar(DomicilioNuevo, out MensajeDomicilio);
+                    }
+
+                    
+
+                    if (IdDomicilioGenerado != 0 && IdPersonaGenerada != 0)
+                    {
+                        MessageBox.Show("Los datos se guardaron exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        limpiarFormCliente();
+                    }
+                    else
+                    {
+                        MessageBox.Show(MensajePersona + "\n" + MensajeDomicilio);
+                    }
                 }
 
             }
@@ -320,6 +390,7 @@ namespace CapaPresentacion
             {
                 char sexo = DomicilioDGV.oPersona.sexo;
 
+                txtIdPersona.Text = DomicilioDGV.oPersona.idPersona.ToString();
                 txtNombreCliente.Text = DomicilioDGV.oPersona.nombre;
                 txtApellidoCliente.Text = DomicilioDGV.oPersona.apellido;
                 txtDniCliente.Text = DomicilioDGV.oPersona.dni;
@@ -332,6 +403,7 @@ namespace CapaPresentacion
                 DateTime fecha = DateTime.Parse(fechaString);
                 dtpFechaCliente.Value = fecha;
 
+                txtIdDomicilio.Text = DomicilioDGV.idDomicilio.ToString();
                 txtCalleCliente.Text = DomicilioDGV.calle;
                 txtAlturaCliente.Text = DomicilioDGV.altura;
 
@@ -351,6 +423,11 @@ namespace CapaPresentacion
                 btnVolverCliente.Focus();
 
             }
+        }
+
+        private void RegistrarCliente()
+        {
+
         }
     }
 }
