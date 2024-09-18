@@ -15,12 +15,16 @@ namespace CapaPresentacion
 {
     public partial class frmListarCliente : Form
     {
-        public frmListarCliente()
+        Inicio _inicio;
+        public frmListarCliente(Inicio frminicio)
         {
             InitializeComponent();
-            txtBuscarCliente.Focus();
+            //this.Load += new EventHandler(frmListarCliente_Load);
+            _inicio = frminicio;
+            frminicio.PnlContenedorMenu.Enabled= false;
         }
 
+        
         private void btnLimpiarCliente_Click(object sender, EventArgs e)
         {
             txtBuscarCliente.Clear();
@@ -42,7 +46,7 @@ namespace CapaPresentacion
         }
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarCliente ListarNuevoCliente = new frmListarCliente();
+            frmListarCliente ListarNuevoCliente = new frmListarCliente(_inicio);
 
             ListarNuevoCliente.TopLevel = false;
             pnlContenedorCliente.Controls.Clear();
@@ -80,6 +84,7 @@ namespace CapaPresentacion
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
+            txtBuscarCliente.Focus();
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)
@@ -110,6 +115,15 @@ namespace CapaPresentacion
                     CrearNuevoCliente.FormClosing += frm_closing;
                 }
             }
+        }
+
+        private void btnMenuClientes_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

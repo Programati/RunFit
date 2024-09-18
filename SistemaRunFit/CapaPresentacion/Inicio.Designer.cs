@@ -126,7 +126,6 @@
             this.btnProducto.BorderSize = 1;
             this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProducto.FocusedColor = System.Drawing.Color.Empty;
             this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducto.ForeColor = System.Drawing.Color.Black;
@@ -324,7 +323,6 @@
             this.btnBuscarVentas.BorderSize = 1;
             this.btnBuscarVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarVentas.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBuscarVentas.FocusedColor = System.Drawing.Color.Empty;
             this.btnBuscarVentas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarVentas.ForeColor = System.Drawing.Color.Black;
@@ -405,7 +403,7 @@
             this.btnVentas.OnPressedColor = System.Drawing.Color.Black;
             this.btnVentas.Size = new System.Drawing.Size(133, 40);
             this.btnVentas.TabIndex = 10;
-            this.btnVentas.Text = "VENTAS";
+            this.btnVentas.Text = "VENTAS ...";
             this.btnVentas.TextOffsetX = -8;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click_1);
             // 
@@ -467,7 +465,7 @@
             this.btnClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnClientes.Size = new System.Drawing.Size(133, 40);
             this.btnClientes.TabIndex = 1;
-            this.btnClientes.Text = "PERSONAS";
+            this.btnClientes.Text = "CLIENTES";
             this.btnClientes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 

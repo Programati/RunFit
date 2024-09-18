@@ -118,7 +118,7 @@
             this.btnVolverUser.BorderSize = 2;
             this.btnVolverUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolverUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnVolverUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnVolverUser.FocusedColor = System.Drawing.Color.White;
             this.btnVolverUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverUser.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverUser.Image")));
@@ -132,7 +132,7 @@
             this.btnVolverUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnVolverUser.Radius = 10;
             this.btnVolverUser.Size = new System.Drawing.Size(100, 40);
-            this.btnVolverUser.TabIndex = 71;
+            this.btnVolverUser.TabIndex = 12;
             this.btnVolverUser.Text = "Volver";
             this.btnVolverUser.Click += new System.EventHandler(this.btnVolverCliente_Click);
             // 
@@ -146,7 +146,7 @@
             this.btnLimpiarCamposUser.BorderSize = 2;
             this.btnLimpiarCamposUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarCamposUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarCamposUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarCamposUser.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarCamposUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCamposUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposUser.Image")));
@@ -160,7 +160,7 @@
             this.btnLimpiarCamposUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarCamposUser.Radius = 10;
             this.btnLimpiarCamposUser.Size = new System.Drawing.Size(100, 40);
-            this.btnLimpiarCamposUser.TabIndex = 68;
+            this.btnLimpiarCamposUser.TabIndex = 13;
             this.btnLimpiarCamposUser.Text = "Limpiar";
             this.btnLimpiarCamposUser.Click += new System.EventHandler(this.btnLimpiarCamposUser_Click);
             // 
@@ -173,7 +173,7 @@
             this.dtpFechaUser.Location = new System.Drawing.Point(676, 141);
             this.dtpFechaUser.Name = "dtpFechaUser";
             this.dtpFechaUser.Size = new System.Drawing.Size(154, 23);
-            this.dtpFechaUser.TabIndex = 53;
+            this.dtpFechaUser.TabIndex = 10;
             // 
             // btnGuardarUser
             // 
@@ -185,7 +185,7 @@
             this.btnGuardarUser.BorderSize = 2;
             this.btnGuardarUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardarUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnGuardarUser.FocusedColor = System.Drawing.Color.White;
             this.btnGuardarUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarUser.Image")));
@@ -199,7 +199,7 @@
             this.btnGuardarUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardarUser.Radius = 10;
             this.btnGuardarUser.Size = new System.Drawing.Size(100, 40);
-            this.btnGuardarUser.TabIndex = 67;
+            this.btnGuardarUser.TabIndex = 11;
             this.btnGuardarUser.Text = "Guardar";
             this.btnGuardarUser.Click += new System.EventHandler(this.btnGuardarUser_Click);
             // 
@@ -220,7 +220,7 @@
             this.txtEmailUser.Radius = 10;
             this.txtEmailUser.SelectedText = "";
             this.txtEmailUser.Size = new System.Drawing.Size(183, 26);
-            this.txtEmailUser.TabIndex = 63;
+            this.txtEmailUser.TabIndex = 5;
             this.txtEmailUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grbSexo
@@ -232,7 +232,7 @@
             this.grbSexo.Location = new System.Drawing.Point(584, 17);
             this.grbSexo.Name = "grbSexo";
             this.grbSexo.Size = new System.Drawing.Size(246, 55);
-            this.grbSexo.TabIndex = 65;
+            this.grbSexo.TabIndex = 9;
             this.grbSexo.TabStop = false;
             this.grbSexo.Text = "Sexo";
             // 
@@ -246,7 +246,7 @@
             this.rdbtnMasculinoUser.Location = new System.Drawing.Point(54, 19);
             this.rdbtnMasculinoUser.Name = "rdbtnMasculinoUser";
             this.rdbtnMasculinoUser.Size = new System.Drawing.Size(91, 20);
-            this.rdbtnMasculinoUser.TabIndex = 49;
+            this.rdbtnMasculinoUser.TabIndex = 19;
             this.rdbtnMasculinoUser.Text = "Masculino";
             // 
             // rdbtnFemeninoUser
@@ -259,7 +259,7 @@
             this.rdbtnFemeninoUser.Location = new System.Drawing.Point(151, 19);
             this.rdbtnFemeninoUser.Name = "rdbtnFemeninoUser";
             this.rdbtnFemeninoUser.Size = new System.Drawing.Size(89, 20);
-            this.rdbtnFemeninoUser.TabIndex = 50;
+            this.rdbtnFemeninoUser.TabIndex = 20;
             this.rdbtnFemeninoUser.Text = "Femenino";
             // 
             // lblNacimientoUser
@@ -305,7 +305,7 @@
             this.txtTelefonoUser.Radius = 10;
             this.txtTelefonoUser.SelectedText = "";
             this.txtTelefonoUser.Size = new System.Drawing.Size(183, 25);
-            this.txtTelefonoUser.TabIndex = 61;
+            this.txtTelefonoUser.TabIndex = 4;
             this.txtTelefonoUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefonoUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoUser_KeyPress);
             // 
@@ -349,7 +349,7 @@
             this.txtDniUser.Radius = 10;
             this.txtDniUser.SelectedText = "";
             this.txtDniUser.Size = new System.Drawing.Size(183, 25);
-            this.txtDniUser.TabIndex = 58;
+            this.txtDniUser.TabIndex = 3;
             this.txtDniUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDniUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDniUser_KeyPress);
             // 
@@ -381,7 +381,7 @@
             this.txtApellidoUser.Radius = 10;
             this.txtApellidoUser.SelectedText = "";
             this.txtApellidoUser.Size = new System.Drawing.Size(183, 25);
-            this.txtApellidoUser.TabIndex = 56;
+            this.txtApellidoUser.TabIndex = 2;
             this.txtApellidoUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtApellidoUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoUser_KeyPress);
             // 
@@ -413,7 +413,7 @@
             this.txtNombreUser.Radius = 10;
             this.txtNombreUser.SelectedText = "";
             this.txtNombreUser.Size = new System.Drawing.Size(183, 25);
-            this.txtNombreUser.TabIndex = 54;
+            this.txtNombreUser.TabIndex = 1;
             this.txtNombreUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUser_KeyPress);
             // 
@@ -437,7 +437,7 @@
             this.cmbTipoUsuarioUser.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbTipoUsuarioUser.Radius = 10;
             this.cmbTipoUsuarioUser.Size = new System.Drawing.Size(183, 24);
-            this.cmbTipoUsuarioUser.TabIndex = 44;
+            this.cmbTipoUsuarioUser.TabIndex = 8;
             // 
             // lblTipoUsuarioUser
             // 
@@ -478,7 +478,7 @@
             this.txtPassUser.Radius = 10;
             this.txtPassUser.SelectedText = "";
             this.txtPassUser.Size = new System.Drawing.Size(183, 26);
-            this.txtPassUser.TabIndex = 40;
+            this.txtPassUser.TabIndex = 7;
             this.txtPassUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblUsuario
@@ -509,7 +509,7 @@
             this.txtUsuario.Radius = 10;
             this.txtUsuario.SelectedText = "";
             this.txtUsuario.Size = new System.Drawing.Size(183, 26);
-            this.txtUsuario.TabIndex = 36;
+            this.txtUsuario.TabIndex = 6;
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dataGridViewImageColumn1

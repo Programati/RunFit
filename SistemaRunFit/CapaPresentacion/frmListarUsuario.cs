@@ -15,11 +15,15 @@ namespace CapaPresentacion
 {
     public partial class frmListarUsuario : Form
     {
-        public frmListarUsuario()
+        Inicio _inicio;
+        public frmListarUsuario(Inicio inicio)
         {
             InitializeComponent();
+            _inicio = inicio;
+            _inicio.PnlContenedorMenu.Enabled = false;
+           //  this.Load += new EventHandler(frmListarUsuario_Load);
         }
-
+      
         private void btnLimpiarUser_Click(object sender, EventArgs e)
         {
             txtBuscarUser.Clear();
@@ -28,7 +32,7 @@ namespace CapaPresentacion
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarUsuario ListarNuevoUsario = new frmListarUsuario();
+            frmListarUsuario ListarNuevoUsario = new frmListarUsuario(_inicio);
 
             ListarNuevoUsario.TopLevel = false;
             pnlContenedorUser.Controls.Clear();
@@ -78,15 +82,19 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
+       
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
-            //Mostrar todos los usuarios
+            //Pone el foco en el txtbox buscar usuario
+            txtBuscarUser.Focus();
+            //Limpia la lista antes de cargarla
+           // dgvListaUser.Rows.Clear();
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] {CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.fechaBaja != null ? "Activo" : "Inactivo"});
+                dgvListaUser.Rows.Add(new object[] {CapaPresentacion.Properties.Resources.Culture, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.fechaBaja != null ? "Activo" : "Inactivo"});
             }
         }
 
@@ -120,6 +128,15 @@ namespace CapaPresentacion
                     dgvListaUser.Rows[n].DefaultCellStyle.BackColor = Color.Purple;
                 }
             }
+        }
+
+        private void btnMenuClientes_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

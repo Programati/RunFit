@@ -8,15 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CapaPresentacion
 {
     public partial class frmListarProducto : Form
     {
-        public frmListarProducto()
+        Inicio _inicio;
+        public frmListarProducto(Inicio inicio)
         {
             InitializeComponent();
+            _inicio = inicio;
+            _inicio.PnlContenedorMenu.Enabled = false;
+            this.Load += new EventHandler(frmListarProducto_Load);
         }
-
+        private void frmListarProducto_Load(object sender, EventArgs e)
+        {
+            txtBuscarProducto.Focus();
+        }
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             frmProducto CrearNuevoProducto = new frmProducto();
@@ -32,7 +40,7 @@ namespace CapaPresentacion
         }
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarProducto ListarNuevoProducto = new frmListarProducto();
+            frmListarProducto ListarNuevoProducto = new frmListarProducto(_inicio);
 
             ListarNuevoProducto.TopLevel = false;
             pnlContenedorProducto.Controls.Clear();
@@ -72,6 +80,16 @@ namespace CapaPresentacion
                 return true;
             }
             return false;
+        }
+
+        private void btnMenuClientes_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarUser = new Guna.UI.WinForms.GunaTileButton();
@@ -50,6 +50,7 @@
             this.pnlContenedorUser = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.pnlBusquedaUser.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUser)).BeginInit();
@@ -60,6 +61,7 @@
             // 
             this.pnlBusquedaUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaUser.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaUser.Controls.Add(this.btnMenuClientes);
             this.pnlBusquedaUser.Controls.Add(this.btnNuevoUser);
             this.pnlBusquedaUser.Controls.Add(this.btnLimpiarUser);
             this.pnlBusquedaUser.Controls.Add(this.btnBuscarUser);
@@ -83,7 +85,7 @@
             this.btnNuevoUser.BorderSize = 2;
             this.btnNuevoUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevoUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnNuevoUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnNuevoUser.FocusedColor = System.Drawing.Color.White;
             this.btnNuevoUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoUser.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoUser.Image")));
@@ -97,7 +99,7 @@
             this.btnNuevoUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnNuevoUser.Radius = 10;
             this.btnNuevoUser.Size = new System.Drawing.Size(100, 34);
-            this.btnNuevoUser.TabIndex = 70;
+            this.btnNuevoUser.TabIndex = 4;
             this.btnNuevoUser.Text = "Nuevo";
             this.btnNuevoUser.Click += new System.EventHandler(this.btnNuevoUser_Click);
             // 
@@ -111,7 +113,7 @@
             this.btnLimpiarUser.BorderSize = 2;
             this.btnLimpiarUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarUser.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnLimpiarUser.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarUser.Image")));
@@ -125,7 +127,7 @@
             this.btnLimpiarUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarUser.Radius = 5;
             this.btnLimpiarUser.Size = new System.Drawing.Size(35, 30);
-            this.btnLimpiarUser.TabIndex = 56;
+            this.btnLimpiarUser.TabIndex = 3;
             this.btnLimpiarUser.Click += new System.EventHandler(this.btnLimpiarUser_Click);
             // 
             // btnBuscarUser
@@ -138,7 +140,7 @@
             this.btnBuscarUser.BorderSize = 2;
             this.btnBuscarUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarUser.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBuscarUser.FocusedColor = System.Drawing.Color.White;
             this.btnBuscarUser.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.btnBuscarUser.ForeColor = System.Drawing.Color.White;
             this.btnBuscarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUser.Image")));
@@ -152,7 +154,7 @@
             this.btnBuscarUser.OnPressedColor = System.Drawing.Color.Black;
             this.btnBuscarUser.Radius = 5;
             this.btnBuscarUser.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarUser.TabIndex = 55;
+            this.btnBuscarUser.TabIndex = 2;
             this.btnBuscarUser.Click += new System.EventHandler(this.btnBuscarUser_Click);
             // 
             // txtBuscarUser
@@ -172,7 +174,7 @@
             this.txtBuscarUser.Radius = 10;
             this.txtBuscarUser.SelectedText = "";
             this.txtBuscarUser.Size = new System.Drawing.Size(183, 26);
-            this.txtBuscarUser.TabIndex = 52;
+            this.txtBuscarUser.TabIndex = 1;
             this.txtBuscarUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarUser_KeyPress);
             // 
@@ -214,22 +216,22 @@
             this.dgvListaUser.AllowUserToAddRows = false;
             this.dgvListaUser.AllowUserToResizeColumns = false;
             this.dgvListaUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaUser.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListaUser.ColumnHeadersHeight = 34;
             this.dgvListaUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -240,14 +242,14 @@
             this.Usuario,
             this.Estado});
             this.dgvListaUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListaUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaUser.EnableHeadersVisualStyles = false;
             this.dgvListaUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -258,7 +260,7 @@
             this.dgvListaUser.RowHeadersVisible = false;
             this.dgvListaUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaUser.Size = new System.Drawing.Size(796, 279);
-            this.dgvListaUser.TabIndex = 0;
+            this.dgvListaUser.TabIndex = 5;
             this.dgvListaUser.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaUser.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaUser.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -376,6 +378,34 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // btnMenuClientes
+            // 
+            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
+            this.btnMenuClientes.AnimationSpeed = 0.03F;
+            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
+            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuClientes.BorderSize = 2;
+            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
+            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Name = "btnMenuClientes";
+            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuClientes.OnHoverImage = null;
+            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.Radius = 10;
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.TabIndex = 85;
+            this.btnMenuClientes.Text = "MENU";
+            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
+            // 
             // frmListarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,5 +444,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private Guna.UI.WinForms.GunaButton btnMenuClientes;
     }
 }
