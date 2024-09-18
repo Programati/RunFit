@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -63,10 +64,15 @@
             this.pnlContenedorCliente = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.runFitDataSet = new CapaPresentacion.RunFitDataSet();
+            this.pERSONASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pERSONASTableAdapter = new CapaPresentacion.RunFitDataSetTableAdapters.PERSONASTableAdapter();
             this.grbListaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.pnlBusquedaCliente.SuspendLayout();
             this.pnlContenedorCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.runFitDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pERSONASBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grbListaCliente
@@ -515,6 +521,20 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // runFitDataSet
+            // 
+            this.runFitDataSet.DataSetName = "RunFitDataSet";
+            this.runFitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pERSONASBindingSource
+            // 
+            this.pERSONASBindingSource.DataMember = "PERSONAS";
+            this.pERSONASBindingSource.DataSource = this.runFitDataSet;
+            // 
+            // pERSONASTableAdapter
+            // 
+            this.pERSONASTableAdapter.ClearBeforeFill = true;
+            // 
             // frmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,6 +550,8 @@
             this.pnlBusquedaCliente.ResumeLayout(false);
             this.pnlBusquedaCliente.PerformLayout();
             this.pnlContenedorCliente.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.runFitDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pERSONASBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,5 +587,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Piso;
         private Guna.UI.WinForms.GunaButton btnMenuClientes;
+        private RunFitDataSet runFitDataSet;
+        private System.Windows.Forms.BindingSource pERSONASBindingSource;
+        private RunFitDataSetTableAdapters.PERSONASTableAdapter pERSONASTableAdapter;
     }
 }

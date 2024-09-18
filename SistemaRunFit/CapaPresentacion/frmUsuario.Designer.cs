@@ -57,6 +57,10 @@
             this.txtUsuario = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
+            this.txtIdUsuario = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdPersona = new System.Windows.Forms.Label();
+            this.txtIdPersona = new Guna.UI.WinForms.GunaTextBox();
             this.pnlContenedorDatosUser.SuspendLayout();
             this.pnlDatosUsuarioUser.SuspendLayout();
             this.grbSexo.SuspendLayout();
@@ -70,7 +74,7 @@
             this.pnlContenedorDatosUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorDatosUser.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorDatosUser.Name = "pnlContenedorDatosUser";
-            this.pnlContenedorDatosUser.Size = new System.Drawing.Size(849, 307);
+            this.pnlContenedorDatosUser.Size = new System.Drawing.Size(849, 364);
             this.pnlContenedorDatosUser.TabIndex = 52;
             // 
             // pnlDatosUsuarioUser
@@ -78,6 +82,10 @@
             this.pnlDatosUsuarioUser.AutoScroll = true;
             this.pnlDatosUsuarioUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosUsuarioUser.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlDatosUsuarioUser.Controls.Add(this.txtIdPersona);
+            this.pnlDatosUsuarioUser.Controls.Add(this.lblIdPersona);
+            this.pnlDatosUsuarioUser.Controls.Add(this.txtIdUsuario);
+            this.pnlDatosUsuarioUser.Controls.Add(this.lblIdUsuario);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnVolverUser);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnLimpiarCamposUser);
             this.pnlDatosUsuarioUser.Controls.Add(this.dtpFechaUser);
@@ -105,7 +113,7 @@
             this.pnlDatosUsuarioUser.Name = "pnlDatosUsuarioUser";
             this.pnlDatosUsuarioUser.Radius = 5;
             this.pnlDatosUsuarioUser.ShadowColor = System.Drawing.Color.Black;
-            this.pnlDatosUsuarioUser.Size = new System.Drawing.Size(849, 307);
+            this.pnlDatosUsuarioUser.Size = new System.Drawing.Size(849, 364);
             this.pnlDatosUsuarioUser.TabIndex = 49;
             // 
             // btnVolverUser
@@ -123,7 +131,7 @@
             this.btnVolverUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverUser.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverUser.Image")));
             this.btnVolverUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVolverUser.Location = new System.Drawing.Point(163, 243);
+            this.btnVolverUser.Location = new System.Drawing.Point(163, 270);
             this.btnVolverUser.Name = "btnVolverUser";
             this.btnVolverUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverUser.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -151,7 +159,7 @@
             this.btnLimpiarCamposUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposUser.Image")));
             this.btnLimpiarCamposUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCamposUser.Location = new System.Drawing.Point(163, 171);
+            this.btnLimpiarCamposUser.Location = new System.Drawing.Point(163, 198);
             this.btnLimpiarCamposUser.Name = "btnLimpiarCamposUser";
             this.btnLimpiarCamposUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposUser.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -170,7 +178,7 @@
             this.dtpFechaUser.CalendarTitleBackColor = System.Drawing.Color.IndianRed;
             this.dtpFechaUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaUser.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaUser.Location = new System.Drawing.Point(676, 141);
+            this.dtpFechaUser.Location = new System.Drawing.Point(676, 168);
             this.dtpFechaUser.Name = "dtpFechaUser";
             this.dtpFechaUser.Size = new System.Drawing.Size(154, 23);
             this.dtpFechaUser.TabIndex = 10;
@@ -190,7 +198,7 @@
             this.btnGuardarUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarUser.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarUser.Image")));
             this.btnGuardarUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarUser.Location = new System.Drawing.Point(17, 243);
+            this.btnGuardarUser.Location = new System.Drawing.Point(17, 270);
             this.btnGuardarUser.Name = "btnGuardarUser";
             this.btnGuardarUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarUser.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -214,7 +222,7 @@
             this.txtEmailUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtEmailUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmailUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailUser.Location = new System.Drawing.Point(369, 17);
+            this.txtEmailUser.Location = new System.Drawing.Point(369, 44);
             this.txtEmailUser.Name = "txtEmailUser";
             this.txtEmailUser.PasswordChar = '\0';
             this.txtEmailUser.Radius = 10;
@@ -229,7 +237,7 @@
             this.grbSexo.Controls.Add(this.rdbtnFemeninoUser);
             this.grbSexo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbSexo.ForeColor = System.Drawing.Color.White;
-            this.grbSexo.Location = new System.Drawing.Point(584, 17);
+            this.grbSexo.Location = new System.Drawing.Point(584, 44);
             this.grbSexo.Name = "grbSexo";
             this.grbSexo.Size = new System.Drawing.Size(246, 55);
             this.grbSexo.TabIndex = 9;
@@ -270,7 +278,7 @@
             this.lblNacimientoUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblNacimientoUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNacimientoUser.ForeColor = System.Drawing.Color.White;
-            this.lblNacimientoUser.Location = new System.Drawing.Point(576, 132);
+            this.lblNacimientoUser.Location = new System.Drawing.Point(576, 159);
             this.lblNacimientoUser.Name = "lblNacimientoUser";
             this.lblNacimientoUser.Size = new System.Drawing.Size(75, 32);
             this.lblNacimientoUser.TabIndex = 64;
@@ -281,7 +289,7 @@
             this.lblEmailUser.AutoSize = true;
             this.lblEmailUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailUser.ForeColor = System.Drawing.Color.White;
-            this.lblEmailUser.Location = new System.Drawing.Point(281, 22);
+            this.lblEmailUser.Location = new System.Drawing.Point(281, 49);
             this.lblEmailUser.Name = "lblEmailUser";
             this.lblEmailUser.Size = new System.Drawing.Size(38, 16);
             this.lblEmailUser.TabIndex = 62;
@@ -298,7 +306,7 @@
             this.txtTelefonoUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtTelefonoUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTelefonoUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoUser.Location = new System.Drawing.Point(80, 140);
+            this.txtTelefonoUser.Location = new System.Drawing.Point(80, 167);
             this.txtTelefonoUser.MaxLength = 10;
             this.txtTelefonoUser.Name = "txtTelefonoUser";
             this.txtTelefonoUser.PasswordChar = '\0';
@@ -314,7 +322,7 @@
             this.lblTelefonoUser.AutoSize = true;
             this.lblTelefonoUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefonoUser.ForeColor = System.Drawing.Color.White;
-            this.lblTelefonoUser.Location = new System.Drawing.Point(17, 144);
+            this.lblTelefonoUser.Location = new System.Drawing.Point(17, 171);
             this.lblTelefonoUser.Name = "lblTelefonoUser";
             this.lblTelefonoUser.Size = new System.Drawing.Size(57, 16);
             this.lblTelefonoUser.TabIndex = 60;
@@ -325,7 +333,7 @@
             this.lblDniUser.AutoSize = true;
             this.lblDniUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDniUser.ForeColor = System.Drawing.Color.White;
-            this.lblDniUser.Location = new System.Drawing.Point(17, 104);
+            this.lblDniUser.Location = new System.Drawing.Point(17, 131);
             this.lblDniUser.Name = "lblDniUser";
             this.lblDniUser.Size = new System.Drawing.Size(27, 16);
             this.lblDniUser.TabIndex = 59;
@@ -342,7 +350,7 @@
             this.txtDniUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtDniUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDniUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDniUser.Location = new System.Drawing.Point(80, 100);
+            this.txtDniUser.Location = new System.Drawing.Point(80, 127);
             this.txtDniUser.MaxLength = 8;
             this.txtDniUser.Name = "txtDniUser";
             this.txtDniUser.PasswordChar = '\0';
@@ -358,7 +366,7 @@
             this.lblApellidoUser.AutoSize = true;
             this.lblApellidoUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellidoUser.ForeColor = System.Drawing.Color.White;
-            this.lblApellidoUser.Location = new System.Drawing.Point(17, 61);
+            this.lblApellidoUser.Location = new System.Drawing.Point(17, 88);
             this.lblApellidoUser.Name = "lblApellidoUser";
             this.lblApellidoUser.Size = new System.Drawing.Size(57, 16);
             this.lblApellidoUser.TabIndex = 57;
@@ -375,7 +383,7 @@
             this.txtApellidoUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtApellidoUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtApellidoUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoUser.Location = new System.Drawing.Point(80, 57);
+            this.txtApellidoUser.Location = new System.Drawing.Point(80, 84);
             this.txtApellidoUser.Name = "txtApellidoUser";
             this.txtApellidoUser.PasswordChar = '\0';
             this.txtApellidoUser.Radius = 10;
@@ -390,7 +398,7 @@
             this.lblNombreUser.AutoSize = true;
             this.lblNombreUser.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUser.ForeColor = System.Drawing.Color.White;
-            this.lblNombreUser.Location = new System.Drawing.Point(17, 22);
+            this.lblNombreUser.Location = new System.Drawing.Point(17, 49);
             this.lblNombreUser.Name = "lblNombreUser";
             this.lblNombreUser.Size = new System.Drawing.Size(61, 16);
             this.lblNombreUser.TabIndex = 55;
@@ -407,7 +415,7 @@
             this.txtNombreUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtNombreUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNombreUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUser.Location = new System.Drawing.Point(80, 18);
+            this.txtNombreUser.Location = new System.Drawing.Point(80, 45);
             this.txtNombreUser.Name = "txtNombreUser";
             this.txtNombreUser.PasswordChar = '\0';
             this.txtNombreUser.Radius = 10;
@@ -430,7 +438,7 @@
             this.cmbTipoUsuarioUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoUsuarioUser.ForeColor = System.Drawing.Color.Black;
             this.cmbTipoUsuarioUser.FormattingEnabled = true;
-            this.cmbTipoUsuarioUser.Location = new System.Drawing.Point(369, 140);
+            this.cmbTipoUsuarioUser.Location = new System.Drawing.Point(369, 167);
             this.cmbTipoUsuarioUser.Margin = new System.Windows.Forms.Padding(1);
             this.cmbTipoUsuarioUser.Name = "cmbTipoUsuarioUser";
             this.cmbTipoUsuarioUser.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
@@ -444,7 +452,7 @@
             this.lblTipoUsuarioUser.AutoSize = true;
             this.lblTipoUsuarioUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoUsuarioUser.ForeColor = System.Drawing.Color.White;
-            this.lblTipoUsuarioUser.Location = new System.Drawing.Point(281, 144);
+            this.lblTipoUsuarioUser.Location = new System.Drawing.Point(281, 171);
             this.lblTipoUsuarioUser.Name = "lblTipoUsuarioUser";
             this.lblTipoUsuarioUser.Size = new System.Drawing.Size(26, 16);
             this.lblTipoUsuarioUser.TabIndex = 42;
@@ -455,7 +463,7 @@
             this.lblContrasenaUser.AutoSize = true;
             this.lblContrasenaUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContrasenaUser.ForeColor = System.Drawing.Color.White;
-            this.lblContrasenaUser.Location = new System.Drawing.Point(281, 104);
+            this.lblContrasenaUser.Location = new System.Drawing.Point(281, 131);
             this.lblContrasenaUser.Name = "lblContrasenaUser";
             this.lblContrasenaUser.Size = new System.Drawing.Size(82, 16);
             this.lblContrasenaUser.TabIndex = 41;
@@ -472,7 +480,7 @@
             this.txtPassUser.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtPassUser.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPassUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassUser.Location = new System.Drawing.Point(369, 99);
+            this.txtPassUser.Location = new System.Drawing.Point(369, 126);
             this.txtPassUser.Name = "txtPassUser";
             this.txtPassUser.PasswordChar = '●';
             this.txtPassUser.Radius = 10;
@@ -486,7 +494,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(281, 61);
+            this.lblUsuario.Location = new System.Drawing.Point(281, 88);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(54, 16);
             this.lblUsuario.TabIndex = 37;
@@ -503,7 +511,7 @@
             this.txtUsuario.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(369, 56);
+            this.txtUsuario.Location = new System.Drawing.Point(369, 83);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.PasswordChar = '\0';
             this.txtUsuario.Radius = 10;
@@ -530,12 +538,76 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.AutoSize = true;
+            this.lblIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblIdUsuario.Location = new System.Drawing.Point(17, 14);
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(46, 16);
+            this.lblIdUsuario.TabIndex = 65;
+            this.lblIdUsuario.Text = "ID user";
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdUsuario.BaseColor = System.Drawing.Color.White;
+            this.txtIdUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdUsuario.BorderSize = 1;
+            this.txtIdUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdUsuario.Enabled = false;
+            this.txtIdUsuario.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdUsuario.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdUsuario.Location = new System.Drawing.Point(80, 10);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.PasswordChar = '\0';
+            this.txtIdUsuario.Radius = 10;
+            this.txtIdUsuario.SelectedText = "";
+            this.txtIdUsuario.Size = new System.Drawing.Size(47, 25);
+            this.txtIdUsuario.TabIndex = 66;
+            this.txtIdUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIdPersona
+            // 
+            this.lblIdPersona.AutoSize = true;
+            this.lblIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPersona.ForeColor = System.Drawing.Color.White;
+            this.lblIdPersona.Location = new System.Drawing.Point(281, 14);
+            this.lblIdPersona.Name = "lblIdPersona";
+            this.lblIdPersona.Size = new System.Drawing.Size(69, 16);
+            this.lblIdPersona.TabIndex = 67;
+            this.lblIdPersona.Text = "ID Persona";
+            // 
+            // txtIdPersona
+            // 
+            this.txtIdPersona.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdPersona.BaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdPersona.BorderSize = 1;
+            this.txtIdPersona.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdPersona.Enabled = false;
+            this.txtIdPersona.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdPersona.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdPersona.Location = new System.Drawing.Point(369, 10);
+            this.txtIdPersona.Name = "txtIdPersona";
+            this.txtIdPersona.PasswordChar = '\0';
+            this.txtIdPersona.Radius = 10;
+            this.txtIdPersona.SelectedText = "";
+            this.txtIdPersona.Size = new System.Drawing.Size(47, 25);
+            this.txtIdPersona.TabIndex = 68;
+            this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(849, 307);
+            this.ClientSize = new System.Drawing.Size(849, 364);
             this.Controls.Add(this.pnlContenedorDatosUser);
             this.Name = "frmUsuario";
             this.Text = "Gestion de usuarios";
@@ -578,5 +650,9 @@
         private Guna.UI.WinForms.GunaButton btnVolverUser;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.Label lblIdUsuario;
+        private Guna.UI.WinForms.GunaTextBox txtIdUsuario;
+        private Guna.UI.WinForms.GunaTextBox txtIdPersona;
+        private System.Windows.Forms.Label lblIdPersona;
     }
 }

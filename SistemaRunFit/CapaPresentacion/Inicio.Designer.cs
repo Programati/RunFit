@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.pnlContenedorMenu = new System.Windows.Forms.Panel();
             this.panelSubMantenedor = new System.Windows.Forms.Panel();
@@ -35,7 +36,9 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
+
             this.imagenFondo = new System.Windows.Forms.PictureBox();
+
             this.btnAcercaDe = new Guna.UI.WinForms.GunaGradientButton();
             this.btnProducto = new Guna.UI.WinForms.GunaGradientButton();
             this.btnMarca = new Guna.UI.WinForms.GunaGradientButton();
@@ -49,6 +52,12 @@
             this.btnUsuario = new Guna.UI.WinForms.GunaGradientButton();
             this.btnClientes = new Guna.UI.WinForms.GunaGradientButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+
+
+            this.panelContenedorFormularios = new System.Windows.Forms.Panel();
+           
+
+
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
@@ -125,7 +134,9 @@
             // panelContenedorFormularios
             // 
             this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
+
             this.panelContenedorFormularios.Controls.Add(this.imagenFondo);
+
             this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
@@ -133,6 +144,7 @@
             this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
+
             // imagenFondo
             // 
             this.imagenFondo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -145,6 +157,8 @@
             this.imagenFondo.TabIndex = 0;
             this.imagenFondo.TabStop = false;
             // 
+
+
             // btnAcercaDe
             // 
             this.btnAcercaDe.Animated = true;
@@ -521,7 +535,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Run;
+          //  this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Run;
             this.pictureBox1.Location = new System.Drawing.Point(-10, -20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 110);
@@ -529,6 +543,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+
+
+
+            // panelContenedorFormularios
+            // 
+            this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
+            this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
+            this.panelContenedorFormularios.Name = "panelContenedorFormularios";
+            this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
+            this.panelContenedorFormularios.TabIndex = 4;
+          
+          
+            // 
+
+
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,7 +568,7 @@
             this.ClientSize = new System.Drawing.Size(1028, 561);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema RunFit";
@@ -574,7 +605,9 @@
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel panelContenedorFormularios;
         private Guna.UI.WinForms.GunaGradientButton btnMarca;
+
         private System.Windows.Forms.PictureBox imagenFondo;
+
     }
 }
 
