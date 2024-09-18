@@ -18,8 +18,9 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicioForm = inicioForm;
             _inicioForm.PnlContenedorMenu.Enabled= false;
-            this.Load += new EventHandler(frmListarProveedor_Load);
+            
         }
+        
         private void frmListarProveedor_Load(object sender, EventArgs e)
         {
             txtBuscarPorProveedor.Focus();
@@ -91,8 +92,14 @@ namespace CapaPresentacion
             if (_inicioForm != null)
             {
                 _inicioForm.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicioForm.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void frmListarProveedor_Load_1(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Focus();
         }
     }
 

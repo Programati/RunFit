@@ -16,12 +16,13 @@ namespace CapaPresentacion
     public partial class frmListarCliente : Form
     {
         Inicio _inicio;
+        
         public frmListarCliente(Inicio frminicio)
         {
             InitializeComponent();
-            //this.Load += new EventHandler(frmListarCliente_Load);
             _inicio = frminicio;
             frminicio.PnlContenedorMenu.Enabled= false;
+            
         }
 
         
@@ -84,7 +85,9 @@ namespace CapaPresentacion
 
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-            txtBuscarCliente.Focus();
+
+           txtBuscarCliente.Focus();
+
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)
@@ -122,8 +125,10 @@ namespace CapaPresentacion
             if (_inicio != null)
             {
                 _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
+            
         }
     }
 }

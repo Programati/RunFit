@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -63,10 +64,15 @@
             this.pnlContenedorCliente = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.runFitDataSet = new CapaPresentacion.RunFitDataSet();
+            this.pERSONASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pERSONASTableAdapter = new CapaPresentacion.RunFitDataSetTableAdapters.PERSONASTableAdapter();
             this.grbListaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
             this.pnlBusquedaCliente.SuspendLayout();
             this.pnlContenedorCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.runFitDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pERSONASBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // grbListaCliente
@@ -93,6 +99,8 @@
             // dgvListaClientes
             // 
             this.dgvListaClientes.AllowUserToAddRows = false;
+            this.dgvListaClientes.AllowUserToResizeColumns = false;
+            this.dgvListaClientes.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -132,7 +140,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -145,7 +153,6 @@
             this.dgvListaClientes.Name = "dgvListaClientes";
             this.dgvListaClientes.ReadOnly = true;
             this.dgvListaClientes.RowHeadersVisible = false;
-            this.dgvListaClientes.RowTemplate.Height = 28;
             this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaClientes.Size = new System.Drawing.Size(988, 279);
             this.dgvListaClientes.TabIndex = 5;
@@ -167,8 +174,8 @@
             this.dgvListaClientes.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvListaClientes.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaClientes.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaClientes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvListaClientes.ThemeStyle.RowsStyle.Height = 28;
+            this.dgvListaClientes.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvListaClientes.ThemeStyle.RowsStyle.Height = 22;
             this.dgvListaClientes.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaClientes.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaClientes_CellContentClick);
@@ -514,6 +521,20 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // runFitDataSet
+            // 
+            this.runFitDataSet.DataSetName = "RunFitDataSet";
+            this.runFitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pERSONASBindingSource
+            // 
+            this.pERSONASBindingSource.DataMember = "PERSONAS";
+            this.pERSONASBindingSource.DataSource = this.runFitDataSet;
+            // 
+            // pERSONASTableAdapter
+            // 
+            this.pERSONASTableAdapter.ClearBeforeFill = true;
+            // 
             // frmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,6 +550,8 @@
             this.pnlBusquedaCliente.ResumeLayout(false);
             this.pnlBusquedaCliente.PerformLayout();
             this.pnlContenedorCliente.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.runFitDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pERSONASBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,5 +587,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Departamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Piso;
         private Guna.UI.WinForms.GunaButton btnMenuClientes;
+        private RunFitDataSet runFitDataSet;
+        private System.Windows.Forms.BindingSource pERSONASBindingSource;
+        private RunFitDataSetTableAdapters.PERSONASTableAdapter pERSONASTableAdapter;
     }
 }

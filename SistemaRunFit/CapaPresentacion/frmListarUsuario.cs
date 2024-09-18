@@ -21,7 +21,7 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicio = inicio;
             _inicio.PnlContenedorMenu.Enabled = false;
-           //  this.Load += new EventHandler(frmListarUsuario_Load);
+           
         }
       
         private void btnLimpiarUser_Click(object sender, EventArgs e)
@@ -88,13 +88,12 @@ namespace CapaPresentacion
         {
             //Pone el foco en el txtbox buscar usuario
             txtBuscarUser.Focus();
-            //Limpia la lista antes de cargarla
-           // dgvListaUser.Rows.Clear();
+
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] {CapaPresentacion.Properties.Resources.Culture, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.fechaBaja != null ? "Activo" : "Inactivo"});
+                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.passwordUsuario ,item.fechaBaja != null ? "Activo" : "Inactivo", item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo });
             }
         }
 
@@ -105,9 +104,10 @@ namespace CapaPresentacion
                 int n = e.RowIndex;
                 if (n >= 0)
                 {
-                    Rol rolEditar = new Rol() {idRol = (int)dgvListaUser.Rows[n].Cells["IdRol"].Value, nombreRol = dgvListaUser.Rows[n].Cells["NombreRol"].Value.ToString() };
-                    Usuario usuarioEditar = new Usuario() { nombreUsuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString(), oRol = rolEditar };
-                    frmUsuario CrearNuevoUsuario = new frmUsuario(usuarioEditar);
+                    Rol RolEditar = new Rol() {idRol = (int)dgvListaUser.Rows[n].Cells["IdRol"].Value, nombreRol = dgvListaUser.Rows[n].Cells["NombreRol"].Value.ToString() };
+                    Persona PersonaEditar = new Persona() { idPersona = Convert.ToInt32(dgvListaUser.Rows[n].Cells["idPersona"].Value), dni = dgvListaUser.Rows[n].Cells["Dni"].Value.ToString(), nombre = dgvListaUser.Rows[n].Cells["Nombre"].Value.ToString(), apellido = dgvListaUser.Rows[n].Cells["Apellido"].Value.ToString(), email = dgvListaUser.Rows[n].Cells["Email"].Value.ToString(), telefono = dgvListaUser.Rows[n].Cells["Telefono"].Value.ToString(), fechaNacimiento = dgvListaUser.Rows[n].Cells["FechaNacimiento"].Value.ToString(), sexo = Convert.ToChar(dgvListaUser.Rows[n].Cells["Sexo"].Value) };
+                    Usuario UsuarioEditar = new Usuario() { idUsuario = (int)dgvListaUser.Rows[n].Cells["IdUsuario"].Value, nombreUsuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString(), passwordUsuario = dgvListaUser.Rows[n].Cells["Password"].Value.ToString(), oRol = RolEditar, oPersona = PersonaEditar };
+                    frmUsuario CrearNuevoUsuario = new frmUsuario(UsuarioEditar);
 
                     CrearNuevoUsuario.TopLevel = false;
                     pnlContenedorUser.Controls.Clear();
@@ -135,8 +135,14 @@ namespace CapaPresentacion
             if (_inicio != null)
             {
                 _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void pnlBusquedaUser_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

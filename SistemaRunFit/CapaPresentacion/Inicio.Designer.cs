@@ -48,11 +48,14 @@
             this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
+            this.imagenFondo = new System.Windows.Forms.PictureBox();
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelContenedorFormularios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenFondo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContenedorMenu
@@ -499,19 +502,32 @@
             this.pictureBox1.Location = new System.Drawing.Point(-10, -20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 110);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // panelContenedorFormularios
             // 
             this.panelContenedorFormularios.BackColor = System.Drawing.Color.Transparent;
+            this.panelContenedorFormularios.Controls.Add(this.imagenFondo);
             this.panelContenedorFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedorFormularios.Location = new System.Drawing.Point(133, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
             this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.panelContenedorFormularios.Size = new System.Drawing.Size(895, 561);
             this.panelContenedorFormularios.TabIndex = 4;
+            // 
+            // imagenFondo
+            // 
+            this.imagenFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imagenFondo.Image = ((System.Drawing.Image)(resources.GetObject("imagenFondo.Image")));
+            this.imagenFondo.InitialImage = global::CapaPresentacion.Properties.Resources.running_art;
+            this.imagenFondo.Location = new System.Drawing.Point(3, 0);
+            this.imagenFondo.Name = "imagenFondo";
+            this.imagenFondo.Size = new System.Drawing.Size(889, 558);
+            this.imagenFondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imagenFondo.TabIndex = 0;
+            this.imagenFondo.TabStop = false;
             // 
             // Inicio
             // 
@@ -532,6 +548,8 @@
             this.pnlLogo.ResumeLayout(false);
             this.pnlLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelContenedorFormularios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imagenFondo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,6 +574,9 @@
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.Panel panelContenedorFormularios;
         private Guna.UI.WinForms.GunaGradientButton btnMarca;
+
+        private System.Windows.Forms.PictureBox imagenFondo;
+
     }
 }
 

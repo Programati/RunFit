@@ -6,12 +6,12 @@ namespace CapaPresentacion
 {
     public partial class frmRegistrarVenta : Form
     {
-        private Inicio _inicioForm; // Variable para almacenar la referencia del formulario Inicio
+        private Inicio _inicio; // Variable para almacenar la referencia del formulario Inicio
 
         public frmRegistrarVenta(Inicio inicioForm)
         {
             InitializeComponent();
-            _inicioForm = inicioForm; // Asignar la referencia del formulario Inicio
+            _inicio = inicioForm; // Asignar la referencia del formulario Inicio
             this.Load += new EventHandler(frmRegistrarVenta_Load);
         }
 
@@ -75,9 +75,10 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            if (_inicioForm != null)
+            if (_inicio != null)
             {
-                _inicioForm.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
         }

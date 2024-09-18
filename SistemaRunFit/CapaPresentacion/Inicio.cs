@@ -66,7 +66,9 @@ namespace CapaPresentacion
 
         public void btnClientes_Click(object sender, EventArgs e)
         {
+
             OcultarSubMenu();
+            imagenFondo.Hide();
             frmListarCliente frmClientes = new frmListarCliente(this);
             abrirFormulario(btnClientes, frmClientes);
         }
@@ -114,6 +116,7 @@ namespace CapaPresentacion
 
         private void btnProducto_Click(object sender, EventArgs e)
         {
+            imagenFondo.Hide();
             frmListarProducto frmPto = new frmListarProducto(this);
             abrirFormulario(btnRegistrarVentas, frmPto);
             
@@ -122,12 +125,14 @@ namespace CapaPresentacion
 
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
+            imagenFondo.Hide();
             OcultarSubMenu();
             abrirFormulario(btnAcercaDe, new frmAcercaDe());
         }
 
         private void abrirFormulario(GunaGradientButton menu, Form formulario)
         {
+            imagenFondo.Hide();
             if (menuActivo != null)
             {
                 menuActivo.BaseColor1 = Color.Transparent;
@@ -179,6 +184,10 @@ namespace CapaPresentacion
                 return pnlContenedorMenu;
             }
         }
-        
+        public void MostrarImagenFondo()
+        {
+            imagenFondo.Show(); // Mostrar la imagen nuevamente
+        }
+
     }
 }

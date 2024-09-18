@@ -19,12 +19,9 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicio = inicio;
             _inicio.PnlContenedorMenu.Enabled = false;
-            this.Load += new EventHandler(frmListarProducto_Load);
+            
         }
-        private void frmListarProducto_Load(object sender, EventArgs e)
-        {
-            txtBuscarProducto.Focus();
-        }
+       
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
             frmProducto CrearNuevoProducto = new frmProducto();
@@ -87,9 +84,15 @@ namespace CapaPresentacion
             if (_inicio != null)
             {
                 _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
-                
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+
             }
             this.Close(); // Cierra el formulario actual
+        }
+
+        private void frmListarProducto_Load_1(object sender, EventArgs e)
+        {
+            txtBuscarProducto.Focus();
         }
     }
 }

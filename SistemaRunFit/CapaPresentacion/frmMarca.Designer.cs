@@ -328,6 +328,7 @@
             this.Controls.Add(this.pnlBusquedaCategoria);
             this.Name = "frmMarca";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmMarca_Load);
             this.pnlBusquedaCategoria.ResumeLayout(false);
             this.pnlBusquedaCategoria.PerformLayout();
             this.grbListaMarcas.ResumeLayout(false);

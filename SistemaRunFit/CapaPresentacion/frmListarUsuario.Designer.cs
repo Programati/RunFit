@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarUser = new Guna.UI.WinForms.GunaTileButton();
             this.btnBuscarUser = new Guna.UI.WinForms.GunaTileButton();
@@ -40,17 +41,27 @@
             this.lblBuscarPorUser = new Guna.UI.WinForms.GunaLabel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaUser = new Guna.UI.WinForms.GunaDataGridView();
+            this.pnlContenedorUser = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlContenedorUser = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
+
+            this.idPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.pnlBusquedaUser.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUser)).BeginInit();
@@ -74,6 +85,63 @@
             this.pnlBusquedaUser.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaUser.Size = new System.Drawing.Size(800, 100);
             this.pnlBusquedaUser.TabIndex = 1;
+            this.pnlBusquedaUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusquedaUser_Paint);
+            // 
+            // btnMenuClientes
+            // 
+            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
+            this.btnMenuClientes.AnimationSpeed = 0.03F;
+            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
+            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuClientes.BorderSize = 2;
+            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
+            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Name = "btnMenuClientes";
+            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuClientes.OnHoverImage = null;
+            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.Radius = 10;
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.TabIndex = 85;
+            this.btnMenuClientes.Text = "MENU";
+            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
+            // 
+            // btnMenuClientes
+            // 
+            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
+            this.btnMenuClientes.AnimationSpeed = 0.03F;
+            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
+            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuClientes.BorderSize = 2;
+            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
+            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Name = "btnMenuClientes";
+            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuClientes.OnHoverImage = null;
+            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.Radius = 10;
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.TabIndex = 85;
+            this.btnMenuClientes.Text = "MENU";
+            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
             // 
             // btnNuevoUser
             // 
@@ -240,7 +308,16 @@
             this.IdRol,
             this.NombreRol,
             this.Usuario,
-            this.Estado});
+            this.Password,
+            this.Estado,
+            this.idPersona,
+            this.Dni,
+            this.Nombre,
+            this.Apellido,
+            this.Email,
+            this.Telefono,
+            this.FechaNacimiento,
+            this.Sexo});
             this.dgvListaUser.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
@@ -285,69 +362,6 @@
             this.dgvListaUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvListaUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUser_CellContentClick);
             // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Width = 79;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 98;
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdUsuario.HeaderText = "ID";
-            this.IdUsuario.Name = "IdUsuario";
-            this.IdUsuario.ReadOnly = true;
-            this.IdUsuario.Width = 51;
-            // 
-            // IdRol
-            // 
-            this.IdRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdRol.HeaderText = "IdRol";
-            this.IdRol.Name = "IdRol";
-            this.IdRol.ReadOnly = true;
-            this.IdRol.Width = 74;
-            // 
-            // NombreRol
-            // 
-            this.NombreRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NombreRol.HeaderText = "Rol";
-            this.NombreRol.Name = "NombreRol";
-            this.NombreRol.ReadOnly = true;
-            this.NombreRol.Width = 59;
-            // 
-            // Usuario
-            // 
-            this.Usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            this.Usuario.Width = 92;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 86;
-            // 
             // pnlContenedorUser
             // 
             this.pnlContenedorUser.AutoScroll = true;
@@ -378,34 +392,142 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // btnMenuClientes
+
+            // Editar
             // 
-            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
-            this.btnMenuClientes.AnimationSpeed = 0.03F;
-            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
-            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnMenuClientes.BorderSize = 2;
-            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
-            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
-            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
-            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
-            this.btnMenuClientes.Name = "btnMenuClientes";
-            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnMenuClientes.OnHoverImage = null;
-            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
-            this.btnMenuClientes.TabIndex = 85;
-            this.btnMenuClientes.Text = "MENU";
-            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 79;
             // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 98;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Width = 107;
+            // 
+            // IdRol
+            // 
+            this.IdRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IdRol.HeaderText = "IdRol";
+            this.IdRol.Name = "IdRol";
+            this.IdRol.ReadOnly = true;
+            this.IdRol.Width = 74;
+            // 
+            // NombreRol
+            // 
+            this.NombreRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NombreRol.HeaderText = "Rol";
+            this.NombreRol.Name = "NombreRol";
+            this.NombreRol.ReadOnly = true;
+            this.NombreRol.Width = 59;
+            // 
+            // Usuario
+            // 
+            this.Usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            this.Usuario.Width = 92;
+            // 
+            // Password
+            // 
+            this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Password.HeaderText = "Password";
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            this.Password.Width = 107;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 86;
+            // 
+            // idPersona
+            // 
+            this.idPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idPersona.HeaderText = "idPer";
+            this.idPersona.Name = "idPersona";
+            this.idPersona.ReadOnly = true;
+            this.idPersona.Width = 75;
+            // 
+            // Dni
+            // 
+            this.Dni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Dni.HeaderText = "DNI";
+            this.Dni.Name = "Dni";
+            this.Dni.ReadOnly = true;
+            this.Dni.Width = 63;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellido
+            // 
+            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            this.Apellido.Width = 102;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 79;
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 101;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FechaNacimiento.HeaderText = "Fecha de Nacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Width = 205;
+            // 
+            // Sexo
+            // 
+            this.Sexo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Sexo.HeaderText = "Sexo";
+            this.Sexo.Name = "Sexo";
+            this.Sexo.ReadOnly = true;
+            this.Sexo.Width = 73;
+            // 
+
             // frmListarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,13 +559,22 @@
         private System.Windows.Forms.Panel pnlContenedorUser;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private Guna.UI.WinForms.GunaButton btnMenuClientes;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreRol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private Guna.UI.WinForms.GunaButton btnMenuClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPersona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
     }
 }

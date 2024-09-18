@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmMarca : Form
+    public partial class Form1 : Form
     {
-        public frmMarca()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void frmMarca_Load(object sender, EventArgs e)
-        {
-            txtBuscarMarca.Focus();
         }
     }
 }
