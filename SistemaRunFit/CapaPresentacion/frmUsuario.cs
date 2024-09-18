@@ -85,7 +85,7 @@ namespace CapaPresentacion
                     Usuario UsuarioNuevo = new Usuario()
                     {
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
-                        nombreUsuario = txtNombreUser.Text,
+                        nombreUsuario = txtUsuario.Text,
                         passwordUsuario = txtPassUser.Text,
                         fechaBaja = null,
                         oPersona = new Persona() { idPersona = IdPersonaGenerada },
