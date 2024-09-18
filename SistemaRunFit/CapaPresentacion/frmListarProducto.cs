@@ -87,7 +87,8 @@ namespace CapaPresentacion
             if (_inicio != null)
             {
                 _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
-                
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+
             }
             this.Close(); // Cierra el formulario actual
         }

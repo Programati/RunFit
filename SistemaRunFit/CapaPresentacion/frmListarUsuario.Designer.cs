@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarUser = new Guna.UI.WinForms.GunaTileButton();
             this.btnBuscarUser = new Guna.UI.WinForms.GunaTileButton();
@@ -50,7 +51,6 @@
             this.pnlContenedorUser = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.pnlBusquedaUser.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUser)).BeginInit();
@@ -74,6 +74,35 @@
             this.pnlBusquedaUser.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaUser.Size = new System.Drawing.Size(800, 100);
             this.pnlBusquedaUser.TabIndex = 1;
+            this.pnlBusquedaUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusquedaUser_Paint);
+            // 
+            // btnMenuClientes
+            // 
+            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
+            this.btnMenuClientes.AnimationSpeed = 0.03F;
+            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
+            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuClientes.BorderSize = 2;
+            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
+            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Name = "btnMenuClientes";
+            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuClientes.OnHoverImage = null;
+            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuClientes.Radius = 10;
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.TabIndex = 85;
+            this.btnMenuClientes.Text = "MENU";
+            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
             // 
             // btnNuevoUser
             // 
@@ -377,34 +406,6 @@
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // btnMenuClientes
-            // 
-            this.btnMenuClientes.AnimationHoverSpeed = 0.07F;
-            this.btnMenuClientes.AnimationSpeed = 0.03F;
-            this.btnMenuClientes.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenuClientes.BaseColor = System.Drawing.Color.White;
-            this.btnMenuClientes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnMenuClientes.BorderSize = 2;
-            this.btnMenuClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuClientes.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMenuClientes.FocusedColor = System.Drawing.Color.Red;
-            this.btnMenuClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
-            this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
-            this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
-            this.btnMenuClientes.Name = "btnMenuClientes";
-            this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnMenuClientes.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnMenuClientes.OnHoverImage = null;
-            this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
-            this.btnMenuClientes.TabIndex = 85;
-            this.btnMenuClientes.Text = "MENU";
-            this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
             // 
             // frmListarUsuario
             // 
