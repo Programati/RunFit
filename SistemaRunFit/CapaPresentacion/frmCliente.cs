@@ -253,7 +253,7 @@ namespace CapaPresentacion
 
                     
 
-                    if (IdDomicilioGenerado != 0 && IdPersonaGenerada != 0)
+                    if (IdDomicilioGenerado != 0 && IdPersonaGenerada != 0 )
                     {
                         MessageBox.Show("Los datos se guardaron exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -423,11 +423,6 @@ namespace CapaPresentacion
                 btnVolverCliente.Focus();
 
             }
-        }
-
-        private void RegistrarCliente()
-        {
-
         }
     }
 }
