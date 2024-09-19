@@ -22,7 +22,6 @@ namespace CapaPresentacion
             InitializeComponent();
             _inicio = inicio;
             _inicio.PnlContenedorMenu.Enabled = false;
-           
         }
 
         private void frm_closing(object sender, FormClosingEventArgs e)
@@ -51,25 +50,6 @@ namespace CapaPresentacion
             CrearNuevoUsuario.Show();
             CrearNuevoUsuario.FormClosing += frm_closing;
         }
-
-        private void btnBuscarUser_Click(object sender, EventArgs e)
-        {
-            //if (EsDniMuyCorto())
-            //{
-            //    return;
-            //}
-        }
-
-        private bool EsDniMuyCorto()
-        {
-            if (txtBuscarUser.Text.Length < 7)
-            {
-                MessageBox.Show("El número de DNI es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true;
-            }
-            return false;
-        }
-
         private void txtBuscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -94,16 +74,14 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
+            txtBuscarUser.Focus();
         }
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {
             //Pone el foco en el txtbox buscar usuario
             txtBuscarUser.Focus();
-
             listar_usuario();
-          
-
         }
         private void listar_usuario()
         {
@@ -220,8 +198,6 @@ namespace CapaPresentacion
                 }
 
             }
-
-
 
         }
 

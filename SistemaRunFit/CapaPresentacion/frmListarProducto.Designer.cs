@@ -322,7 +322,7 @@
             this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
             this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
             this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Location = new System.Drawing.Point(20, 33);
             this.btnMenuClientes.Name = "btnMenuClientes";
             this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -330,7 +330,7 @@
             this.btnMenuClientes.OnHoverImage = null;
             this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.Size = new System.Drawing.Size(100, 34);
             this.btnMenuClientes.TabIndex = 86;
             this.btnMenuClientes.Text = "MENU";
             this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
@@ -350,7 +350,7 @@
             this.btnNuevoProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProducto.Image")));
             this.btnNuevoProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnNuevoProducto.Location = new System.Drawing.Point(20, 33);
+            this.btnNuevoProducto.Location = new System.Drawing.Point(482, 33);
             this.btnNuevoProducto.Name = "btnNuevoProducto";
             this.btnNuevoProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoProducto.OnHoverBorderColor = System.Drawing.Color.Black;

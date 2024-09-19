@@ -57,7 +57,6 @@
             this.pnlBusquedaCliente = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarCliente = new Guna.UI.WinForms.GunaTileButton();
-            this.btnBuscarCliente = new Guna.UI.WinForms.GunaTileButton();
             this.btnNuevoCliente = new Guna.UI.WinForms.GunaButton();
             this.lblBuscarPorCliente = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCliente = new Guna.UI.WinForms.GunaTextBox();
@@ -333,7 +332,6 @@
             this.pnlBusquedaCliente.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.pnlBusquedaCliente.Controls.Add(this.btnMenuClientes);
             this.pnlBusquedaCliente.Controls.Add(this.btnLimpiarCliente);
-            this.pnlBusquedaCliente.Controls.Add(this.btnBuscarCliente);
             this.pnlBusquedaCliente.Controls.Add(this.btnNuevoCliente);
             this.pnlBusquedaCliente.Controls.Add(this.lblBuscarPorCliente);
             this.pnlBusquedaCliente.Controls.Add(this.txtBuscarCliente);
@@ -360,7 +358,7 @@
             this.btnMenuClientes.ForeColor = System.Drawing.Color.Red;
             this.btnMenuClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuClientes.Image")));
             this.btnMenuClientes.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuClientes.Location = new System.Drawing.Point(539, 33);
+            this.btnMenuClientes.Location = new System.Drawing.Point(12, 34);
             this.btnMenuClientes.Name = "btnMenuClientes";
             this.btnMenuClientes.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnMenuClientes.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -368,7 +366,7 @@
             this.btnMenuClientes.OnHoverImage = null;
             this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuClientes.Size = new System.Drawing.Size(100, 34);
             this.btnMenuClientes.TabIndex = 84;
             this.btnMenuClientes.Text = "MENU";
             this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
@@ -388,7 +386,7 @@
             this.btnLimpiarCliente.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCliente.Image")));
             this.btnLimpiarCliente.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLimpiarCliente.Location = new System.Drawing.Point(423, 36);
+            this.btnLimpiarCliente.Location = new System.Drawing.Point(441, 36);
             this.btnLimpiarCliente.Name = "btnLimpiarCliente";
             this.btnLimpiarCliente.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnLimpiarCliente.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -399,34 +397,6 @@
             this.btnLimpiarCliente.Size = new System.Drawing.Size(35, 30);
             this.btnLimpiarCliente.TabIndex = 3;
             this.btnLimpiarCliente.Click += new System.EventHandler(this.btnLimpiarCliente_Click);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.AnimationHoverSpeed = 0.07F;
-            this.btnBuscarCliente.AnimationSpeed = 0.03F;
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBuscarCliente.BaseColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCliente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnBuscarCliente.BorderSize = 2;
-            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCliente.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarCliente.FocusedColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
-            this.btnBuscarCliente.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarCliente.Location = new System.Drawing.Point(382, 36);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnBuscarCliente.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnBuscarCliente.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.OnHoverImage = null;
-            this.btnBuscarCliente.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscarCliente.Radius = 5;
-            this.btnBuscarCliente.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarCliente.TabIndex = 2;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // btnNuevoCliente
             // 
@@ -443,7 +413,7 @@
             this.btnNuevoCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoCliente.Image")));
             this.btnNuevoCliente.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnNuevoCliente.Location = new System.Drawing.Point(19, 34);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(517, 34);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnNuevoCliente.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -463,9 +433,9 @@
             this.lblBuscarPorCliente.ForeColor = System.Drawing.Color.White;
             this.lblBuscarPorCliente.Location = new System.Drawing.Point(136, 43);
             this.lblBuscarPorCliente.Name = "lblBuscarPorCliente";
-            this.lblBuscarPorCliente.Size = new System.Drawing.Size(51, 16);
+            this.lblBuscarPorCliente.Size = new System.Drawing.Size(104, 16);
             this.lblBuscarPorCliente.TabIndex = 1;
-            this.lblBuscarPorCliente.Text = "Buscar";
+            this.lblBuscarPorCliente.Text = "Buscar por DNI";
             // 
             // txtBuscarCliente
             // 
@@ -477,8 +447,8 @@
             this.txtBuscarCliente.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarCliente.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarCliente.Location = new System.Drawing.Point(193, 38);
-            this.txtBuscarCliente.MaxLength = 8;
+            this.txtBuscarCliente.Location = new System.Drawing.Point(246, 38);
+            this.txtBuscarCliente.MaxLength = 100;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.PasswordChar = '\0';
             this.txtBuscarCliente.Radius = 10;
@@ -562,7 +532,6 @@
         private Guna.UI.WinForms.GunaDataGridView dgvListaClientes;
         private Guna.UI.WinForms.GunaShadowPanel pnlBusquedaCliente;
         private Guna.UI.WinForms.GunaTileButton btnLimpiarCliente;
-        private Guna.UI.WinForms.GunaTileButton btnBuscarCliente;
         private Guna.UI.WinForms.GunaLabel lblBuscarPorCliente;
         private Guna.UI.WinForms.GunaTextBox txtBuscarCliente;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
