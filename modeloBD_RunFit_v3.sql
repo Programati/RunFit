@@ -303,7 +303,7 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
  end
  go
  --ELIMINAR USUARIO
-  CREATE PROC SP_ELIMINARUSUARIO
+ CREATE PROC SP_ELIMINARUSUARIO
 (
     @id_usuario INT,
     @Respuesta BIT OUTPUT,
@@ -311,11 +311,13 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 )
 AS
 BEGIN
+    -- Verifica si el usuario existe
     IF EXISTS (SELECT 1 FROM Usuarios WHERE id_usuario = @id_usuario)
     BEGIN
         DECLARE @fecha_baja_actual DATE;
         SELECT @fecha_baja_actual = fecha_baja FROM Usuarios WHERE id_usuario = @id_usuario;
 
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
         IF @fecha_baja_actual IS NULL
         BEGIN
             UPDATE Usuarios
@@ -326,6 +328,7 @@ BEGIN
         END
         ELSE
         BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
             UPDATE Usuarios
             SET fecha_baja = NULL
             WHERE id_usuario = @id_usuario;
@@ -335,8 +338,9 @@ BEGIN
     END
     ELSE
     BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
         SET @Respuesta = 0;
-        SET @Mensaje = 'Usuario no encontrado';
+        SET @Mensaje = 'El usuario no existe.';
     END
 END
 -- PRUEBAS DE LOS PROCEDIMIENTOS
@@ -386,7 +390,7 @@ END
 
 
 
-
+ select * from USUARIOS
  select * from PERSONAS
  SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_domicilio, d.id_persona,
  p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo

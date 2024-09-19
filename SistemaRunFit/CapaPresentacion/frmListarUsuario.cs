@@ -90,13 +90,19 @@ namespace CapaPresentacion
             //Pone el foco en el txtbox buscar usuario
             txtBuscarUser.Focus();
 
+            listar_usuario();
+            // Recorrer todas las filas del DataGridView
+            
+
+        }
+        private void listar_usuario()
+        {
             List<Usuario> ListaUsuario = new CN_Usuario().ListarUsuarios();
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.passwordUsuario ,item.fechaBaja != null ? "Activo" : "Inactivo", item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo });
+                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.passwordUsuario, item.fechaBaja == null ? "Activo" : "Inactivo", item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo });
             }
-            // Recorrer todas las filas del DataGridView
             for (int i = 0; i < dgvListaUser.Rows.Count; i++)
             {
                 // Obtener el valor de la celda "Estado" en la fila actual
@@ -116,13 +122,12 @@ namespace CapaPresentacion
                     dgvListaUser.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
                 }
             }
-
         }
-
         private void dgvListaUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvListaUser.Columns[e.ColumnIndex].Name == "Editar")
             {
+                
                 int n = e.RowIndex;
                 if (n >= 0)
                 {
@@ -142,7 +147,9 @@ namespace CapaPresentacion
                 }
             }
             if (dgvListaUser.Columns[e.ColumnIndex].Name == "Eliminar")
+                
             {
+
                 int n = e.RowIndex;
                 if (n >= 0)
                 {
@@ -155,35 +162,40 @@ namespace CapaPresentacion
                     // Llamamos al procedimiento almacenado y obtenemos la respuesta
                     bool respuesta = new CN_Usuario().Eliminar(UsuarioEliminar, out mensaje);
                     string usuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString();
+                    string estadoActual = dgvListaUser.Rows[n].Cells["Estado"].Value.ToString();
 
-                    // Verificamos el valor de respuesta para determinar si el usuario fue activado o desactivado
-                    if (respuesta)  // Activado
-                    {
-                        DialogResult ask = MessageBox.Show($"¿Desea desactivar al usuario {usuario}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (ask == DialogResult.Yes)
-                        {
-                            MessageBox.Show("Usuario  " + usuario + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            dgvListaUser.Rows[n].Cells["Estado"].Value = "Inactivo";
-                            dgvListaUser.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red;
-                            dgvListaUser.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red;
-                            dgvListaUser.Refresh();  // Refrescar el DataGridView para reflejar el cambio
-                            dgvListaUser.Sort(dgvListaUser.Columns["Estado"], System.ComponentModel.ListSortDirection.Ascending);
-                        }
-                    }
-                    else  // Desactivado
+                    if (respuesta) // Respuesta = 1, se activará el usuario
                     {
                         DialogResult ask = MessageBox.Show($"¿Desea activar al usuario {usuario}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (ask == DialogResult.Yes)
                         {
-                            MessageBox.Show("Usuario  " + usuario + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            // Actualizar el estado del usuario
                             dgvListaUser.Rows[n].Cells["Estado"].Value = "Activo";
                             dgvListaUser.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black;
                             dgvListaUser.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black;
-                            dgvListaUser.Refresh();  // Refrescar el DataGridView para reflejar el cambio
-                            dgvListaUser.Sort(dgvListaUser.Columns["Estado"], System.ComponentModel.ListSortDirection.Ascending);
+
+                            MessageBox.Show("Usuario " + usuario + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
+                    else // Respuesta = 0, se desactivará el usuario
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea desactivar al usuario {usuario}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Actualizar el estado del usuario
+                            dgvListaUser.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red;
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red;
+
+                            MessageBox.Show("Usuario " + usuario + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+                    // Limpiar las filas del DataGridView y volver a cargar los datos
+                    dgvListaUser.Rows.Clear();
+                    listar_usuario(); // Asegúrate de que esta función recargue correctamente los datos del DataGridView
                 }
+
             }
 
 
