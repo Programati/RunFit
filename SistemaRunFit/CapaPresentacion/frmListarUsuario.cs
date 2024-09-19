@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using CapaDeNegocios;
+using System.Web.WebSockets;
 
 namespace CapaPresentacion
 {
@@ -95,6 +96,27 @@ namespace CapaPresentacion
             {
                 dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.passwordUsuario ,item.fechaBaja != null ? "Activo" : "Inactivo", item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo });
             }
+            // Recorrer todas las filas del DataGridView
+            for (int i = 0; i < dgvListaUser.Rows.Count; i++)
+            {
+                // Obtener el valor de la celda "Estado" en la fila actual
+                string estado = dgvListaUser.Rows[i].Cells["Estado"].Value.ToString();
+
+                // Cambiar el color tanto para cuando la fila está seleccionada como cuando no lo está
+                if (estado == "Activo")
+                {
+                    // Cambiar el color del texto a negro si es "Activo"
+                    dgvListaUser.Rows[i].Cells["Estado"].Style.ForeColor = Color.Black;
+                    dgvListaUser.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Black; // También cuando está seleccionada
+                }
+                else if (estado == "Inactivo")
+                {
+                    // Cambiar el color del texto a rojo si es "Inactivo"
+                    dgvListaUser.Rows[i].Cells["Estado"].Style.ForeColor = Color.Red;
+                    dgvListaUser.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
+                }
+            }
+
         }
 
         private void dgvListaUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -119,16 +141,57 @@ namespace CapaPresentacion
                     CrearNuevoUsuario.FormClosing += frm_closing;
                 }
             }
-
             if (dgvListaUser.Columns[e.ColumnIndex].Name == "Eliminar")
             {
                 int n = e.RowIndex;
                 if (n >= 0)
                 {
-                    dgvListaUser.Rows[n].DefaultCellStyle.BackColor = Color.Purple;
+                    string mensaje = string.Empty;
+                    Usuario UsuarioEliminar = new Usuario()
+                    {
+                        idUsuario = (int)dgvListaUser.Rows[n].Cells["IdUsuario"].Value
+                    };
+
+                    // Llamamos al procedimiento almacenado y obtenemos la respuesta
+                    bool respuesta = new CN_Usuario().Eliminar(UsuarioEliminar, out mensaje);
+                    string usuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString();
+
+                    // Verificamos el valor de respuesta para determinar si el usuario fue activado o desactivado
+                    if (respuesta)  // Activado
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea desactivar al usuario {usuario}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            MessageBox.Show("Usuario  " + usuario + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            dgvListaUser.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red;
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red;
+                            dgvListaUser.Refresh();  // Refrescar el DataGridView para reflejar el cambio
+                            dgvListaUser.Sort(dgvListaUser.Columns["Estado"], System.ComponentModel.ListSortDirection.Ascending);
+                        }
+                    }
+                    else  // Desactivado
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea activar al usuario {usuario}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            MessageBox.Show("Usuario  " + usuario + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            dgvListaUser.Rows[n].Cells["Estado"].Value = "Activo";
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black;
+                            dgvListaUser.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black;
+                            dgvListaUser.Refresh();  // Refrescar el DataGridView para reflejar el cambio
+                            dgvListaUser.Sort(dgvListaUser.Columns["Estado"], System.ComponentModel.ListSortDirection.Ascending);
+                        }
+                    }
                 }
             }
+
+
+
         }
+
+
+
 
         private void btnMenuClientes_Click(object sender, EventArgs e)
         {
