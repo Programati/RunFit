@@ -23,12 +23,6 @@ namespace CapaPresentacion
             _inicio.PnlContenedorMenu.Enabled = false;
            
         }
-      
-        private void btnLimpiarUser_Click(object sender, EventArgs e)
-        {
-            txtBuscarUser.Clear();
-        }
-
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
@@ -59,10 +53,10 @@ namespace CapaPresentacion
 
         private void btnBuscarUser_Click(object sender, EventArgs e)
         {
-            if (EsDniMuyCorto())
-            {
-                return;
-            }
+            //if (EsDniMuyCorto())
+            //{
+            //    return;
+            //}
         }
 
         private bool EsDniMuyCorto()
@@ -77,12 +71,29 @@ namespace CapaPresentacion
 
         private void txtBuscarUser_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
+            if (dgvListaUser.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvListaUser.Rows)
+                {
+                    if (row.Cells["Usuario"].Value.ToString().Trim().ToUpper().Contains(txtBuscarUser.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
         }
-       
+        private void btnLimpiarUser_Click(object sender, EventArgs e)
+        {
+            txtBuscarUser.Clear();
+            foreach (DataGridViewRow row in dgvListaUser.Rows)
+            {
+                row.Visible = true;
+            }
+        }
 
         private void frmListarUsuario_Load(object sender, EventArgs e)
         {

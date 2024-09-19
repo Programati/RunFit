@@ -25,12 +25,6 @@ namespace CapaPresentacion
             
         }
 
-        
-        private void btnLimpiarCliente_Click(object sender, EventArgs e)
-        {
-            txtBuscarCliente.Clear();
-        }
-
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
 
@@ -64,14 +58,32 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
-        }
 
+            if (dgvListaClientes.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvListaClientes.Rows)
+                {
+                    if (row.Cells["Dni"].Value.ToString().Trim().Contains(txtBuscarCliente.Text.Trim()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
+            }
+        }
+        private void btnLimpiarCliente_Click(object sender, EventArgs e)
+        {
+            txtBuscarCliente.Clear();
+            foreach (DataGridViewRow row in dgvListaClientes.Rows)
+            {
+                row.Visible = true;
+            }
+        }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            if (EsDniMuyCorto())
+            /*if (EsDniMuyCorto())
             {
                 return;
-            }
+            }*/
         }
         private bool EsDniMuyCorto()
         {
