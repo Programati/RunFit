@@ -28,7 +28,7 @@ namespace CapaDeDatos
                     query.AppendLine("inner join PERSONAS p on p.id_persona = u.id_persona");
                     query.AppendLine("inner join ROL r on r.id_rol = u.id_rol");
                     query.AppendLine("WHERE u.id_persona = p.id_persona");
-                    query.AppendLine("ORDER BY u.fecha_baja desc");
+                    query.AppendLine("ORDER BY u.fecha_baja asc");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
