@@ -302,7 +302,43 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 	set @Mensaje = 'Domicilio actualizado'
  end
  go
+ --ELIMINAR USUARIO
+  CREATE PROC SP_ELIMINARUSUARIO
+(
+    @id_usuario INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Usuarios WHERE id_usuario = @id_usuario)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM Usuarios WHERE id_usuario = @id_usuario;
 
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE Usuarios
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_usuario = @id_usuario;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            UPDATE Usuarios
+            SET fecha_baja = NULL
+            WHERE id_usuario = @id_usuario;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'Usuario no encontrado';
+    END
+END
 -- PRUEBAS DE LOS PROCEDIMIENTOS
 	/*REGISTRAR PERSONA*/
  declare @idpersonagenerada int
@@ -346,6 +382,9 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
  SELECT * FROM DOMICILIOS
 
  GO
+
+
+
 
 
  select * from PERSONAS
