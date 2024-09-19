@@ -77,24 +77,8 @@ namespace CapaPresentacion
             {
                 row.Visible = true;
             }
-        }
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            /*if (EsDniMuyCorto())
-            {
-                return;
-            }*/
-        }
-        private bool EsDniMuyCorto()
-        {
-            if (txtBuscarCliente.Text.Length < 7)
-            {
-                MessageBox.Show("El número de DNI es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true;
-            }
-            return false;
-        }
-
+            txtBuscarCliente.Focus();
+        }        
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
 
