@@ -20,11 +20,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
-        
-
-
-
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
             txtUsuario.Clear();
