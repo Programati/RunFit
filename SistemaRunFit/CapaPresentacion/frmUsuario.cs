@@ -40,15 +40,16 @@ namespace CapaPresentacion
             bool VerdadPersonaGenerada = false;
             int IdUsuarioGenerado = 0;
             bool VerdadUsuarioGenerado = false;
+            string mensajeConfirmacion = "¿Desea agrear al";
 
             if (camposValidados())
             {
                 string user = txtUsuario.Text;
                 string rolSeleccionado = ((Rol)cmbTipoUsuarioUser.SelectedItem).nombreRol.ToString();
-                //((Rol)cmbTipoUsuarioUser.SelectedItem).idRol
+                if (txtIdPersona.Text != "" && txtIdUsuario.Text != "") mensajeConfirmacion = "¿Confirma los cambios del";
 
                 var confirmacion = MessageBox.Show(
-                    $"¿Desea agregar al usuario {user} con el rol {rolSeleccionado} al sistema?",
+                    $"{mensajeConfirmacion} usuario {user} con el rol {rolSeleccionado} al sistema?",
                     "Confirmación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -58,6 +59,7 @@ namespace CapaPresentacion
                 {
                     // Seteo la fecha para la BD
                     string fechaFormateada = dtpFechaUser.Value.ToString("yyyy-MM-dd");
+                    
                     //Cargo la persona
                     Persona PersonaNueva = new Persona()
                     {
@@ -87,7 +89,6 @@ namespace CapaPresentacion
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
                         nombreUsuario = txtUsuario.Text,
                         passwordUsuario = txtPassUser.Text,
-                        fechaBaja = null,
                         oPersona = new Persona() { idPersona = IdPersonaGenerada },
                         oRol = new Rol() { idRol = ((Rol)cmbTipoUsuarioUser.SelectedItem).idRol }
                     };
