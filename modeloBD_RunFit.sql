@@ -334,7 +334,6 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 	@id_usuario INT,
 	@nombre_usuario VARCHAR(20),
     @password VARCHAR(255),
-	@fecha_baja DATE = NULL,
     @id_persona INT,
     @id_rol INT,
 	@Respuesta bit output,
@@ -350,13 +349,12 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 		update USUARIOS set
 		nombre_usuario = @nombre_usuario,
 		password = @password,
-		fecha_baja = @fecha_baja,
 		id_persona = @id_persona,
 		id_rol = @id_rol
 		WHERE id_usuario = @id_usuario
 
 		set @Respuesta = 1
-		set @Mensaje = 'Usuario REGISTRADO'
+		set @Mensaje = 'Usuario ACTUALIZADO'
 		
 	end
 	else
@@ -449,3 +447,10 @@ END
 
  GO
 
+ SELECT u.id_usuario,u.nombre_usuario,u.password,u.fecha_alta,u.fecha_baja,u.id_persona, u.id_rol,r.nombre_rol,p.dni,p.nombre,p.apellido,p.email,p.telefono,p.fecha_nacimiento,p.sexo FROM USUARIOS u
+ inner join PERSONAS p on p.id_persona = u.id_persona
+ inner join ROL r on r.id_rol = u.id_rol
+ WHERE u.id_persona = p.id_persona and u.fecha_baja is not null
+ ORDER BY u.fecha_baja asc
+
+ select * from usuarios

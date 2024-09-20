@@ -44,6 +44,14 @@ namespace CapaPresentacion
 
             Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == txtContrasena.Text).FirstOrDefault();
 
+            object estado = ousuario.fechaBaja;
+
+            if (estado != null)
+            {
+                MessageBox.Show("Usted esta dado de BAJA en el sistema");
+                return;
+            }
+
             if(ousuario != null)
             {
                 Inicio formInicioMenu = new Inicio(ousuario);

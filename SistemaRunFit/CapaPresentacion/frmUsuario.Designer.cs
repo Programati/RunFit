@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             this.pnlContenedorDatosUser = new System.Windows.Forms.Panel();
             this.pnlDatosUsuarioUser = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdPersona = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdPersona = new System.Windows.Forms.Label();
+            this.txtIdUsuario = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdUsuario = new System.Windows.Forms.Label();
             this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarCamposUser = new Guna.UI.WinForms.GunaButton();
             this.dtpFechaUser = new System.Windows.Forms.DateTimePicker();
@@ -57,10 +61,6 @@
             this.txtUsuario = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblIdUsuario = new System.Windows.Forms.Label();
-            this.txtIdUsuario = new Guna.UI.WinForms.GunaTextBox();
-            this.lblIdPersona = new System.Windows.Forms.Label();
-            this.txtIdPersona = new Guna.UI.WinForms.GunaTextBox();
             this.pnlContenedorDatosUser.SuspendLayout();
             this.pnlDatosUsuarioUser.SuspendLayout();
             this.grbSexo.SuspendLayout();
@@ -115,6 +115,70 @@
             this.pnlDatosUsuarioUser.ShadowColor = System.Drawing.Color.Black;
             this.pnlDatosUsuarioUser.Size = new System.Drawing.Size(849, 364);
             this.pnlDatosUsuarioUser.TabIndex = 49;
+            // 
+            // txtIdPersona
+            // 
+            this.txtIdPersona.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdPersona.BaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdPersona.BorderSize = 1;
+            this.txtIdPersona.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdPersona.Enabled = false;
+            this.txtIdPersona.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdPersona.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdPersona.Location = new System.Drawing.Point(369, 10);
+            this.txtIdPersona.Name = "txtIdPersona";
+            this.txtIdPersona.PasswordChar = '\0';
+            this.txtIdPersona.Radius = 10;
+            this.txtIdPersona.SelectedText = "";
+            this.txtIdPersona.Size = new System.Drawing.Size(47, 25);
+            this.txtIdPersona.TabIndex = 68;
+            this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIdPersona
+            // 
+            this.lblIdPersona.AutoSize = true;
+            this.lblIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPersona.ForeColor = System.Drawing.Color.White;
+            this.lblIdPersona.Location = new System.Drawing.Point(281, 14);
+            this.lblIdPersona.Name = "lblIdPersona";
+            this.lblIdPersona.Size = new System.Drawing.Size(69, 16);
+            this.lblIdPersona.TabIndex = 67;
+            this.lblIdPersona.Text = "ID Persona";
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdUsuario.BaseColor = System.Drawing.Color.White;
+            this.txtIdUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdUsuario.BorderSize = 1;
+            this.txtIdUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdUsuario.Enabled = false;
+            this.txtIdUsuario.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdUsuario.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdUsuario.Location = new System.Drawing.Point(80, 10);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.PasswordChar = '\0';
+            this.txtIdUsuario.Radius = 10;
+            this.txtIdUsuario.SelectedText = "";
+            this.txtIdUsuario.Size = new System.Drawing.Size(47, 25);
+            this.txtIdUsuario.TabIndex = 66;
+            this.txtIdUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIdUsuario
+            // 
+            this.lblIdUsuario.AutoSize = true;
+            this.lblIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblIdUsuario.Location = new System.Drawing.Point(17, 14);
+            this.lblIdUsuario.Name = "lblIdUsuario";
+            this.lblIdUsuario.Size = new System.Drawing.Size(46, 16);
+            this.lblIdUsuario.TabIndex = 65;
+            this.lblIdUsuario.Text = "ID user";
             // 
             // btnVolverUser
             // 
@@ -537,70 +601,6 @@
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // lblIdUsuario
-            // 
-            this.lblIdUsuario.AutoSize = true;
-            this.lblIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblIdUsuario.Location = new System.Drawing.Point(17, 14);
-            this.lblIdUsuario.Name = "lblIdUsuario";
-            this.lblIdUsuario.Size = new System.Drawing.Size(46, 16);
-            this.lblIdUsuario.TabIndex = 65;
-            this.lblIdUsuario.Text = "ID user";
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.txtIdUsuario.BaseColor = System.Drawing.Color.White;
-            this.txtIdUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtIdUsuario.BorderSize = 1;
-            this.txtIdUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdUsuario.Enabled = false;
-            this.txtIdUsuario.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtIdUsuario.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtIdUsuario.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdUsuario.Location = new System.Drawing.Point(80, 10);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.PasswordChar = '\0';
-            this.txtIdUsuario.Radius = 10;
-            this.txtIdUsuario.SelectedText = "";
-            this.txtIdUsuario.Size = new System.Drawing.Size(47, 25);
-            this.txtIdUsuario.TabIndex = 66;
-            this.txtIdUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblIdPersona
-            // 
-            this.lblIdPersona.AutoSize = true;
-            this.lblIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdPersona.ForeColor = System.Drawing.Color.White;
-            this.lblIdPersona.Location = new System.Drawing.Point(281, 14);
-            this.lblIdPersona.Name = "lblIdPersona";
-            this.lblIdPersona.Size = new System.Drawing.Size(69, 16);
-            this.lblIdPersona.TabIndex = 67;
-            this.lblIdPersona.Text = "ID Persona";
-            // 
-            // txtIdPersona
-            // 
-            this.txtIdPersona.BackColor = System.Drawing.Color.Transparent;
-            this.txtIdPersona.BaseColor = System.Drawing.Color.White;
-            this.txtIdPersona.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtIdPersona.BorderSize = 1;
-            this.txtIdPersona.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdPersona.Enabled = false;
-            this.txtIdPersona.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtIdPersona.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtIdPersona.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPersona.Location = new System.Drawing.Point(369, 10);
-            this.txtIdPersona.Name = "txtIdPersona";
-            this.txtIdPersona.PasswordChar = '\0';
-            this.txtIdPersona.Radius = 10;
-            this.txtIdPersona.SelectedText = "";
-            this.txtIdPersona.Size = new System.Drawing.Size(47, 25);
-            this.txtIdPersona.TabIndex = 68;
-            this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmUsuario
             // 

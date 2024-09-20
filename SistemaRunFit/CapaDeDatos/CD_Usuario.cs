@@ -111,7 +111,6 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("id_usuario", ObjUsuario.idUsuario);
                     cmd.Parameters.AddWithValue("nombre_usuario", ObjUsuario.nombreUsuario);
                     cmd.Parameters.AddWithValue("password", ObjUsuario.passwordUsuario);
-                    cmd.Parameters.AddWithValue("fecha_baja", ObjUsuario.fechaBaja);
                     cmd.Parameters.AddWithValue("id_persona", ObjUsuario.oPersona.idPersona);
                     cmd.Parameters.AddWithValue("id_rol", ObjUsuario.oRol.idRol);
 
