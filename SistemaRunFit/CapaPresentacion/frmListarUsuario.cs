@@ -212,6 +212,7 @@ namespace CapaPresentacion
                 _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
+            
         }
 
         private void pnlBusquedaUser_Paint(object sender, PaintEventArgs e)

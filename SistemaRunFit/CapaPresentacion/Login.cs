@@ -58,8 +58,10 @@ namespace CapaPresentacion
 
                 formInicioMenu.Show();
                 this.Hide();
-
+                
                 formInicioMenu.FormClosing += frm_closing;
+               //string logueado=ousuario.nombreUsuario.ToString();
+                
             }
             else
             {

@@ -23,6 +23,8 @@ namespace CapaPresentacion
             UsuarioActual = objUsuario;
             InitializeComponent();
             IniciarSubMenuOculto();
+            lblUsuarioInicio.Text = UsuarioActual.nombreUsuario.ToString();
+            lblRolInicio.Text=UsuarioActual.oRol.nombreRol.ToString();
         }
 
         private void IniciarSubMenuOculto()
@@ -146,7 +148,7 @@ namespace CapaPresentacion
 
             if (formularioActivo != null)
                 formularioActivo.Close();
-
+            
             formularioActivo = formulario;
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
