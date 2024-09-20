@@ -89,8 +89,8 @@ namespace CapaPresentacion
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar,
-                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.Eliminar : CapaPresentacion.Properties.Resources.volver,
+                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.pencil,
+                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user : CapaPresentacion.Properties.Resources.activar_user,
                     item.idUsuario, item.oRol.idRol, item.oRol.nombreRol,
                     item.nombreUsuario, item.passwordUsuario, item.fechaBaja == null ? "Activo" : "Inactivo",
                     item.oPersona.idPersona,

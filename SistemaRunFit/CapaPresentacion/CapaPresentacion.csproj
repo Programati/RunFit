@@ -288,5 +288,20 @@
   <ItemGroup>
     <None Include="Resources\volver.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
