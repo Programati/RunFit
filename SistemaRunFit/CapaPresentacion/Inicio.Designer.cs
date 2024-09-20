@@ -267,6 +267,7 @@
             this.btnStock.Size = new System.Drawing.Size(168, 40);
             this.btnStock.TabIndex = 16;
             this.btnStock.Text = "STOCK ...";
+            this.btnStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnStock.TextOffsetX = -8;
             this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
@@ -328,6 +329,7 @@
             this.btnProveedores.Size = new System.Drawing.Size(168, 40);
             this.btnProveedores.TabIndex = 14;
             this.btnProveedores.Text = "PROVEEDORES";
+            this.btnProveedores.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnProveedores.TextOffsetX = -8;
             this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
@@ -435,6 +437,7 @@
             this.btnVentas.Size = new System.Drawing.Size(168, 40);
             this.btnVentas.TabIndex = 10;
             this.btnVentas.Text = "VENTAS ...";
+            this.btnVentas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnVentas.TextOffsetX = -8;
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click_1);
             // 
@@ -518,7 +521,7 @@
             this.lblFitLogoMenu.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblFitLogoMenu.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFitLogoMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.lblFitLogoMenu.Location = new System.Drawing.Point(77, 53);
+            this.lblFitLogoMenu.Location = new System.Drawing.Point(94, 57);
             this.lblFitLogoMenu.Name = "lblFitLogoMenu";
             this.lblFitLogoMenu.Size = new System.Drawing.Size(42, 30);
             this.lblFitLogoMenu.TabIndex = 4;
@@ -527,7 +530,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.Run;
-            this.pictureBox1.Location = new System.Drawing.Point(-10, -20);
+            this.pictureBox1.Location = new System.Drawing.Point(16, -20);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
