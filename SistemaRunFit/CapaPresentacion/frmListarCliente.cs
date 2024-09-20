@@ -88,7 +88,7 @@ namespace CapaPresentacion
             
             foreach (Domicilio item in ListaDomicilio)
             {
-                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar,
+                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.pencil, CapaPresentacion.Properties.Resources.Eliminar,
                     item.oPersona.idPersona, item.oPersona.dni,
                     item.oPersona.nombre,
                     item.oPersona.apellido,
