@@ -88,7 +88,21 @@ namespace CapaPresentacion
             
             foreach (Domicilio item in ListaDomicilio)
             {
-                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo, item.idDomicilio, item.calle, item.altura, item.casa, item.manzana, item.departamento, item.piso });
+                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar,
+                    item.oPersona.idPersona, item.oPersona.dni,
+                    item.oPersona.nombre,
+                    item.oPersona.apellido,
+                    item.oPersona.email,
+                    item.oPersona.telefono,
+                    (Convert.ToDateTime(item.oPersona.fechaNacimiento)).ToString("dd-MM-yyyy"),
+                    item.oPersona.sexo,
+                    item.idDomicilio,
+                    item.calle,
+                    item.altura,
+                    item.casa,
+                    item.manzana,
+                    item.departamento,
+                    item.piso });
             }
         }
 

@@ -23,6 +23,8 @@ namespace CapaPresentacion
             UsuarioActual = objUsuario;
             InitializeComponent();
             IniciarSubMenuOculto();
+            lblUsuarioInicio.Text = UsuarioActual.nombreUsuario.ToString();
+            lblRolInicio.Text=UsuarioActual.oRol.nombreRol.ToString().ToUpper();
         }
 
         private void IniciarSubMenuOculto()
@@ -119,8 +121,6 @@ namespace CapaPresentacion
             imagenFondo.Hide();
             frmListarProducto frmPto = new frmListarProducto(this);
             abrirFormulario(btnRegistrarVentas, frmPto);
-            
-
         }
 
         private void btnAcercaDe_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace CapaPresentacion
 
             if (formularioActivo != null)
                 formularioActivo.Close();
-
+            
             formularioActivo = formulario;
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
