@@ -51,7 +51,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
             this.imagenFondo = new System.Windows.Forms.PictureBox();
-            this.lblUsuarioTitulo = new Guna.UI.WinForms.GunaLabel();
+            this.gbUserActual = new Guna.UI.WinForms.GunaGroupBox();
             this.pnlContenedorMenu.SuspendLayout();
             this.panelSubMantenedor.SuspendLayout();
             this.subVentas.SuspendLayout();
@@ -59,14 +59,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelContenedorFormularios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagenFondo)).BeginInit();
+            this.gbUserActual.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedorMenu
             // 
             this.pnlContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.pnlContenedorMenu.Controls.Add(this.lblUsuarioTitulo);
-            this.pnlContenedorMenu.Controls.Add(this.lblRolInicio);
-            this.pnlContenedorMenu.Controls.Add(this.lblUsuarioInicio);
+            this.pnlContenedorMenu.Controls.Add(this.gbUserActual);
             this.pnlContenedorMenu.Controls.Add(this.btnAcercaDe);
             this.pnlContenedorMenu.Controls.Add(this.panelSubMantenedor);
             this.pnlContenedorMenu.Controls.Add(this.btnStock);
@@ -80,28 +79,38 @@
             this.pnlContenedorMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlContenedorMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorMenu.Name = "pnlContenedorMenu";
-            this.pnlContenedorMenu.Size = new System.Drawing.Size(168, 606);
+            this.pnlContenedorMenu.Size = new System.Drawing.Size(168, 597);
             this.pnlContenedorMenu.TabIndex = 3;
             // 
             // lblRolInicio
             // 
+            this.lblRolInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRolInicio.AutoSize = true;
-            this.lblRolInicio.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRolInicio.Location = new System.Drawing.Point(3, 561);
+            this.lblRolInicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRolInicio.ForeColor = System.Drawing.Color.White;
+            this.lblRolInicio.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblRolInicio.Location = new System.Drawing.Point(0, 60);
             this.lblRolInicio.Name = "lblRolInicio";
-            this.lblRolInicio.Size = new System.Drawing.Size(33, 21);
+            this.lblRolInicio.Size = new System.Drawing.Size(26, 16);
             this.lblRolInicio.TabIndex = 20;
             this.lblRolInicio.Text = "Rol";
+            this.lblRolInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblUsuarioInicio
             // 
+            this.lblUsuarioInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioInicio.AutoSize = true;
-            this.lblUsuarioInicio.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioInicio.Location = new System.Drawing.Point(12, 530);
+            this.lblUsuarioInicio.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioInicio.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioInicio.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblUsuarioInicio.Location = new System.Drawing.Point(0, 35);
             this.lblUsuarioInicio.Name = "lblUsuarioInicio";
-            this.lblUsuarioInicio.Size = new System.Drawing.Size(67, 21);
+            this.lblUsuarioInicio.Size = new System.Drawing.Size(54, 16);
             this.lblUsuarioInicio.TabIndex = 19;
             this.lblUsuarioInicio.Text = "usuario";
+            this.lblUsuarioInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnAcercaDe
             // 
@@ -545,7 +554,7 @@
             this.panelContenedorFormularios.Location = new System.Drawing.Point(168, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
             this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.panelContenedorFormularios.Size = new System.Drawing.Size(887, 606);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(887, 597);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
             // imagenFondo
@@ -555,28 +564,35 @@
             this.imagenFondo.InitialImage = global::CapaPresentacion.Properties.Resources.running_art;
             this.imagenFondo.Location = new System.Drawing.Point(3, 0);
             this.imagenFondo.Name = "imagenFondo";
-            this.imagenFondo.Size = new System.Drawing.Size(881, 603);
+            this.imagenFondo.Size = new System.Drawing.Size(881, 594);
             this.imagenFondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imagenFondo.TabIndex = 0;
             this.imagenFondo.TabStop = false;
             // 
-            // lblUsuarioTitulo
+            // gbUserActual
             // 
-            this.lblUsuarioTitulo.AutoSize = true;
-            this.lblUsuarioTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioTitulo.Location = new System.Drawing.Point(26, 500);
-            this.lblUsuarioTitulo.Name = "lblUsuarioTitulo";
-            this.lblUsuarioTitulo.Size = new System.Drawing.Size(112, 21);
-            this.lblUsuarioTitulo.TabIndex = 21;
-            this.lblUsuarioTitulo.Text = "BIENVENIDO!!";
+            this.gbUserActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.gbUserActual.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.gbUserActual.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.gbUserActual.Controls.Add(this.lblRolInicio);
+            this.gbUserActual.Controls.Add(this.lblUsuarioInicio);
+            this.gbUserActual.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbUserActual.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbUserActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.gbUserActual.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.gbUserActual.Location = new System.Drawing.Point(0, 512);
+            this.gbUserActual.Name = "gbUserActual";
+            this.gbUserActual.Size = new System.Drawing.Size(168, 85);
+            this.gbUserActual.TabIndex = 50;
+            this.gbUserActual.Text = "BIENVENIDO";
+            this.gbUserActual.TextLocation = new System.Drawing.Point(1, 6);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1055, 606);
+            this.ClientSize = new System.Drawing.Size(1055, 597);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -585,7 +601,6 @@
             this.Text = "Sistema RunFit";
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.pnlContenedorMenu.ResumeLayout(false);
-            this.pnlContenedorMenu.PerformLayout();
             this.panelSubMantenedor.ResumeLayout(false);
             this.subVentas.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
@@ -593,6 +608,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelContenedorFormularios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imagenFondo)).EndInit();
+            this.gbUserActual.ResumeLayout(false);
+            this.gbUserActual.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -621,7 +638,7 @@
         private System.Windows.Forms.PictureBox imagenFondo;
         private Guna.UI.WinForms.GunaLabel lblUsuarioInicio;
         private Guna.UI.WinForms.GunaLabel lblRolInicio;
-        private Guna.UI.WinForms.GunaLabel lblUsuarioTitulo;
+        private Guna.UI.WinForms.GunaGroupBox gbUserActual;
     }
 }
 

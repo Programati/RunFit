@@ -89,7 +89,19 @@ namespace CapaPresentacion
 
             foreach (Usuario item in ListaUsuario)
             {
-                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.idUsuario, item.oRol.idRol, item.oRol.nombreRol, item.nombreUsuario, item.passwordUsuario, item.fechaBaja == null ? "Activo" : "Inactivo", item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo });
+                dgvListaUser.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar,
+                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.Eliminar : CapaPresentacion.Properties.Resources.volver,
+                    item.idUsuario, item.oRol.idRol, item.oRol.nombreRol,
+                    item.nombreUsuario, item.passwordUsuario, item.fechaBaja == null ? "Activo" : "Inactivo",
+                    item.oPersona.idPersona,
+                    item.oPersona.dni,
+                    item.oPersona.nombre,
+                    item.oPersona.apellido,
+                    item.oPersona.email,
+                    item.oPersona.telefono,
+                    (Convert.ToDateTime(item.oPersona.fechaNacimiento)).ToString("dd-MM-yyyy"),
+                    item.oPersona.sexo });
+
             }
             for (int i = 0; i < dgvListaUser.Rows.Count; i++)
             {
@@ -134,10 +146,8 @@ namespace CapaPresentacion
                     CrearNuevoUsuario.FormClosing += frm_closing;
                 }
             }
-            if (dgvListaUser.Columns[e.ColumnIndex].Name == "Eliminar")
-                
+            if (dgvListaUser.Columns[e.ColumnIndex].Name == "Accion")
             {
-
                 int n = e.RowIndex;
                 if (n >= 0)
                 {
@@ -158,7 +168,6 @@ namespace CapaPresentacion
                             // Llamamos al procedimiento almacenado y obtenemos la respuesta
                             bool respuesta = new CN_Usuario().Eliminar(UsuarioEliminar, out mensaje);
 
-
                             if (respuesta)
                             {
                                 // Actualizar el estado del usuario
@@ -168,7 +177,6 @@ namespace CapaPresentacion
 
                                 MessageBox.Show("Usuario " + usuario + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
-
                         }
                     }
                     else
@@ -187,11 +195,6 @@ namespace CapaPresentacion
                             MessageBox.Show("Usuario " + usuario + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                        
-
-                    
-                    
-
                     // Limpiar las filas del DataGridView y volver a cargar los datos
                     dgvListaUser.Rows.Clear();
                     listar_usuario(); // Asegúrate de que esta función recargue correctamente los datos del DataGridView
@@ -201,9 +204,6 @@ namespace CapaPresentacion
 
         }
 
-
-
-
         private void btnMenuClientes_Click(object sender, EventArgs e)
         {
             if (_inicio != null)
@@ -211,8 +211,7 @@ namespace CapaPresentacion
                 _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
                 _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
-            this.Close(); // Cierra el formulario actual
-            
+            this.Close(); // Cierra el formulario actual  
         }
 
         private void pnlBusquedaUser_Paint(object sender, PaintEventArgs e)
