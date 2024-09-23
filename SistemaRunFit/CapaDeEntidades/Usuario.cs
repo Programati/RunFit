@@ -12,7 +12,7 @@ namespace CapaDeEntidades
         public string nombreUsuario { get; set; }
         public string passwordUsuario { get; set; }
         public string fechaAlta { get; set; }
-        public string fechaBaja { get; set; }
+        public DateTime? fechaBaja { get; set; }
         public Rol oRol { get; set; }
         public Persona oPersona { get; set; }
 

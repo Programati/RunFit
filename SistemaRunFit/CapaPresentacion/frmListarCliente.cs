@@ -15,15 +15,14 @@ namespace CapaPresentacion
 {
     public partial class frmListarCliente : Form
     {
-        public frmListarCliente()
+        Inicio _inicio;
+        
+        public frmListarCliente(Inicio frminicio)
         {
             InitializeComponent();
-            txtBuscarCliente.Focus();
-        }
-
-        private void btnLimpiarCliente_Click(object sender, EventArgs e)
-        {
-            txtBuscarCliente.Clear();
+            _inicio = frminicio;
+            frminicio.PnlContenedorMenu.Enabled= false;
+            
         }
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
@@ -42,7 +41,7 @@ namespace CapaPresentacion
         }
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarCliente ListarNuevoCliente = new frmListarCliente();
+            frmListarCliente ListarNuevoCliente = new frmListarCliente(_inicio);
 
             ListarNuevoCliente.TopLevel = false;
             pnlContenedorCliente.Controls.Clear();
@@ -59,32 +58,51 @@ namespace CapaPresentacion
             {
                 e.Handled = true;
             }
-        }
 
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            if (EsDniMuyCorto())
+            if (dgvListaClientes.Rows.Count > 0)
             {
-                return;
+                foreach (DataGridViewRow row in dgvListaClientes.Rows)
+                {
+                    if (row.Cells["Dni"].Value.ToString().Trim().Contains(txtBuscarCliente.Text.Trim()))
+                        row.Visible = true;
+                    else
+                        row.Visible = false;
+                }
             }
         }
-        private bool EsDniMuyCorto()
+        private void btnLimpiarCliente_Click(object sender, EventArgs e)
         {
-            if (txtBuscarCliente.Text.Length < 7)
+            txtBuscarCliente.Clear();
+            foreach (DataGridViewRow row in dgvListaClientes.Rows)
             {
-                MessageBox.Show("El número de DNI es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true;
+                row.Visible = true;
             }
-            return false;
-        }
-
+            txtBuscarCliente.Focus();
+        }        
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
+
+           txtBuscarCliente.Focus();
+
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)
             {
-                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.editar, CapaPresentacion.Properties.Resources.Eliminar, item.oPersona.idPersona, item.oPersona.dni, item.oPersona.nombre, item.oPersona.apellido, item.oPersona.email, item.oPersona.telefono, item.oPersona.fechaNacimiento, item.oPersona.sexo, item.idDomicilio, item.calle, item.altura, item.casa, item.manzana, item.departamento, item.piso });
+                dgvListaClientes.Rows.Add(new object[] { CapaPresentacion.Properties.Resources.pencil, CapaPresentacion.Properties.Resources.Eliminar,
+                    item.oPersona.idPersona, item.oPersona.dni,
+                    item.oPersona.nombre,
+                    item.oPersona.apellido,
+                    item.oPersona.email,
+                    item.oPersona.telefono,
+                    (Convert.ToDateTime(item.oPersona.fechaNacimiento)).ToString("dd-MM-yyyy"),
+                    item.oPersona.sexo,
+                    item.idDomicilio,
+                    item.calle,
+                    item.altura,
+                    item.casa,
+                    item.manzana,
+                    item.departamento,
+                    item.piso });
             }
         }
 
@@ -110,6 +128,17 @@ namespace CapaPresentacion
                     CrearNuevoCliente.FormClosing += frm_closing;
                 }
             }
+        }
+
+        private void btnMenuClientes_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+            }
+            this.Close(); // Cierra el formulario actual
+            
         }
     }
 }

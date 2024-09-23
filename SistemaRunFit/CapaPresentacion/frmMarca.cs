@@ -16,5 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void frmMarca_Load(object sender, EventArgs e)
+        {
+            txtBuscarMarca.Focus();
+        }
     }
 }

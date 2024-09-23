@@ -16,5 +16,42 @@ namespace CapaDeNegocios
         {
             return objcd_persona.ListarPersonas();
         }
+
+        public int Registrar(Persona ObjPersona, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (ObjPersona.dni == "")
+            {
+                Mensaje += "El DNI es necesario para cargar la BD\n";
+            }
+
+            if (Mensaje != string.Empty)
+            {
+                return 0;
+            }
+            else
+            {
+                return objcd_persona.Registrar(ObjPersona, out Mensaje);
+            }
+        }
+        public bool Editar(Persona ObjPersona, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (ObjPersona.dni == "")
+            {
+                Mensaje += "El DNI es necesario para cargar la BD\n";
+            }
+
+            if (Mensaje != string.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return objcd_persona.Editar(ObjPersona, out Mensaje);
+            }
+        }
     }
 }

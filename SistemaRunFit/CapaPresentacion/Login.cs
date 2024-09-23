@@ -20,11 +20,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
-        
-
-
-
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
             txtUsuario.Clear();
@@ -42,20 +37,30 @@ namespace CapaPresentacion
         {
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
+            //Descomentar la linea de abajo, una vez que creaste el superAdmin
+            //Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
             Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == txtContrasena.Text).FirstOrDefault();
 
-            if(ousuario != null)
+
+            if (ousuario != null)
             {
+                object estado = ousuario.fechaBaja;
+
+                if (estado != null)
+                {
+                    MessageBox.Show("Usted esta dado de BAJA en el sistema");
+                    return;
+                }
                 Inicio formInicioMenu = new Inicio(ousuario);
 
                 formInicioMenu.Show();
                 this.Hide();
-
+                
                 formInicioMenu.FormClosing += frm_closing;
             }
             else
             {
-                MessageBox.Show("No se encontro el usuario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Usuario o Contraseña incorrectas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

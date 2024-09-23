@@ -12,9 +12,18 @@ namespace CapaPresentacion
 {
     public partial class frmListarProveedor : Form
     {
-        public frmListarProveedor()
+        private Inicio _inicioForm;
+        public frmListarProveedor(Inicio inicioForm)
         {
             InitializeComponent();
+            _inicioForm = inicioForm;
+            _inicioForm.PnlContenedorMenu.Enabled= false;
+            
+        }
+        
+        private void frmListarProveedor_Load(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Focus();
         }
         private void LimpiarPorProveedor()
         {
@@ -23,7 +32,7 @@ namespace CapaPresentacion
 
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor();
+            frmListarProveedor ListarNuevoProveedor = new frmListarProveedor(_inicioForm);
 
             ListarNuevoProveedor.TopLevel = false;
             pnlContenedorDatosProveedor.Controls.Clear();
@@ -76,6 +85,21 @@ namespace CapaPresentacion
                 return true;
             }
             return false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (_inicioForm != null)
+            {
+                _inicioForm.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicioForm.MostrarImagenFondo(); // Mostrar la imagen de fondo
+            }
+            this.Close(); // Cierra el formulario actual
+        }
+
+        private void frmListarProveedor_Load_1(object sender, EventArgs e)
+        {
+            txtBuscarPorProveedor.Focus();
         }
     }
 

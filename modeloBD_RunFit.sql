@@ -179,9 +179,8 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
  GO
 
 
--- Prodcedimientos almacenados
- go
---/*REGISTRAR PERSONA*/
+--Prodcedimientos almacenados
+--REGISTRAR PERSONA
  CREATE PROC SP_REGISTRARPERSONA(
     @dni VARCHAR(20),
     @nombre VARCHAR(50),
@@ -303,6 +302,202 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
  end
  go
 
+ /* REGISTRAR USUARIO*/
+ CREATE PROC SP_REGISTRARUSUARIO(
+    @nombre_usuario VARCHAR(20),
+    @password VARCHAR(255),
+    @id_persona INT,
+    @id_rol INT,
+	@IdUsuarioResultado int output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @IdUsuarioResultado = 0
+	set @Mensaje = ''
+
+	if not exists (SELECT * from USUARIOS WHERE nombre_usuario = @nombre_usuario)
+	begin
+		insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values(@nombre_usuario,@password,@id_persona,@id_rol)
+
+		set @IdUsuarioResultado = SCOPE_IDENTITY()
+		
+	end
+	else
+		set @Mensaje = 'Ya existe un EMPLEADO con el mismo nombre de usuario. Ingrese un nombre diferente'
+
+ end
+ go
+
+ /*EDITAR USUARIO*/
+ CREATE PROC SP_EDITARUSUARIO(
+	@id_usuario INT,
+	@nombre_usuario VARCHAR(20),
+    @password VARCHAR(255),
+    @id_persona INT,
+    @id_rol INT,
+	@Respuesta bit output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @Respuesta = 0
+	set @Mensaje = ''
+
+	if not exists (SELECT * from USUARIOS WHERE nombre_usuario = @nombre_usuario and id_usuario != @id_usuario)
+	begin
+		update USUARIOS set
+		nombre_usuario = @nombre_usuario,
+		password = @password,
+		id_persona = @id_persona,
+		id_rol = @id_rol
+		WHERE id_usuario = @id_usuario
+
+		set @Respuesta = 1
+		set @Mensaje = 'Usuario ACTUALIZADO'
+		
+	end
+	else
+		set @Mensaje = 'Ya existe un EMPLEADO con el mismo nombre de usuario. Ingrese un nombre diferente'
+
+ end
+ go
+ --ELIMINAR USUARIO
+ CREATE PROC SP_ELIMINARUSUARIO
+(
+    @id_usuario INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si el usuario existe
+    IF EXISTS (SELECT 1 FROM Usuarios WHERE id_usuario = @id_usuario)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM Usuarios WHERE id_usuario = @id_usuario;
+
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE Usuarios
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_usuario = @id_usuario;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE Usuarios
+            SET fecha_baja = NULL
+            WHERE id_usuario = @id_usuario;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El usuario no existe.';
+    END
+END
+
+--REGISTRAR CATEGORIAS
+CREATE PROC SP_REGISTRARCATEGORIAS
+(
+    @nombre_categoria VARCHAR(20),
+	@Resultado int output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @Resultado = 0
+	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE nombre_categoria = @nombre_categoria)
+	begin
+		insert into CATEGORIAS(nombre_categoria)values(@nombre_categoria)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set @Mensaje = 'La categoria ' + @nombre_categoria + ' ya existe!'
+end
+go
+
+--EDITAR CATEGORIAS
+CREATE PROC SP_EDITARCATEGORIAS
+(
+	@id_categoria INT,
+    @nombre_categoria VARCHAR(20),
+	@Resultado bit output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @Resultado = 1
+	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE nombre_categoria = @nombre_categoria and id_categoria != @id_categoria)
+		begin
+			update CATEGORIAS set
+			nombre_categoria = @nombre_categoria
+			WHERE id_categoria = @id_categoria
+			set @Resultado = SCOPE_IDENTITY()
+			set @Mensaje = 'Edición existosa!'
+		end
+	else
+		begin
+			set @Resultado = 0
+			set @Mensaje = 'La categoria ' + @nombre_categoria + ' ya existe!'
+		end
+end
+go
+
+--REGISTRAR MARCAS
+CREATE PROC SP_REGISTRARMARCAS
+(
+    @nombre VARCHAR(20),
+	@Resultado int output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @Resultado = 0
+	IF NOT EXISTS (SELECT * FROM MARCAS WHERE nombre = @nombre)
+	begin
+		insert into MARCAS(nombre)values(@nombre)
+		set @Resultado = SCOPE_IDENTITY()
+	end
+	else
+		set @Mensaje = 'La marca ' + @nombre + ' ya existe!'
+end
+go
+
+--EDITAR CATEGORIAS
+CREATE PROC SP_EDITARMARCAS
+(
+	@id_marca INT,
+    @nombre VARCHAR(20),
+	@Resultado bit output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ begin
+	set @Resultado = 1
+	IF NOT EXISTS (SELECT * FROM MARCAS WHERE nombre = @nombre and id_marca != @id_marca)
+		begin
+			update CATEGORIAS set
+			nombre_categoria = @nombre
+			WHERE id_categoria = @id_marca
+			set @Resultado = SCOPE_IDENTITY()
+			set @Mensaje = 'Edición existosa!'
+		end
+	else
+		begin
+			set @Resultado = 0
+			set @Mensaje = 'La marca ' + @nombre + ' ya existe!'
+		end
+end
+go
+
 -- PRUEBAS DE LOS PROCEDIMIENTOS
 	/*REGISTRAR PERSONA*/
  declare @idpersonagenerada int
@@ -347,10 +542,42 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 
  GO
 
+/*REGISTRAR CATEGORIAS*/
+ declare @idcategoriagenerada int
+ declare @mensajegenerado varchar(500)
 
- select * from PERSONAS
- SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_domicilio, d.id_persona,
- p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo
- FROM DOMICILIOS d
- inner join PERSONAS p on p.id_persona = d.id_persona
- WHERE d.id_persona = p.id_persona
+ exec SP_REGISTRARCATEGORIAS'MEDIAS', @idcategoriagenerada output, @mensajegenerado output
+ 
+ select @idcategoriagenerada
+ select @mensajegenerado
+ GO
+
+ /*EDITAR CATEGORIAS*/
+ declare @idcategoriagenerada int
+ declare @mensajegenerado varchar(500)
+
+ exec SP_EDITARCATEGORIAS 2,'ZAPATILLAS', @idcategoriagenerada output, @mensajegenerado output
+ 
+ select @idcategoriagenerada
+ select @mensajegenerado
+ GO
+
+ /*REGISTRAR MARCAS*/
+ declare @idmarcagenerada int
+ declare @mensajegenerado varchar(500)
+
+ exec SP_REGISTRARMARCAS 'TOPPER', @idmarcagenerada output, @mensajegenerado output
+ 
+ select @idmarcagenerada
+ select @mensajegenerado
+ GO
+
+ /*EDITAR CATEGORIAS*/
+ declare @idmarcagenerada int
+ declare @mensajegenerado varchar(500)
+
+ exec SP_EDITARMARCAS 2,'TOPPER', @idmarcagenerada output, @mensajegenerado output
+ 
+ select @idmarcagenerada
+ select @mensajegenerado
+ GO

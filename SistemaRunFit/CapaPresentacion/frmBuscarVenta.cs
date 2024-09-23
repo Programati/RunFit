@@ -16,6 +16,13 @@ namespace CapaPresentacion
         public frmBuscarVenta()
         {
             InitializeComponent();
+           
+        }
+        
+
+        private void frmBuscarVenta_Load(object sender, EventArgs e)
+        {
+            txtBuscarUser.Focus();
         }
     }
 }

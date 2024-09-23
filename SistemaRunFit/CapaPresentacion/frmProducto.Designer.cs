@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosProducto = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
+            this.btnGuardarProducto = new Guna.UI.WinForms.GunaButton();
+            this.btnLimpiarContenedorProducto = new Guna.UI.WinForms.GunaButton();
             this.lblProveedorProducto = new System.Windows.Forms.Label();
             this.cmbProveedorProducto = new Guna.UI.WinForms.GunaComboBox();
             this.lblCategoriaProducto = new System.Windows.Forms.Label();
@@ -41,6 +44,8 @@
             this.txtStockProducto = new Guna.UI.WinForms.GunaTextBox();
             this.txtPrecioVentaProducto = new Guna.UI.WinForms.GunaTextBox();
             this.txtPrecioCompraProducto = new Guna.UI.WinForms.GunaTextBox();
+            this.btnSeleccionarImagenProducto = new Guna.UI.WinForms.GunaButton();
+            this.pbImagenProducto = new Guna.UI.WinForms.GunaPictureBox();
             this.lblStockMinimo = new System.Windows.Forms.Label();
             this.lblStock = new System.Windows.Forms.Label();
             this.lblPrecioVentaProducto = new System.Windows.Forms.Label();
@@ -49,11 +54,6 @@
             this.lblDetalleProducto = new System.Windows.Forms.Label();
             this.lblProducto = new System.Windows.Forms.Label();
             this.txtNombreProducto = new Guna.UI.WinForms.GunaTextBox();
-            this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
-            this.btnGuardarProducto = new Guna.UI.WinForms.GunaButton();
-            this.btnLimpiarContenedorProducto = new Guna.UI.WinForms.GunaButton();
-            this.btnSeleccionarImagenProducto = new Guna.UI.WinForms.GunaButton();
-            this.pbImagenProducto = new Guna.UI.WinForms.GunaPictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlDatosProducto.SuspendLayout();
@@ -95,6 +95,89 @@
             this.pnlDatosProducto.Size = new System.Drawing.Size(687, 433);
             this.pnlDatosProducto.TabIndex = 58;
             // 
+            // btnVolverUser
+            // 
+            this.btnVolverUser.AnimationHoverSpeed = 0.07F;
+            this.btnVolverUser.AnimationSpeed = 0.03F;
+            this.btnVolverUser.BackColor = System.Drawing.Color.Transparent;
+            this.btnVolverUser.BaseColor = System.Drawing.Color.White;
+            this.btnVolverUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnVolverUser.BorderSize = 2;
+            this.btnVolverUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolverUser.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnVolverUser.FocusedColor = System.Drawing.Color.White;
+            this.btnVolverUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolverUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnVolverUser.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverUser.Image")));
+            this.btnVolverUser.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnVolverUser.Location = new System.Drawing.Point(164, 358);
+            this.btnVolverUser.Name = "btnVolverUser";
+            this.btnVolverUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnVolverUser.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnVolverUser.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnVolverUser.OnHoverImage = null;
+            this.btnVolverUser.OnPressedColor = System.Drawing.Color.Black;
+            this.btnVolverUser.Radius = 10;
+            this.btnVolverUser.Size = new System.Drawing.Size(100, 40);
+            this.btnVolverUser.TabIndex = 12;
+            this.btnVolverUser.Text = "Volver";
+            this.btnVolverUser.Click += new System.EventHandler(this.btnVolverUser_Click);
+            // 
+            // btnGuardarProducto
+            // 
+            this.btnGuardarProducto.AnimationHoverSpeed = 0.07F;
+            this.btnGuardarProducto.AnimationSpeed = 0.03F;
+            this.btnGuardarProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarProducto.BaseColor = System.Drawing.Color.White;
+            this.btnGuardarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnGuardarProducto.BorderSize = 2;
+            this.btnGuardarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGuardarProducto.FocusedColor = System.Drawing.Color.White;
+            this.btnGuardarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
+            this.btnGuardarProducto.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnGuardarProducto.Location = new System.Drawing.Point(17, 358);
+            this.btnGuardarProducto.Name = "btnGuardarProducto";
+            this.btnGuardarProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnGuardarProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnGuardarProducto.OnHoverImage = null;
+            this.btnGuardarProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnGuardarProducto.Radius = 10;
+            this.btnGuardarProducto.Size = new System.Drawing.Size(100, 40);
+            this.btnGuardarProducto.TabIndex = 11;
+            this.btnGuardarProducto.Text = "Guardar";
+            // 
+            // btnLimpiarContenedorProducto
+            // 
+            this.btnLimpiarContenedorProducto.AnimationHoverSpeed = 0.07F;
+            this.btnLimpiarContenedorProducto.AnimationSpeed = 0.03F;
+            this.btnLimpiarContenedorProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnLimpiarContenedorProducto.BaseColor = System.Drawing.Color.White;
+            this.btnLimpiarContenedorProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnLimpiarContenedorProducto.BorderSize = 2;
+            this.btnLimpiarContenedorProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarContenedorProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLimpiarContenedorProducto.FocusedColor = System.Drawing.Color.White;
+            this.btnLimpiarContenedorProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarContenedorProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.btnLimpiarContenedorProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarContenedorProducto.Image")));
+            this.btnLimpiarContenedorProducto.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnLimpiarContenedorProducto.Location = new System.Drawing.Point(164, 301);
+            this.btnLimpiarContenedorProducto.Name = "btnLimpiarContenedorProducto";
+            this.btnLimpiarContenedorProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.btnLimpiarContenedorProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarContenedorProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnLimpiarContenedorProducto.OnHoverImage = null;
+            this.btnLimpiarContenedorProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnLimpiarContenedorProducto.Radius = 10;
+            this.btnLimpiarContenedorProducto.Size = new System.Drawing.Size(100, 40);
+            this.btnLimpiarContenedorProducto.TabIndex = 13;
+            this.btnLimpiarContenedorProducto.Text = "Limpiar";
+            this.btnLimpiarContenedorProducto.Click += new System.EventHandler(this.btnLimpiarContenedorProducto_Click);
+            // 
             // lblProveedorProducto
             // 
             this.lblProveedorProducto.AutoSize = true;
@@ -130,7 +213,7 @@
             this.cmbProveedorProducto.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbProveedorProducto.Radius = 10;
             this.cmbProveedorProducto.Size = new System.Drawing.Size(169, 24);
-            this.cmbProveedorProducto.TabIndex = 76;
+            this.cmbProveedorProducto.TabIndex = 4;
             // 
             // lblCategoriaProducto
             // 
@@ -167,7 +250,7 @@
             this.cmbCategoriaProducto.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbCategoriaProducto.Radius = 10;
             this.cmbCategoriaProducto.Size = new System.Drawing.Size(169, 24);
-            this.cmbCategoriaProducto.TabIndex = 74;
+            this.cmbCategoriaProducto.TabIndex = 3;
             // 
             // lblMarcaProducto
             // 
@@ -204,7 +287,7 @@
             this.cmbMarcaProducto.OnHoverItemForeColor = System.Drawing.Color.White;
             this.cmbMarcaProducto.Radius = 10;
             this.cmbMarcaProducto.Size = new System.Drawing.Size(169, 24);
-            this.cmbMarcaProducto.TabIndex = 57;
+            this.cmbMarcaProducto.TabIndex = 2;
             // 
             // txtStockMinimoProducto
             // 
@@ -223,7 +306,7 @@
             this.txtStockMinimoProducto.Radius = 10;
             this.txtStockMinimoProducto.SelectedText = "";
             this.txtStockMinimoProducto.Size = new System.Drawing.Size(78, 26);
-            this.txtStockMinimoProducto.TabIndex = 71;
+            this.txtStockMinimoProducto.TabIndex = 8;
             this.txtStockMinimoProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStockMinimoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockMinimoProducto_KeyPress);
             // 
@@ -244,7 +327,7 @@
             this.txtStockProducto.Radius = 10;
             this.txtStockProducto.SelectedText = "";
             this.txtStockProducto.Size = new System.Drawing.Size(78, 26);
-            this.txtStockProducto.TabIndex = 70;
+            this.txtStockProducto.TabIndex = 7;
             this.txtStockProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStockProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockProducto_KeyPress);
             // 
@@ -265,7 +348,7 @@
             this.txtPrecioVentaProducto.Radius = 10;
             this.txtPrecioVentaProducto.SelectedText = "";
             this.txtPrecioVentaProducto.Size = new System.Drawing.Size(78, 26);
-            this.txtPrecioVentaProducto.TabIndex = 69;
+            this.txtPrecioVentaProducto.TabIndex = 6;
             this.txtPrecioVentaProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioVentaProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVentaProducto_KeyPress);
             // 
@@ -286,9 +369,49 @@
             this.txtPrecioCompraProducto.Radius = 10;
             this.txtPrecioCompraProducto.SelectedText = "";
             this.txtPrecioCompraProducto.Size = new System.Drawing.Size(78, 26);
-            this.txtPrecioCompraProducto.TabIndex = 68;
+            this.txtPrecioCompraProducto.TabIndex = 5;
             this.txtPrecioCompraProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioCompraProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompraProducto_KeyPress);
+            // 
+            // btnSeleccionarImagenProducto
+            // 
+            this.btnSeleccionarImagenProducto.AnimationHoverSpeed = 0.07F;
+            this.btnSeleccionarImagenProducto.AnimationSpeed = 0.03F;
+            this.btnSeleccionarImagenProducto.BackColor = System.Drawing.Color.Transparent;
+            this.btnSeleccionarImagenProducto.BaseColor = System.Drawing.Color.White;
+            this.btnSeleccionarImagenProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnSeleccionarImagenProducto.BorderSize = 2;
+            this.btnSeleccionarImagenProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionarImagenProducto.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSeleccionarImagenProducto.FocusedColor = System.Drawing.Color.White;
+            this.btnSeleccionarImagenProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarImagenProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnSeleccionarImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarImagenProducto.Image")));
+            this.btnSeleccionarImagenProducto.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnSeleccionarImagenProducto.Location = new System.Drawing.Point(507, 177);
+            this.btnSeleccionarImagenProducto.Name = "btnSeleccionarImagenProducto";
+            this.btnSeleccionarImagenProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnSeleccionarImagenProducto.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnSeleccionarImagenProducto.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnSeleccionarImagenProducto.OnHoverImage = null;
+            this.btnSeleccionarImagenProducto.OnPressedColor = System.Drawing.Color.Black;
+            this.btnSeleccionarImagenProducto.Radius = 10;
+            this.btnSeleccionarImagenProducto.Size = new System.Drawing.Size(150, 37);
+            this.btnSeleccionarImagenProducto.TabIndex = 9;
+            this.btnSeleccionarImagenProducto.Text = "Añadir imágen";
+            this.btnSeleccionarImagenProducto.Click += new System.EventHandler(this.btnSeleccionarImagenProducto_Click);
+            // 
+            // pbImagenProducto
+            // 
+            this.pbImagenProducto.BaseColor = System.Drawing.Color.White;
+            this.pbImagenProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbImagenProducto.Image = global::CapaPresentacion.Properties.Resources.fotoProducto;
+            this.pbImagenProducto.Location = new System.Drawing.Point(507, 20);
+            this.pbImagenProducto.Name = "pbImagenProducto";
+            this.pbImagenProducto.Size = new System.Drawing.Size(150, 150);
+            this.pbImagenProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImagenProducto.TabIndex = 44;
+            this.pbImagenProducto.TabStop = false;
             // 
             // lblStockMinimo
             // 
@@ -352,7 +475,7 @@
             this.txtDetalleProducto.Radius = 10;
             this.txtDetalleProducto.SelectedText = "";
             this.txtDetalleProducto.Size = new System.Drawing.Size(375, 56);
-            this.txtDetalleProducto.TabIndex = 39;
+            this.txtDetalleProducto.TabIndex = 10;
             // 
             // lblDetalleProducto
             // 
@@ -393,131 +516,8 @@
             this.txtNombreProducto.Radius = 10;
             this.txtNombreProducto.SelectedText = "";
             this.txtNombreProducto.Size = new System.Drawing.Size(167, 26);
-            this.txtNombreProducto.TabIndex = 36;
+            this.txtNombreProducto.TabIndex = 1;
             this.txtNombreProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnVolverUser
-            // 
-            this.btnVolverUser.AnimationHoverSpeed = 0.07F;
-            this.btnVolverUser.AnimationSpeed = 0.03F;
-            this.btnVolverUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnVolverUser.BaseColor = System.Drawing.Color.White;
-            this.btnVolverUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnVolverUser.BorderSize = 2;
-            this.btnVolverUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolverUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnVolverUser.FocusedColor = System.Drawing.Color.Empty;
-            this.btnVolverUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverUser.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverUser.Image")));
-            this.btnVolverUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVolverUser.Location = new System.Drawing.Point(164, 358);
-            this.btnVolverUser.Name = "btnVolverUser";
-            this.btnVolverUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverUser.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnVolverUser.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnVolverUser.OnHoverImage = null;
-            this.btnVolverUser.OnPressedColor = System.Drawing.Color.Black;
-            this.btnVolverUser.Radius = 10;
-            this.btnVolverUser.Size = new System.Drawing.Size(100, 40);
-            this.btnVolverUser.TabIndex = 80;
-            this.btnVolverUser.Text = "Volver";
-            this.btnVolverUser.Click += new System.EventHandler(this.btnVolverUser_Click);
-            // 
-            // btnGuardarProducto
-            // 
-            this.btnGuardarProducto.AnimationHoverSpeed = 0.07F;
-            this.btnGuardarProducto.AnimationSpeed = 0.03F;
-            this.btnGuardarProducto.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarProducto.BaseColor = System.Drawing.Color.White;
-            this.btnGuardarProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnGuardarProducto.BorderSize = 2;
-            this.btnGuardarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardarProducto.FocusedColor = System.Drawing.Color.Empty;
-            this.btnGuardarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnGuardarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProducto.Image")));
-            this.btnGuardarProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarProducto.Location = new System.Drawing.Point(17, 358);
-            this.btnGuardarProducto.Name = "btnGuardarProducto";
-            this.btnGuardarProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnGuardarProducto.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnGuardarProducto.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnGuardarProducto.OnHoverImage = null;
-            this.btnGuardarProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnGuardarProducto.Radius = 10;
-            this.btnGuardarProducto.Size = new System.Drawing.Size(100, 40);
-            this.btnGuardarProducto.TabIndex = 78;
-            this.btnGuardarProducto.Text = "Guardar";
-            // 
-            // btnLimpiarContenedorProducto
-            // 
-            this.btnLimpiarContenedorProducto.AnimationHoverSpeed = 0.07F;
-            this.btnLimpiarContenedorProducto.AnimationSpeed = 0.03F;
-            this.btnLimpiarContenedorProducto.BackColor = System.Drawing.Color.Transparent;
-            this.btnLimpiarContenedorProducto.BaseColor = System.Drawing.Color.White;
-            this.btnLimpiarContenedorProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnLimpiarContenedorProducto.BorderSize = 2;
-            this.btnLimpiarContenedorProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarContenedorProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarContenedorProducto.FocusedColor = System.Drawing.Color.Empty;
-            this.btnLimpiarContenedorProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarContenedorProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.btnLimpiarContenedorProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarContenedorProducto.Image")));
-            this.btnLimpiarContenedorProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarContenedorProducto.Location = new System.Drawing.Point(164, 301);
-            this.btnLimpiarContenedorProducto.Name = "btnLimpiarContenedorProducto";
-            this.btnLimpiarContenedorProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.btnLimpiarContenedorProducto.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnLimpiarContenedorProducto.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnLimpiarContenedorProducto.OnHoverImage = null;
-            this.btnLimpiarContenedorProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnLimpiarContenedorProducto.Radius = 10;
-            this.btnLimpiarContenedorProducto.Size = new System.Drawing.Size(100, 40);
-            this.btnLimpiarContenedorProducto.TabIndex = 79;
-            this.btnLimpiarContenedorProducto.Text = "Limpiar";
-            this.btnLimpiarContenedorProducto.Click += new System.EventHandler(this.btnLimpiarContenedorProducto_Click);
-            // 
-            // btnSeleccionarImagenProducto
-            // 
-            this.btnSeleccionarImagenProducto.AnimationHoverSpeed = 0.07F;
-            this.btnSeleccionarImagenProducto.AnimationSpeed = 0.03F;
-            this.btnSeleccionarImagenProducto.BackColor = System.Drawing.Color.Transparent;
-            this.btnSeleccionarImagenProducto.BaseColor = System.Drawing.Color.White;
-            this.btnSeleccionarImagenProducto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnSeleccionarImagenProducto.BorderSize = 2;
-            this.btnSeleccionarImagenProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeleccionarImagenProducto.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnSeleccionarImagenProducto.FocusedColor = System.Drawing.Color.Empty;
-            this.btnSeleccionarImagenProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionarImagenProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnSeleccionarImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionarImagenProducto.Image")));
-            this.btnSeleccionarImagenProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnSeleccionarImagenProducto.Location = new System.Drawing.Point(507, 177);
-            this.btnSeleccionarImagenProducto.Name = "btnSeleccionarImagenProducto";
-            this.btnSeleccionarImagenProducto.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnSeleccionarImagenProducto.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnSeleccionarImagenProducto.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnSeleccionarImagenProducto.OnHoverImage = null;
-            this.btnSeleccionarImagenProducto.OnPressedColor = System.Drawing.Color.Black;
-            this.btnSeleccionarImagenProducto.Radius = 10;
-            this.btnSeleccionarImagenProducto.Size = new System.Drawing.Size(150, 37);
-            this.btnSeleccionarImagenProducto.TabIndex = 67;
-            this.btnSeleccionarImagenProducto.Text = "Añadir imágen";
-            this.btnSeleccionarImagenProducto.Click += new System.EventHandler(this.btnSeleccionarImagenProducto_Click);
-            // 
-            // pbImagenProducto
-            // 
-            this.pbImagenProducto.BaseColor = System.Drawing.Color.White;
-            this.pbImagenProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbImagenProducto.Image = global::CapaPresentacion.Properties.Resources.fotoProducto;
-            this.pbImagenProducto.Location = new System.Drawing.Point(507, 20);
-            this.pbImagenProducto.Name = "pbImagenProducto";
-            this.pbImagenProducto.Size = new System.Drawing.Size(150, 150);
-            this.pbImagenProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbImagenProducto.TabIndex = 44;
-            this.pbImagenProducto.TabStop = false;
             // 
             // dataGridViewImageColumn1
             // 

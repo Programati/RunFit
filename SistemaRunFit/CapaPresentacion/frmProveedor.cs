@@ -20,9 +20,9 @@ namespace CapaPresentacion
             txtCuitProveedor.MaxLength = 11;
             txtRSocialProveedor.MaxLength = 20;
             txtDescripcionProveedor.MaxLength = 150;
-
+            
         }
-
+       
         private void LimpiarCampos()
         {
             txtRSocialProveedor.Clear();
@@ -133,6 +133,11 @@ namespace CapaPresentacion
                 MessageBox.Show("Ingresó un email inválido");
                 return false;
             }
+        }
+
+        private void frmProveedor_Load_1(object sender, EventArgs e)
+        {
+            txtRSocialProveedor.Focus();
         }
     }
 }

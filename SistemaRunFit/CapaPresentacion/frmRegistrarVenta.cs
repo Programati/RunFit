@@ -1,26 +1,35 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Guna.UI.WinForms;
 
 namespace CapaPresentacion
 {
     public partial class frmRegistrarVenta : Form
     {
-        public frmRegistrarVenta()
+        private Inicio _inicio; // Variable para almacenar la referencia del formulario Inicio
+
+        public frmRegistrarVenta(Inicio inicioForm)
         {
             InitializeComponent();
+            _inicio = inicioForm; // Asignar la referencia del formulario Inicio
+            this.Load += new EventHandler(frmRegistrarVenta_Load);
+        }
+
+        private void frmRegistrarVenta_Load(object sender, EventArgs e)
+        {
+            txtBuscarDniVta.Focus();
         }
 
         private void btnBuscarClteVta_Click(object sender, System.EventArgs e)
         {
             if (txtBuscarDniVta.Text.Length > 8)
             {
-                MessageBox.Show("El DNI no puede contener mas de 8 digitos");
+                MessageBox.Show("El DNI no puede contener más de 8 dígitos");
             }
             if (txtBuscarDniVta.Text.Length < 7)
             {
-                MessageBox.Show("El DNI  es muy corto");
+                MessageBox.Show("El DNI es muy corto");
             }
-
         }
 
         private void txtLimpiarBuscarPtoVta_Click(object sender, System.EventArgs e)
@@ -56,12 +65,22 @@ namespace CapaPresentacion
 
         private void btnConfirmarVta_Click(object sender, System.EventArgs e)
         {
-
+            // Lógica de confirmación de venta
         }
 
         private void btnAgregaritemVta_Click(object sender, System.EventArgs e)
         {
+            // Lógica de agregar ítem
+        }
 
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

@@ -104,7 +104,7 @@
             this.txtEmailProveedor.Radius = 10;
             this.txtEmailProveedor.SelectedText = "";
             this.txtEmailProveedor.Size = new System.Drawing.Size(220, 26);
-            this.txtEmailProveedor.TabIndex = 78;
+            this.txtEmailProveedor.TabIndex = 5;
             this.txtEmailProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnVolverProveedor
@@ -117,7 +117,7 @@
             this.btnVolverProveedor.BorderSize = 2;
             this.btnVolverProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolverProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnVolverProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnVolverProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnVolverProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
             this.btnVolverProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverProveedor.Image")));
@@ -131,7 +131,7 @@
             this.btnVolverProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnVolverProveedor.Radius = 10;
             this.btnVolverProveedor.Size = new System.Drawing.Size(100, 40);
-            this.btnVolverProveedor.TabIndex = 77;
+            this.btnVolverProveedor.TabIndex = 8;
             this.btnVolverProveedor.Text = "Volver";
             this.btnVolverProveedor.Click += new System.EventHandler(this.btnVolverProveedor_Click);
             // 
@@ -164,7 +164,7 @@
             this.txtTelefonoProveedor.Radius = 10;
             this.txtTelefonoProveedor.SelectedText = "";
             this.txtTelefonoProveedor.Size = new System.Drawing.Size(220, 26);
-            this.txtTelefonoProveedor.TabIndex = 75;
+            this.txtTelefonoProveedor.TabIndex = 4;
             this.txtTelefonoProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefonoProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoProveedor_KeyPress);
             // 
@@ -197,7 +197,7 @@
             this.txtDireccionProveedor.Radius = 10;
             this.txtDireccionProveedor.SelectedText = "";
             this.txtDireccionProveedor.Size = new System.Drawing.Size(220, 26);
-            this.txtDireccionProveedor.TabIndex = 73;
+            this.txtDireccionProveedor.TabIndex = 3;
             this.txtDireccionProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnLimpiarCamposProvedor
@@ -210,7 +210,7 @@
             this.btnLimpiarCamposProvedor.BorderSize = 2;
             this.btnLimpiarCamposProvedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarCamposProvedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLimpiarCamposProvedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLimpiarCamposProvedor.FocusedColor = System.Drawing.Color.White;
             this.btnLimpiarCamposProvedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCamposProvedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposProvedor.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposProvedor.Image")));
@@ -224,7 +224,7 @@
             this.btnLimpiarCamposProvedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnLimpiarCamposProvedor.Radius = 10;
             this.btnLimpiarCamposProvedor.Size = new System.Drawing.Size(100, 40);
-            this.btnLimpiarCamposProvedor.TabIndex = 72;
+            this.btnLimpiarCamposProvedor.TabIndex = 9;
             this.btnLimpiarCamposProvedor.Text = "Limpiar";
             this.btnLimpiarCamposProvedor.Click += new System.EventHandler(this.btnLimpiarCamposProvedor_Click);
             // 
@@ -238,7 +238,7 @@
             this.btnGuardarProveedor.BorderSize = 2;
             this.btnGuardarProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarProveedor.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardarProveedor.FocusedColor = System.Drawing.Color.Empty;
+            this.btnGuardarProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnGuardarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarProveedor.Image")));
@@ -252,7 +252,7 @@
             this.btnGuardarProveedor.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardarProveedor.Radius = 10;
             this.btnGuardarProveedor.Size = new System.Drawing.Size(100, 40);
-            this.btnGuardarProveedor.TabIndex = 71;
+            this.btnGuardarProveedor.TabIndex = 7;
             this.btnGuardarProveedor.Text = "Guardar";
             this.btnGuardarProveedor.Click += new System.EventHandler(this.btnGuardarProveedor_Click);
             // 
@@ -274,7 +274,7 @@
             this.txtDescripcionProveedor.Radius = 10;
             this.txtDescripcionProveedor.SelectedText = "";
             this.txtDescripcionProveedor.Size = new System.Drawing.Size(220, 155);
-            this.txtDescripcionProveedor.TabIndex = 43;
+            this.txtDescripcionProveedor.TabIndex = 6;
             // 
             // lblDescripProv
             // 
@@ -316,7 +316,7 @@
             this.txtCuitProveedor.Radius = 10;
             this.txtCuitProveedor.SelectedText = "";
             this.txtCuitProveedor.Size = new System.Drawing.Size(220, 26);
-            this.txtCuitProveedor.TabIndex = 40;
+            this.txtCuitProveedor.TabIndex = 2;
             this.txtCuitProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCuitProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuitProveedor_KeyPress);
             // 
@@ -349,7 +349,7 @@
             this.txtRSocialProveedor.Radius = 10;
             this.txtRSocialProveedor.SelectedText = "";
             this.txtRSocialProveedor.Size = new System.Drawing.Size(220, 26);
-            this.txtRSocialProveedor.TabIndex = 36;
+            this.txtRSocialProveedor.TabIndex = 1;
             this.txtRSocialProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmProveedor
@@ -360,6 +360,7 @@
             this.Controls.Add(this.pnlDatosProveedor);
             this.Name = "frmProveedor";
             this.Text = "Proveedores";
+            this.Load += new System.EventHandler(this.frmProveedor_Load_1);
             this.pnlDatosProveedor.ResumeLayout(false);
             this.pnlDatosProveedor.PerformLayout();
             this.ResumeLayout(false);
