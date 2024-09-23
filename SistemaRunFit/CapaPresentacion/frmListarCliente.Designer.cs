@@ -403,11 +403,7 @@
             this.Accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Accion.Visible = false;
-<<<<<<< HEAD
-            this.Accion.Width = 92;
-=======
             this.Accion.Width = 112;
->>>>>>> af2e037438d959d670cdbf1ba95ed8bcf6e64a82
             // 
             // idPersona
             // 
