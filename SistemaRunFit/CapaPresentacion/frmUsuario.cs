@@ -88,7 +88,8 @@ namespace CapaPresentacion
                     {
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
                         nombreUsuario = txtUsuario.Text,
-                        passwordUsuario = txtPassUser.Text,
+
+                        passwordUsuario = Encrypt.GetSHA256(txtPassUser.Text),
                         oPersona = new Persona() { idPersona = IdPersonaGenerada },
                         oRol = new Rol() { idRol = ((Rol)cmbTipoUsuarioUser.SelectedItem).idRol }
                     };

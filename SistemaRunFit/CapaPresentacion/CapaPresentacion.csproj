@@ -66,6 +66,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Encrypt.cs" />
     <Compile Include="frmMarca.cs">
       <SubType>Form</SubType>
     </Compile>
