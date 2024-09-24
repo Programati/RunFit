@@ -331,37 +331,52 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 
  /*EDITAR USUARIO*/
  CREATE PROC SP_EDITARUSUARIO(
-	@id_usuario INT,
-	@nombre_usuario VARCHAR(20),
+    @id_usuario INT,
+    @nombre_usuario VARCHAR(20),
     @password VARCHAR(255),
     @id_persona INT,
     @id_rol INT,
-	@Respuesta bit output,
-	@Mensaje VARCHAR(500) output 
- )
- as
- begin
-	set @Respuesta = 0
-	set @Mensaje = ''
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Respuesta = 0
+    SET @Mensaje = ''
 
-	if not exists (SELECT * from USUARIOS WHERE nombre_usuario = @nombre_usuario and id_usuario != @id_usuario)
-	begin
-		update USUARIOS set
-		nombre_usuario = @nombre_usuario,
-		password = @password,
-		id_persona = @id_persona,
-		id_rol = @id_rol
-		WHERE id_usuario = @id_usuario
+    IF NOT EXISTS (SELECT * FROM USUARIOS WHERE nombre_usuario = @nombre_usuario AND id_usuario != @id_usuario)
+    BEGIN
+        -- Si el password es NULL, actualiza sin modificar el campo password
+        IF @password IS NULL
+        BEGIN
+            UPDATE USUARIOS 
+            SET 
+                nombre_usuario = @nombre_usuario,
+                id_persona = @id_persona,
+                id_rol = @id_rol
+            WHERE id_usuario = @id_usuario
+        END
+        ELSE
+        BEGIN
+            -- Si el password NO es NULL, actualiza incluyendo el campo password
+            UPDATE USUARIOS 
+            SET 
+                nombre_usuario = @nombre_usuario,
+                password = @password,
+                id_persona = @id_persona,
+                id_rol = @id_rol
+            WHERE id_usuario = @id_usuario
+        END
 
-		set @Respuesta = 1
-		set @Mensaje = 'Usuario ACTUALIZADO'
-		
-	end
-	else
-		set @Mensaje = 'Ya existe un EMPLEADO con el mismo nombre de usuario. Ingrese un nombre diferente'
-
- end
- go
+        SET @Respuesta = 1
+        SET @Mensaje = 'Usuario ACTUALIZADO'
+    END
+    ELSE
+    BEGIN
+        SET @Mensaje = 'Ya existe un EMPLEADO con el mismo nombre de usuario. Ingrese un nombre diferente'
+    END
+END
+GO
  --ELIMINAR USUARIO
  CREATE PROC SP_ELIMINARUSUARIO
 (
@@ -581,3 +596,13 @@ go
  select @idmarcagenerada
  select @mensajegenerado
  GO
+
+ /*EDITAR USUARIO*/
+ declare @idusuariogenerado int
+ declare @mensajegenerado varchar(500)
+
+ exec SP_EDITARUSUARIO 3,'ROMINA',NULL,3,3, @idusuariogenerado output, @mensajegenerado output
+ select @idusuariogenerado
+ select @mensajegenerado
+ GO
+ SELECT * FROM USUARIOS
