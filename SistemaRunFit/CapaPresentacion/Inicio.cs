@@ -18,7 +18,9 @@ namespace CapaPresentacion
         Color colorClaro = Color.FromArgb(227, 211, 154);
         Color colorRojo = Color.FromArgb(235, 57, 32);
 
-        public Inicio(Usuario objUsuario)// constructor que va a recibir un objeto de tipo usuario
+        
+        public Inicio(Usuario objUsuario)
+
         {
             UsuarioActual = objUsuario;
             InitializeComponent();
