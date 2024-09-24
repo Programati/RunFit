@@ -17,6 +17,7 @@ namespace CapaPresentacion
     public partial class frmListarUsuario : Form
     {
         Inicio _inicio;
+         
         public frmListarUsuario(Inicio inicio)
         {
             InitializeComponent();
