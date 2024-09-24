@@ -17,7 +17,7 @@ namespace CapaPresentacion
         Color colorVerde = Color.FromArgb(77, 163, 108);
         Color colorClaro = Color.FromArgb(227, 211, 154);
         Color colorRojo = Color.FromArgb(235, 57, 32);
-
+        
         public Inicio(Usuario objUsuario)
         {
             UsuarioActual = objUsuario;
