@@ -38,7 +38,10 @@ namespace CapaPresentacion
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
             Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
+<<<<<<< HEAD
 
+=======
+>>>>>>> cb7ae888fbb0cf32d88628fc594ae9c2681c9ef9
 
             if (ousuario != null)
             {
