@@ -67,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encrypt.cs" />
+    <Compile Include="frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RunFitDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListarProveedor.resx">
       <DependentUpon>frmListarProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +306,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eliminar_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backup_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,6 +11,7 @@ namespace CapaPresentacion
         private static Usuario UsuarioActual = null;   //Declaracion de variables estaticas ,iniciadad en null
         private static GunaGradientButton menuActivo = null;
         private static Form formularioActivo = null;
+        
 
         Color colorCeleste = Color.FromArgb(25, 162, 198);
         Color colorAzul = Color.FromArgb(6, 71, 109);
@@ -59,6 +60,7 @@ namespace CapaPresentacion
             {
                 Submenu.Visible = false;
             }
+            
         }
 
         private void btnUsuario_Click(object sender, EventArgs e)//Funcion que muestra los clientes, oculta los submenus abiertos, y abre form usuario
@@ -164,8 +166,8 @@ namespace CapaPresentacion
         {
             if (UsuarioActual.oRol.idRol == 2)
             {
-                btnClientes.Visible = false;
-                btnRegistrarVentas.Visible = false;
+                btnClientes.Visible = true;
+                btnUsuario.Visible = false;
                 btnVentas.Visible = false;
             }
             if (UsuarioActual.oRol.idRol == 3)
@@ -174,6 +176,12 @@ namespace CapaPresentacion
                 btnProveedores.Visible = false;
                 btnReportes.Visible = false;
                 btnStock.Visible = false;
+            }
+            if (UsuarioActual.oRol.idRol == 1)
+            {
+                btnClientes.Visible = false;
+                btnStock.Visible = false;
+                btnVentas.Visible = false;
             }
         }
 
@@ -193,5 +201,11 @@ namespace CapaPresentacion
             imagenFondo.Show(); // Mostrar la imagen nuevamente
         }
 
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            imagenFondo.Hide();
+            OcultarSubMenu();
+            abrirFormulario(btnBackup, new frmBackup(this));
+        }
     }
 }
