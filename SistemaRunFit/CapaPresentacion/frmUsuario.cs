@@ -41,9 +41,11 @@ namespace CapaPresentacion
             int IdUsuarioGenerado = 0;
             bool VerdadUsuarioGenerado = false;
             string mensajeConfirmacion = "¿Desea agrear al";
+            object contrasena = null;
 
             if (camposValidados())
             {
+                contrasena = txtPassUser.Text;
                 string user = txtUsuario.Text;
                 string rolSeleccionado = ((Rol)cmbTipoUsuarioUser.SelectedItem).nombreRol.ToString();
                 if (txtIdPersona.Text != "" && txtIdUsuario.Text != "") mensajeConfirmacion = "¿Confirma los cambios del";
@@ -87,8 +89,9 @@ namespace CapaPresentacion
                     Usuario UsuarioNuevo = new Usuario()
                     {
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
+                        passwordUsuario = contrasena != null ? Encrypt.GetSHA256(contrasena.ToString()) : null,
                         nombreUsuario = txtUsuario.Text,
-                        passwordUsuario = txtPassUser.Text,
+
                         oPersona = new Persona() { idPersona = IdPersonaGenerada },
                         oRol = new Rol() { idRol = ((Rol)cmbTipoUsuarioUser.SelectedItem).idRol }
                     };
@@ -136,8 +139,12 @@ namespace CapaPresentacion
             bool masculinoVacio = !rdbtnMasculinoUser.Checked;
             bool femeninoVacio = !rdbtnFemeninoUser.Checked;
 
-
-            if (nombreVacio || apellidoVacio || dniVacio || telefonoVacio || emailVacio || (masculinoVacio && femeninoVacio))
+            if (passVacio && (string.IsNullOrEmpty(txtIdPersona.Text) && string.IsNullOrEmpty(txtIdUsuario.Text)))
+            {
+                MessageBox.Show("Debe establecer una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (nombreVacio || apellidoVacio || dniVacio || telefonoVacio || emailVacio || (masculinoVacio && femeninoVacio) || usuarioVacio)
             {
                 MessageBox.Show("Debe completar todos los campos del Formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

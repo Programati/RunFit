@@ -17,6 +17,7 @@ namespace CapaPresentacion
     public partial class frmListarUsuario : Form
     {
         Inicio _inicio;
+         
         public frmListarUsuario(Inicio inicio)
         {
             InitializeComponent();
@@ -133,7 +134,7 @@ namespace CapaPresentacion
                 {
                     Rol RolEditar = new Rol() {idRol = (int)dgvListaUser.Rows[n].Cells["IdRol"].Value, nombreRol = dgvListaUser.Rows[n].Cells["NombreRol"].Value.ToString() };
                     Persona PersonaEditar = new Persona() { idPersona = Convert.ToInt32(dgvListaUser.Rows[n].Cells["idPersona"].Value), dni = dgvListaUser.Rows[n].Cells["Dni"].Value.ToString(), nombre = dgvListaUser.Rows[n].Cells["Nombre"].Value.ToString(), apellido = dgvListaUser.Rows[n].Cells["Apellido"].Value.ToString(), email = dgvListaUser.Rows[n].Cells["Email"].Value.ToString(), telefono = dgvListaUser.Rows[n].Cells["Telefono"].Value.ToString(), fechaNacimiento = dgvListaUser.Rows[n].Cells["FechaNacimiento"].Value.ToString(), sexo = Convert.ToChar(dgvListaUser.Rows[n].Cells["Sexo"].Value) };
-                    Usuario UsuarioEditar = new Usuario() { idUsuario = (int)dgvListaUser.Rows[n].Cells["IdUsuario"].Value, nombreUsuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString(), passwordUsuario = dgvListaUser.Rows[n].Cells["Password"].Value.ToString(), oRol = RolEditar, oPersona = PersonaEditar };
+                    Usuario UsuarioEditar = new Usuario() { idUsuario = (int)dgvListaUser.Rows[n].Cells["IdUsuario"].Value, nombreUsuario = dgvListaUser.Rows[n].Cells["Usuario"].Value.ToString(),  oRol = RolEditar, oPersona = PersonaEditar };
                     frmUsuario CrearNuevoUsuario = new frmUsuario(UsuarioEditar);
 
                     CrearNuevoUsuario.TopLevel = false;

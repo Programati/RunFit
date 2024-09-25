@@ -19,6 +19,7 @@ namespace CapaPresentacion
         Color colorRojo = Color.FromArgb(235, 57, 32);
 
         public Inicio(Usuario objUsuario)
+
         {
             UsuarioActual = objUsuario;
             InitializeComponent();
@@ -27,14 +28,14 @@ namespace CapaPresentacion
             lblRolInicio.Text=UsuarioActual.oRol.nombreRol.ToString().ToUpper();
         }
 
-        private void IniciarSubMenuOculto()
+        private void IniciarSubMenuOculto()//Funcion que muestra el menu sin desplegar los botones
         {
             subVentas.Visible = false;
             panelSubMantenedor.Visible = false;
             
         }
 
-        protected void OcultarSubMenu()
+        protected void OcultarSubMenu() //veifica si ciertos submenús están visibles y, si es así, los oculta
         {
             if (subVentas.Visible == true)
             {
@@ -46,7 +47,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void MostrarSubmenu(Panel Submenu)
+        private void MostrarSubmenu(Panel Submenu)//Funcion que muestra los submenu si esta oculto, y visceversa
         {
             if (Submenu.Visible == false)
             {
@@ -57,9 +58,10 @@ namespace CapaPresentacion
             {
                 Submenu.Visible = false;
             }
+            
         }
 
-        private void btnUsuario_Click(object sender, EventArgs e)
+        private void btnUsuario_Click(object sender, EventArgs e)//Funcion que muestra los clientes, oculta los submenus abiertos, y abre form usuario
         {
             OcultarSubMenu();
             frmListarUsuario frmUsuario= new frmListarUsuario(this);
@@ -68,19 +70,18 @@ namespace CapaPresentacion
 
         public void btnClientes_Click(object sender, EventArgs e)
         {
-
             OcultarSubMenu();
             imagenFondo.Hide();
-            frmListarCliente frmClientes = new frmListarCliente(this);
+            frmListarCliente frmClientes = new frmListarCliente(this,UsuarioActual);
             abrirFormulario(btnClientes, frmClientes);
         }
 
-        private void btnVentas_Click_1(object sender, EventArgs e)
+        private void btnVentas_Click_1(object sender, EventArgs e)//Funcion que despliega el subMenu de ventas
         {
             MostrarSubmenu(subVentas);
         }
 
-        private void btnRegistrarVentas_Click(object sender, EventArgs e)
+        private void btnRegistrarVentas_Click(object sender, EventArgs e)// Funcion que abre el formulario para registrar una venta, bloquea el panel de botones
         {
             // Crear el formulario y pasar la referencia de 'this'
             frmRegistrarVenta frmVenta = new frmRegistrarVenta(this);
@@ -88,7 +89,7 @@ namespace CapaPresentacion
             pnlContenedorMenu.Enabled = false;
         }
 
-        private void btnBuscarVentas_Click(object sender, EventArgs e)
+        private void btnBuscarVentas_Click(object sender, EventArgs e)// Funcion que abre el formulario para buscar una venta
         {
             abrirFormulario(btnBuscarVentas, new frmBuscarVenta());
         }
@@ -108,6 +109,7 @@ namespace CapaPresentacion
 
         private void btnStock_Click(object sender, EventArgs e)
         {
+            OcultarSubMenu();
             MostrarSubmenu(panelSubMantenedor);
         }
 
@@ -133,7 +135,7 @@ namespace CapaPresentacion
         private void abrirFormulario(GunaGradientButton menu, Form formulario)
         {
             imagenFondo.Hide();
-            if (menuActivo != null)
+           if (menuActivo != null)
             {
                 menuActivo.BaseColor1 = Color.Transparent;
                 menuActivo.BaseColor2 = Color.Transparent;
@@ -144,7 +146,7 @@ namespace CapaPresentacion
             menu.ForeColor = colorAzul;
             menuActivo = menu;
 
-            if (formularioActivo != null)
+           if (formularioActivo != null)
                 formularioActivo.Close();
             
             formularioActivo = formulario;
@@ -157,19 +159,28 @@ namespace CapaPresentacion
             formulario.Show();
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
+        private void Inicio_Load(object sender, EventArgs e)//Funcion que muestra el menu de acuerdo al rol del usuario que ingresa
         {
             if (UsuarioActual.oRol.idRol == 2)
             {
-                btnClientes.Visible = false;
-                btnRegistrarVentas.Visible = false;
+                btnClientes.Visible = true;
+                btnUsuario.Visible = false;
+                btnVentas.Visible = false;
+                btnBackup.Visible = false;
             }
             if (UsuarioActual.oRol.idRol == 3)
             {
                 btnUsuario.Visible = false;
                 btnProveedores.Visible = false;
-                btnReportes.Visible = false;
                 btnStock.Visible = false;
+                btnBackup.Visible = false;
+            }
+            if (UsuarioActual.oRol.idRol == 1)
+            {
+                btnClientes.Visible = false;
+                btnStock.Visible = false;
+                btnVentas.Visible = false;
+                btnProveedores.Visible = false;
             }
         }
 
@@ -178,7 +189,7 @@ namespace CapaPresentacion
             abrirFormulario(btnMarca, new frmMarca());
         }
 
-        public Panel PnlContenedorMenu
+        public Panel PnlContenedorMenu // Metodo para obtener acceso al control pnlContenedorMenu desde fuera de la clase en la que está definido.
         {
             get {
                 return pnlContenedorMenu;
@@ -189,5 +200,11 @@ namespace CapaPresentacion
             imagenFondo.Show(); // Mostrar la imagen nuevamente
         }
 
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            imagenFondo.Hide();
+            OcultarSubMenu();
+            abrirFormulario(btnBackup, new frmBackup(this));
+        }
     }
 }
