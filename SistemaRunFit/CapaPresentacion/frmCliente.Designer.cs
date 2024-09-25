@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosPersonalesCliente = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdDomicilio = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdDomicilio = new System.Windows.Forms.Label();
+            this.txtIdPersona = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdPersona = new System.Windows.Forms.Label();
             this.btnVolverCliente = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarContenedorCliente = new Guna.UI.WinForms.GunaButton();
             this.grbOpcion1Cliente = new Guna.UI.WinForms.GunaGroupBox();
@@ -67,10 +71,6 @@
             this.txtNombreCliente = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblIdPersona = new System.Windows.Forms.Label();
-            this.txtIdPersona = new Guna.UI.WinForms.GunaTextBox();
-            this.lblIdDomicilio = new System.Windows.Forms.Label();
-            this.txtIdDomicilio = new Guna.UI.WinForms.GunaTextBox();
             this.pnlDatosPersonalesCliente.SuspendLayout();
             this.grbOpcion1Cliente.SuspendLayout();
             this.grbOpcion2Cliente.SuspendLayout();
@@ -117,6 +117,74 @@
             this.pnlDatosPersonalesCliente.ShadowColor = System.Drawing.Color.Black;
             this.pnlDatosPersonalesCliente.Size = new System.Drawing.Size(920, 402);
             this.pnlDatosPersonalesCliente.TabIndex = 2;
+            // 
+            // txtIdDomicilio
+            // 
+            this.txtIdDomicilio.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdDomicilio.BaseColor = System.Drawing.Color.White;
+            this.txtIdDomicilio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdDomicilio.BorderSize = 1;
+            this.txtIdDomicilio.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdDomicilio.Enabled = false;
+            this.txtIdDomicilio.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdDomicilio.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdDomicilio.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdDomicilio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdDomicilio.Location = new System.Drawing.Point(390, 12);
+            this.txtIdDomicilio.Name = "txtIdDomicilio";
+            this.txtIdDomicilio.PasswordChar = '\0';
+            this.txtIdDomicilio.Radius = 10;
+            this.txtIdDomicilio.SelectedText = "";
+            this.txtIdDomicilio.Size = new System.Drawing.Size(54, 25);
+            this.txtIdDomicilio.TabIndex = 58;
+            this.txtIdDomicilio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdDomicilio.Visible = false;
+            // 
+            // lblIdDomicilio
+            // 
+            this.lblIdDomicilio.AutoSize = true;
+            this.lblIdDomicilio.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdDomicilio.ForeColor = System.Drawing.Color.White;
+            this.lblIdDomicilio.Location = new System.Drawing.Point(312, 16);
+            this.lblIdDomicilio.Name = "lblIdDomicilio";
+            this.lblIdDomicilio.Size = new System.Drawing.Size(72, 16);
+            this.lblIdDomicilio.TabIndex = 57;
+            this.lblIdDomicilio.Text = "IdDomicilio";
+            this.lblIdDomicilio.Visible = false;
+            // 
+            // txtIdPersona
+            // 
+            this.txtIdPersona.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdPersona.BaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdPersona.BorderSize = 1;
+            this.txtIdPersona.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdPersona.Enabled = false;
+            this.txtIdPersona.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdPersona.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdPersona.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdPersona.Location = new System.Drawing.Point(85, 12);
+            this.txtIdPersona.Name = "txtIdPersona";
+            this.txtIdPersona.PasswordChar = '\0';
+            this.txtIdPersona.Radius = 10;
+            this.txtIdPersona.SelectedText = "";
+            this.txtIdPersona.Size = new System.Drawing.Size(54, 25);
+            this.txtIdPersona.TabIndex = 56;
+            this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdPersona.Visible = false;
+            // 
+            // lblIdPersona
+            // 
+            this.lblIdPersona.AutoSize = true;
+            this.lblIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdPersona.ForeColor = System.Drawing.Color.White;
+            this.lblIdPersona.Location = new System.Drawing.Point(13, 16);
+            this.lblIdPersona.Name = "lblIdPersona";
+            this.lblIdPersona.Size = new System.Drawing.Size(66, 16);
+            this.lblIdPersona.TabIndex = 55;
+            this.lblIdPersona.Text = "IdPersona";
+            this.lblIdPersona.Visible = false;
             // 
             // btnVolverCliente
             // 
@@ -700,9 +768,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -719,70 +787,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // lblIdPersona
-            // 
-            this.lblIdPersona.AutoSize = true;
-            this.lblIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdPersona.ForeColor = System.Drawing.Color.White;
-            this.lblIdPersona.Location = new System.Drawing.Point(13, 16);
-            this.lblIdPersona.Name = "lblIdPersona";
-            this.lblIdPersona.Size = new System.Drawing.Size(66, 16);
-            this.lblIdPersona.TabIndex = 55;
-            this.lblIdPersona.Text = "IdPersona";
-            // 
-            // txtIdPersona
-            // 
-            this.txtIdPersona.BackColor = System.Drawing.Color.Transparent;
-            this.txtIdPersona.BaseColor = System.Drawing.Color.White;
-            this.txtIdPersona.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtIdPersona.BorderSize = 1;
-            this.txtIdPersona.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdPersona.Enabled = false;
-            this.txtIdPersona.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtIdPersona.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtIdPersona.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdPersona.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdPersona.Location = new System.Drawing.Point(85, 12);
-            this.txtIdPersona.Name = "txtIdPersona";
-            this.txtIdPersona.PasswordChar = '\0';
-            this.txtIdPersona.Radius = 10;
-            this.txtIdPersona.SelectedText = "";
-            this.txtIdPersona.Size = new System.Drawing.Size(54, 25);
-            this.txtIdPersona.TabIndex = 56;
-            this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblIdDomicilio
-            // 
-            this.lblIdDomicilio.AutoSize = true;
-            this.lblIdDomicilio.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdDomicilio.ForeColor = System.Drawing.Color.White;
-            this.lblIdDomicilio.Location = new System.Drawing.Point(312, 16);
-            this.lblIdDomicilio.Name = "lblIdDomicilio";
-            this.lblIdDomicilio.Size = new System.Drawing.Size(72, 16);
-            this.lblIdDomicilio.TabIndex = 57;
-            this.lblIdDomicilio.Text = "IdDomicilio";
-            // 
-            // txtIdDomicilio
-            // 
-            this.txtIdDomicilio.BackColor = System.Drawing.Color.Transparent;
-            this.txtIdDomicilio.BaseColor = System.Drawing.Color.White;
-            this.txtIdDomicilio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtIdDomicilio.BorderSize = 1;
-            this.txtIdDomicilio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdDomicilio.Enabled = false;
-            this.txtIdDomicilio.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtIdDomicilio.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtIdDomicilio.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdDomicilio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdDomicilio.Location = new System.Drawing.Point(390, 12);
-            this.txtIdDomicilio.Name = "txtIdDomicilio";
-            this.txtIdDomicilio.PasswordChar = '\0';
-            this.txtIdDomicilio.Radius = 10;
-            this.txtIdDomicilio.SelectedText = "";
-            this.txtIdDomicilio.Size = new System.Drawing.Size(54, 25);
-            this.txtIdDomicilio.TabIndex = 58;
-            this.txtIdDomicilio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCliente
             // 

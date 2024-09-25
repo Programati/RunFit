@@ -169,6 +169,8 @@ namespace CapaPresentacion
                 btnClientes.Visible = true;
                 btnUsuario.Visible = false;
                 btnVentas.Visible = false;
+                
+
             }
             if (UsuarioActual.oRol.idRol == 3)
             {
@@ -176,12 +178,15 @@ namespace CapaPresentacion
                 btnProveedores.Visible = false;
                 btnReportes.Visible = false;
                 btnStock.Visible = false;
+                btnBackup.Visible = false;
             }
             if (UsuarioActual.oRol.idRol == 1)
             {
                 btnClientes.Visible = false;
                 btnStock.Visible = false;
                 btnVentas.Visible = false;
+                btnProveedores.Visible = false;
+                
             }
         }
 

@@ -136,6 +136,7 @@
             this.txtIdPersona.Size = new System.Drawing.Size(47, 25);
             this.txtIdPersona.TabIndex = 68;
             this.txtIdPersona.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdPersona.Visible = false;
             // 
             // lblIdPersona
             // 
@@ -147,6 +148,7 @@
             this.lblIdPersona.Size = new System.Drawing.Size(69, 16);
             this.lblIdPersona.TabIndex = 67;
             this.lblIdPersona.Text = "ID Persona";
+            this.lblIdPersona.Visible = false;
             // 
             // txtIdUsuario
             // 
@@ -168,6 +170,7 @@
             this.txtIdUsuario.Size = new System.Drawing.Size(47, 25);
             this.txtIdUsuario.TabIndex = 66;
             this.txtIdUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdUsuario.Visible = false;
             // 
             // lblIdUsuario
             // 
@@ -179,6 +182,7 @@
             this.lblIdUsuario.Size = new System.Drawing.Size(46, 16);
             this.lblIdUsuario.TabIndex = 65;
             this.lblIdUsuario.Text = "ID user";
+            this.lblIdUsuario.Visible = false;
             // 
             // btnVolverUser
             // 
