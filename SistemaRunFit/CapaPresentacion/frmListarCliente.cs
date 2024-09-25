@@ -16,14 +16,26 @@ namespace CapaPresentacion
     public partial class frmListarCliente : Form
     {
         Inicio _inicio;
-        
-        public frmListarCliente(Inicio frminicio)
+        private static Usuario UsuarioActual = null;
+        private Usuario usuarioActual;
+
+        public frmListarCliente(Inicio frminicio, Usuario usuario)
         {
             InitializeComponent();
             _inicio = frminicio;
-            frminicio.PnlContenedorMenu.Enabled= false;
-            
+            usuarioActual = usuario; // Asigna el usuario actual pasado como argumento
+            frminicio.PnlContenedorMenu.Enabled = false;
+            ConfigurarVisibilidadColumnas(usuario);
         }
+
+        private void ConfigurarVisibilidadColumnas(Usuario usuario)
+        {
+            if (usuario != null && usuario.oRol != null)
+            {
+                dgvListaClientes.Columns["Accion"].Visible = usuario.oRol.idRol != 3; // Oculta la columna si el rol es 3
+            }
+        }
+
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
@@ -41,7 +53,7 @@ namespace CapaPresentacion
         }
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
-            frmListarCliente ListarNuevoCliente = new frmListarCliente(_inicio);
+            frmListarCliente ListarNuevoCliente = new frmListarCliente(_inicio,usuarioActual);
 
             ListarNuevoCliente.TopLevel = false;
             pnlContenedorCliente.Controls.Clear();
@@ -83,7 +95,7 @@ namespace CapaPresentacion
         {
 
            txtBuscarCliente.Focus();
-
+           
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
             
             foreach (Domicilio item in ListaDomicilio)
@@ -104,6 +116,7 @@ namespace CapaPresentacion
                     item.departamento,
                     item.piso });
             }
+ 
         }
 
         private void dgvListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -75,7 +75,7 @@ namespace CapaPresentacion
 
             OcultarSubMenu();
             imagenFondo.Hide();
-            frmListarCliente frmClientes = new frmListarCliente(this);
+            frmListarCliente frmClientes = new frmListarCliente(this,UsuarioActual);
             abrirFormulario(btnClientes, frmClientes);
         }
 
