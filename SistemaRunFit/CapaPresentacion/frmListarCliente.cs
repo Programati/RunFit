@@ -16,8 +16,7 @@ namespace CapaPresentacion
     public partial class frmListarCliente : Form
     {
         Inicio _inicio;
-        private static Usuario UsuarioActual = null;
-        private Usuario usuarioActual;
+        private static Usuario usuarioActual = null;
 
         public frmListarCliente(Inicio frminicio, Usuario usuario)
         {
@@ -39,7 +38,6 @@ namespace CapaPresentacion
 
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
-
             frmCliente CrearNuevoCliente = new frmCliente();
 
             CrearNuevoCliente.TopLevel = false;
@@ -93,7 +91,6 @@ namespace CapaPresentacion
         }        
         private void frmListarCliente_Load(object sender, EventArgs e)
         {
-
            txtBuscarCliente.Focus();
            
             List<Domicilio> ListaDomicilio = new CN_Domicilio().ListarDomicilios();
@@ -151,7 +148,6 @@ namespace CapaPresentacion
                 _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
             }
             this.Close(); // Cierra el formulario actual
-            
         }
     }
 }

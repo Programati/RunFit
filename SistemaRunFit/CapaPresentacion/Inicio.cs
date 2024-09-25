@@ -8,10 +8,9 @@ namespace CapaPresentacion
 {
     public partial class Inicio : Form
     {
-        private static Usuario UsuarioActual = null;   //Declaracion de variables estaticas ,iniciadad en null
+        private static Usuario UsuarioActual = null;
         private static GunaGradientButton menuActivo = null;
         private static Form formularioActivo = null;
-        
 
         Color colorCeleste = Color.FromArgb(25, 162, 198);
         Color colorAzul = Color.FromArgb(6, 71, 109);
@@ -19,7 +18,6 @@ namespace CapaPresentacion
         Color colorClaro = Color.FromArgb(227, 211, 154);
         Color colorRojo = Color.FromArgb(235, 57, 32);
 
-        
         public Inicio(Usuario objUsuario)
 
         {
@@ -72,7 +70,6 @@ namespace CapaPresentacion
 
         public void btnClientes_Click(object sender, EventArgs e)
         {
-
             OcultarSubMenu();
             imagenFondo.Hide();
             frmListarCliente frmClientes = new frmListarCliente(this,UsuarioActual);
@@ -169,14 +166,12 @@ namespace CapaPresentacion
                 btnClientes.Visible = true;
                 btnUsuario.Visible = false;
                 btnVentas.Visible = false;
-                
-
+                btnBackup.Visible = false;
             }
             if (UsuarioActual.oRol.idRol == 3)
             {
                 btnUsuario.Visible = false;
                 btnProveedores.Visible = false;
-                btnReportes.Visible = false;
                 btnStock.Visible = false;
                 btnBackup.Visible = false;
             }
@@ -186,7 +181,6 @@ namespace CapaPresentacion
                 btnStock.Visible = false;
                 btnVentas.Visible = false;
                 btnProveedores.Visible = false;
-                
             }
         }
 
