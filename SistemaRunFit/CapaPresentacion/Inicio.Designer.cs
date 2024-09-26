@@ -39,6 +39,7 @@
             this.lblFitLogoMenu = new System.Windows.Forms.Label();
             this.panelContenedorFormularios = new System.Windows.Forms.Panel();
             this.imagenFondo = new System.Windows.Forms.PictureBox();
+            this.btnBackup = new Guna.UI.WinForms.GunaGradientButton();
             this.btnAcercaDe = new Guna.UI.WinForms.GunaGradientButton();
             this.btnProducto = new Guna.UI.WinForms.GunaGradientButton();
             this.btnMarca = new Guna.UI.WinForms.GunaGradientButton();
@@ -65,8 +66,9 @@
             // pnlContenedorMenu
             // 
             this.pnlContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
-            this.pnlContenedorMenu.Controls.Add(this.gbUserActual);
+            this.pnlContenedorMenu.Controls.Add(this.btnBackup);
             this.pnlContenedorMenu.Controls.Add(this.btnAcercaDe);
+            this.pnlContenedorMenu.Controls.Add(this.gbUserActual);
             this.pnlContenedorMenu.Controls.Add(this.panelSubMantenedor);
             this.pnlContenedorMenu.Controls.Add(this.btnStock);
             this.pnlContenedorMenu.Controls.Add(this.btnReportes);
@@ -79,7 +81,7 @@
             this.pnlContenedorMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlContenedorMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorMenu.Name = "pnlContenedorMenu";
-            this.pnlContenedorMenu.Size = new System.Drawing.Size(168, 597);
+            this.pnlContenedorMenu.Size = new System.Drawing.Size(168, 631);
             this.pnlContenedorMenu.TabIndex = 3;
             // 
             // gbUserActual
@@ -93,7 +95,7 @@
             this.gbUserActual.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbUserActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
             this.gbUserActual.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.gbUserActual.Location = new System.Drawing.Point(0, 512);
+            this.gbUserActual.Location = new System.Drawing.Point(0, 546);
             this.gbUserActual.Name = "gbUserActual";
             this.gbUserActual.Size = new System.Drawing.Size(168, 85);
             this.gbUserActual.TabIndex = 50;
@@ -183,7 +185,7 @@
             this.panelContenedorFormularios.Location = new System.Drawing.Point(168, 0);
             this.panelContenedorFormularios.Name = "panelContenedorFormularios";
             this.panelContenedorFormularios.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.panelContenedorFormularios.Size = new System.Drawing.Size(887, 597);
+            this.panelContenedorFormularios.Size = new System.Drawing.Size(887, 631);
             this.panelContenedorFormularios.TabIndex = 4;
             // 
             // imagenFondo
@@ -193,10 +195,40 @@
             this.imagenFondo.InitialImage = global::CapaPresentacion.Properties.Resources.running_art;
             this.imagenFondo.Location = new System.Drawing.Point(3, 0);
             this.imagenFondo.Name = "imagenFondo";
-            this.imagenFondo.Size = new System.Drawing.Size(881, 594);
+            this.imagenFondo.Size = new System.Drawing.Size(881, 628);
             this.imagenFondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imagenFondo.TabIndex = 0;
             this.imagenFondo.TabStop = false;
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Animated = true;
+            this.btnBackup.AnimationHoverSpeed = 0.07F;
+            this.btnBackup.AnimationSpeed = 0.03F;
+            this.btnBackup.BaseColor1 = System.Drawing.Color.Transparent;
+            this.btnBackup.BaseColor2 = System.Drawing.Color.Transparent;
+            this.btnBackup.BorderColor = System.Drawing.Color.Black;
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBackup.FocusedColor = System.Drawing.Color.Empty;
+            this.btnBackup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.Color.White;
+            this.btnBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.Image")));
+            this.btnBackup.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnBackup.Location = new System.Drawing.Point(0, 457);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.OnHoverBaseColor1 = System.Drawing.Color.White;
+            this.btnBackup.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnBackup.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btnBackup.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnBackup.OnHoverImage = null;
+            this.btnBackup.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBackup.Size = new System.Drawing.Size(168, 40);
+            this.btnBackup.TabIndex = 51;
+            this.btnBackup.Text = "BACKUP";
+            this.btnBackup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // btnAcercaDe
             // 
@@ -208,13 +240,12 @@
             this.btnAcercaDe.BorderColor = System.Drawing.Color.Black;
             this.btnAcercaDe.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAcercaDe.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAcercaDe.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAcercaDe.FocusedColor = System.Drawing.Color.Empty;
             this.btnAcercaDe.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcercaDe.ForeColor = System.Drawing.Color.White;
             this.btnAcercaDe.Image = ((System.Drawing.Image)(resources.GetObject("btnAcercaDe.Image")));
             this.btnAcercaDe.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnAcercaDe.Location = new System.Drawing.Point(0, 457);
+            this.btnAcercaDe.Location = new System.Drawing.Point(3, 503);
             this.btnAcercaDe.Name = "btnAcercaDe";
             this.btnAcercaDe.OnHoverBaseColor1 = System.Drawing.Color.White;
             this.btnAcercaDe.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
@@ -592,7 +623,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1055, 597);
+            this.ClientSize = new System.Drawing.Size(1055, 631);
             this.Controls.Add(this.panelContenedorFormularios);
             this.Controls.Add(this.pnlContenedorMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -639,6 +670,7 @@
         private Guna.UI.WinForms.GunaLabel lblUsuarioInicio;
         private Guna.UI.WinForms.GunaLabel lblRolInicio;
         private Guna.UI.WinForms.GunaGroupBox gbUserActual;
+        private Guna.UI.WinForms.GunaGradientButton btnBackup;
     }
 }
 

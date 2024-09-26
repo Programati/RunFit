@@ -330,7 +330,7 @@
             this.btnMenuClientes.OnHoverImage = null;
             this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(100, 34);
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
             this.btnMenuClientes.TabIndex = 86;
             this.btnMenuClientes.Text = "MENU";
             this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);

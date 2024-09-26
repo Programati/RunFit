@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarVenta));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarVenta));
             this.pnlBusquedaVta = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnLimpiarBuscarVta = new Guna.UI.WinForms.GunaTileButton();
             this.btnBuscarBuscarVta = new Guna.UI.WinForms.GunaTileButton();
@@ -45,6 +45,7 @@
             this.dgvcolumnClienteBuscarVta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcolumnMtoTotalBuscarVta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Accion = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.pnlBusquedaVta.SuspendLayout();
             this.grbDetalleBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVta)).BeginInit();
@@ -54,6 +55,7 @@
             // 
             this.pnlBusquedaVta.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaVta.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaVta.Controls.Add(this.btnMenuMarca);
             this.pnlBusquedaVta.Controls.Add(this.btnLimpiarBuscarVta);
             this.pnlBusquedaVta.Controls.Add(this.btnBuscarBuscarVta);
             this.pnlBusquedaVta.Controls.Add(this.lblBuscarPorVta);
@@ -64,7 +66,7 @@
             this.pnlBusquedaVta.Name = "pnlBusquedaVta";
             this.pnlBusquedaVta.Radius = 5;
             this.pnlBusquedaVta.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaVta.Size = new System.Drawing.Size(607, 100);
+            this.pnlBusquedaVta.Size = new System.Drawing.Size(607, 109);
             this.pnlBusquedaVta.TabIndex = 1;
             // 
             // btnLimpiarBuscarVta
@@ -187,10 +189,10 @@
             this.grbDetalleBusqueda.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbDetalleBusqueda.LineLeft = 2;
             this.grbDetalleBusqueda.LineRight = 2;
-            this.grbDetalleBusqueda.Location = new System.Drawing.Point(0, 100);
+            this.grbDetalleBusqueda.Location = new System.Drawing.Point(0, 109);
             this.grbDetalleBusqueda.Name = "grbDetalleBusqueda";
             this.grbDetalleBusqueda.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbDetalleBusqueda.Size = new System.Drawing.Size(607, 374);
+            this.grbDetalleBusqueda.Size = new System.Drawing.Size(607, 365);
             this.grbDetalleBusqueda.TabIndex = 56;
             this.grbDetalleBusqueda.Text = "Detalle de Busqueda";
             this.grbDetalleBusqueda.TextLocation = new System.Drawing.Point(10, 8);
@@ -239,7 +241,7 @@
             this.dgvDetalleVta.ReadOnly = true;
             this.dgvDetalleVta.RowHeadersVisible = false;
             this.dgvDetalleVta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleVta.Size = new System.Drawing.Size(603, 342);
+            this.dgvDetalleVta.Size = new System.Drawing.Size(603, 333);
             this.dgvDetalleVta.TabIndex = 5;
             this.dgvDetalleVta.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvDetalleVta.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -308,6 +310,34 @@
             this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Accion.Width = 76;
             // 
+            // btnMenuMarca
+            // 
+            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMenuMarca.AnimationSpeed = 0.03F;
+            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
+            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuMarca.BorderSize = 2;
+            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
+            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuMarca.Location = new System.Drawing.Point(12, 66);
+            this.btnMenuMarca.Name = "btnMenuMarca";
+            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuMarca.OnHoverImage = null;
+            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.Radius = 10;
+            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuMarca.TabIndex = 89;
+            this.btnMenuMarca.Text = "MENU";
+            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
+            // 
             // frmBuscarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcolumnClienteBuscarVta;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcolumnMtoTotalBuscarVta;
         private System.Windows.Forms.DataGridViewImageColumn Accion;
+        private Guna.UI.WinForms.GunaButton btnMenuMarca;
     }
 }

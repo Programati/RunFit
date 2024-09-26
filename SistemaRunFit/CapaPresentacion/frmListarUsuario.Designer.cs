@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
@@ -106,7 +106,7 @@
             this.btnMenuClientes.OnHoverImage = null;
             this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(100, 34);
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
             this.btnMenuClientes.TabIndex = 85;
             this.btnMenuClientes.Text = "MENU";
             this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
@@ -227,22 +227,22 @@
             this.dgvListaUser.AllowUserToDeleteRows = false;
             this.dgvListaUser.AllowUserToResizeColumns = false;
             this.dgvListaUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaUser.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaUser.ColumnHeadersHeight = 34;
             this.dgvListaUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -262,14 +262,14 @@
             this.FechaNacimiento,
             this.Sexo});
             this.dgvListaUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaUser.EnableHeadersVisualStyles = false;
             this.dgvListaUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -336,7 +336,7 @@
             this.IdUsuario.Name = "IdUsuario";
             this.IdUsuario.ReadOnly = true;
             this.IdUsuario.Visible = false;
-            this.IdUsuario.Width = 147;
+            this.IdUsuario.Width = 107;
             // 
             // IdRol
             // 
@@ -345,7 +345,7 @@
             this.IdRol.Name = "IdRol";
             this.IdRol.ReadOnly = true;
             this.IdRol.Visible = false;
-            this.IdRol.Width = 97;
+            this.IdRol.Width = 74;
             // 
             // NombreRol
             // 
@@ -369,6 +369,7 @@
             this.Password.HeaderText = "Password";
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
+            this.Password.Visible = false;
             this.Password.Width = 107;
             // 
             // Estado
@@ -386,7 +387,7 @@
             this.idPersona.Name = "idPersona";
             this.idPersona.ReadOnly = true;
             this.idPersona.Visible = false;
-            this.idPersona.Width = 97;
+            this.idPersona.Width = 75;
             // 
             // Dni
             // 
@@ -395,7 +396,7 @@
             this.Dni.Name = "Dni";
             this.Dni.ReadOnly = true;
             this.Dni.Visible = false;
-            this.Dni.Width = 81;
+            this.Dni.Width = 63;
             // 
             // Nombre
             // 
@@ -419,7 +420,7 @@
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             this.Email.Visible = false;
-            this.Email.Width = 102;
+            this.Email.Width = 79;
             // 
             // Telefono
             // 
@@ -428,7 +429,7 @@
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             this.Telefono.Visible = false;
-            this.Telefono.Width = 136;
+            this.Telefono.Width = 101;
             // 
             // FechaNacimiento
             // 
@@ -437,7 +438,7 @@
             this.FechaNacimiento.Name = "FechaNacimiento";
             this.FechaNacimiento.ReadOnly = true;
             this.FechaNacimiento.Visible = false;
-            this.FechaNacimiento.Width = 291;
+            this.FechaNacimiento.Width = 205;
             // 
             // Sexo
             // 
@@ -446,7 +447,7 @@
             this.Sexo.Name = "Sexo";
             this.Sexo.ReadOnly = true;
             this.Sexo.Visible = false;
-            this.Sexo.Width = 94;
+            this.Sexo.Width = 73;
             // 
             // pnlContenedorUser
             // 

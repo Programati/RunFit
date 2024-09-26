@@ -156,11 +156,13 @@ GO
 select * from USUARIOS;
 SELECT * FROM PERSONAS;
 SELECT * FROM ROL;
-
+UPDATE ROL set
+nombre_rol = 'Vendedor'
+WHERE id_rol = 3
 /*
-insert ROL(nombre_rol) VALUES('SuperAdministrador');
-insert ROL(nombre_rol) VALUES('Administrador');
-insert ROL(nombre_rol) VALUES('Empleado');
+insert ROL(nombre_rol) VALUES('Sistema');
+insert ROL(nombre_rol) VALUES('Gerente');
+insert ROL(nombre_rol) VALUES('Vendedor');
 
 insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('35682527', 'Matias Jose', 'Martinez', 'mati@gmail.com', '3704646563', '1994-06-12','M');
 insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('matias', '123', 1, 1);
