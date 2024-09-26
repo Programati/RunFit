@@ -119,7 +119,7 @@ namespace CapaPresentacion
             {
                 dgvListaUser.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user : CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
             item.idUsuario,
             item.oRol.idRol,
             item.oRol.nombreRol,
