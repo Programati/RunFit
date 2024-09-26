@@ -98,7 +98,6 @@ namespace CapaPresentacion
         // Función que abre el formulario para buscar una venta
         private void btnBuscarVentas_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); // Oculta todos los submenús abiertos
             abrirFormulario(btnBuscarVentas, new frmBuscarVenta(this)); // Crea una nueva instancia del formulario de búsqueda de ventas y lo abre
         }
 
@@ -127,14 +126,14 @@ namespace CapaPresentacion
         // Función que oculta todos los submenús abiertos y abre el formulario de categoría
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); // Oculta todos los submenús visibles
+           
             abrirFormulario(btnCategoria, new frmCategoria(this)); // Abre el formulario de categoría
         }
 
         // Función que oculta todos los submenús abiertos y abre el formulario para listar productos
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); // Oculta todos los submenús visibles
+           
             frmListarProducto frmPto = new frmListarProducto(this); // Crea una nueva instancia del formulario para listar productos
             abrirFormulario(btnRegistrarVentas, frmPto); // Abre el formulario de productos
         }
