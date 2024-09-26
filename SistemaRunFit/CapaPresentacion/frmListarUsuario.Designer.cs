@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusquedaUser = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnMenuClientes = new Guna.UI.WinForms.GunaButton();
             this.btnNuevoUser = new Guna.UI.WinForms.GunaButton();
@@ -40,9 +40,6 @@
             this.lblBuscarPorUser = new Guna.UI.WinForms.GunaLabel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaUser = new Guna.UI.WinForms.GunaDataGridView();
-            this.pnlContenedorUser = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Accion = new System.Windows.Forms.DataGridViewImageColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +56,9 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlContenedorUser = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlBusquedaUser.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUser)).BeginInit();
@@ -106,7 +106,7 @@
             this.btnMenuClientes.OnHoverImage = null;
             this.btnMenuClientes.OnPressedColor = System.Drawing.Color.Black;
             this.btnMenuClientes.Radius = 10;
-            this.btnMenuClientes.Size = new System.Drawing.Size(100, 34);
+            this.btnMenuClientes.Size = new System.Drawing.Size(113, 37);
             this.btnMenuClientes.TabIndex = 85;
             this.btnMenuClientes.Text = "MENU";
             this.btnMenuClientes.Click += new System.EventHandler(this.btnMenuClientes_Click);
@@ -227,22 +227,22 @@
             this.dgvListaUser.AllowUserToDeleteRows = false;
             this.dgvListaUser.AllowUserToResizeColumns = false;
             this.dgvListaUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaUser.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaUser.ColumnHeadersHeight = 34;
             this.dgvListaUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -262,14 +262,14 @@
             this.FechaNacimiento,
             this.Sexo});
             this.dgvListaUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaUser.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaUser.EnableHeadersVisualStyles = false;
             this.dgvListaUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -305,38 +305,6 @@
             this.dgvListaUser.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaUser.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvListaUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaUser_CellContentClick);
-            // 
-            // pnlContenedorUser
-            // 
-            this.pnlContenedorUser.AutoScroll = true;
-            this.pnlContenedorUser.Controls.Add(this.grbListaUsuarios);
-            this.pnlContenedorUser.Controls.Add(this.pnlBusquedaUser);
-            this.pnlContenedorUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedorUser.Location = new System.Drawing.Point(0, 0);
-            this.pnlContenedorUser.Name = "pnlContenedorUser";
-            this.pnlContenedorUser.Size = new System.Drawing.Size(703, 411);
-            this.pnlContenedorUser.TabIndex = 56;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "Editar";
-            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Editar
             // 
@@ -480,6 +448,38 @@
             this.Sexo.ReadOnly = true;
             this.Sexo.Visible = false;
             this.Sexo.Width = 73;
+            // 
+            // pnlContenedorUser
+            // 
+            this.pnlContenedorUser.AutoScroll = true;
+            this.pnlContenedorUser.Controls.Add(this.grbListaUsuarios);
+            this.pnlContenedorUser.Controls.Add(this.pnlBusquedaUser);
+            this.pnlContenedorUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedorUser.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenedorUser.Name = "pnlContenedorUser";
+            this.pnlContenedorUser.Size = new System.Drawing.Size(703, 411);
+            this.pnlContenedorUser.TabIndex = 56;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmListarUsuario
             // 

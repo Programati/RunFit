@@ -13,10 +13,13 @@ namespace CapaPresentacion
 {
     public partial class frmCategoria : Form
     {
-        public frmCategoria()
+        Inicio _inicio;
+        public frmCategoria(Inicio inicio)
         {
             InitializeComponent();
-            
+            _inicio = inicio;
+            _inicio.PnlContenedorMenu.Enabled = false;
+
         }
       
                
@@ -74,6 +77,16 @@ namespace CapaPresentacion
         private void frmCategoria_Load_1(object sender, EventArgs e)
         {
             txtCategoria.Focus();
+        }
+
+        private void btnMenuMarca_Click(object sender, EventArgs e)
+        {
+            if (_inicio != null)
+            {
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
+                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+            }
+            this.Close(); // Cierra el formulario actual
         }
     }
 }

@@ -12,23 +12,28 @@ namespace CapaPresentacion
 {
     public partial class frmBackup : Form
     {
+        // Campo privado que almacena la referencia al formulario principal 'Inicio'
         private Inicio _inicio;
-        public frmBackup(Inicio inicioform)
+
+        // Constructor que inicializa el formulario y desactiva el panel del menú en 'Inicio'
+        public frmBackup(Inicio inicio)
         {
-            _inicio = inicioform;
-            InitializeComponent();
-            _inicio.PnlContenedorMenu.Enabled = false;
-            
+            _inicio = inicio; // Guarda la referencia del formulario 'Inicio'
+            InitializeComponent(); // Inicializa los componentes del formulario
+            _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en 'Inicio' mientras se muestra este formulario
         }
 
-        private void btnVolverUser_Click(object sender, EventArgs e)
+        // Evento del botón que regresa al menú de 'Marca' o al menú principal
+        private void btnMenuMarca_Click(object sender, EventArgs e)
         {
+            // Si la referencia a 'Inicio' es válida
             if (_inicio != null)
             {
-                _inicio.PnlContenedorMenu.Enabled = true; // Reactivar el panel en Inicio
-                _inicio.MostrarImagenFondo(); // Mostrar la imagen de fondo
+                _inicio.PnlContenedorMenu.Enabled = true; // Reactiva el panel del menú en 'Inicio'
+                _inicio.MostrarImagenFondo(); // Muestra nuevamente la imagen de fondo en 'Inicio'
             }
-            this.Close(); // Cierra el formulario actual
+            this.Close(); // Cierra el formulario actual de 'Backup'
         }
     }
+
 }
