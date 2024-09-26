@@ -81,7 +81,7 @@
             this.pnlBusquedaUser.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaUser.Size = new System.Drawing.Size(703, 100);
             this.pnlBusquedaUser.TabIndex = 1;
-            this.pnlBusquedaUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusquedaUser_Paint);
+            //this.pnlBusquedaUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBusquedaUser_Paint);
             // 
             // btnMenuClientes
             // 

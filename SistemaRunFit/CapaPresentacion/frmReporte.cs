@@ -15,7 +15,7 @@ namespace CapaPresentacion
     {
         public frmReporte()
         {
-            InitializeComponent();
+            InitializeComponent();//Inicia los componentes 
         }
     }
 }
