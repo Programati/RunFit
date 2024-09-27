@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBackup));
             this.pnlContenedorBackup = new System.Windows.Forms.Panel();
             this.pnlDatosUsuarioUser = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.lblBackupSistema = new System.Windows.Forms.Label();
-            this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarCamposUser = new Guna.UI.WinForms.GunaButton();
             this.dtpFechaUser = new System.Windows.Forms.DateTimePicker();
             this.btnHacerBackup = new Guna.UI.WinForms.GunaButton();
@@ -63,8 +63,8 @@
             this.pnlDatosUsuarioUser.AutoScroll = true;
             this.pnlDatosUsuarioUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosUsuarioUser.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlDatosUsuarioUser.Controls.Add(this.btnMenuMarca);
             this.pnlDatosUsuarioUser.Controls.Add(this.lblBackupSistema);
-            this.pnlDatosUsuarioUser.Controls.Add(this.btnVolverUser);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnLimpiarCamposUser);
             this.pnlDatosUsuarioUser.Controls.Add(this.dtpFechaUser);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnHacerBackup);
@@ -83,6 +83,34 @@
             this.pnlDatosUsuarioUser.Size = new System.Drawing.Size(800, 450);
             this.pnlDatosUsuarioUser.TabIndex = 49;
             // 
+            // btnMenuMarca
+            // 
+            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMenuMarca.AnimationSpeed = 0.03F;
+            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
+            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuMarca.BorderSize = 2;
+            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
+            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuMarca.Location = new System.Drawing.Point(52, 341);
+            this.btnMenuMarca.Name = "btnMenuMarca";
+            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuMarca.OnHoverImage = null;
+            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.Radius = 10;
+            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuMarca.TabIndex = 88;
+            this.btnMenuMarca.Text = "MENU";
+            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
+            // 
             // lblBackupSistema
             // 
             this.lblBackupSistema.AutoSize = true;
@@ -92,34 +120,6 @@
             this.lblBackupSistema.Size = new System.Drawing.Size(287, 33);
             this.lblBackupSistema.TabIndex = 65;
             this.lblBackupSistema.Text = "BACKUP DEL SISTEMA";
-            // 
-            // btnVolverUser
-            // 
-            this.btnVolverUser.AnimationHoverSpeed = 0.07F;
-            this.btnVolverUser.AnimationSpeed = 0.03F;
-            this.btnVolverUser.BackColor = System.Drawing.Color.Transparent;
-            this.btnVolverUser.BaseColor = System.Drawing.Color.White;
-            this.btnVolverUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnVolverUser.BorderSize = 2;
-            this.btnVolverUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVolverUser.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnVolverUser.FocusedColor = System.Drawing.Color.White;
-            this.btnVolverUser.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolverUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverUser.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverUser.Image")));
-            this.btnVolverUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnVolverUser.Location = new System.Drawing.Point(358, 338);
-            this.btnVolverUser.Name = "btnVolverUser";
-            this.btnVolverUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverUser.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnVolverUser.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnVolverUser.OnHoverImage = null;
-            this.btnVolverUser.OnPressedColor = System.Drawing.Color.Black;
-            this.btnVolverUser.Radius = 10;
-            this.btnVolverUser.Size = new System.Drawing.Size(100, 40);
-            this.btnVolverUser.TabIndex = 12;
-            this.btnVolverUser.Text = "Volver";
-            this.btnVolverUser.Click += new System.EventHandler(this.btnVolverUser_Click);
             // 
             // btnLimpiarCamposUser
             // 
@@ -136,7 +136,7 @@
             this.btnLimpiarCamposUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposUser.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiarCamposUser.Image")));
             this.btnLimpiarCamposUser.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLimpiarCamposUser.Location = new System.Drawing.Point(240, 338);
+            this.btnLimpiarCamposUser.Location = new System.Drawing.Point(262, 338);
             this.btnLimpiarCamposUser.Name = "btnLimpiarCamposUser";
             this.btnLimpiarCamposUser.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
             this.btnLimpiarCamposUser.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -313,7 +313,6 @@
 
         private System.Windows.Forms.Panel pnlContenedorBackup;
         private Guna.UI.WinForms.GunaShadowPanel pnlDatosUsuarioUser;
-        private Guna.UI.WinForms.GunaButton btnVolverUser;
         private Guna.UI.WinForms.GunaButton btnLimpiarCamposUser;
         private System.Windows.Forms.DateTimePicker dtpFechaUser;
         private Guna.UI.WinForms.GunaButton btnHacerBackup;
@@ -325,5 +324,6 @@
         private System.Windows.Forms.Label lblServidorSql;
         private Guna.UI.WinForms.GunaTextBox txtNombreUser;
         private System.Windows.Forms.Label lblBackupSistema;
+        private Guna.UI.WinForms.GunaButton btnMenuMarca;
     }
 }
