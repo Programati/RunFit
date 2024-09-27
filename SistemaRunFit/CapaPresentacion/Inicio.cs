@@ -105,21 +105,21 @@ namespace CapaPresentacion
         private void btnProveedores_Click(object sender, EventArgs e)
         {
             frmListarProveedor frmProv = new frmListarProveedor(this); // Crea una nueva instancia del formulario de proveedores y pasa la referencia del formulario actual
-            OcultarSubMenu(); // Oculta todos los submenús abiertos
+            OcultarSubMenu(); 
             abrirFormulario(btnProveedores, frmProv); // Llama a la función para abrir el formulario y activar el botón correspondiente
         }
 
         // Función que abre el formulario de reportes
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); // Oculta todos los submenús abiertos
+            OcultarSubMenu(); 
             abrirFormulario(btnReportes, new frmReporte()); // Crea una nueva instancia del formulario de reportes y lo abre
         }
 
         // Función que oculta todos los submenús abiertos y despliega el submenú del mantenedor de stock
         private void btnStock_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); // Oculta todos los submenús visibles
+            OcultarSubMenu(); 
             MostrarSubmenu(panelSubMantenedor); // Muestra el submenú del panel mantenedor
         }
 
@@ -142,7 +142,7 @@ namespace CapaPresentacion
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
             imagenFondo.Hide(); // Oculta la imagen de fondo
-            OcultarSubMenu(); // Oculta todos los submenús visibles
+            OcultarSubMenu(); 
             abrirFormulario(btnAcercaDe, new frmAcercaDe()); // Abre el formulario "Acerca de"
         }
 
