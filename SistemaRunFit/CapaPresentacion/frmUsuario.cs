@@ -44,7 +44,7 @@ namespace CapaPresentacion
             int IdUsuarioGenerado = 0; // ID de usuario generado
             bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
             string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
-            object contrasena = null; // Variable para almacenar la contraseña
+            string contrasena = null; // Variable para almacenar la contraseña
 
             // Verifica si los campos están validados
             if (camposValidados())
@@ -100,7 +100,7 @@ namespace CapaPresentacion
                     Usuario UsuarioNuevo = new Usuario()
                     {
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
-                        passwordUsuario = contrasena != null ? Encrypt.GetSHA256(contrasena.ToString()) : null,
+                        passwordUsuario = string.IsNullOrEmpty(contrasena.ToString()) ? "" : Encrypt.GetSHA256(txtPassUser.Text),
                         nombreUsuario = txtUsuario.Text,
 
                         oPersona = new Persona() { idPersona = IdPersonaGenerada }, // Asocia la persona al usuario
