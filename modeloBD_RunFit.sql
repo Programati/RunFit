@@ -349,7 +349,7 @@ BEGIN
     IF NOT EXISTS (SELECT * FROM USUARIOS WHERE nombre_usuario = @nombre_usuario AND id_usuario != @id_usuario)
     BEGIN
         -- Si el password es NULL, actualiza sin modificar el campo password
-        IF @password IS NULL
+        IF @password = ''
         BEGIN
             UPDATE USUARIOS 
             SET 
