@@ -153,30 +153,28 @@ CREATE TABLE DETALLE_VENTAS (
 GO
 
 
-select * from USUARIOS;
+select * FROM USUARIOS;
 SELECT * FROM PERSONAS;
 SELECT * FROM ROL;
-UPDATE ROL set
-nombre_rol = 'Vendedor'
-WHERE id_rol = 3
+
 /*
 insert ROL(nombre_rol) VALUES('Sistema');
 insert ROL(nombre_rol) VALUES('Gerente');
 insert ROL(nombre_rol) VALUES('Vendedor');
 
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('35682527', 'Matias Jose', 'Martinez', 'mati@gmail.com', '3704646563', '1994-06-12','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('matias', '123', 1, 1);
 
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('49129901', 'Ramiro Andres', 'Lopez', 'ramiro@gmail.com', '3794734982', '2000-09-12','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('ramiro', '123', 2, 2);
+--Insercion de el usuario que da de alta a más usuarios en el sistema
 
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('43129901', 'Noelia Cecilia', 'Canepa', 'noelia@gmail.com', '3794378496', '2002-02-23','F');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('noelia', '123', 3, 3);
+insert PERSONAS
+(dni, nombre,apellido,email,telefono,fecha_nacimiento,sexo)
+VALUES('10112233','root','r','r@gmail.com','3794123456','2000-01-01','M')
+go
 
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('37206965', 'Julio Osvaldo', 'Cantero', 'julio@gmail.com', '3794779822', '2000-09-03','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123', 4,3);
+insert USUARIOS
+(nombre_usuario,password, fecha_alta, fecha_baja, id_persona, id_rol)
+VALUES('root', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2024-01-01',null,1,1)
+go
 */
-
 
  GO
 
