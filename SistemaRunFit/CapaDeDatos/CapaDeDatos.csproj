@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CD_Domicilio.cs" />
     <Compile Include="CD_Persona.cs" />
+    <Compile Include="CD_Proveedor.cs" />
     <Compile Include="CD_Rol.cs" />
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="Conexion.cs" />

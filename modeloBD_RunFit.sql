@@ -37,26 +37,27 @@ CREATE TABLE PERSONAS (
     telefono VARCHAR(30) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     sexo CHAR(1) NOT NULL,
+    estado CHAR(1) NOT NULL DEFAULT '1', -- Campo estado de tipo CHAR(1) con valor por defecto '1'
     CONSTRAINT PK_PERSONAS PRIMARY KEY (id_persona)
 );
+
 GO
 
+
 -- Crear tabla PROVEEDORES
-CREATE TABLE PROVEEDORES (
+create TABLE PROVEEDORES (
     id_proveedor INT IDENTITY(1,1) NOT NULL,
     razon_social VARCHAR(50) NOT NULL,
     cuit VARCHAR(11) NOT NULL,
     descripcion VARCHAR(80) NULL,
     fecha_alta DATE NOT NULL default getdate(),
     fecha_baja DATE NULL,
-    id_persona INT NOT NULL,
-	direccion varchar(100)NULL,
+    direccion varchar(100)NULL,
 	telefono varchar(10)not null,
     CONSTRAINT PK_PROVEEDORES PRIMARY KEY (id_proveedor),
-    --CONSTRAINT FK_PROVEEDORES_PERSONAS FOREIGN KEY (id_persona) REFERENCES PERSONAS(id_persona)
 );
 GO
-
+select * from PROVEEDORES
 -- Crear tabla MARCAS
 CREATE TABLE MARCAS (
     id_marca INT IDENTITY(1,1) NOT NULL,
@@ -420,6 +421,46 @@ BEGIN
         SET @Mensaje = 'El usuario no existe.';
     END
 END
+CREATE PROC SP_ELIMINAR_PERSONA
+(
+    @id_persona INT,
+	@Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si el usuario existe
+    IF EXISTS (SELECT 1 FROM PERSONAS WHERE id_persona = @id_persona)
+    BEGIN
+        DECLARE @estado char;
+        SELECT @estado = estado FROM PERSONAS WHERE id_persona = @id_persona;
+
+        -- Si el cliente es 1 cambia a 0
+        IF @estado=1
+        BEGIN
+            UPDATE PERSONAS
+            SET estado = 0
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si el cliente es 0 cambia a 1
+            UPDATE PERSONAS
+            SET estado = 1
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El Cliente no existe.';
+    END
+END
 
 --REGISTRAR CATEGORIAS
 CREATE PROC SP_REGISTRARCATEGORIAS
@@ -467,6 +508,54 @@ CREATE PROC SP_EDITARCATEGORIAS
 		end
 end
 go
+
+CREATE PROC SP_ELIMINARPERSONA
+(
+    @id_persona INT,
+    @Respuesta CHAR(1) OUTPUT,  -- Cambié el tamaño a CHAR(1)
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Inicializar @Respuesta
+    SET @Respuesta = '0';
+
+    -- Verifica si la persona existe
+    IF EXISTS (SELECT 1 FROM PERSONAS WHERE id_persona = @id_persona)
+    BEGIN
+        DECLARE @estado_actual CHAR(1);  -- Cambié el tamaño a CHAR(1)
+        SELECT @estado_actual = estado FROM PERSONAS WHERE id_persona = @id_persona;
+
+        -- Si el estado es '1' (activo), lo cambia a '0' (inactivo)
+        IF @estado_actual = '1'
+        BEGIN
+            UPDATE PERSONAS
+            SET estado = '0'
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = '1'; -- Estado cambiado a activo (1)
+            SET @Mensaje = 'El estado se ha cambiado a activo.';
+        END
+        ELSE
+        BEGIN
+            -- Si el estado es '0' (inactivo), lo cambia a '1' (activo)
+            UPDATE PERSONAS
+            SET estado = '1'
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = '0'; -- Estado cambiado a inactivo (0)
+            SET @Mensaje = 'El estado se ha cambiado a inactivo.';
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si la persona no existe, devuelve un mensaje de error
+        SET @Respuesta = '0';
+        SET @Mensaje = 'La persona no existe.';
+    END
+END
+
+
 
 --REGISTRAR MARCAS
 CREATE PROC SP_REGISTRARMARCAS
@@ -608,3 +697,8 @@ go
  select @mensajegenerado
  GO
  SELECT * FROM USUARIOS
+ select * from PERSONAS
+ select * from DOMICILIOS
+
+ update personas
+ set estado=1 where id_persona=5

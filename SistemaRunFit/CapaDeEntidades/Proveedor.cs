@@ -10,11 +10,14 @@ namespace CapaDeEntidades
     {
         public int idProveedor { get; set; }
         public string razonSocial { get; set; }
-        public int cuit { get; set; }
+        public string cuit { get; set; }
         public string descripcion { get; set; }
-        public string fechaAlta { get; set; }
-        public string fechaBaja { get; set; }
-        public Persona oPersona { get; set; }
+        public string  telefono { get; set; }
+        public string  direccion { get; set; }
+        public string email { get; set; }
+        public DateTime fechaAlta { get; set; } // Cambiado a DateTime
+        public DateTime? fechaBaja { get; set; }
+        
 
     }
 }

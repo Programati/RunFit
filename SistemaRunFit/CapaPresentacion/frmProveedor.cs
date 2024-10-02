@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDeEntidades;
+using CapaDeNegocios;
 using Guna.UI.WinForms;
 
 namespace CapaPresentacion
@@ -70,6 +72,15 @@ namespace CapaPresentacion
         // Evento que se ejecuta al hacer clic en el botón "Guardar proveedor"
         private void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
+            string MensajeUsuario = string.Empty; // Mensaje para el resultado del proceso de usuario
+            string MensajePersona = string.Empty; // Mensaje para el resultado del proceso de persona
+            int idProveedorGenerado = 0; // ID de persona generada
+            bool VerdadPersonaGenerada = false; // Bandera para verificar si la persona fue generada correctamente
+            
+            bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
+            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
+            string contrasena = null; // Variable para almacenar la contraseña
+
             // Verifica si los campos están validados
             if (camposValidados())
             {
@@ -86,8 +97,34 @@ namespace CapaPresentacion
                 // Si el usuario confirma
                 if (confirmacion == DialogResult.Yes)
                 {
-                    MessageBox.Show("Datos guardados exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    LimpiarCampos(); // Limpia los campos del formulario
+                    // Formatea la fecha para la base de datos
+                   // string fechaFormateada = .Value.ToString("yyyy-MM-dd");
+
+                    // Crea un nuevo objeto Persona con los datos del formulario
+                    Proveedor ProveedorNuevo = new Proveedor()
+                    {
+                        idProveedor = txtIdProvee.Text != "" ? Convert.ToInt32(txtIdProvee.Text) : idProveedorGenerado,
+                        razonSocial = txtRSocialProveedor.Text,
+                        cuit = txtCuitProveedor.Text,
+                        descripcion = txtDescripcionProveedor.Text,
+                        fechaAlta=DateTime.Now,
+                        fechaBaja=null,
+                        direccion =txtDireccionProveedor.Text,
+                        email = txtEmailProveedor.Text,
+                        telefono = txtTelefonoProveedor.Text
+                        
+                    };
+                    if (txtIdProvee.Text != "")
+                    {
+                        //VerdadPersonaGenerada = new CN_proveedor().Editar(PersonaNueva, out MensajePersona);
+                        //IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                    }
+                    // Si no hay ID de persona, se registra como nueva
+                    else
+                    {
+                        idProveedorGenerado = new CN_proveedor().Registrar(ProveedorNuevo, out MensajePersona);
+                    }
+
                 }
             }
         }

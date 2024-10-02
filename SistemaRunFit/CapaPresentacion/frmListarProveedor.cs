@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDeEntidades;
+using CapaDeNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -119,8 +121,32 @@ namespace CapaPresentacion
         private void frmListarProveedor_Load_1(object sender, EventArgs e)
         {
             txtBuscarPorProveedor.Focus(); // Establece el foco en el campo de texto txtBuscarPorProveedor al cargar el formulario.
+            
+            listar_proveedores();
         }
+        private void listar_proveedores()
+        {
+            // Obtiene la lista de usuarios desde la capa de negocio
+            List<Proveedor> ListaProveedor = new CN_proveedor().ListarProveedores();
+
+            // Agrega cada usuario a la fila del DataGridView
+            foreach (Proveedor item in ListaProveedor)
+            {
+                dgvListaProveedor.Rows.Add(new object[] {
+            CapaPresentacion.Properties.Resources.pencil, // Icono de editar
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.cuit,
+            item.idProveedor,
+            item.razonSocial,
+            item.fechaBaja == null ? "Activo" : "Inactivo", // Estado del usuario
+            item.fechaAlta,
+            item.email,
+            item.telefono,
+            item.direccion,
+            item.descripcion,
+            });
+            }
+        }
+
     }
-
-
 }

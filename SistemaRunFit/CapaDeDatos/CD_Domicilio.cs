@@ -23,9 +23,10 @@ namespace CapaDeDatos
                 {
                     // Construcción de la consulta SQL usando StringBuilder para mayor flexibilidad
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_persona, p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo FROM DOMICILIOS d");
+                    query.AppendLine("SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_persona, p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo,p.estado FROM DOMICILIOS d");
                     query.AppendLine("inner join PERSONAS p on p.id_persona = d.id_persona"); // Join para obtener datos de la persona asociada al domicilio
-                    query.AppendLine("WHERE d.id_persona = p.id_persona"); // Condición para asegurar que el join se haga correctamente
+                    query.AppendLine("WHERE d.id_persona = p.id_persona");
+                    query.AppendLine("order by p.estado desc");// Condición para asegurar que el join se haga correctamente
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion); // Se prepara el comando SQL
                     cmd.CommandType = CommandType.Text; // El comando es de tipo texto (consulta SQL normal)
@@ -56,7 +57,8 @@ namespace CapaDeDatos
                                     email = dr["email"].ToString(),
                                     telefono = dr["telefono"].ToString(),
                                     fechaNacimiento = dr["fecha_nacimiento"].ToString(),
-                                    sexo = Convert.ToChar(dr["sexo"])
+                                    sexo = Convert.ToChar(dr["sexo"]),
+                                    estado= Convert.ToChar(dr["estado"]),
                                 }
                             });
                         }
