@@ -23,7 +23,7 @@ namespace CapaDeDatos
                 try
                 {
                     // Definimos la consulta SQL para obtener los datos de la tabla PERSONAS
-                    string query = " SELECT id_persona, dni, nombre, apellido, email, telefono, fecha_nacimiento, sexo FROM PERSONAS";
+                    string query = " SELECT id_persona, dni, nombre, apellido, email, telefono, fecha_nacimiento, sexo,estado FROM PERSONAS";
 
                     // Creamos un comando SQL con la consulta anterior
                     SqlCommand cmd = new SqlCommand(query, oconexion);
@@ -48,7 +48,8 @@ namespace CapaDeDatos
                                 email = dr["email"].ToString(), // Email a string
                                 telefono = dr["telefono"].ToString(), // Teléfono a string
                                 fechaNacimiento = dr["fecha_nacimiento"].ToString(), // Fecha de nacimiento a string
-                                sexo = Convert.ToChar(dr["sexo"]) // Sexo a char
+                                sexo = Convert.ToChar(dr["sexo"]), // Sexo a char
+                                estado = Convert.ToChar(dr["estado"]), // estado a char
                             });
                         }
                         dr.Close(); // Cerramos el lector de datos
@@ -133,6 +134,7 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("telefono", ObjPersona.telefono);
                     cmd.Parameters.AddWithValue("fecha_nacimiento", ObjPersona.fechaNacimiento);
                     cmd.Parameters.AddWithValue("sexo", ObjPersona.sexo);
+                   
 
                     // Parámetros de salida que retornan si la operación fue exitosa y el mensaje
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -159,6 +161,53 @@ namespace CapaDeDatos
             // Retornamos si la operación fue exitosa
             return Respuesta;
         }
-    }
+        public bool Eliminar(Persona ObjPersona, out string Mensaje)
+        {
+            bool Respuesta = false; // Variable para almacenar el resultado
+            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
 
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Configuramos el comando para el procedimiento almacenado SP_ELIMINARPERSONA
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINAR_PERSONA", oconexion);
+                    // Cambia el nombre del parámetro a @id_persona
+                    cmd.Parameters.AddWithValue("@id_persona", ObjPersona.idPersona);
+
+                    // Parámetros de salida
+                    SqlParameter respuestaParam = new SqlParameter("@Respuesta", SqlDbType.Char, 1)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(respuestaParam);
+
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.VarChar, 500)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(mensajeParam);
+
+                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    oconexion.Open();
+
+                    // Ejecutamos el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Obtenemos los valores de los parámetros de salida
+                    Respuesta = (respuestaParam.Value.ToString() == "1"); // Cambiar a comparación de char
+                    Mensaje = mensajeParam.Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, devolvemos false y el mensaje de la excepción
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta; // Retornamos la respuesta o false en caso de error
+        }
+
+        
+    }
 }

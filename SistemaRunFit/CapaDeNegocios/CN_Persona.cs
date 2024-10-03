@@ -69,6 +69,11 @@ namespace CapaDeNegocios
                 return objcd_persona.Editar(ObjPersona, out Mensaje);
             }
         }
+        public bool Eliminar(Persona ObjPersona, out string Mensaje)
+        {
+            // Llama al método Eliminar en la capa de datos y devuelve el resultado
+            return objcd_persona.Eliminar(ObjPersona, out Mensaje);
+        }
     }
 
 }

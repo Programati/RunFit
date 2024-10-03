@@ -37,9 +37,12 @@ CREATE TABLE PERSONAS (
     telefono VARCHAR(30) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     sexo CHAR(1) NOT NULL,
+    estado CHAR(1) NOT NULL DEFAULT '1', -- Campo estado de tipo CHAR(1) con valor por defecto '1'
     CONSTRAINT PK_PERSONAS PRIMARY KEY (id_persona)
 );
+
 GO
+
 
 -- Crear tabla PROVEEDORES
 CREATE TABLE PROVEEDORES (
@@ -47,16 +50,19 @@ CREATE TABLE PROVEEDORES (
     razon_social VARCHAR(50) NOT NULL,
     cuit VARCHAR(11) NOT NULL,
     descripcion VARCHAR(80) NULL,
-    fecha_alta DATE NOT NULL default getdate(),
+    fecha_alta DATE NOT NULL DEFAULT GETDATE(),
     fecha_baja DATE NULL,
-    id_persona INT NOT NULL,
-	direccion varchar(100)NULL,
-	telefono varchar(10)not null,
-    CONSTRAINT PK_PROVEEDORES PRIMARY KEY (id_proveedor),
-    --CONSTRAINT FK_PROVEEDORES_PERSONAS FOREIGN KEY (id_persona) REFERENCES PERSONAS(id_persona)
+    direccion VARCHAR(100) NULL,
+    telefono VARCHAR(10) NOT NULL,
+    email VARCHAR(100) NULL,  -- Nuevo campo para el email
+    CONSTRAINT PK_PROVEEDORES PRIMARY KEY (id_proveedor)
 );
 GO
 
+
+ -- Agregar el nuevo campo para el email
+
+select * from PROVEEDORES
 -- Crear tabla MARCAS
 CREATE TABLE MARCAS (
     id_marca INT IDENTITY(1,1) NOT NULL,
@@ -420,6 +426,46 @@ BEGIN
         SET @Mensaje = 'El usuario no existe.';
     END
 END
+CREATE PROC SP_ELIMINAR_PERSONA
+(
+    @id_persona INT,
+	@Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si el usuario existe
+    IF EXISTS (SELECT 1 FROM PERSONAS WHERE id_persona = @id_persona)
+    BEGIN
+        DECLARE @estado char;
+        SELECT @estado = estado FROM PERSONAS WHERE id_persona = @id_persona;
+
+        -- Si el cliente es 1 cambia a 0
+        IF @estado=1
+        BEGIN
+            UPDATE PERSONAS
+            SET estado = 0
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si el cliente es 0 cambia a 1
+            UPDATE PERSONAS
+            SET estado = 1
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El Cliente no existe.';
+    END
+END
 
 --REGISTRAR CATEGORIAS
 CREATE PROC SP_REGISTRARCATEGORIAS
@@ -468,6 +514,54 @@ CREATE PROC SP_EDITARCATEGORIAS
 end
 go
 
+CREATE PROC SP_ELIMINARPERSONA
+(
+    @id_persona INT,
+    @Respuesta CHAR(1) OUTPUT,  -- Cambié el tamaño a CHAR(1)
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Inicializar @Respuesta
+    SET @Respuesta = '0';
+
+    -- Verifica si la persona existe
+    IF EXISTS (SELECT 1 FROM PERSONAS WHERE id_persona = @id_persona)
+    BEGIN
+        DECLARE @estado_actual CHAR(1);  -- Cambié el tamaño a CHAR(1)
+        SELECT @estado_actual = estado FROM PERSONAS WHERE id_persona = @id_persona;
+
+        -- Si el estado es '1' (activo), lo cambia a '0' (inactivo)
+        IF @estado_actual = '1'
+        BEGIN
+            UPDATE PERSONAS
+            SET estado = '0'
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = '1'; -- Estado cambiado a activo (1)
+            SET @Mensaje = 'El estado se ha cambiado a activo.';
+        END
+        ELSE
+        BEGIN
+            -- Si el estado es '0' (inactivo), lo cambia a '1' (activo)
+            UPDATE PERSONAS
+            SET estado = '1'
+            WHERE id_persona = @id_persona;
+
+            SET @Respuesta = '0'; -- Estado cambiado a inactivo (0)
+            SET @Mensaje = 'El estado se ha cambiado a inactivo.';
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si la persona no existe, devuelve un mensaje de error
+        SET @Respuesta = '0';
+        SET @Mensaje = 'La persona no existe.';
+    END
+END
+
+
+
 --REGISTRAR MARCAS
 CREATE PROC SP_REGISTRARMARCAS
 (
@@ -514,6 +608,116 @@ CREATE PROC SP_EDITARMARCAS
 		end
 end
 go
+create PROCEDURE SP_AGREGARPROVEEDOR
+(
+    @razon_social VARCHAR(50),
+    @cuit VARCHAR(11),
+    @descripcion VARCHAR(80) = NULL,
+    @direccion VARCHAR(100) = NULL,
+    @telefono VARCHAR(10),
+    @email VARCHAR(100),  -- Nuevo parámetro de email
+    @Resultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Resultado = 0
+
+    -- Verificamos si ya existe un proveedor con el mismo CUIT
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @cuit)
+    BEGIN
+        SET @Mensaje = 'El proveedor con CUIT ' + @cuit + ' ya existe!'
+        RETURN
+    END
+
+    -- Verificamos si ya existe un proveedor con la misma razón social
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE razon_social = @razon_social)
+    BEGIN
+        SET @Mensaje = 'El proveedor con la razón social "' + @razon_social + '" ya existe!'
+        RETURN
+    END
+
+    -- Verificamos si ya existe un proveedor con el mismo email
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE email = @email)
+    BEGIN
+        SET @Mensaje = 'El proveedor con el email "' + @email + '" ya existe!'
+        RETURN
+    END
+
+    -- Si ninguna de las verificaciones falla, insertamos el nuevo proveedor
+    INSERT INTO PROVEEDORES (razon_social, cuit, descripcion, fecha_alta, fecha_baja, direccion, telefono, email)
+    VALUES (@razon_social, @cuit, @descripcion, GETDATE(), NULL, @direccion, @telefono, @email)
+
+    -- Obtenemos el ID del proveedor recién insertado
+    SET @Resultado = SCOPE_IDENTITY()
+    SET @Mensaje = 'Proveedor agregado exitosamente.'
+END
+GO
+
+GO
+
+
+CREATE PROCEDURE SP_EDITARPROVEEDOR
+(
+    @cuit VARCHAR(11),
+    @razon_social VARCHAR(50),
+    @descripcion VARCHAR(80) = NULL,
+    @direccion VARCHAR(100) = NULL,
+    @telefono VARCHAR(10),
+    @email VARCHAR(100),  -- Nuevo parámetro de email
+    @NuevoCUIT VARCHAR(11),  -- Parámetro para permitir cambiar el CUIT
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Respuesta = 0  -- Inicializa la respuesta
+    SET @Mensaje = ''   -- Inicializa el mensaje
+
+    -- Verificamos si el proveedor con el CUIT original existe
+    IF NOT EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @cuit)
+    BEGIN
+        SET @Mensaje = 'No se encontró un proveedor con el CUIT proporcionado.'
+        RETURN
+    END
+
+    -- Verificamos si existe otro proveedor con el nuevo CUIT (distinto del actual CUIT)
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @NuevoCUIT AND cuit <> @cuit)
+    BEGIN
+        SET @Mensaje = 'Ya existe un proveedor con el mismo CUIT.'
+        RETURN
+    END
+
+    -- Verificamos si existe otro proveedor con el mismo email (distinto del actual CUIT)
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE email = @email AND cuit <> @cuit)
+    BEGIN
+        SET @Mensaje = 'Ya existe un proveedor con el mismo correo electrónico.'
+        RETURN
+    END
+
+    -- Verificamos si existe otro proveedor con la misma razón social (distinto del actual CUIT)
+    IF EXISTS (SELECT * FROM PROVEEDORES WHERE razon_social = @razon_social AND cuit <> @cuit)
+    BEGIN
+        SET @Mensaje = 'Ya existe un proveedor con la misma razón social.'
+        RETURN
+    END
+
+    -- Si pasa todas las validaciones, actualizamos los detalles del proveedor
+    UPDATE PROVEEDORES 
+    SET 
+        razon_social = @razon_social,
+        cuit = @NuevoCUIT,  -- Se actualiza el CUIT si es necesario
+        descripcion = @descripcion,
+        direccion = @direccion,
+        telefono = @telefono,
+        email = @email
+    WHERE cuit = @cuit  -- Buscamos por CUIT original
+
+    SET @Respuesta = 1  -- Indica que la actualización fue exitosa
+    SET @Mensaje = 'Proveedor actualizado exitosamente.'
+END
+GO
+
 
 -- PRUEBAS DE LOS PROCEDIMIENTOS
 	/*REGISTRAR PERSONA*/
@@ -608,3 +812,13 @@ go
  select @mensajegenerado
  GO
  SELECT * FROM USUARIOS
+ select * from PERSONAS
+ select * from DOMICILIOS
+
+ update personas
+ set estado=1 where id_persona=5
+
+ SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_persona, p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo,p.estado FROM DOMICILIOS d
+                   inner join PERSONAS p on p.id_persona = d.id_persona
+                    WHERE d.id_persona = p.id_persona
+                    order by p.estado desc
