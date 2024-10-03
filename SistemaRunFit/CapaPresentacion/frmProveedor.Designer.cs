@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProveedor));
             this.pnlDatosProveedor = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdProvee = new Guna.UI.WinForms.GunaTextBox();
+            this.lblIdProv = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmailProveedor = new Guna.UI.WinForms.GunaTextBox();
             this.btnVolverProveedor = new Guna.UI.WinForms.GunaButton();
@@ -45,8 +47,6 @@
             this.txtCuitProveedor = new Guna.UI.WinForms.GunaTextBox();
             this.lblNombreProv = new System.Windows.Forms.Label();
             this.txtRSocialProveedor = new Guna.UI.WinForms.GunaTextBox();
-            this.txtIdProvee = new Guna.UI.WinForms.GunaTextBox();
-            this.lblIdProv = new System.Windows.Forms.Label();
             this.pnlDatosProveedor.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,38 @@
             this.pnlDatosProveedor.ShadowColor = System.Drawing.Color.Black;
             this.pnlDatosProveedor.Size = new System.Drawing.Size(382, 491);
             this.pnlDatosProveedor.TabIndex = 71;
+            // 
+            // txtIdProvee
+            // 
+            this.txtIdProvee.BackColor = System.Drawing.Color.Transparent;
+            this.txtIdProvee.BaseColor = System.Drawing.Color.White;
+            this.txtIdProvee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtIdProvee.BorderSize = 1;
+            this.txtIdProvee.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIdProvee.Enabled = false;
+            this.txtIdProvee.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtIdProvee.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtIdProvee.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdProvee.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProvee.Location = new System.Drawing.Point(77, 375);
+            this.txtIdProvee.Name = "txtIdProvee";
+            this.txtIdProvee.PasswordChar = '\0';
+            this.txtIdProvee.Radius = 10;
+            this.txtIdProvee.SelectedText = "";
+            this.txtIdProvee.Size = new System.Drawing.Size(47, 25);
+            this.txtIdProvee.TabIndex = 81;
+            this.txtIdProvee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIdProv
+            // 
+            this.lblIdProv.AutoSize = true;
+            this.lblIdProv.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdProv.ForeColor = System.Drawing.Color.White;
+            this.lblIdProv.Location = new System.Drawing.Point(14, 379);
+            this.lblIdProv.Name = "lblIdProv";
+            this.lblIdProv.Size = new System.Drawing.Size(48, 16);
+            this.lblIdProv.TabIndex = 80;
+            this.lblIdProv.Text = "ID prov";
             // 
             // label3
             // 
@@ -355,40 +387,6 @@
             this.txtRSocialProveedor.Size = new System.Drawing.Size(220, 26);
             this.txtRSocialProveedor.TabIndex = 1;
             this.txtRSocialProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtIdProvee
-            // 
-            this.txtIdProvee.BackColor = System.Drawing.Color.Transparent;
-            this.txtIdProvee.BaseColor = System.Drawing.Color.White;
-            this.txtIdProvee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.txtIdProvee.BorderSize = 1;
-            this.txtIdProvee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIdProvee.Enabled = false;
-            this.txtIdProvee.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtIdProvee.FocusedBorderColor = System.Drawing.Color.SeaGreen;
-            this.txtIdProvee.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdProvee.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProvee.Location = new System.Drawing.Point(77, 375);
-            this.txtIdProvee.Name = "txtIdProvee";
-            this.txtIdProvee.PasswordChar = '\0';
-            this.txtIdProvee.Radius = 10;
-            this.txtIdProvee.SelectedText = "";
-            this.txtIdProvee.Size = new System.Drawing.Size(47, 25);
-            this.txtIdProvee.TabIndex = 81;
-            this.txtIdProvee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtIdProvee.Visible = false;
-            // 
-            // lblIdProv
-            // 
-            this.lblIdProv.AutoSize = true;
-            this.lblIdProv.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdProv.ForeColor = System.Drawing.Color.White;
-            this.lblIdProv.Location = new System.Drawing.Point(14, 379);
-            this.lblIdProv.Name = "lblIdProv";
-            this.lblIdProv.Size = new System.Drawing.Size(48, 16);
-            this.lblIdProv.TabIndex = 80;
-            this.lblIdProv.Text = "ID prov";
-            this.lblIdProv.Visible = false;
             // 
             // frmProveedor
             // 

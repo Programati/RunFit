@@ -310,5 +310,14 @@
   <ItemGroup>
     <None Include="Resources\backup_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_prov.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_prov.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proveedor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

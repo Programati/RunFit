@@ -103,7 +103,84 @@ namespace CapaDeDatos
             }
             return IdProveedorGenerado;
         }
+        public bool Editar(Proveedor ObjProvee, out string Mensaje)
+        {
+            bool Respuesta = false; // Variable para almacenar el resultado
+            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
 
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Configuramos el comando para el procedimiento almacenado SP_EDITARPROVEEDOR
+                    SqlCommand cmd = new SqlCommand("SP_EDITARPROVEEDOR", oconexion);
+                    cmd.Parameters.AddWithValue("id_proveedor", ObjProvee.idProveedor);
+                    cmd.Parameters.AddWithValue("razon_social", ObjProvee.razonSocial);
+                    cmd.Parameters.AddWithValue("cuit", ObjProvee.cuit);
+                    cmd.Parameters.AddWithValue("descripcion", ObjProvee.descripcion);
+                    cmd.Parameters.AddWithValue("direccion", ObjProvee.direccion);
+                    cmd.Parameters.AddWithValue("telefono", ObjProvee.telefono);
+                    cmd.Parameters.AddWithValue("email", ObjProvee.email);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    oconexion.Open();
+
+                    // Ejecutamos el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Obtenemos los valores de los parámetros de salida
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, devolvemos false y el mensaje de la excepción
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta; // Retornamos la respuesta o false en caso de error
+        }
+        public bool Eliminar(Proveedor ObjProvee, out string Mensaje)
+        {
+            bool Respuesta = false; // Variable para almacenar el resultado
+            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Configuramos el comando para el procedimiento almacenado SP_ELIMINARPROVEEDOR
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINAR_PROVEEDOR", oconexion);
+                    cmd.Parameters.AddWithValue("id_proveedor", ObjProvee.idProveedor);
+
+                    // Parámetros de salida
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    oconexion.Open();
+
+                    // Ejecutamos el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Obtenemos los valores de los parámetros de salida
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, devolvemos false y el mensaje de la excepción
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta; // Retornamos la respuesta o false en caso de error
+        }
 
     }
 }

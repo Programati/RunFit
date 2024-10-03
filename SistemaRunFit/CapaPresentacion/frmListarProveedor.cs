@@ -20,21 +20,21 @@ namespace CapaPresentacion
         // Constructor que recibe una instancia del formulario Inicio.
         public frmListarProveedor(Inicio inicioForm)
         {
-            InitializeComponent(); // Inicializa los componentes visuales del formulario.
-            _inicioForm = inicioForm; // Guarda la referencia del formulario Inicio.
-            _inicioForm.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en el formulario Inicio.
+            InitializeComponent(); 
+            _inicioForm = inicioForm; 
+            _inicioForm.PnlContenedorMenu.Enabled = false; 
         }
 
         // Evento que se ejecuta al cargar el formulario.
         private void frmListarProveedor_Load(object sender, EventArgs e)
         {
-            txtBuscarPorProveedor.Focus(); // Establece el foco en el campo de texto txtBuscarPorProveedor al cargar el formulario.
+            txtBuscarPorProveedor.Focus(); 
         }
 
         // Método para limpiar el campo de búsqueda por proveedor.
         private void LimpiarPorProveedor()
         {
-            txtBuscarPorProveedor.Clear(); // Limpia el campo de texto de búsqueda por proveedor.
+            txtBuscarPorProveedor.Clear(); 
         }
 
         // Evento que se ejecuta al cerrar el formulario.
@@ -43,13 +43,13 @@ namespace CapaPresentacion
             // Crea una nueva instancia del formulario para listar proveedores.
             frmListarProveedor ListarNuevoProveedor = new frmListarProveedor(_inicioForm);
 
-            ListarNuevoProveedor.TopLevel = false; // Establece el formulario como un formulario hijo.
-            pnlContenedorDatosProveedor.Controls.Clear(); // Limpia el contenedor de datos de proveedor.
-            pnlContenedorDatosProveedor.Controls.Add(ListarNuevoProveedor); // Agrega el nuevo formulario al contenedor.
-            ListarNuevoProveedor.FormBorderStyle = FormBorderStyle.None; // Elimina el borde del formulario.
-            ListarNuevoProveedor.Dock = DockStyle.Fill; // Ajusta el formulario para que ocupe todo el espacio disponible.
+            ListarNuevoProveedor.TopLevel = false; 
+            pnlContenedorDatosProveedor.Controls.Clear(); 
+            pnlContenedorDatosProveedor.Controls.Add(ListarNuevoProveedor); 
+            ListarNuevoProveedor.FormBorderStyle = FormBorderStyle.None; 
+            ListarNuevoProveedor.Dock = DockStyle.Fill; 
 
-            ListarNuevoProveedor.Show(); // Muestra el nuevo formulario.
+            ListarNuevoProveedor.Show(); 
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnNuevoProveedor.
@@ -71,37 +71,36 @@ namespace CapaPresentacion
         // Evento que se ejecuta al hacer clic en el botón btnLimpiarPorProveedor.
         private void btnLimpiarPorProveedor_Click_1(object sender, EventArgs e)
         {
-            txtBuscarPorProveedor.Clear(); // Limpia el campo de texto de búsqueda por proveedor.
+            txtBuscarPorProveedor.Clear();
         }
 
         // Evento que se ejecuta al presionar una tecla en el campo txtBuscarPorProveedor.
         private void txtBuscarPorProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite solo dígitos y controles en el campo de texto.
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Si se ingresa un carácter no válido, se maneja el evento.
+                e.Handled = true; 
             }
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnBuscarPorProveedor.
         private void btnBuscarPorProveedor_Click(object sender, EventArgs e)
         {
-            if (EsCuitMuyCorto()) // Verifica si el CUIT ingresado es muy corto.
+            if (EsCuitMuyCorto()) 
             {
-                return; // Si es corto, sale del método.
+                return; 
             }
         }
 
         // Método para verificar si el CUIT ingresado es demasiado corto.
         private bool EsCuitMuyCorto()
         {
-            // Verifica la longitud del texto en txtBuscarPorProveedor.
+            
             if (txtBuscarPorProveedor.Text.Length < 10)
             {
-                // Muestra un mensaje de advertencia si el CUIT es corto.
+                
                 MessageBox.Show("El número del CUIT del Proveedor es muy corto", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true; // Devuelve true indicando que el CUIT es corto.
+                return true; 
             }
             return false; // Devuelve false indicando que el CUIT es de longitud adecuada.
         }
@@ -111,17 +110,17 @@ namespace CapaPresentacion
         {
             if (_inicioForm != null) // Verifica si la referencia de _inicioForm no es nula.
             {
-                _inicioForm.PnlContenedorMenu.Enabled = true; // Reactiva el panel en el formulario Inicio.
-                _inicioForm.MostrarImagenFondo(); // Muestra la imagen de fondo en el formulario Inicio.
+                _inicioForm.PnlContenedorMenu.Enabled = true;
+                _inicioForm.MostrarImagenFondo(); 
             }
-            this.Close(); // Cierra el formulario actual.
+            this.Close(); 
         }
 
         // Evento que se ejecuta al cargar el formulario.
         private void frmListarProveedor_Load_1(object sender, EventArgs e)
         {
-            txtBuscarPorProveedor.Focus(); // Establece el foco en el campo de texto txtBuscarPorProveedor al cargar el formulario.
-            
+            txtBuscarPorProveedor.Focus();
+
             listar_proveedores();
         }
         private void listar_proveedores()
@@ -134,7 +133,7 @@ namespace CapaPresentacion
             {
                 dgvListaProveedor.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_prov: CapaPresentacion.Properties.Resources.activar_prov, // Icono de acción
             item.cuit,
             item.idProveedor,
             item.razonSocial,
@@ -147,6 +146,97 @@ namespace CapaPresentacion
             });
             }
         }
+        
 
+        private void dgvListaProveedor_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListaProveedor.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex;
+                if (n >= 0)
+                {
+                    string mensaje = string.Empty;
+                    // Crea una nueva instancia del objeto 'Domicilio' con los datos de la fila seleccionada
+                    Proveedor ProveedorEditar = new Proveedor()
+                    {
+                        idProveedor = Convert.ToInt32(dgvListaProveedor.Rows[n].Cells["id_Proveedor"].Value),
+                        razonSocial = dgvListaProveedor.Rows[n].Cells["razon_social"].Value.ToString(),
+                        cuit = dgvListaProveedor.Rows[n].Cells["Cuit_Prev"].Value.ToString(),
+                        descripcion = dgvListaProveedor.Rows[n].Cells["Descrip_Proveedor"].Value.ToString(),
+                        telefono = dgvListaProveedor.Rows[n].Cells["telefono"].Value.ToString(),
+                        direccion = dgvListaProveedor.Rows[n].Cells["direccion"].Value.ToString(),
+                        email = dgvListaProveedor.Rows[n].Cells["email"].Value.ToString(),
+
+                    };
+
+                    // Crea una nueva instancia del formulario 'frmCliente' para editar el domicilio
+                    frmProveedor CrearNuevoProveedor = new frmProveedor(ProveedorEditar);
+                    CrearNuevoProveedor.TopLevel = false;
+                    pnlContenedorDatosProveedor.Controls.Clear();
+                    pnlContenedorDatosProveedor.Controls.Add(CrearNuevoProveedor);
+                    CrearNuevoProveedor.FormBorderStyle = FormBorderStyle.None;
+                    CrearNuevoProveedor.Dock = DockStyle.Fill;
+
+                    CrearNuevoProveedor.Show();
+                    CrearNuevoProveedor.FormClosing += frm_closing;
+                }
+            }
+            if (dgvListaProveedor.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    string mensaje = string.Empty; // Mensaje para la acción
+                    Proveedor ProveedorEliminar = new Proveedor() // Crea un objeto Usuario para la acción
+                    {
+                        idProveedor = (int)dgvListaProveedor.Rows[n].Cells["ID_proveedor"].Value // Asigna el ID del usuario
+                    };
+
+                    string estadoActual = dgvListaProveedor.Rows[n].Cells["Estado"].Value.ToString(); // Obtiene el estado actual del usuario
+                    string proveedor = dgvListaProveedor.Rows[n].Cells["razon_social"].Value.ToString(); // Obtiene el nombre del usuario
+
+                    // Si el usuario está inactivo, se le pregunta si desea activarlo
+                    if (estadoActual == "Inactivo")
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea ACTIVAR al proveedor {proveedor}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para activar el proveedor
+                            bool respuesta = new CN_proveedor().Eliminar(ProveedorEliminar, out mensaje);
+
+                            if (respuesta)
+                            {
+                                // Actualizar el estado del usuario
+                                dgvListaProveedor.Rows[n].Cells["Estado"].Value = "Activo";
+                                dgvListaProveedor.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black; // Cambia el color a negro
+                                dgvListaProveedor.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black; // Cambia el color de selección a negro
+
+                                MessageBox.Show("Proveedor " + proveedor + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                    }
+                    else // Si el proveedor está activo, se le pregunta si desea desactivarlo
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea DESACTIVAR al proveedor {proveedor}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para desactivar el usuario
+                            bool respuesta = new CN_proveedor().Eliminar(ProveedorEliminar, out mensaje);
+
+                            // Actualizar el estado del usuario
+                            dgvListaProveedor.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvListaProveedor.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red; // Cambia el color a rojo
+                            dgvListaProveedor.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red; // Cambia el color de selección a rojo
+
+                            MessageBox.Show("Usuario " + proveedor + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+                    // Limpia las filas del DataGridView y vuelve a cargar los datos
+                    dgvListaProveedor.Rows.Clear(); // Limpia el DataGridView
+                    listar_proveedores(); // Llama a la función para volver a cargar los datos
+                }
+            }
+        }
     }
 }

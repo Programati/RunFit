@@ -35,6 +35,17 @@
             this.pnlContenedorDatosProveedor = new System.Windows.Forms.Panel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaProveedor = new Guna.UI.WinForms.GunaDataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Cuit_Prev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razon_social = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_alta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descrip_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaProv = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
@@ -44,17 +55,6 @@
             this.lblBuscarProv = new Guna.UI.WinForms.GunaLabel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Cuit_Prev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Prov = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_alta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descrip_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContenedorDatosProveedor.SuspendLayout();
             this.grbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProveedor)).BeginInit();
@@ -119,7 +119,7 @@
             this.Eliminar,
             this.Cuit_Prev,
             this.id_proveedor,
-            this.Nombre_Prov,
+            this.razon_social,
             this.Estado,
             this.fecha_alta,
             this.Email,
@@ -169,6 +169,108 @@
             this.dgvListaProveedor.ThemeStyle.RowsStyle.Height = 22;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvListaProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaProveedor_CellContentClick_1);
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Width = 53;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 68;
+            // 
+            // Cuit_Prev
+            // 
+            this.Cuit_Prev.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cuit_Prev.HeaderText = "CUIT";
+            this.Cuit_Prev.MinimumWidth = 6;
+            this.Cuit_Prev.Name = "Cuit_Prev";
+            this.Cuit_Prev.ReadOnly = true;
+            this.Cuit_Prev.Width = 62;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id_proveedor.HeaderText = "ID_proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            this.id_proveedor.Width = 121;
+            // 
+            // razon_social
+            // 
+            this.razon_social.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.razon_social.HeaderText = "Razon Social";
+            this.razon_social.MinimumWidth = 6;
+            this.razon_social.Name = "razon_social";
+            this.razon_social.ReadOnly = true;
+            this.razon_social.Width = 117;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 77;
+            // 
+            // fecha_alta
+            // 
+            this.fecha_alta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fecha_alta.HeaderText = "Fecha Alta";
+            this.fecha_alta.Name = "fecha_alta";
+            this.fecha_alta.ReadOnly = true;
+            this.fecha_alta.Visible = false;
+            this.fecha_alta.Width = 104;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 70;
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 88;
+            // 
+            // Direccion
+            // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Direccion.HeaderText = "Direccioin";
+            this.Direccion.MinimumWidth = 6;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // Descrip_Proveedor
+            // 
+            this.Descrip_Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Descrip_Proveedor.HeaderText = "Descripcion";
+            this.Descrip_Proveedor.MinimumWidth = 6;
+            this.Descrip_Proveedor.Name = "Descrip_Proveedor";
+            this.Descrip_Proveedor.ReadOnly = true;
+            this.Descrip_Proveedor.Width = 111;
             // 
             // pnlBusquedaProv
             // 
@@ -256,7 +358,7 @@
             this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
+            this.btnNuevoProveedor.Image = global::CapaPresentacion.Properties.Resources.Proveedor;
             this.btnNuevoProveedor.ImageSize = new System.Drawing.Size(25, 25);
             this.btnNuevoProveedor.Location = new System.Drawing.Point(482, 33);
             this.btnNuevoProveedor.Name = "btnNuevoProveedor";
@@ -348,107 +450,6 @@
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Width = 53;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 68;
-            // 
-            // Cuit_Prev
-            // 
-            this.Cuit_Prev.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cuit_Prev.HeaderText = "CUIT";
-            this.Cuit_Prev.MinimumWidth = 6;
-            this.Cuit_Prev.Name = "Cuit_Prev";
-            this.Cuit_Prev.ReadOnly = true;
-            this.Cuit_Prev.Width = 62;
-            // 
-            // id_proveedor
-            // 
-            this.id_proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id_proveedor.HeaderText = "ID_proveedor";
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.ReadOnly = true;
-            this.id_proveedor.Visible = false;
-            this.id_proveedor.Width = 121;
-            // 
-            // Nombre_Prov
-            // 
-            this.Nombre_Prov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nombre_Prov.HeaderText = "Razon Social";
-            this.Nombre_Prov.MinimumWidth = 6;
-            this.Nombre_Prov.Name = "Nombre_Prov";
-            this.Nombre_Prov.ReadOnly = true;
-            this.Nombre_Prov.Width = 117;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 77;
-            // 
-            // fecha_alta
-            // 
-            this.fecha_alta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fecha_alta.HeaderText = "Fecha Alta";
-            this.fecha_alta.Name = "fecha_alta";
-            this.fecha_alta.ReadOnly = true;
-            this.fecha_alta.Visible = false;
-            this.fecha_alta.Width = 104;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 70;
-            // 
-            // Telefono
-            // 
-            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 88;
-            // 
-            // Direccion
-            // 
-            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Direccion.HeaderText = "Direccioin";
-            this.Direccion.MinimumWidth = 6;
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Descrip_Proveedor
-            // 
-            this.Descrip_Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descrip_Proveedor.HeaderText = "Descripcion";
-            this.Descrip_Proveedor.MinimumWidth = 6;
-            this.Descrip_Proveedor.Name = "Descrip_Proveedor";
-            this.Descrip_Proveedor.ReadOnly = true;
-            this.Descrip_Proveedor.Width = 111;
-            // 
             // frmListarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,7 +486,7 @@
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Prev;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Prov;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razon_social;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_alta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;

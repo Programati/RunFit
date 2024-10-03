@@ -16,12 +16,18 @@ namespace CapaPresentacion
 {
     public partial class frmProveedor : Form
     {
+        private static Proveedor ProveedorDGV = null;
         public frmProveedor()
         {
             InitializeComponent();
             txtCuitProveedor.MaxLength = 11;
             txtRSocialProveedor.MaxLength = 20;
             txtDescripcionProveedor.MaxLength = 150;
+        }
+        public frmProveedor(Proveedor ProveedorEditar)
+        {
+            ProveedorDGV = ProveedorEditar; // Asigna el usuario a editar
+            InitializeComponent();
         }
 
         // Método para limpiar los campos del formulario
@@ -37,97 +43,96 @@ namespace CapaPresentacion
             txtRSocialProveedor.Focus();
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Limpiar campos"
+        
         private void btnLimpiarCamposProvedor_Click(object sender, EventArgs e)
         {
-            LimpiarCampos(); // Llama al método para limpiar los campos
+            LimpiarCampos(); 
         }
 
         // Evento que se ejecuta al hacer clic en el botón "Volver"
         private void btnVolverProveedor_Click(object sender, EventArgs e)
         {
-            this.Close(); // Cierra el formulario actual
+            ProveedorDGV = null;
+            this.Close(); 
         }
 
         // Evento que se ejecuta al presionar una tecla en el TextBox de CUIT
         private void txtCuitProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito o un control
+            
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Si es inválido, se ignora la tecla
+                e.Handled = true; 
             }
         }
 
         // Evento que se ejecuta al presionar una tecla en el TextBox de teléfono
         private void txtTelefonoProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito o un control
+            
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Si es inválido, se ignora la tecla
+                e.Handled = true;
             }
         }
 
         // Evento que se ejecuta al hacer clic en el botón "Guardar proveedor"
         private void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
-            string MensajeUsuario = string.Empty; // Mensaje para el resultado del proceso de usuario
-            string MensajePersona = string.Empty; // Mensaje para el resultado del proceso de persona
-            int idProveedorGenerado = 0; // ID de persona generada
-            bool VerdadPersonaGenerada = false; // Bandera para verificar si la persona fue generada correctamente
+            // Inicializa mensajes y estados
             
-            bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
-            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
-            string contrasena = null; // Variable para almacenar la contraseña
+            string MensajeProveedor = string.Empty;
+            int idProveedorGenerado = 0;
+            bool VerdadPersonaGenerada = false;
+            bool VerdadUsuarioGenerado = false;
+            string mensajeConfirmacion = "¿Desea agregar al";
+            string contrasena = null;
 
-            // Verifica si los campos están validados
+            // Verifica si los campos son válidos
             if (camposValidados())
             {
-                string proveedor = txtRSocialProveedor.Text; // Obtiene el texto de razón social
+                string proveedor = txtRSocialProveedor.Text; // Obtiene razón social
 
-                // Muestra un cuadro de diálogo de confirmación
+                // Muestra cuadro de confirmación
                 var confirmacion = MessageBox.Show(
-                    $"¿Desea agregar al proveedor {proveedor} al sistema?", // Mensaje
-                    "Confirmación", // Título del cuadro de diálogo
-                    MessageBoxButtons.YesNo, // Opciones de botones
-                    MessageBoxIcon.Question // Icono del cuadro de diálogo
+                    $"¿Desea agregar al proveedor {proveedor} al sistema?",
+                    "Confirmación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
                 );
 
                 // Si el usuario confirma
                 if (confirmacion == DialogResult.Yes)
                 {
-                    // Formatea la fecha para la base de datos
-                   // string fechaFormateada = .Value.ToString("yyyy-MM-dd");
-
-                    // Crea un nuevo objeto Persona con los datos del formulario
+                    // Crea nuevo objeto Proveedor
                     Proveedor ProveedorNuevo = new Proveedor()
                     {
                         idProveedor = txtIdProvee.Text != "" ? Convert.ToInt32(txtIdProvee.Text) : idProveedorGenerado,
                         razonSocial = txtRSocialProveedor.Text,
                         cuit = txtCuitProveedor.Text,
                         descripcion = txtDescripcionProveedor.Text,
-                        fechaAlta=DateTime.Now,
-                        fechaBaja=null,
-                        direccion =txtDireccionProveedor.Text,
+                        fechaAlta = DateTime.Now,
+                        fechaBaja = null,
+                        direccion = txtDireccionProveedor.Text,
                         email = txtEmailProveedor.Text,
                         telefono = txtTelefonoProveedor.Text
-                        
                     };
+
+                    // Si hay ID, se edita; si no, se registra como nuevo
                     if (txtIdProvee.Text != "")
                     {
-                        //VerdadPersonaGenerada = new CN_proveedor().Editar(PersonaNueva, out MensajePersona);
-                        //IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        // Lógica de edición (comentada)
+                         VerdadPersonaGenerada = new CN_proveedor().Editar(ProveedorNuevo, out MensajeProveedor);
+                        idProveedorGenerado=ProveedorNuevo.idProveedor;
                     }
-                    // Si no hay ID de persona, se registra como nueva
                     else
                     {
-                        idProveedorGenerado = new CN_proveedor().Registrar(ProveedorNuevo, out MensajePersona);
+                        idProveedorGenerado = new CN_proveedor().Registrar(ProveedorNuevo, out MensajeProveedor); // Registra
                     }
-
                 }
             }
         }
+
 
         // Método que valida los campos del formulario
         private bool camposValidados()
@@ -143,31 +148,31 @@ namespace CapaPresentacion
             if (RSocialVacio || cuitVacio || direccionVacio || telefonoVacio || emailVacio || descripcionVacio)
             {
                 MessageBox.Show("Debe completar todos los campos del Formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Retorna falso si hay campos vacíos
+                return false; 
             }
 
             // Valida la longitud del CUIT
             if (txtCuitProveedor.TextLength > 11 || txtCuitProveedor.TextLength < 10)
             {
                 MessageBox.Show("Ingresó un número de CUIT incorrecto", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false; // Retorna falso si el CUIT es incorrecto
+                return false; 
             }
 
             // Valida la longitud del número de teléfono
             if (txtTelefonoProveedor.TextLength < 10)
             {
                 MessageBox.Show("El número de teléfono es muy corto", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false; // Retorna falso si el teléfono es muy corto
+                return false; 
             }
 
             // Valida el formato del correo electrónico
             if (!EsEmailValido(txtEmailProveedor.Text))
             {
                 MessageBox.Show("Correo electrónico no válido", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false; // Retorna falso si el email no es válido
+                return false; 
             }
 
-            return true; // Retorna verdadero si todos los campos son válidos
+            return true; 
         }
 
         // Método que valida el formato del correo electrónico
@@ -175,20 +180,35 @@ namespace CapaPresentacion
         {
             try
             {
-                var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); // Expresión regular para validar el email
-                return emailRegex.IsMatch(email); // Retorna verdadero si el email es válido
+                var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$"); 
+                return emailRegex.IsMatch(email); 
             }
             catch
             {
                 MessageBox.Show("Ingresó un email inválido");
-                return false; // Retorna falso si ocurre una excepción
+                return false; 
             }
         }
 
         // Evento que se ejecuta al cargar el formulario
         private void frmProveedor_Load_1(object sender, EventArgs e)
         {
-            txtRSocialProveedor.Focus(); // Pone el foco en el TextBox de razón social al cargar el formulario
+            txtRSocialProveedor.Focus();
+            if (ProveedorDGV != null)
+            {
+                
+
+                // Rellena los campos con los datos del proveedor seleccionado
+                txtRSocialProveedor.Text = ProveedorDGV.razonSocial.ToString();
+                txtCuitProveedor.Text = ProveedorDGV.cuit.ToString();
+
+                txtDireccionProveedor.Text = ProveedorDGV.direccion.ToString();
+                txtTelefonoProveedor.Text = ProveedorDGV.telefono.ToString();
+                txtEmailProveedor.Text = ProveedorDGV.email.ToString();
+                txtDescripcionProveedor.Text = ProveedorDGV.descripcion.ToString();
+                txtIdProvee.Text=ProveedorDGV.idProveedor.ToString();
+                
+            }
         }
 
     }
