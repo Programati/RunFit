@@ -514,49 +514,44 @@ CREATE PROC SP_EDITARCATEGORIAS
 end
 go
 
-CREATE PROC SP_ELIMINARPERSONA
+CREATE PROC SP_ELIMINAR_PERSONA
 (
     @id_persona INT,
-    @Respuesta CHAR(1) OUTPUT,  -- Cambié el tamaño a CHAR(1)
+	@Respuesta BIT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
 )
 AS
 BEGIN
-    -- Inicializar @Respuesta
-    SET @Respuesta = '0';
-
-    -- Verifica si la persona existe
+    -- Verifica si el usuario existe
     IF EXISTS (SELECT 1 FROM PERSONAS WHERE id_persona = @id_persona)
     BEGIN
-        DECLARE @estado_actual CHAR(1);  -- Cambié el tamaño a CHAR(1)
-        SELECT @estado_actual = estado FROM PERSONAS WHERE id_persona = @id_persona;
+        DECLARE @estado char;
+        SELECT @estado = estado FROM PERSONAS WHERE id_persona = @id_persona;
 
-        -- Si el estado es '1' (activo), lo cambia a '0' (inactivo)
-        IF @estado_actual = '1'
+        -- Si el cliente es 1 cambia a 0
+        IF @estado=1
         BEGIN
             UPDATE PERSONAS
-            SET estado = '0'
+            SET estado = 0
             WHERE id_persona = @id_persona;
 
-            SET @Respuesta = '1'; -- Estado cambiado a activo (1)
-            SET @Mensaje = 'El estado se ha cambiado a activo.';
+            SET @Respuesta = 0;
         END
         ELSE
         BEGIN
-            -- Si el estado es '0' (inactivo), lo cambia a '1' (activo)
+            -- Si el cliente es 0 cambia a 1
             UPDATE PERSONAS
-            SET estado = '1'
+            SET estado = 1
             WHERE id_persona = @id_persona;
 
-            SET @Respuesta = '0'; -- Estado cambiado a inactivo (0)
-            SET @Mensaje = 'El estado se ha cambiado a inactivo.';
+            SET @Respuesta = 1;
         END
     END
     ELSE
     BEGIN
-        -- Si la persona no existe, devuelve un mensaje de error
-        SET @Respuesta = '0';
-        SET @Mensaje = 'La persona no existe.';
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El Cliente no existe.';
     END
 END
 
@@ -717,7 +712,46 @@ BEGIN
     SET @Mensaje = 'Proveedor actualizado exitosamente.'
 END
 GO
+CREATE PROC SP_ELIMINAR_PROVEEDOR
+(
+    @id_proveedor INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si el usuario existe
+    IF EXISTS (SELECT 1 FROM PROVEEDORES WHERE id_proveedor = @id_proveedor)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM PROVEEDORES WHERE id_proveedor = @id_proveedor;
 
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE PROVEEDORES
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_proveedor = @id_proveedor;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE PROVEEDORES
+            SET fecha_baja = NULL
+            WHERE id_proveedor = @id_proveedor;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El proveedor no existe.';
+    END
+END
 
 -- PRUEBAS DE LOS PROCEDIMIENTOS
 	/*REGISTRAR PERSONA*/
@@ -814,6 +848,7 @@ GO
  SELECT * FROM USUARIOS
  select * from PERSONAS
  select * from DOMICILIOS
+ select * from PROVEEDORES
 
  update personas
  set estado=1 where id_persona=5

@@ -12,13 +12,13 @@ namespace CapaDeEntidades
         public int idCategoria { get; set; }
 
         // Propiedad que almacena el nombre de la categoría.
-        public string nombre { get; set; }
+        public string nombre_categoria { get; set; }
 
         // Propiedad que almacena la fecha en la que la categoría fue dada de alta.
-        public string fechaAlta { get; set; }
+        public  DateTime? fecha_alta { get; set; }
 
         // Propiedad que almacena la fecha en la que la categoría fue dada de baja (si aplica).
-        public string fechaBaja { get; set; }
+        public DateTime? fecha_baja { get; set; }
     }
 
 }

@@ -129,6 +129,17 @@ namespace CapaPresentacion
                     {
                         idProveedorGenerado = new CN_proveedor().Registrar(ProveedorNuevo, out MensajeProveedor); // Registra
                     }
+                    // Verifica si los datos se guardaron correctamente
+                    if (idProveedorGenerado != 0)
+                    {
+                        MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpiarCampos(); // Limpia los campos del formulario
+                    }
+                    else
+                    {
+                        // Muestra mensajes de error si no se guardaron los datos
+                        MessageBox.Show(MensajeProveedor);
+                    }
                 }
             }
         }
