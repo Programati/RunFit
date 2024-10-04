@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarca));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarca));
             this.pnlBusquedaCategoria = new Guna.UI.WinForms.GunaShadowPanel();
+            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.txtMarca = new Guna.UI.WinForms.GunaTextBox();
             this.lblMarcaNombreProd = new System.Windows.Forms.Label();
@@ -45,8 +46,8 @@
             this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.pnlBusquedaCategoria.SuspendLayout();
             this.grbListaMarcas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -71,6 +72,34 @@
             this.pnlBusquedaCategoria.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaCategoria.Size = new System.Drawing.Size(800, 100);
             this.pnlBusquedaCategoria.TabIndex = 57;
+            // 
+            // btnMenuMarca
+            // 
+            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMenuMarca.AnimationSpeed = 0.03F;
+            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
+            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuMarca.BorderSize = 2;
+            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
+            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuMarca.Location = new System.Drawing.Point(26, 48);
+            this.btnMenuMarca.Name = "btnMenuMarca";
+            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuMarca.OnHoverImage = null;
+            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.Radius = 10;
+            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuMarca.TabIndex = 86;
+            this.btnMenuMarca.Text = "MENU";
+            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
             // 
             // guna2VSeparator1
             // 
@@ -238,6 +267,7 @@
             this.btnEditarDataGrid,
             this.Eliminar,
             this.ID,
+            this.Estado,
             this.Categoria});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
@@ -312,6 +342,14 @@
             this.ID.ReadOnly = true;
             this.ID.Width = 47;
             // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 77;
+            // 
             // Categoria
             // 
             this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -320,34 +358,6 @@
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
             this.Categoria.Width = 154;
-            // 
-            // btnMenuMarca
-            // 
-            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
-            this.btnMenuMarca.AnimationSpeed = 0.03F;
-            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
-            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnMenuMarca.BorderSize = 2;
-            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
-            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
-            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
-            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuMarca.Location = new System.Drawing.Point(26, 48);
-            this.btnMenuMarca.Name = "btnMenuMarca";
-            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnMenuMarca.OnHoverImage = null;
-            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMenuMarca.Radius = 10;
-            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
-            this.btnMenuMarca.TabIndex = 86;
-            this.btnMenuMarca.Text = "MENU";
-            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
             // 
             // frmMarca
             // 
@@ -379,10 +389,11 @@
         private Guna.UI.WinForms.GunaTextBox txtBuscarMarca;
         private Guna.UI.WinForms.GunaGroupBox grbListaMarcas;
         private Guna.UI.WinForms.GunaDataGridView dgvMarca;
+        private Guna.UI.WinForms.GunaButton btnMenuMarca;
         private System.Windows.Forms.DataGridViewImageColumn btnEditarDataGrid;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private Guna.UI.WinForms.GunaButton btnMenuMarca;
     }
 }

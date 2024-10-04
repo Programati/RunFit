@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace CapaDeDatos
 {
-    public class CD_Categoria
+    public class CD_Marca
     {
-        public List<Categoria> ListarCategoria()
+        public List<Marca> ListarMarca()
         {
-            
-            List<Categoria> Lista = new List<Categoria>();
+
+            List<Marca> Lista = new List<Marca>();
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                   
+
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id_categoria,nombre_categoria,fecha_alta,fecha_baja from categorias");
-                    
+                    query.AppendLine("select id_marca,nombre,fecha_alta,fecha_baja from MARCAS");
+
                     // Creamos un comando SQL con la consulta construida
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -36,14 +36,14 @@ namespace CapaDeDatos
                         // Iteramos sobre cada fila de los resultados
                         while (dr.Read())
                         {
-                            // Creamos un nuevo objeto Categoria y lo agregamos a la lista
-                            Lista.Add(new Categoria()
+                            // Creamos un nuevo objeto Usuario y lo agregamos a la lista
+                            Lista.Add(new Marca()
                             {
-                                idCategoria = Convert.ToInt32(dr["id_categoria"]), 
-                                nombre_categoria = dr["nombre_categoria"].ToString(),
-                                fecha_alta = Convert.ToDateTime(dr["fecha_alta"]),
-                                fecha_baja = dr["fecha_baja"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["fecha_baja"]),
-                                
+                                idMarca = Convert.ToInt32(dr["id_marca"]),
+                                nombre = dr["nombre"].ToString(),
+                                fechaAlta = Convert.ToDateTime(dr["fecha_alta"]),
+                                fechaBaja = dr["fecha_baja"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["fecha_baja"]),
+
                             });
                         }
                         dr.Close(); // Cerramos el SqlDataReader
@@ -53,7 +53,7 @@ namespace CapaDeDatos
                 catch (Exception ex)
                 {
                     // En caso de error, retornamos una lista vacía
-                    Lista = new List<Categoria>();
+                    Lista = new List<Marca>();
                 }
             }
             // Retornamos la lista de usuarios obtenida

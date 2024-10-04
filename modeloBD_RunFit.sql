@@ -84,7 +84,7 @@ CREATE TABLE CATEGORIAS (
 GO
 
 -- Crear tabla PRODUCTOS
-CREATE TABLE PRODUCTOS (
+create TABLE PRODUCTOS (
     id_producto INT IDENTITY(1,1) NOT NULL,
     detalle_producto VARCHAR(100) NULL,
     nombre_producto VARCHAR(10) NOT NULL,
@@ -355,7 +355,7 @@ BEGIN
     IF NOT EXISTS (SELECT * FROM USUARIOS WHERE nombre_usuario = @nombre_usuario AND id_usuario != @id_usuario)
     BEGIN
         -- Si el password es NULL, actualiza sin modificar el campo password
-        IF @password IS NULL
+        IF @password = ''
         BEGIN
             UPDATE USUARIOS 
             SET 
@@ -426,6 +426,7 @@ BEGIN
         SET @Mensaje = 'El usuario no existe.';
     END
 END
+
 CREATE PROC SP_ELIMINAR_PERSONA
 (
     @id_persona INT,
@@ -577,7 +578,9 @@ CREATE PROC SP_REGISTRARMARCAS
 end
 go
 
---EDITAR CATEGORIAS
+
+
+--EDITAR MARCAS
 CREATE PROC SP_EDITARMARCAS
 (
 	@id_marca INT,
@@ -590,9 +593,9 @@ CREATE PROC SP_EDITARMARCAS
 	set @Resultado = 1
 	IF NOT EXISTS (SELECT * FROM MARCAS WHERE nombre = @nombre and id_marca != @id_marca)
 		begin
-			update CATEGORIAS set
-			nombre_categoria = @nombre
-			WHERE id_categoria = @id_marca
+			update MARCAS set
+			nombre = @nombre
+			WHERE id_marca = @id_marca
 			set @Resultado = SCOPE_IDENTITY()
 			set @Mensaje = 'Edición existosa!'
 		end
@@ -603,14 +606,16 @@ CREATE PROC SP_EDITARMARCAS
 		end
 end
 go
-create PROCEDURE SP_AGREGARPROVEEDOR
+
+
+CREATE PROCEDURE SP_AGREGARPROVEEDOR
 (
     @razon_social VARCHAR(50),
     @cuit VARCHAR(11),
     @descripcion VARCHAR(80) = NULL,
     @direccion VARCHAR(100) = NULL,
     @telefono VARCHAR(10),
-    @email VARCHAR(100),  -- Nuevo parámetro de email
+    @email VARCHAR(100),
     @Resultado INT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
 )
@@ -651,65 +656,58 @@ GO
 
 GO
 
-
-CREATE PROCEDURE SP_EDITARPROVEEDOR
+select * from PROVEEDORES
+CREATE PROC SP_EDITARPROVEEDOR
 (
+	@id_Proveedor INT,
     @cuit VARCHAR(11),
     @razon_social VARCHAR(50),
-    @descripcion VARCHAR(80) = NULL,
-    @direccion VARCHAR(100) = NULL,
+    @descripcion VARCHAR(80),
+    @direccion VARCHAR(100),
     @telefono VARCHAR(10),
-    @email VARCHAR(100),  -- Nuevo parámetro de email
-    @NuevoCUIT VARCHAR(11),  -- Parámetro para permitir cambiar el CUIT
+    @email VARCHAR(100), 
     @Respuesta BIT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
 )
 AS
 BEGIN
-    SET @Respuesta = 0  -- Inicializa la respuesta
-    SET @Mensaje = ''   -- Inicializa el mensaje
+    SET @Respuesta = 1
+    SET @Mensaje = ''  
 
-    -- Verificamos si el proveedor con el CUIT original existe
-    IF NOT EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @cuit)
-    BEGIN
-        SET @Mensaje = 'No se encontró un proveedor con el CUIT proporcionado.'
-        RETURN
-    END
-
-    -- Verificamos si existe otro proveedor con el nuevo CUIT (distinto del actual CUIT)
-    IF EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @NuevoCUIT AND cuit <> @cuit)
-    BEGIN
-        SET @Mensaje = 'Ya existe un proveedor con el mismo CUIT.'
-        RETURN
-    END
-
-    -- Verificamos si existe otro proveedor con el mismo email (distinto del actual CUIT)
-    IF EXISTS (SELECT * FROM PROVEEDORES WHERE email = @email AND cuit <> @cuit)
-    BEGIN
-        SET @Mensaje = 'Ya existe un proveedor con el mismo correo electrónico.'
-        RETURN
-    END
-
-    -- Verificamos si existe otro proveedor con la misma razón social (distinto del actual CUIT)
-    IF EXISTS (SELECT * FROM PROVEEDORES WHERE razon_social = @razon_social AND cuit <> @cuit)
-    BEGIN
-        SET @Mensaje = 'Ya existe un proveedor con la misma razón social.'
-        RETURN
-    END
-
-    -- Si pasa todas las validaciones, actualizamos los detalles del proveedor
-    UPDATE PROVEEDORES 
-    SET 
-        razon_social = @razon_social,
-        cuit = @NuevoCUIT,  -- Se actualiza el CUIT si es necesario
-        descripcion = @descripcion,
-        direccion = @direccion,
-        telefono = @telefono,
-        email = @email
-    WHERE cuit = @cuit  -- Buscamos por CUIT original
-
-    SET @Respuesta = 1  -- Indica que la actualización fue exitosa
-    SET @Mensaje = 'Proveedor actualizado exitosamente.'
+	IF EXISTS (SELECT * FROM PROVEEDORES WHERE cuit = @cuit and id_proveedor != @id_Proveedor)
+		BEGIN
+				SET @Respuesta = 0  -- Indica que la actualización fue exitosa
+				SET @Mensaje = 'Ya existe otro PROVEEDOR con el mismo CUIT'
+			END
+	ELSE IF EXISTS (SELECT * FROM PROVEEDORES WHERE razon_social = @razon_social and id_proveedor != @id_Proveedor)
+		BEGIN
+				SET @Respuesta = 0  -- Indica que la actualización fue exitosa
+				SET @Mensaje = 'Ya existe otro PROVEEDOR con la misma Razon Social'
+			END
+	ELSE IF EXISTS (SELECT * FROM PROVEEDORES WHERE email = @email and id_proveedor != @id_Proveedor)
+		BEGIN
+				SET @Respuesta = 0  -- Indica que la actualización fue exitosa
+				SET @Mensaje = 'Ya existe otro PROVEEDOR con el mismo Email'
+			END
+	ELSE IF EXISTS (SELECT * FROM PROVEEDORES WHERE telefono = @telefono and id_proveedor != @id_Proveedor)
+		BEGIN
+				SET @Respuesta = 0  -- Indica que la actualización fue exitosa
+				SET @Mensaje = 'Ya existe otro PROVEEDOR con el mismo N° de telefono'
+			END
+	ELSE
+		BEGIN
+			UPDATE PROVEEDORES 
+			SET 
+				razon_social = @razon_social,
+				cuit = @cuit,
+				descripcion = @descripcion,
+				direccion = @direccion,
+				telefono = @telefono,
+				email = @email
+			WHERE id_proveedor = @id_Proveedor
+			SET @Respuesta = 1
+			SET @Mensaje = 'Proveedor actualizado exitosamente.'
+		END
 END
 GO
 CREATE PROC SP_ELIMINAR_PROVEEDOR
@@ -726,6 +724,22 @@ BEGIN
         DECLARE @fecha_baja_actual DATE;
         SELECT @fecha_baja_actual = fecha_baja FROM PROVEEDORES WHERE id_proveedor = @id_proveedor;
 
+
+CREATE PROC SP_ELIMINAR_PROVEEDOR
+(
+    @id_proveedor INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si el usuario existe
+    IF EXISTS (SELECT 1 FROM PROVEEDORES WHERE id_proveedor = @id_proveedor)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM PROVEEDORES WHERE id_proveedor = @id_proveedor;
+
+>>>>>>> 0b56b2b002d45dee2aaa731251a8ebffa32ce30e
         -- Si la fecha de baja es NULL, la actualiza con la fecha actual
         IF @fecha_baja_actual IS NULL
         BEGIN
@@ -752,6 +766,7 @@ BEGIN
         SET @Mensaje = 'El proveedor no existe.';
     END
 END
+
 
 -- PRUEBAS DE LOS PROCEDIMIENTOS
 	/*REGISTRAR PERSONA*/
@@ -849,6 +864,7 @@ END
  select * from PERSONAS
  select * from DOMICILIOS
  select * from PROVEEDORES
+ select * from CATEGORIAS
 
  update personas
  set estado=1 where id_persona=5
@@ -857,3 +873,55 @@ END
                    inner join PERSONAS p on p.id_persona = d.id_persona
                     WHERE d.id_persona = p.id_persona
                     order by p.estado desc
+GO
+select * from PROVEEDORES
+
+
+/*EDITAR proveedores*/
+ declare @idProveedor int
+ declare @mensajegenerado varchar(500)
+
+ exec SP_EDITARPROVEEDOR 3, '30124578913','Juanito3', 'Zapas', 'Av. 9 de Julio', '3794564513', 'Juanito3@gmail.com', @idProveedor output, @mensajegenerado output
+ 
+ select @idProveedor
+ select @mensajegenerado
+ GO
+ select * from CATEGORIAS
+
+ INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
+VALUES ('Electrónica', GETDATE(), NULL);
+update  categorias
+set nombre_categoria='Zapatillas mujer' where id_categoria=2
+INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
+VALUES ('Hogar', GETDATE(), NULL);
+SELECT COLUMN_NAME
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'CATEGORIAS';
+
+INSERT INTO MARCAS (nombre, fecha_alta, fecha_baja)
+VALUES ('Nike', GETDATE(), NULL);
+
+INSERT INTO MARCAS (nombre, fecha_alta, fecha_baja)
+VALUES ('Adidas', GETDATE(), NULL);
+
+-- Insert para un producto Nike en la categoría de Zapatillas Hombre
+INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
+VALUES ('Zapatillas deportivas Nike Air Max para hombre', 'AirMax', 150.00, 50, 10, 'nike_airmax_hombre.jpg', GETDATE(), NULL, 1, 1, 1);
+
+-- Insert para un producto Adidas en la categoría de Zapatillas Mujer
+INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
+VALUES ('Zapatillas deportivas Adidas Ultraboost para mujer', 'Ultraboost', 180.00, 30, 5, 'adidas_ultraboost_mujer.jpg', GETDATE(), NULL, 2, 2, 2);
+
+
+
+select id_marca,nombre,fecha_alta,fecha_baja from MARCAS
+
+select * from PRODUCTOS
+select * from CATEGORIAS
+select * from PROVEEDORES
+
+select p.id_producto,p.nombre_producto,p.precio_compra,p.stock,p.stock_minimo,p.imagen,p.id_marca,m.nombre,c.nombre_categoria,pv.razon_social from productos p
+inner join MARCAS m on m.id_marca=p.id_marca
+inner join CATEGORIAS c on c.id_categoria=p.id_categoria
+inner join PROVEEDORES pv on pv.id_proveedor=p.id_proveedor
+order by p.fecha_baja asc;
