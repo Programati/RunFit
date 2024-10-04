@@ -83,19 +83,19 @@ namespace CapaPresentacion
             
             string MensajeProveedor = string.Empty;
             int idProveedorGenerado = 0;
-            bool VerdadPersonaGenerada = false;
-            bool VerdadUsuarioGenerado = false;
+            bool VerdadProveedorGenerado = false;
             string mensajeConfirmacion = "¿Desea agregar al";
-            string contrasena = null;
 
             // Verifica si los campos son válidos
             if (camposValidados())
             {
                 string proveedor = txtRSocialProveedor.Text; // Obtiene razón social
+                if (txtIdProvee.Text != "")
+                    mensajeConfirmacion = "¿Confirma los cambios del";
 
                 // Muestra cuadro de confirmación
                 var confirmacion = MessageBox.Show(
-                    $"¿Desea agregar al proveedor {proveedor} al sistema?",
+                    $"{mensajeConfirmacion} {proveedor} al sistema?",
                     "Confirmación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -122,12 +122,23 @@ namespace CapaPresentacion
                     if (txtIdProvee.Text != "")
                     {
                         // Lógica de edición (comentada)
-                         VerdadPersonaGenerada = new CN_proveedor().Editar(ProveedorNuevo, out MensajeProveedor);
-                        idProveedorGenerado=ProveedorNuevo.idProveedor;
+                         VerdadProveedorGenerado = new CN_proveedor().Editar(ProveedorNuevo, out MensajeProveedor);
+                        idProveedorGenerado = ProveedorNuevo.idProveedor;
                     }
                     else
                     {
                         idProveedorGenerado = new CN_proveedor().Registrar(ProveedorNuevo, out MensajeProveedor); // Registra
+                    }
+                    // Verifica si los datos se guardaron correctamente
+                    if (idProveedorGenerado != 0 && VerdadProveedorGenerado == true)
+                    {
+                        MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpiarCampos(); // Limpia los campos del formulario
+                    }
+                    else
+                    {
+                        // Muestra mensajes de error si no se guardaron los datos
+                        MessageBox.Show(MensajeProveedor);
                     }
                 }
             }
