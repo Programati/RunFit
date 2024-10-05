@@ -24,7 +24,7 @@ namespace CapaPresentacion
             InitializeComponent(); // Inicializa los componentes del formulario
             _inicio = inicio; // Almacena la referencia al formulario 'Inicio'
             _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en el formulario principal
-            Listar_Productos();
+           
         }
 
         // Evento del botón para crear un nuevo producto
@@ -155,7 +155,8 @@ namespace CapaPresentacion
         // Evento que se ejecuta cuando el formulario se carga, establece el foco en el campo de búsqueda
         private void frmListarProducto_Load_1(object sender, EventArgs e)
         {
-            txtBuscarProducto.Focus(); 
+            txtBuscarProducto.Focus();
+            Listar_Productos();
         }
     }
 

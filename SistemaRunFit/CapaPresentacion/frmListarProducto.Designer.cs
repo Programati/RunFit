@@ -69,7 +69,7 @@
             this.pnlContenedorProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorProducto.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorProducto.Name = "pnlContenedorProducto";
-            this.pnlContenedorProducto.Size = new System.Drawing.Size(1307, 503);
+            this.pnlContenedorProducto.Size = new System.Drawing.Size(794, 503);
             this.pnlContenedorProducto.TabIndex = 0;
             // 
             // grbListaProducto
@@ -88,7 +88,7 @@
             this.grbListaProducto.Location = new System.Drawing.Point(0, 100);
             this.grbListaProducto.Name = "grbListaProducto";
             this.grbListaProducto.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
-            this.grbListaProducto.Size = new System.Drawing.Size(1307, 403);
+            this.grbListaProducto.Size = new System.Drawing.Size(794, 403);
             this.grbListaProducto.TabIndex = 60;
             this.grbListaProducto.Text = "Lista de Productos";
             this.grbListaProducto.TextLocation = new System.Drawing.Point(10, 8);
@@ -145,7 +145,7 @@
             this.dgvListaProducto.RowHeadersVisible = false;
             this.dgvListaProducto.RowHeadersWidth = 51;
             this.dgvListaProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProducto.Size = new System.Drawing.Size(1303, 371);
+            this.dgvListaProducto.Size = new System.Drawing.Size(790, 371);
             this.dgvListaProducto.TabIndex = 0;
             this.dgvListaProducto.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -185,7 +185,7 @@
             this.pnlBusquedaProducto.Name = "pnlBusquedaProducto";
             this.pnlBusquedaProducto.Radius = 5;
             this.pnlBusquedaProducto.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaProducto.Size = new System.Drawing.Size(1307, 100);
+            this.pnlBusquedaProducto.Size = new System.Drawing.Size(794, 100);
             this.pnlBusquedaProducto.TabIndex = 58;
             // 
             // btnMenuClientes
@@ -393,7 +393,6 @@
             this.PrecioCompra.MinimumWidth = 6;
             this.PrecioCompra.Name = "PrecioCompra";
             this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Visible = false;
             this.PrecioCompra.Width = 131;
             // 
             // PrecioVenta
@@ -468,7 +467,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 503);
+            this.ClientSize = new System.Drawing.Size(794, 503);
             this.Controls.Add(this.pnlContenedorProducto);
             this.Name = "frmListarProducto";
             this.Text = "frmListarProducto";

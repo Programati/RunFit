@@ -89,6 +89,7 @@ create TABLE PRODUCTOS (
     detalle_producto VARCHAR(100) NULL,
     nombre_producto VARCHAR(10) NOT NULL,
     precio_compra FLOAT NOT NULL,
+	precio_venta FLOAT NOT NULL,
     stock INT NOT NULL,
     stock_minimo INT NOT NULL,
     imagen VARCHAR(255) NULL,
@@ -336,6 +337,40 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
 
  end
  go
+ CREATE PROC SP_AGREGAR_PRODUCTO (
+    @nombre_producto VARCHAR(50),
+    @precio_compra DECIMAL,
+    @precio_venta DECIMAL,
+    @id_marca INT,
+    @id_categoria INT,
+    @id_proveedor INT,
+    @stock INT,
+    @stock_minimo INT,
+    @detalle VARCHAR(100),
+    @imagen VARCHAR(100),
+    @IdProductoResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @IdProductoResultado = 0
+    SET @Mensaje = ''
+
+    -- Inserción del producto
+    BEGIN TRY
+        INSERT INTO Productos (nombre_producto, precio_compra, precio_venta, id_marca, id_categoria, id_proveedor, stock, stock_minimo, detalle_producto, imagen)
+        VALUES (@nombre_producto, @precio_compra, @precio_venta, @id_marca, @id_categoria, @id_proveedor, @stock, @stock_minimo, @detalle, @imagen)
+
+        SET @IdProductoResultado = SCOPE_IDENTITY()  -- Obtener el ID del producto recién insertado
+        SET @Mensaje = 'Producto agregado correctamente.'
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()  -- Captura el error
+    END CATCH
+END
+GO
+
+select * from PRODUCTOS
 
  /*EDITAR USUARIO*/
  CREATE PROC SP_EDITARUSUARIO(
@@ -753,7 +788,7 @@ BEGIN
         DECLARE @fecha_baja_actual DATE;
         SELECT @fecha_baja_actual = fecha_baja FROM PROVEEDORES WHERE id_proveedor = @id_proveedor;
 
->>>>>>> 0b56b2b002d45dee2aaa731251a8ebffa32ce30e
+
         -- Si la fecha de baja es NULL, la actualiza con la fecha actual
         IF @fecha_baja_actual IS NULL
         BEGIN
@@ -919,12 +954,12 @@ INSERT INTO MARCAS (nombre, fecha_alta, fecha_baja)
 VALUES ('Adidas', GETDATE(), NULL);
 
 -- Insert para un producto Nike en la categoría de Zapatillas Hombre
-INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
-VALUES ('Zapatillas deportivas Nike Air Max para hombre', 'AirMax', 150.00, 50, 10, 'nike_airmax_hombre.jpg', GETDATE(), NULL, 1, 1, 1);
+INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra,precio_venta, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
+VALUES ('Zapatillas deportivas Nike Air Max para hombre', 'AirMax', 150.00,500, 50, 10, 'nike_airmax_hombre.jpg', GETDATE(), NULL, 1, 1, 1);
 
 -- Insert para un producto Adidas en la categoría de Zapatillas Mujer
-INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
-VALUES ('Zapatillas deportivas Adidas Ultraboost para mujer', 'Ultraboost', 180.00, 30, 5, 'adidas_ultraboost_mujer.jpg', GETDATE(), NULL, 2, 2, 2);
+INSERT INTO PRODUCTOS (detalle_producto, nombre_producto, precio_compra,precio_venta, stock, stock_minimo, imagen, fecha_alta, fecha_baja, id_marca, id_categoria, id_proveedor)
+VALUES ('Zapatillas deportivas Adidas Ultraboost para mujer', 'Ultraboost', 180.00,500, 30, 5, 'adidas_ultraboost_mujer.jpg', GETDATE(), NULL, 2, 2, 2);
 
 
 
