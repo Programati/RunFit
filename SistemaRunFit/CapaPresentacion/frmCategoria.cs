@@ -24,7 +24,7 @@ namespace CapaPresentacion
             InitializeComponent(); 
             _inicio = inicio; 
             _inicio.PnlContenedorMenu.Enabled = false; 
-            Listar_Categorias();
+           
         }
         private void Listar_Categorias()
         {
@@ -64,9 +64,20 @@ namespace CapaPresentacion
                 }
             }
         }
+        private void LimpiarCampos()
+        {
+            txtCategoria.Clear();
+        }
         // Evento que se ejecuta al hacer clic en el botón btnGuardarCategoria.
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
+            string MensajeCategoria = string.Empty; // Mensaje para el resultado del proceso de usuario
+            int IdCategoriaGenerada = 0; // ID de persona generada
+            
+           // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
+            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
+            
+
             // Verifica si el campo de texto txtCategoria no está vacío.
             if (!string.IsNullOrEmpty(txtCategoria.Text))
             {
@@ -81,19 +92,38 @@ namespace CapaPresentacion
                 // Si el usuario confirma, se procede a guardar los datos.
                 if (confirmacion == DialogResult.Yes)
                 {
-                    // Aquí puedes agregar el código para guardar los datos
-                    MessageBox.Show("Los datos se guardaron exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Categoria CategoriaNueva = new Categoria()
+                    {
+                        idCategoria = txtIdCategoria.Text != "" ? Convert.ToInt32(txtIdCategoria.Text) : IdCategoriaGenerada,
+                        nombre_categoria = txtCategoria.Text,
+                        
+                    };
 
-                    // Momentáneamente cargamos al DataGrid
-                    // Adicionamos un nuevo renglón
-                    int n = dgvCategoria.Rows.Add();
-                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                    // Colocamos la información en el renglón creado
-                    dgvCategoria.Rows[n].Cells[2].Value = n + 1; // Asigna el número de renglón
-                    dgvCategoria.Rows[n].Cells[3].Value = textInfo.ToTitleCase(txtCategoria.Text.ToLower()); 
-
+                    // Si hay un ID de persona, se edita
+                    if (txtIdCategoria.Text != "")
+                    {
+                       // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
+                       // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                    }
+                    else
+                    {
+                        IdCategoriaGenerada = new CN_Categoria().Registrar(CategoriaNueva, out MensajeCategoria);
+                    }
+                    if (IdCategoriaGenerada != 0 )
+                    {
+                        MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpiarCampos(); 
+                    }
+                    else
+                    {
+                        // Muestra mensajes de error si no se guardaron los datos
+                        MessageBox.Show(MensajeCategoria );
+                    }
+                    
                     // Borrar cuando se integre la BD
-                    txtCategoria.Clear(); 
+                    txtCategoria.Clear();
+                    dgvCategoria.Rows.Clear();
+                    Listar_Categorias();
                     txtCategoria.Focus(); 
                 }
             }
@@ -127,7 +157,8 @@ namespace CapaPresentacion
         // Evento que se ejecuta al cargar el formulario.
         private void frmCategoria_Load_1(object sender, EventArgs e)
         {
-            txtCategoria.Focus(); 
+            txtCategoria.Focus();
+            Listar_Categorias();
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnMenuMarca.

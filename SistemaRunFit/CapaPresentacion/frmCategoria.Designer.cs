@@ -37,17 +37,18 @@
             this.btnGuardarCategoria = new Guna.UI.WinForms.GunaButton();
             this.grbListaCategorias = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvCategoria = new Guna.UI.WinForms.GunaDataGridView();
+            this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaCategoria = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.btnBuscarCategoria = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorCateg = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCategoria = new Guna.UI.WinForms.GunaTextBox();
-            this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIdCategoria = new System.Windows.Forms.TextBox();
             this.grbListaCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.pnlBusquedaCategoria.SuspendLayout();
@@ -205,10 +206,61 @@
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // btnEditarDataGrid
+            // 
+            this.btnEditarDataGrid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.btnEditarDataGrid.FillWeight = 38.07107F;
+            this.btnEditarDataGrid.HeaderText = "Editar";
+            this.btnEditarDataGrid.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.btnEditarDataGrid.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.btnEditarDataGrid.Name = "btnEditarDataGrid";
+            this.btnEditarDataGrid.ReadOnly = true;
+            this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnEditarDataGrid.Width = 79;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 79;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.FillWeight = 33.23971F;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 51;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 86;
+            // 
+            // Categoria
+            // 
+            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Categoria.FillWeight = 228.6892F;
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 114;
+            // 
             // pnlBusquedaCategoria
             // 
             this.pnlBusquedaCategoria.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaCategoria.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaCategoria.Controls.Add(this.txtIdCategoria);
             this.pnlBusquedaCategoria.Controls.Add(this.btnMenuMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.guna2VSeparator1);
             this.pnlBusquedaCategoria.Controls.Add(this.txtCategoria);
@@ -318,55 +370,12 @@
             this.txtBuscarCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCategoria_KeyPress);
             // 
-            // btnEditarDataGrid
+            // txtIdCategoria
             // 
-            this.btnEditarDataGrid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.btnEditarDataGrid.FillWeight = 38.07107F;
-            this.btnEditarDataGrid.HeaderText = "Editar";
-            this.btnEditarDataGrid.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.btnEditarDataGrid.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.btnEditarDataGrid.Name = "btnEditarDataGrid";
-            this.btnEditarDataGrid.ReadOnly = true;
-            this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditarDataGrid.Width = 79;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 79;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.FillWeight = 33.23971F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 51;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 86;
-            // 
-            // Categoria
-            // 
-            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Categoria.FillWeight = 228.6892F;
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 114;
+            this.txtIdCategoria.Location = new System.Drawing.Point(406, 61);
+            this.txtIdCategoria.Name = "txtIdCategoria";
+            this.txtIdCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCategoria.TabIndex = 88;
             // 
             // frmCategoria
             // 
@@ -404,5 +413,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.TextBox txtIdCategoria;
     }
 }

@@ -472,21 +472,35 @@ END
 CREATE PROC SP_REGISTRARCATEGORIAS
 (
     @nombre_categoria VARCHAR(20),
-	@Resultado int output,
-	@Mensaje VARCHAR(500) output 
- )
- as
- begin
-	set @Resultado = 0
-	IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE nombre_categoria = @nombre_categoria)
-	begin
-		insert into CATEGORIAS(nombre_categoria)values(@nombre_categoria)
-		set @Resultado = SCOPE_IDENTITY()
-	end
-	else
-		set @Mensaje = 'La categoria ' + @nombre_categoria + ' ya existe!'
-end
-go
+    @Resultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Resultado = 0;  -- Inicializamos el resultado en 0
+    SET @Mensaje = '';   -- Inicializamos el mensaje en vacío
+    
+    -- Verificamos si la categoría ya existe
+    IF NOT EXISTS (SELECT * FROM CATEGORIAS WHERE nombre_categoria = @nombre_categoria)
+    BEGIN
+        -- Insertamos la nueva categoría
+        INSERT INTO CATEGORIAS(nombre_categoria, fecha_alta) 
+        VALUES(@nombre_categoria, GETDATE());
+        
+        -- Obtenemos el ID de la nueva categoría
+        SET @Resultado = SCOPE_IDENTITY();
+        
+        -- Asignamos un mensaje de éxito
+        SET @Mensaje = 'Categoría registrada exitosamente.';
+    END
+    ELSE
+    BEGIN
+        -- Asignamos un mensaje de error si la categoría ya existe
+        SET @Mensaje = 'La categoría ' + @nombre_categoria + ' ya existe!';
+    END
+END
+GO
+
 
 --EDITAR CATEGORIAS
 CREATE PROC SP_EDITARCATEGORIAS
@@ -919,6 +933,7 @@ select id_marca,nombre,fecha_alta,fecha_baja from MARCAS
 select * from PRODUCTOS
 select * from CATEGORIAS
 select * from PROVEEDORES
+select * from MARCAS
 
 select p.id_producto,p.nombre_producto,p.precio_compra,p.stock,p.stock_minimo,p.imagen,p.id_marca,m.nombre,c.nombre_categoria,pv.razon_social from productos p
 inner join MARCAS m on m.id_marca=p.id_marca

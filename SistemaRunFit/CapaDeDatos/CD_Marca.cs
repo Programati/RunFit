@@ -59,5 +59,51 @@ namespace CapaDeDatos
             // Retornamos la lista de usuarios obtenida
             return Lista;
         }
+        public int Registrar(Marca ObjMarca, out string Mensaje)
+        {
+            int IdMarcaGenerada = 0; // Variable para almacenar el id generado
+            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Configuramos el comando para el procedimiento almacenado SP_REGISTRARCATEGORIAS
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARMARCAS", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+
+                    // Parámetro de entrada para nombre_categoria
+                    cmd.Parameters.AddWithValue("@nombre", ObjMarca.nombre);
+
+                    // Parámetro de salida para el resultado
+                    SqlParameter resultadoParam = new SqlParameter("@Resultado", SqlDbType.Int);
+                    resultadoParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(resultadoParam);
+
+                    // Parámetro de salida para el mensaje
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.VarChar, 500);
+                    mensajeParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(mensajeParam);
+
+                    // Abrimos la conexión
+                    oconexion.Open();
+
+                    // Ejecutamos el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Obtenemos los valores de los parámetros de salida
+                    IdMarcaGenerada = (int)cmd.Parameters["@Resultado"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // En caso de error, devolvemos 0 y el mensaje de la excepción
+                IdMarcaGenerada = 0;
+                Mensaje = ex.Message;
+            }
+
+            return IdMarcaGenerada; // Retornamos el ID generado o 0 en caso de error
+        }
     }
 }

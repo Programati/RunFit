@@ -48,6 +48,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIdMarca = new System.Windows.Forms.TextBox();
             this.pnlBusquedaCategoria.SuspendLayout();
             this.grbListaMarcas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             this.pnlBusquedaCategoria.BackColor = System.Drawing.Color.Transparent;
             this.pnlBusquedaCategoria.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlBusquedaCategoria.Controls.Add(this.txtIdMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.btnMenuMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.guna2VSeparator1);
             this.pnlBusquedaCategoria.Controls.Add(this.txtMarca);
@@ -165,6 +167,7 @@
             this.btnGuardarMarca.Size = new System.Drawing.Size(100, 34);
             this.btnGuardarMarca.TabIndex = 66;
             this.btnGuardarMarca.Text = "Guardar";
+            this.btnGuardarMarca.Click += new System.EventHandler(this.btnGuardarMarca_Click);
             // 
             // btnBuscarMarca
             // 
@@ -359,6 +362,13 @@
             this.Categoria.ReadOnly = true;
             this.Categoria.Width = 154;
             // 
+            // txtIdMarca
+            // 
+            this.txtIdMarca.Location = new System.Drawing.Point(418, 67);
+            this.txtIdMarca.Name = "txtIdMarca";
+            this.txtIdMarca.Size = new System.Drawing.Size(100, 20);
+            this.txtIdMarca.TabIndex = 87;
+            // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,5 +405,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.TextBox txtIdMarca;
     }
 }
