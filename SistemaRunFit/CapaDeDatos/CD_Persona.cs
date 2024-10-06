@@ -12,73 +12,60 @@ namespace CapaDeDatos
 {
     public class CD_Persona
     {
-        // Método para listar todas las personas de la base de datos
         public List<Persona> ListarPersonas()
         {
-            // Inicializamos una lista de objetos Persona
             List<Persona> Lista = new List<Persona>();
-            // Usamos una conexión SQL a la base de datos
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Definimos la consulta SQL para obtener los datos de la tabla PERSONAS
                     string query = " SELECT id_persona, dni, nombre, apellido, email, telefono, fecha_nacimiento, sexo,estado FROM PERSONAS";
 
-                    // Creamos un comando SQL con la consulta anterior
                     SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.CommandType = CommandType.Text; // El tipo de comando es texto SQL normal
+                    cmd.CommandType = CommandType.Text;
 
-                    // Abrimos la conexión con la base de datos
                     oconexion.Open();
 
-                    // Ejecutamos la consulta y leemos los resultados
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        // Recorremos cada registro devuelto por la consulta
                         while (dr.Read())
                         {
-                            // Agregamos cada registro a la lista como un nuevo objeto Persona
                             Lista.Add(new Persona()
                             {
-                                idPersona = Convert.ToInt32(dr["id_persona"]), // Convertimos el id_persona a entero
-                                dni = dr["dni"].ToString(), // Convertimos el DNI a string
-                                nombre = dr["nombre"].ToString(), // Nombre a string
-                                apellido = dr["apellido"].ToString(), // Apellido a string
-                                email = dr["email"].ToString(), // Email a string
-                                telefono = dr["telefono"].ToString(), // Teléfono a string
-                                fechaNacimiento = dr["fecha_nacimiento"].ToString(), // Fecha de nacimiento a string
-                                sexo = Convert.ToChar(dr["sexo"]), // Sexo a char
-                                estado = Convert.ToChar(dr["estado"]), // estado a char
+                                idPersona = Convert.ToInt32(dr["id_persona"]),
+                                dni = dr["dni"].ToString(),
+                                nombre = dr["nombre"].ToString(),
+                                apellido = dr["apellido"].ToString(),
+                                email = dr["email"].ToString(),
+                                telefono = dr["telefono"].ToString(),
+                                fechaNacimiento = dr["fecha_nacimiento"].ToString(),
+                                sexo = Convert.ToChar(dr["sexo"]),
+                                estado = Convert.ToChar(dr["estado"]),
                             });
+                            
                         }
-                        dr.Close(); // Cerramos el lector de datos
-                        oconexion.Close(); // Cerramos la conexión con la base de datos
+                        dr.Close();
+                        oconexion.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    // En caso de error, devolvemos una lista vacía
                     Lista = new List<Persona>();
                 }
             }
-            // Retornamos la lista de personas obtenidas
             return Lista;
         }
 
-        // Método para registrar una nueva persona en la base de datos
         public int Registrar(Persona ObjPersona, out string Mensaje)
         {
-            int IdPersonaGenerada = 0; // Variable para almacenar el ID generado para la nueva persona
-            Mensaje = string.Empty; // Inicializamos el mensaje como vacío
+            int IdPersonaGenerada = 0;
+            Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Usamos un procedimiento almacenado para registrar la persona
-                    SqlCommand cmd = new SqlCommand("SP_REGISTRARPERSONA", oconexion);
-                    // Agregamos los parámetros necesarios para el procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_REGISTRAR", oconexion);
                     cmd.Parameters.AddWithValue("dni", ObjPersona.dni);
                     cmd.Parameters.AddWithValue("nombre", ObjPersona.nombre);
                     cmd.Parameters.AddWithValue("apellido", ObjPersona.apellido);
@@ -87,45 +74,36 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("fecha_nacimiento", ObjPersona.fechaNacimiento);
                     cmd.Parameters.AddWithValue("sexo", ObjPersona.sexo);
 
-                    // Parámetros de salida que retornan el ID generado y el mensaje
                     cmd.Parameters.Add("IdPersonaResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure; // El comando es un procedimiento almacenado
-                    oconexion.Open(); // Abrimos la conexión
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
 
-                    cmd.ExecuteNonQuery(); // Ejecutamos el comando
-
-                    // Obtenemos los valores de salida del procedimiento
+                    cmd.ExecuteNonQuery();
                     IdPersonaGenerada = (int)cmd.Parameters["IdPersonaResultado"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString(); // Obtenemos el mensaje de salida
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
 
             }
             catch (Exception ex)
             {
-                // En caso de error, asignamos 0 al ID generado y mostramos el mensaje de error
                 IdPersonaGenerada = 0;
                 Mensaje = ex.Message;
             }
-            // Retornamos el ID de la persona registrada
             return IdPersonaGenerada;
         }
 
-        // Método para editar una persona existente
         public bool Editar(Persona ObjPersona, out string Mensaje)
         {
-            bool Respuesta = false; // Variable para indicar si la operación fue exitosa
-            Mensaje = string.Empty; // Inicializamos el mensaje como vacío
-
+            bool Respuesta = false;
+            Mensaje = string.Empty;
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Usamos un procedimiento almacenado para editar la persona
-                    SqlCommand cmd = new SqlCommand("SP_EDITARPERSONA", oconexion);
-                    // Agregamos los parámetros necesarios para el procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_EDITAR", oconexion);
                     cmd.Parameters.AddWithValue("@id_persona", ObjPersona.idPersona);
                     cmd.Parameters.AddWithValue("dni", ObjPersona.dni);
                     cmd.Parameters.AddWithValue("nombre", ObjPersona.nombre);
@@ -135,47 +113,37 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("fecha_nacimiento", ObjPersona.fechaNacimiento);
                     cmd.Parameters.AddWithValue("sexo", ObjPersona.sexo);
                    
-
-                    // Parámetros de salida que retornan si la operación fue exitosa y el mensaje
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure; // El comando es un procedimiento almacenado
-                    oconexion.Open(); // Abrimos la conexión
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
 
-                    cmd.ExecuteNonQuery(); // Ejecutamos el comando
+                    cmd.ExecuteNonQuery();
 
-                    // Obtenemos los valores de salida del procedimiento
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value; // Indicamos si la operación fue exitosa
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString(); // Obtenemos el mensaje de salida
-
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
 
             }
             catch (Exception ex)
             {
-                // En caso de error, asignamos false a la respuesta y mostramos el mensaje de error
                 Respuesta = false;
                 Mensaje = ex.Message;
             }
-            // Retornamos si la operación fue exitosa
             return Respuesta;
         }
         public bool Eliminar(Persona ObjPersona, out string Mensaje)
         {
-            bool Respuesta = false; // Variable para almacenar el resultado
-            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Configuramos el comando para el procedimiento almacenado SP_ELIMINARPERSONA
-                    SqlCommand cmd = new SqlCommand("SP_ELIMINAR_PERSONA", oconexion);
-                    // Cambia el nombre del parámetro a @id_persona
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_ELIMINAR", oconexion);
                     cmd.Parameters.AddWithValue("@id_persona", ObjPersona.idPersona);
-
-                    // Parámetros de salida
                     SqlParameter respuestaParam = new SqlParameter("@Respuesta", SqlDbType.Char, 1)
                     {
                         Direction = ParameterDirection.Output
@@ -188,24 +156,21 @@ namespace CapaDeDatos
                     };
                     cmd.Parameters.Add(mensajeParam);
 
-                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
-                    // Ejecutamos el procedimiento almacenado
                     cmd.ExecuteNonQuery();
 
-                    // Obtenemos los valores de los parámetros de salida
-                    Respuesta = (respuestaParam.Value.ToString() == "1"); // Cambiar a comparación de char
+                    Respuesta = (respuestaParam.Value.ToString() == "1");
                     Mensaje = mensajeParam.Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                // En caso de error, devolvemos false y el mensaje de la excepción
                 Respuesta = false;
                 Mensaje = ex.Message;
             }
-            return Respuesta; // Retornamos la respuesta o false en caso de error
+            return Respuesta;
         }
 
         

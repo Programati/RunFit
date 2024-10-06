@@ -80,15 +80,17 @@
             this.grbListaUsuarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.Controls.Add(this.dgvListaProveedor);
             this.grbListaUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaUsuarios.ForeColor = System.Drawing.Color.White;
             this.grbListaUsuarios.LineBottom = 2;
             this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.LineLeft = 2;
             this.grbListaUsuarios.LineRight = 2;
+            this.grbListaUsuarios.LineTop = 50;
             this.grbListaUsuarios.Location = new System.Drawing.Point(0, 100);
+            this.grbListaUsuarios.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaUsuarios.Name = "grbListaUsuarios";
-            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
             this.grbListaUsuarios.Size = new System.Drawing.Size(692, 365);
             this.grbListaUsuarios.TabIndex = 54;
             this.grbListaUsuarios.Text = "Lista de Proveedores";
@@ -97,6 +99,9 @@
             // dgvListaProveedor
             // 
             this.dgvListaProveedor.AllowUserToAddRows = false;
+            this.dgvListaProveedor.AllowUserToDeleteRows = false;
+            this.dgvListaProveedor.AllowUserToResizeColumns = false;
+            this.dgvListaProveedor.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -106,7 +111,7 @@
             this.dgvListaProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -129,8 +134,8 @@
             this.dgvListaProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -138,14 +143,16 @@
             this.dgvListaProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaProveedor.EnableHeadersVisualStyles = false;
             this.dgvListaProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvListaProveedor.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaProveedor.Location = new System.Drawing.Point(2, 50);
             this.dgvListaProveedor.MultiSelect = false;
             this.dgvListaProveedor.Name = "dgvListaProveedor";
             this.dgvListaProveedor.ReadOnly = true;
             this.dgvListaProveedor.RowHeadersVisible = false;
             this.dgvListaProveedor.RowHeadersWidth = 51;
+            this.dgvListaProveedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaProveedor.RowTemplate.Height = 35;
             this.dgvListaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 333);
+            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 313);
             this.dgvListaProveedor.TabIndex = 5;
             this.dgvListaProveedor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -157,16 +164,16 @@
             this.dgvListaProveedor.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvListaProveedor.ThemeStyle.ReadOnly = true;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.Height = 35;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvListaProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaProveedor_CellContentClick_1);
@@ -180,7 +187,7 @@
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Width = 53;
+            this.Editar.Width = 60;
             // 
             // Eliminar
             // 
@@ -191,7 +198,7 @@
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 68;
+            this.Eliminar.Width = 79;
             // 
             // Cuit_Prev
             // 
@@ -200,7 +207,7 @@
             this.Cuit_Prev.MinimumWidth = 6;
             this.Cuit_Prev.Name = "Cuit_Prev";
             this.Cuit_Prev.ReadOnly = true;
-            this.Cuit_Prev.Width = 62;
+            this.Cuit_Prev.Width = 69;
             // 
             // id_proveedor
             // 
@@ -209,7 +216,7 @@
             this.id_proveedor.Name = "id_proveedor";
             this.id_proveedor.ReadOnly = true;
             this.id_proveedor.Visible = false;
-            this.id_proveedor.Width = 121;
+            this.id_proveedor.Width = 140;
             // 
             // razon_social
             // 
@@ -218,7 +225,7 @@
             this.razon_social.MinimumWidth = 6;
             this.razon_social.Name = "razon_social";
             this.razon_social.ReadOnly = true;
-            this.razon_social.Width = 117;
+            this.razon_social.Width = 134;
             // 
             // Estado
             // 
@@ -226,7 +233,7 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 77;
+            this.Estado.Width = 86;
             // 
             // fecha_alta
             // 
@@ -235,7 +242,7 @@
             this.fecha_alta.Name = "fecha_alta";
             this.fecha_alta.ReadOnly = true;
             this.fecha_alta.Visible = false;
-            this.fecha_alta.Width = 104;
+            this.fecha_alta.Width = 120;
             // 
             // Email
             // 
@@ -244,7 +251,7 @@
             this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
-            this.Email.Width = 70;
+            this.Email.Width = 79;
             // 
             // Telefono
             // 
@@ -253,7 +260,7 @@
             this.Telefono.MinimumWidth = 6;
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 88;
+            this.Telefono.Width = 101;
             // 
             // Direccion
             // 
@@ -262,6 +269,7 @@
             this.Direccion.MinimumWidth = 6;
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 114;
             // 
             // Descrip_Proveedor
             // 
@@ -270,7 +278,7 @@
             this.Descrip_Proveedor.MinimumWidth = 6;
             this.Descrip_Proveedor.Name = "Descrip_Proveedor";
             this.Descrip_Proveedor.ReadOnly = true;
-            this.Descrip_Proveedor.Width = 111;
+            this.Descrip_Proveedor.Width = 127;
             // 
             // pnlBusquedaProv
             // 

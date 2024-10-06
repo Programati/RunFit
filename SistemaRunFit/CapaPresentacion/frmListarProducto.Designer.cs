@@ -79,15 +79,17 @@
             this.grbListaProducto.BorderColor = System.Drawing.Color.Black;
             this.grbListaProducto.Controls.Add(this.dgvListaProducto);
             this.grbListaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaProducto.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaProducto.ForeColor = System.Drawing.Color.White;
             this.grbListaProducto.LineBottom = 2;
             this.grbListaProducto.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaProducto.LineLeft = 2;
             this.grbListaProducto.LineRight = 2;
+            this.grbListaProducto.LineTop = 50;
             this.grbListaProducto.Location = new System.Drawing.Point(0, 100);
+            this.grbListaProducto.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaProducto.Name = "grbListaProducto";
-            this.grbListaProducto.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaProducto.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
             this.grbListaProducto.Size = new System.Drawing.Size(794, 403);
             this.grbListaProducto.TabIndex = 60;
             this.grbListaProducto.Text = "Lista de Productos";
@@ -96,6 +98,9 @@
             // dgvListaProducto
             // 
             this.dgvListaProducto.AllowUserToAddRows = false;
+            this.dgvListaProducto.AllowUserToDeleteRows = false;
+            this.dgvListaProducto.AllowUserToResizeColumns = false;
+            this.dgvListaProducto.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvListaProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -105,7 +110,7 @@
             this.dgvListaProducto.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -130,8 +135,8 @@
             this.dgvListaProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -139,13 +144,15 @@
             this.dgvListaProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaProducto.EnableHeadersVisualStyles = false;
             this.dgvListaProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvListaProducto.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaProducto.Location = new System.Drawing.Point(2, 50);
+            this.dgvListaProducto.MultiSelect = false;
             this.dgvListaProducto.Name = "dgvListaProducto";
             this.dgvListaProducto.ReadOnly = true;
             this.dgvListaProducto.RowHeadersVisible = false;
             this.dgvListaProducto.RowHeadersWidth = 51;
+            this.dgvListaProducto.RowTemplate.Height = 35;
             this.dgvListaProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProducto.Size = new System.Drawing.Size(790, 371);
+            this.dgvListaProducto.Size = new System.Drawing.Size(790, 351);
             this.dgvListaProducto.TabIndex = 0;
             this.dgvListaProducto.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -157,16 +164,16 @@
             this.dgvListaProducto.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaProducto.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvListaProducto.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvListaProducto.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProducto.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaProducto.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvListaProducto.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvListaProducto.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvListaProducto.ThemeStyle.ReadOnly = true;
             this.dgvListaProducto.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvListaProducto.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvListaProducto.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProducto.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvListaProducto.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProducto.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvListaProducto.ThemeStyle.RowsStyle.Height = 35;
             this.dgvListaProducto.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaProducto.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -344,7 +351,7 @@
             this.Editar.ReadOnly = true;
             this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Width = 72;
+            this.Editar.Width = 79;
             // 
             // Eliminar
             // 
@@ -357,7 +364,7 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 87;
+            this.Eliminar.Width = 98;
             // 
             // ID
             // 
@@ -367,7 +374,7 @@
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
-            this.ID.Width = 47;
+            this.ID.Width = 51;
             // 
             // Estado
             // 
@@ -375,7 +382,7 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 77;
+            this.Estado.Width = 86;
             // 
             // Producto
             // 
@@ -384,7 +391,7 @@
             this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
-            this.Producto.Width = 91;
+            this.Producto.Width = 105;
             // 
             // PrecioCompra
             // 
@@ -393,16 +400,17 @@
             this.PrecioCompra.MinimumWidth = 6;
             this.PrecioCompra.Name = "PrecioCompra";
             this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Width = 131;
+            this.PrecioCompra.Visible = false;
+            this.PrecioCompra.Width = 153;
             // 
             // PrecioVenta
             // 
             this.PrecioVenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PrecioVenta.HeaderText = "Precio Venta";
+            this.PrecioVenta.HeaderText = "Precio";
             this.PrecioVenta.MinimumWidth = 6;
             this.PrecioVenta.Name = "PrecioVenta";
             this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 116;
+            this.PrecioVenta.Width = 84;
             // 
             // Stock
             // 
@@ -411,7 +419,7 @@
             this.Stock.MinimumWidth = 6;
             this.Stock.Name = "Stock";
             this.Stock.ReadOnly = true;
-            this.Stock.Width = 69;
+            this.Stock.Width = 77;
             // 
             // StockMinimo
             // 
@@ -421,7 +429,7 @@
             this.StockMinimo.Name = "StockMinimo";
             this.StockMinimo.ReadOnly = true;
             this.StockMinimo.Visible = false;
-            this.StockMinimo.Width = 120;
+            this.StockMinimo.Width = 139;
             // 
             // Marca
             // 
@@ -430,7 +438,7 @@
             this.Marca.MinimumWidth = 6;
             this.Marca.Name = "Marca";
             this.Marca.ReadOnly = true;
-            this.Marca.Width = 77;
+            this.Marca.Width = 87;
             // 
             // Categoria
             // 
@@ -439,6 +447,7 @@
             this.Categoria.MinimumWidth = 6;
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 114;
             // 
             // Proveedor
             // 
@@ -448,7 +457,7 @@
             this.Proveedor.Name = "Proveedor";
             this.Proveedor.ReadOnly = true;
             this.Proveedor.Visible = false;
-            this.Proveedor.Width = 99;
+            this.Proveedor.Width = 115;
             // 
             // ImagenProducto
             // 
@@ -461,7 +470,7 @@
             this.ImagenProducto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ImagenProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ImagenProducto.Visible = false;
-            this.ImagenProducto.Width = 84;
+            this.ImagenProducto.Width = 98;
             // 
             // frmListarProducto
             // 
