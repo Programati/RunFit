@@ -252,6 +252,7 @@ namespace CapaPresentacion
                         item.Producto.nombre,
                         item.Cantidad.ToString(),
                         CapaPresentacion.Properties.Resources.Eliminar,
+                        "$"+item.Producto.precioVenta.ToString(),
                         "$"+(item.Cantidad * item.Producto.precioVenta).ToString()
                     });
                     _totalCompra += (item.Cantidad * item.Producto.precioVenta);
