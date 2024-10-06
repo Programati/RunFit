@@ -43,12 +43,12 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaCategoria = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdCategoria = new System.Windows.Forms.TextBox();
             this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.btnBuscarCategoria = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorCateg = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCategoria = new Guna.UI.WinForms.GunaTextBox();
-            this.txtIdCategoria = new System.Windows.Forms.TextBox();
             this.grbListaCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.pnlBusquedaCategoria.SuspendLayout();
@@ -122,15 +122,17 @@
             this.grbListaCategorias.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaCategorias.Controls.Add(this.dgvCategoria);
             this.grbListaCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaCategorias.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaCategorias.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaCategorias.ForeColor = System.Drawing.Color.White;
             this.grbListaCategorias.LineBottom = 2;
             this.grbListaCategorias.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaCategorias.LineLeft = 2;
             this.grbListaCategorias.LineRight = 2;
+            this.grbListaCategorias.LineTop = 50;
             this.grbListaCategorias.Location = new System.Drawing.Point(0, 100);
+            this.grbListaCategorias.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaCategorias.Name = "grbListaCategorias";
-            this.grbListaCategorias.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaCategorias.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
             this.grbListaCategorias.Size = new System.Drawing.Size(907, 234);
             this.grbListaCategorias.TabIndex = 55;
             this.grbListaCategorias.Text = "Lista de Categorias";
@@ -139,6 +141,9 @@
             // dgvCategoria
             // 
             this.dgvCategoria.AllowUserToAddRows = false;
+            this.dgvCategoria.AllowUserToDeleteRows = false;
+            this.dgvCategoria.AllowUserToResizeColumns = false;
+            this.dgvCategoria.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvCategoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -165,8 +170,8 @@
             this.dgvCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -175,13 +180,14 @@
             this.dgvCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCategoria.EnableHeadersVisualStyles = false;
             this.dgvCategoria.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvCategoria.Location = new System.Drawing.Point(2, 30);
+            this.dgvCategoria.Location = new System.Drawing.Point(2, 50);
             this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersVisible = false;
+            this.dgvCategoria.RowTemplate.Height = 35;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategoria.Size = new System.Drawing.Size(903, 202);
+            this.dgvCategoria.Size = new System.Drawing.Size(903, 182);
             this.dgvCategoria.TabIndex = 5;
             this.dgvCategoria.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvCategoria.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -200,9 +206,9 @@
             this.dgvCategoria.ThemeStyle.ReadOnly = true;
             this.dgvCategoria.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvCategoria.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCategoria.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvCategoria.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvCategoria.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategoria.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvCategoria.ThemeStyle.RowsStyle.Height = 35;
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -276,6 +282,13 @@
             this.pnlBusquedaCategoria.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaCategoria.Size = new System.Drawing.Size(907, 100);
             this.pnlBusquedaCategoria.TabIndex = 56;
+            // 
+            // txtIdCategoria
+            // 
+            this.txtIdCategoria.Location = new System.Drawing.Point(406, 61);
+            this.txtIdCategoria.Name = "txtIdCategoria";
+            this.txtIdCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCategoria.TabIndex = 88;
             // 
             // btnMenuMarca
             // 
@@ -369,13 +382,6 @@
             this.txtBuscarCategoria.TabIndex = 1;
             this.txtBuscarCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCategoria_KeyPress);
-            // 
-            // txtIdCategoria
-            // 
-            this.txtIdCategoria.Location = new System.Drawing.Point(406, 61);
-            this.txtIdCategoria.Name = "txtIdCategoria";
-            this.txtIdCategoria.Size = new System.Drawing.Size(100, 20);
-            this.txtIdCategoria.TabIndex = 88;
             // 
             // frmCategoria
             // 

@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBusquedaCategoria = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdMarca = new System.Windows.Forms.TextBox();
             this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.txtMarca = new Guna.UI.WinForms.GunaTextBox();
@@ -48,7 +49,6 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtIdMarca = new System.Windows.Forms.TextBox();
             this.pnlBusquedaCategoria.SuspendLayout();
             this.grbListaMarcas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -74,6 +74,13 @@
             this.pnlBusquedaCategoria.ShadowColor = System.Drawing.Color.Black;
             this.pnlBusquedaCategoria.Size = new System.Drawing.Size(800, 100);
             this.pnlBusquedaCategoria.TabIndex = 57;
+            // 
+            // txtIdMarca
+            // 
+            this.txtIdMarca.Location = new System.Drawing.Point(418, 67);
+            this.txtIdMarca.Name = "txtIdMarca";
+            this.txtIdMarca.Size = new System.Drawing.Size(100, 20);
+            this.txtIdMarca.TabIndex = 87;
             // 
             // btnMenuMarca
             // 
@@ -232,15 +239,17 @@
             this.grbListaMarcas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaMarcas.Controls.Add(this.dgvMarca);
             this.grbListaMarcas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaMarcas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaMarcas.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaMarcas.ForeColor = System.Drawing.Color.White;
             this.grbListaMarcas.LineBottom = 2;
             this.grbListaMarcas.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaMarcas.LineLeft = 2;
             this.grbListaMarcas.LineRight = 2;
+            this.grbListaMarcas.LineTop = 50;
             this.grbListaMarcas.Location = new System.Drawing.Point(0, 100);
+            this.grbListaMarcas.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaMarcas.Name = "grbListaMarcas";
-            this.grbListaMarcas.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaMarcas.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
             this.grbListaMarcas.Size = new System.Drawing.Size(800, 350);
             this.grbListaMarcas.TabIndex = 58;
             this.grbListaMarcas.Text = "Lista de Marcas";
@@ -249,6 +258,9 @@
             // dgvMarca
             // 
             this.dgvMarca.AllowUserToAddRows = false;
+            this.dgvMarca.AllowUserToDeleteRows = false;
+            this.dgvMarca.AllowUserToResizeColumns = false;
+            this.dgvMarca.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
             this.dgvMarca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMarca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -258,7 +270,7 @@
             this.dgvMarca.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -274,8 +286,8 @@
             this.Categoria});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -283,12 +295,13 @@
             this.dgvMarca.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMarca.EnableHeadersVisualStyles = false;
             this.dgvMarca.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvMarca.Location = new System.Drawing.Point(2, 30);
+            this.dgvMarca.Location = new System.Drawing.Point(2, 50);
             this.dgvMarca.Name = "dgvMarca";
             this.dgvMarca.ReadOnly = true;
             this.dgvMarca.RowHeadersVisible = false;
+            this.dgvMarca.RowTemplate.Height = 35;
             this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMarca.Size = new System.Drawing.Size(796, 318);
+            this.dgvMarca.Size = new System.Drawing.Size(796, 298);
             this.dgvMarca.TabIndex = 0;
             this.dgvMarca.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvMarca.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -300,16 +313,16 @@
             this.dgvMarca.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvMarca.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvMarca.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvMarca.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvMarca.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvMarca.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvMarca.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvMarca.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvMarca.ThemeStyle.ReadOnly = true;
             this.dgvMarca.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvMarca.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvMarca.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvMarca.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvMarca.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvMarca.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvMarca.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvMarca.ThemeStyle.RowsStyle.Height = 35;
             this.dgvMarca.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvMarca.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -324,7 +337,7 @@
             this.btnEditarDataGrid.ReadOnly = true;
             this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditarDataGrid.Width = 72;
+            this.btnEditarDataGrid.Width = 79;
             // 
             // Eliminar
             // 
@@ -334,7 +347,7 @@
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 68;
+            this.Eliminar.Width = 79;
             // 
             // ID
             // 
@@ -343,7 +356,7 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 47;
+            this.ID.Width = 51;
             // 
             // Estado
             // 
@@ -351,7 +364,7 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 77;
+            this.Estado.Width = 86;
             // 
             // Categoria
             // 
@@ -360,14 +373,7 @@
             this.Categoria.HeaderText = "Nombre de Marca";
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 154;
-            // 
-            // txtIdMarca
-            // 
-            this.txtIdMarca.Location = new System.Drawing.Point(418, 67);
-            this.txtIdMarca.Name = "txtIdMarca";
-            this.txtIdMarca.Size = new System.Drawing.Size(100, 20);
-            this.txtIdMarca.TabIndex = 87;
+            this.Categoria.Width = 180;
             // 
             // frmMarca
             // 

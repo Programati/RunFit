@@ -19,45 +19,35 @@ namespace CapaDeDatos
             {
                 try
                 {
-                    // Usamos StringBuilder para construir la consulta SQL de forma eficiente
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT * from proveedores");
                     
-
-                    // Creamos un comando SQL con la consulta construida
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
-
-                    // Abrimos la conexión con la base de datos
                     oconexion.Open();
-
-                    // Ejecutamos la consulta y leemos los resultados con SqlDataReader
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-                        // Iteramos sobre cada fila de los resultados
                         while (dr.Read())
                         {
-                            // Creamos un nuevo objeto Usuario y lo agregamos a la lista
                             Lista.Add(new Proveedor()
                             {
-                                idProveedor = Convert.ToInt32(dr["id_proveedor"]), // Convertimos el id_usuario a entero
-                                razonSocial = dr["razon_social"].ToString(), // Convertimos nombre_usuario a string
-                                cuit = dr["cuit"].ToString(), // Convertimos cuit a string
+                                idProveedor = Convert.ToInt32(dr["id_proveedor"]),
+                                razonSocial = dr["razon_social"].ToString(),
+                                cuit = dr["cuit"].ToString(),
                                 descripcion = dr["descripcion"].ToString(),
                                 telefono= dr["telefono"].ToString(),
                                 direccion= dr["direccion"].ToString(),
                                 email = dr["email"].ToString(),
-                                fechaAlta = Convert.ToDateTime(dr["fecha_alta"]), // Convertimos fecha_alta a DateTime
+                                fechaAlta = Convert.ToDateTime(dr["fecha_alta"]),
                                 fechaBaja = dr["fecha_baja"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["fecha_baja"]),
                             });
                         }
-                        dr.Close(); // Cerramos el SqlDataReader
-                        oconexion.Close(); // Cerramos la conexión con la base de datos
+                        dr.Close();
+                        oconexion.Close();
                     }
                 }
                 catch (Exception ex)
                 {
-                    // En caso de error, retornamos una lista vacía
                      Lista = new List<Proveedor>();
                 }
             }
@@ -72,17 +62,15 @@ namespace CapaDeDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_AGREGARPROVEEDOR", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_PROVEEDOR_REGISTRAR", oconexion);
 
-                    // Parámetros de entrada
                     cmd.Parameters.AddWithValue("@razon_social", ObjProvee.razonSocial);
                     cmd.Parameters.AddWithValue("@cuit", ObjProvee.cuit);
                     cmd.Parameters.AddWithValue("@descripcion", ObjProvee.descripcion);
                     cmd.Parameters.AddWithValue("@direccion", ObjProvee.direccion);
                     cmd.Parameters.AddWithValue("@telefono", ObjProvee.telefono);
-                    cmd.Parameters.AddWithValue("@email", ObjProvee.email);  // Nuevo parámetro email
+                    cmd.Parameters.AddWithValue("@email", ObjProvee.email);
 
-                    // Parámetros de salida
                     cmd.Parameters.Add("@Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
@@ -91,7 +79,6 @@ namespace CapaDeDatos
 
                     cmd.ExecuteNonQuery();
 
-                    // Obtenemos los valores de los parámetros de salida
                     IdProveedorGenerado = (int)cmd.Parameters["@Resultado"].Value;
                     Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
@@ -105,15 +92,14 @@ namespace CapaDeDatos
         }
         public bool Editar(Proveedor ObjProvee, out string Mensaje)
         {
-            bool Respuesta = false; // Variable para almacenar el resultado
-            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Configuramos el comando para el procedimiento almacenado SP_EDITARPROVEEDOR
-                    SqlCommand cmd = new SqlCommand("SP_EDITARPROVEEDOR", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_PROVEEDOR_EDITAR", oconexion);
                     cmd.Parameters.AddWithValue("id_proveedor", ObjProvee.idProveedor);
                     cmd.Parameters.AddWithValue("razon_social", ObjProvee.razonSocial);
                     cmd.Parameters.AddWithValue("cuit", ObjProvee.cuit);
@@ -122,64 +108,52 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("telefono", ObjProvee.telefono);
                     cmd.Parameters.AddWithValue("email", ObjProvee.email);
 
-                    // Parámetros de salida
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
-
-                    // Ejecutamos el procedimiento almacenado
                     cmd.ExecuteNonQuery();
 
-                    // Obtenemos los valores de los parámetros de salida
                     Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                // En caso de error, devolvemos false y el mensaje de la excepción
                 Respuesta = false;
                 Mensaje = ex.Message;
             }
-            return Respuesta; // Retornamos la respuesta o false en caso de error
+            return Respuesta;
         }
         public bool Eliminar(Proveedor ObjProvee, out string Mensaje)
         {
-            bool Respuesta = false; // Variable para almacenar el resultado
-            Mensaje = string.Empty; // Variable para almacenar el mensaje de salida
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    // Configuramos el comando para el procedimiento almacenado SP_ELIMINARPROVEEDOR
-                    SqlCommand cmd = new SqlCommand("SP_ELIMINAR_PROVEEDOR", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_PROVEEDOR_ELIMINAR", oconexion);
                     cmd.Parameters.AddWithValue("id_proveedor", ObjProvee.idProveedor);
-
-                    // Parámetros de salida
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    cmd.CommandType = CommandType.StoredProcedure; // Indicamos que es un stored procedure
+                    cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
-                    // Ejecutamos el procedimiento almacenado
                     cmd.ExecuteNonQuery();
-
-                    // Obtenemos los valores de los parámetros de salida
                     Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
             {
-                // En caso de error, devolvemos false y el mensaje de la excepción
                 Respuesta = false;
                 Mensaje = ex.Message;
             }
-            return Respuesta; // Retornamos la respuesta o false en caso de error
+            return Respuesta;
         }
 
     }
