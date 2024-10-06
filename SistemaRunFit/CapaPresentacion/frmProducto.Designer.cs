@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosProducto = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
             this.btnGuardarProducto = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarContenedorProducto = new Guna.UI.WinForms.GunaButton();
@@ -64,6 +65,7 @@
             // 
             this.pnlDatosProducto.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlDatosProducto.Controls.Add(this.txtIdProducto);
             this.pnlDatosProducto.Controls.Add(this.btnVolverUser);
             this.pnlDatosProducto.Controls.Add(this.btnGuardarProducto);
             this.pnlDatosProducto.Controls.Add(this.btnLimpiarContenedorProducto);
@@ -94,6 +96,14 @@
             this.pnlDatosProducto.ShadowColor = System.Drawing.Color.Black;
             this.pnlDatosProducto.Size = new System.Drawing.Size(687, 433);
             this.pnlDatosProducto.TabIndex = 58;
+            // 
+            // txtIdProducto
+            // 
+            this.txtIdProducto.Location = new System.Drawing.Point(472, 332);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(59, 20);
+            this.txtIdProducto.TabIndex = 78;
+            this.txtIdProducto.Visible = false;
             // 
             // btnVolverUser
             // 
@@ -149,6 +159,7 @@
             this.btnGuardarProducto.Size = new System.Drawing.Size(100, 40);
             this.btnGuardarProducto.TabIndex = 11;
             this.btnGuardarProducto.Text = "Guardar";
+            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
             // 
             // btnLimpiarContenedorProducto
             // 
@@ -584,5 +595,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Guna.UI.WinForms.GunaButton btnVolverUser;
+        private System.Windows.Forms.TextBox txtIdProducto;
     }
 }

@@ -12,11 +12,12 @@ namespace CapaDeEntidades
         public string nombre { get; set; }
         public string detalle { get; set; }
         public decimal precioCompra { get; set; }
+        public decimal precioVenta { get; set; }
         public int stock { get; set; }
         public int stockMinimo { get; set; }
         public string imagen { get; set; }
-        public string fechaAlta { get; set; }
-        public string fechaBaja { get; set; }
+        public DateTime? fechaAlta { get; set; }
+        public DateTime? fechaBaja { get; set; }
         public Marca oMarca { get; set; }
         public Categoria oCategoria { get; set; }
         public Proveedor oProveedor { get; set; }

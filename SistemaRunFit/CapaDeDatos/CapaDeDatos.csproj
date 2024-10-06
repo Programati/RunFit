@@ -43,10 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Domicilio.cs" />
+    <Compile Include="CD_Marca.cs" />
     <Compile Include="CD_Persona.cs" />
+    <Compile Include="CD_Proveedor.cs" />
     <Compile Include="CD_Rol.cs" />
     <Compile Include="CD_Usuario.cs" />
+    <Compile Include="CD_Categoria.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="CD_Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

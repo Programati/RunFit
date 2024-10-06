@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDeEntidades;
+using CapaDeNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,14 +21,63 @@ namespace CapaPresentacion
         // Constructor de frmCategoria que recibe una instancia de Inicio.
         public frmCategoria(Inicio inicio)
         {
-            InitializeComponent(); // Inicializa los componentes visuales del formulario.
-            _inicio = inicio; // Guarda la referencia del formulario Inicio.
-            _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en el formulario Inicio.
+            InitializeComponent(); 
+            _inicio = inicio; 
+            _inicio.PnlContenedorMenu.Enabled = false; 
+           
         }
+        private void Listar_Categorias()
+        {
+            List<Categoria> ListaCategoria = new CN_Categoria().ListarCategorias();
+            foreach (Categoria item in ListaCategoria)
+            {
+                dgvCategoria.Rows.Add(new object[] {
+            CapaPresentacion.Properties.Resources.pencil, // Icono de editar
+            item.fecha_baja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.idCategoria,
+            item.fecha_baja == null ? "Activo" : "Inactivo", 
+            item.nombre_categoria,
+           // item.fecha_alta,
+            
+            
+                 });
+            }
 
+            // Cambia el color del texto según el estado de la categoria (Activo/Inactivo)
+            for (int i = 0; i < dgvCategoria.Rows.Count; i++)
+            {
+                // Obtener el valor de la celda "Estado" en la fila actual
+                string estado = dgvCategoria.Rows[i].Cells["Estado"].Value.ToString();
+
+                // Cambiar el color tanto para cuando la fila está seleccionada como cuando no lo está
+                if (estado == "Activo")
+                {
+                    // Cambiar el color del texto a negro si es "Activo"
+                    dgvCategoria.Rows[i].Cells["Estado"].Style.ForeColor = Color.Black;
+                    dgvCategoria.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Black; // También cuando está seleccionada
+                }
+                else if (estado == "Inactivo")
+                {
+                    // Cambiar el color del texto a rojo si es "Inactivo"
+                    dgvCategoria.Rows[i].Cells["Estado"].Style.ForeColor = Color.Red;
+                    dgvCategoria.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
+                }
+            }
+        }
+        private void LimpiarCampos()
+        {
+            txtCategoria.Clear();
+        }
         // Evento que se ejecuta al hacer clic en el botón btnGuardarCategoria.
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
+            string MensajeCategoria = string.Empty; // Mensaje para el resultado del proceso de usuario
+            int IdCategoriaGenerada = 0; // ID de persona generada
+            
+           // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
+            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
+            
+
             // Verifica si el campo de texto txtCategoria no está vacío.
             if (!string.IsNullOrEmpty(txtCategoria.Text))
             {
@@ -41,20 +92,39 @@ namespace CapaPresentacion
                 // Si el usuario confirma, se procede a guardar los datos.
                 if (confirmacion == DialogResult.Yes)
                 {
-                    // Aquí puedes agregar el código para guardar los datos
-                    MessageBox.Show("Los datos se guardaron exitosamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Categoria CategoriaNueva = new Categoria()
+                    {
+                        idCategoria = txtIdCategoria.Text != "" ? Convert.ToInt32(txtIdCategoria.Text) : IdCategoriaGenerada,
+                        nombre_categoria = txtCategoria.Text,
+                        
+                    };
 
-                    // Momentáneamente cargamos al DataGrid
-                    // Adicionamos un nuevo renglón
-                    int n = dgvCategoria.Rows.Add();
-                    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
-                    // Colocamos la información en el renglón creado
-                    dgvCategoria.Rows[n].Cells[2].Value = n + 1; // Asigna el número de renglón
-                    dgvCategoria.Rows[n].Cells[3].Value = textInfo.ToTitleCase(txtCategoria.Text.ToLower()); // Formatea el nombre de la categoría en título
-
+                    // Si hay un ID de persona, se edita
+                    if (txtIdCategoria.Text != "")
+                    {
+                       // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
+                       // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                    }
+                    else
+                    {
+                        IdCategoriaGenerada = new CN_Categoria().Registrar(CategoriaNueva, out MensajeCategoria);
+                    }
+                    if (IdCategoriaGenerada != 0 )
+                    {
+                        MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpiarCampos(); 
+                    }
+                    else
+                    {
+                        // Muestra mensajes de error si no se guardaron los datos
+                        MessageBox.Show(MensajeCategoria );
+                    }
+                    
                     // Borrar cuando se integre la BD
-                    txtCategoria.Clear(); // Limpia el campo de texto de categoría.
-                    txtCategoria.Focus(); // Establece el foco en el campo de texto.
+                    txtCategoria.Clear();
+                    dgvCategoria.Rows.Clear();
+                    Listar_Categorias();
+                    txtCategoria.Focus(); 
                 }
             }
             else
@@ -70,7 +140,7 @@ namespace CapaPresentacion
             // Permite solo letras, controles y espacios en blanco.
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                e.Handled = true; // Si se ingresa un carácter no válido, se maneja el evento.
+                e.Handled = true; 
             }
         }
 
@@ -80,25 +150,26 @@ namespace CapaPresentacion
             // Permite solo letras, controles y espacios en blanco.
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                e.Handled = true; // Si se ingresa un carácter no válido, se maneja el evento.
+                e.Handled = true; 
             }
         }
 
         // Evento que se ejecuta al cargar el formulario.
         private void frmCategoria_Load_1(object sender, EventArgs e)
         {
-            txtCategoria.Focus(); // Establece el foco en el campo de texto txtCategoria al cargar el formulario.
+            txtCategoria.Focus();
+            Listar_Categorias();
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnMenuMarca.
         private void btnMenuMarca_Click(object sender, EventArgs e)
         {
-            if (_inicio != null) // Verifica si la referencia de _inicio no es nula.
+            if (_inicio != null) 
             {
-                _inicio.PnlContenedorMenu.Enabled = true; // Reactiva el panel en el formulario Inicio.
-                _inicio.MostrarImagenFondo(); // Muestra la imagen de fondo en el formulario Inicio.
+                _inicio.PnlContenedorMenu.Enabled = true; 
+                _inicio.MostrarImagenFondo(); 
             }
-            this.Close(); // Cierra el formulario actual.
+            this.Close(); 
         }
     }
 

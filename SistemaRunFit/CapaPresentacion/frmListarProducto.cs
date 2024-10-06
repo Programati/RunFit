@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaDeEntidades;
+using CapaDeNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +24,7 @@ namespace CapaPresentacion
             InitializeComponent(); // Inicializa los componentes del formulario
             _inicio = inicio; // Almacena la referencia al formulario 'Inicio'
             _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en el formulario principal
+           
         }
 
         // Evento del botón para crear un nuevo producto
@@ -39,24 +42,70 @@ namespace CapaPresentacion
             CrearNuevoProducto.FormClosing += frm_closing; // Asigna el evento 'FormClosing' para ejecutar código al cerrar el formulario
         }
 
+        private void Listar_Productos()
+        {
+            List<Producto> ListaProducto = new CN_Producto().ListarProductos();
+            foreach (Producto item in ListaProducto)
+            {
+                dgvListaProducto.Rows.Add(new object[] {
+            CapaPresentacion.Properties.Resources.pencil, // Icono de editar
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.idProducto,
+            item.fechaBaja == null ? "Activo" : "Inactivo",
+            item.nombre,
+            item.precioCompra,
+            item.precioVenta,
+            item.stock,
+            item.stockMinimo,
+            item.oMarca.nombre,
+            item.oCategoria.nombre_categoria,
+            item.oProveedor.razonSocial,
+            item.imagen,
+           
+            
+            
+                 });
+            }
+
+            // Cambia el color del texto según el estado de la Marca (Activo/Inactivo)
+            for (int i = 0; i < dgvListaProducto.Rows.Count; i++)
+            {
+                // Obtener el valor de la celda "Estado" en la fila actual
+                string estado = dgvListaProducto.Rows[i].Cells["Estado"].Value.ToString();
+
+                // Cambiar el color tanto para cuando la fila está seleccionada como cuando no lo está
+                if (estado == "Activo")
+                {
+                    // Cambiar el color del texto a negro si es "Activo"
+                    dgvListaProducto.Rows[i].Cells["Estado"].Style.ForeColor = Color.Black;
+                    dgvListaProducto.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Black; // También cuando está seleccionada
+                }
+                else if (estado == "Inactivo")
+                {
+                    // Cambiar el color del texto a rojo si es "Inactivo"
+                    dgvListaProducto.Rows[i].Cells["Estado"].Style.ForeColor = Color.Red;
+                    dgvListaProducto.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
+                }
+            }
+        }
         // Evento que se ejecuta cuando el formulario de 'frmProducto' se está cerrando
         private void frm_closing(object sender, FormClosingEventArgs e)
         {
             frmListarProducto ListarNuevoProducto = new frmListarProducto(_inicio); // Crea una nueva instancia del formulario 'frmListarProducto'
 
-            ListarNuevoProducto.TopLevel = false; // El formulario no será de nivel superior
-            pnlContenedorProducto.Controls.Clear(); // Limpia el contenedor de productos
-            pnlContenedorProducto.Controls.Add(ListarNuevoProducto); // Añade el formulario al panel contenedor
-            ListarNuevoProducto.FormBorderStyle = FormBorderStyle.None; // Elimina los bordes del formulario
-            ListarNuevoProducto.Dock = DockStyle.Fill; // Hace que el formulario ocupe todo el panel
+            ListarNuevoProducto.TopLevel = false; 
+            pnlContenedorProducto.Controls.Clear(); 
+            pnlContenedorProducto.Controls.Add(ListarNuevoProducto); 
+            ListarNuevoProducto.FormBorderStyle = FormBorderStyle.None; 
+            ListarNuevoProducto.Dock = DockStyle.Fill; 
 
-            ListarNuevoProducto.Show(); // Muestra el formulario de nuevo
+            ListarNuevoProducto.Show(); 
         }
 
         // Evento del botón que limpia el campo de búsqueda de producto
         private void btnLimpiarBuscarProducto_Click(object sender, EventArgs e)
         {
-            txtBuscarProducto.Clear(); // Limpia el texto en el campo de búsqueda
+            txtBuscarProducto.Clear(); 
         }
 
         // Evento que controla la entrada de solo dígitos en el campo de búsqueda de productos
@@ -65,7 +114,7 @@ namespace CapaPresentacion
             // Verifica que solo se ingresen dígitos o controles (como borrar), si no, ignora la entrada
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Cancela la entrada de caracteres no permitidos
+                e.Handled = true; 
             }
         }
 
@@ -86,9 +135,9 @@ namespace CapaPresentacion
             if (txtBuscarProducto.Text.Length < 4)
             {
                 MessageBox.Show("El CODIGO del Producto es muy corto, vuelva intentar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return true; // Retorna verdadero si el código es muy corto
+                return true; 
             }
-            return false; // Retorna falso si el código tiene la longitud adecuada
+            return false; 
         }
 
         // Evento del botón que regresa al menú de clientes y reactiva el panel de menú principal
@@ -97,16 +146,17 @@ namespace CapaPresentacion
             // Si hay una referencia válida al formulario 'Inicio'
             if (_inicio != null)
             {
-                _inicio.PnlContenedorMenu.Enabled = true; // Reactiva el panel del menú en 'Inicio'
-                _inicio.MostrarImagenFondo(); // Muestra nuevamente la imagen de fondo en 'Inicio'
+                _inicio.PnlContenedorMenu.Enabled = true; 
+                _inicio.MostrarImagenFondo(); 
             }
-            this.Close(); // Cierra el formulario actual de listar productos
+            this.Close(); 
         }
 
         // Evento que se ejecuta cuando el formulario se carga, establece el foco en el campo de búsqueda
         private void frmListarProducto_Load_1(object sender, EventArgs e)
         {
-            txtBuscarProducto.Focus(); // Establece el foco en el campo de texto de búsqueda de productos
+            txtBuscarProducto.Focus();
+            Listar_Productos();
         }
     }
 

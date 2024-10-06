@@ -16,11 +16,11 @@ namespace CapaPresentacion
 {
     public partial class Login : Form
     {
-        public Login()// constructor del login, el cual inicia mostrando los componentes
+        public Login()
         {
             InitializeComponent();
         }
-        private void frm_closing(object sender, FormClosingEventArgs e)// Funcion que limpia el login , lo muestra y pone el foco en usuario listo para ingresar
+        private void frm_closing(object sender, FormClosingEventArgs e)
         {
             txtUsuario.Clear();
             txtContrasena.Clear();
@@ -28,23 +28,19 @@ namespace CapaPresentacion
             txtUsuario.Focus();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)// Funcion que permite salir del programa
+        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-
-        private void btnIngresar_Click(object sender, EventArgs e)// Funcion que permite el ingreso al sistema o no, mediate usuario y contraseña
+        private void btnIngresar_Click(object sender, EventArgs e)
         {
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
 
             //Descomentar la linea de abajo, una vez que creaste el superAdmin
-           // Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
-           // Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == txtContrasena.Text).FirstOrDefault();
-
-
-            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
+           Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
+            //Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == (txtContrasena.Text)).FirstOrDefault();
 
 
             if (ousuario != null)
@@ -69,7 +65,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void Login_KeyDown(object sender, KeyEventArgs e)// Funcion que permite ingresar apretando la tecla enter mediante el llamado a la funcion btnIngresar_Click
+        private void Login_KeyDown(object sender, KeyEventArgs e)
                                                                  
         {
             if (e.KeyCode == Keys.Enter)

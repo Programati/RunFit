@@ -16,5 +16,6 @@ namespace CapaDeEntidades
         public string telefono { get; set; }
         public string fechaNacimiento { get; set; }
         public char sexo { get; set; }
+        public char estado { get; set; }
     }
 }

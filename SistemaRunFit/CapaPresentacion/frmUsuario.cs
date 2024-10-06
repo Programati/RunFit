@@ -44,7 +44,7 @@ namespace CapaPresentacion
             int IdUsuarioGenerado = 0; // ID de usuario generado
             bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
             string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
-            object contrasena = null; // Variable para almacenar la contraseña
+            string contrasena = null; // Variable para almacenar la contraseña
 
             // Verifica si los campos están validados
             if (camposValidados())
@@ -100,18 +100,18 @@ namespace CapaPresentacion
                     Usuario UsuarioNuevo = new Usuario()
                     {
                         idUsuario = txtIdUsuario.Text != "" ? Convert.ToInt32(txtIdUsuario.Text) : IdUsuarioGenerado,
-                        passwordUsuario = contrasena != null ? Encrypt.GetSHA256(contrasena.ToString()) : null,
+                        passwordUsuario = string.IsNullOrEmpty(contrasena.ToString()) ? "" : Encrypt.GetSHA256(txtPassUser.Text),
                         nombreUsuario = txtUsuario.Text,
 
-                        oPersona = new Persona() { idPersona = IdPersonaGenerada }, // Asocia la persona al usuario
-                        oRol = new Rol() { idRol = ((Rol)cmbTipoUsuarioUser.SelectedItem).idRol } // Asocia el rol al usuario
+                        oPersona = new Persona() { idPersona = IdPersonaGenerada }, 
+                        oRol = new Rol() { idRol = ((Rol)cmbTipoUsuarioUser.SelectedItem).idRol } 
                     };
 
                     // Si hay un ID de usuario, se edita
                     if (txtIdUsuario.Text != "")
                     {
                         VerdadUsuarioGenerado = new CN_Usuario().Editar(UsuarioNuevo, out MensajeUsuario);
-                        IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        IdPersonaGenerada = PersonaNueva.idPersona; 
                     }
                     // Si no hay ID de usuario, se registra como nuevo
                     else
@@ -123,7 +123,7 @@ namespace CapaPresentacion
                     if (IdUsuarioGenerado != 0 && IdPersonaGenerada != 0)
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        LimpiarCampos(); // Limpia los campos del formulario
+                        LimpiarCampos(); 
                     }
                     else
                     {
