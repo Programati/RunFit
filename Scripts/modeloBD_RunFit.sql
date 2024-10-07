@@ -86,7 +86,7 @@ ALTER TABLE PRODUCTOS
 ALTER COLUMN nombre_producto VARCHAR(100) NOT NULL;
 
 -- Crear tabla PRODUCTOS
-DROP TABLE PRODUCTOS (
+CREATE TABLE PRODUCTOS (
     id_producto INT IDENTITY(1,1) NOT NULL,
     detalle_producto VARCHAR(100) NULL,
     nombre_producto VARCHAR(10) NOT NULL,
@@ -94,7 +94,7 @@ DROP TABLE PRODUCTOS (
 	precio_venta FLOAT NOT NULL,
     stock INT NOT NULL,
     stock_minimo INT NOT NULL,
-    imagen VARCHAR(255) NULL,
+    imagen varbinary(MAX) NULL,
     fecha_alta DATE NOT NULL default getdate(),
     fecha_baja DATE NULL,
     id_marca INT NOT NULL,
@@ -106,7 +106,20 @@ DROP TABLE PRODUCTOS (
     CONSTRAINT FK_PRODUCTOS_PROVEEDORES FOREIGN KEY (id_proveedor) REFERENCES PROVEEDORES(id_proveedor)
 );
 GO
+/* pasos para el campo IMAGEN
+ALTER TABLE productos
+ADD imagen_temp varbinary(MAX);
 
+UPDATE productos
+SET imagen_temp = CONVERT(varbinary(MAX), imagen);
+
+ALTER TABLE productos
+DROP COLUMN imagen;
+
+EXEC sp_rename 'productos.imagen_temp', 'imagen', 'COLUMN';
+SELECT * FROM PRODUCTOS
+
+*/
 -- Crear tabla DOMICILIOS
 CREATE TABLE DOMICILIOS (
     id_domicilio INT IDENTITY(1,1) NOT NULL,

@@ -360,7 +360,7 @@ CREATE PROC SP_PRODUCTO_REGISTRAR (
     @stock INT,
     @stock_minimo INT,
     @detalle VARCHAR(100),
-    @imagen VARCHAR(100),
+    @imagen varbinary(MAX) = NULL,
     @IdProductoResultado INT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
 )
@@ -382,7 +382,7 @@ BEGIN
     END CATCH
 END
 GO
-
+select * from PRODUCTOS
   --------------------------------------------------------------
  go
 

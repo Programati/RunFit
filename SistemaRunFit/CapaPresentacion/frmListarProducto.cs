@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,21 @@ namespace CapaPresentacion
     {
         // Campo privado que almacena la referencia al formulario principal 'Inicio'
         Inicio _inicio;
+        public Image ImagenProducto(Producto p)
+        {
+            if (p.Imagen != null)
+            {
+                using (var ms = new MemoryStream(p.Imagen))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                return null; // Si no hay imagen
+            }
+
+        }
 
         // Constructor que inicializa el formulario y desactiva el panel del menú en 'Inicio'
         public frmListarProducto(Inicio inicio)
@@ -45,25 +61,25 @@ namespace CapaPresentacion
         private void Listar_Productos()
         {
             List<Producto> ListaProducto = new CN_Producto().ListarProductos();
+
+            
             foreach (Producto item in ListaProducto)
             {
                 dgvListaProducto.Rows.Add(new object[] {
-            CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
-            item.idProducto,
-            item.fechaBaja == null ? "Activo" : "Inactivo",
-            item.nombre,
-            item.precioCompra,
-            item.precioVenta,
-            item.stock,
-            item.stockMinimo,
-            item.oMarca.nombre,
-            item.oCategoria.nombre_categoria,
-            item.oProveedor.razonSocial,
-            item.imagen,
-           
-            
-            
+                    CapaPresentacion.Properties.Resources.pencil, // Icono de editar
+                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+                    item.idProducto,
+                    item.fechaBaja == null ? "Activo" : "Inactivo",
+                    item.nombre,
+                    item.precioCompra,
+                    item.precioVenta,
+                    item.stock,
+                    item.stockMinimo,
+                    item.oMarca.nombre,
+                    item.oCategoria.nombre_categoria,
+                    item.oProveedor.razonSocial,
+                    //item.Imagen,
+                    ImagenProducto(item)           
                  });
             }
 
@@ -159,5 +175,7 @@ namespace CapaPresentacion
             Listar_Productos();
         }
     }
+
+    
 
 }

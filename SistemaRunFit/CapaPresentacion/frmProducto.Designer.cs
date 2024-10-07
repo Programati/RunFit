@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosProducto = new Guna.UI.WinForms.GunaShadowPanel();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
@@ -57,6 +57,7 @@
             this.txtNombreProducto = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ofdSeleccionar = new System.Windows.Forms.OpenFileDialog();
             this.pnlDatosProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).BeginInit();
             this.SuspendLayout();
@@ -533,9 +534,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -552,6 +553,10 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // ofdSeleccionar
+            // 
+            this.ofdSeleccionar.FileName = "openFileDialog1";
             // 
             // frmProducto
             // 
@@ -596,5 +601,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Guna.UI.WinForms.GunaButton btnVolverUser;
         private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.OpenFileDialog ofdSeleccionar;
     }
 }
