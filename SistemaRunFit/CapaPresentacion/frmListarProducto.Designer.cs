@@ -373,7 +373,6 @@
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Visible = false;
             this.ID.Width = 51;
             // 
             // Estado

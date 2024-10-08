@@ -174,6 +174,7 @@ namespace CapaPresentacion
             txtBuscarProducto.Focus();
             Listar_Productos();
         }
+        
     }
 
     

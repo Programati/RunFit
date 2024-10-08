@@ -106,7 +106,37 @@ namespace CapaDeDatos
             }
             return IdProductoGenerado;
         }
+        public bool Eliminar(Producto ObjProducto, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
 
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_PRODUCTO_ELIMINAR", oconexion);
+                    cmd.Parameters.AddWithValue("id_producto", ObjProducto.idProducto);
+
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
+        }
 
 
     }

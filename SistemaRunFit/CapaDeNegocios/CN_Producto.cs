@@ -57,6 +57,11 @@ namespace CapaDeNegocios
                 return 0;
             }
         }
+        public bool Eliminar(Producto ObjProducto, out string Mensaje)
+        {
+            // Llama al método Eliminar en la capa de datos y devuelve el resultado
+            return objcd_producto.Eliminar(ObjProducto, out Mensaje);
+        }
 
     }
 }
