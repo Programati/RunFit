@@ -96,6 +96,40 @@ namespace CapaDeDatos
 
             return IdCategoriaGenerada;
         }
+        public bool Editar(Categoria ObjCategoria, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_CATEGORIAS_EDITAR", oconexion);
+                    cmd.Parameters.AddWithValue("id_categoria", ObjCategoria.idCategoria);
+                    cmd.Parameters.AddWithValue("nombre_categoria", ObjCategoria.nombre_categoria);
+                    
+
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
+        }
+
         public bool Eliminar(Categoria ObjCategoria, out string Mensaje)
         {
             bool Respuesta = false;
