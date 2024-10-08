@@ -7,9 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CapaPresentacion
 {
@@ -20,8 +22,8 @@ namespace CapaPresentacion
         private CN_proveedor objCN_proveedor;
         public frmProducto()
         {
-            InitializeComponent(); // Inicializa los componentes del formulario
-            this.Load += new EventHandler(frmProducto_Load); // Asocia el evento Load del formulario a su manejador
+            InitializeComponent();
+            this.Load += new EventHandler(frmProducto_Load);
             
         }
         private void CargarProveedores()
@@ -79,10 +81,6 @@ namespace CapaPresentacion
             cmbMarcaProducto.SelectedIndex = -1;
         }
 
-
-
-
-        // Evento que se ejecuta al cargar el formulario
         private void frmProducto_Load(object sender, EventArgs e)
         {
             txtNombreProducto.Focus();
@@ -94,19 +92,16 @@ namespace CapaPresentacion
             CargarMarcas();
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Volver"
         private void btnVolverUser_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Evento que se ejecuta al hacer clic en el botón "Limpiar"
         private void btnLimpiarContenedorProducto_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-        // Método que limpia los campos del formulario
         private void LimpiarCampos()
         {
             txtNombreProducto.Clear();
@@ -122,78 +117,73 @@ namespace CapaPresentacion
             txtNombreProducto.Focus();
         }
 
-        // Evento que se ejecuta al presionar una tecla en el TextBox de precio de compra
         private void txtPrecioCompraProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito, un control o una coma (y que no haya otra coma ya)
             if ((!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',') || (e.KeyChar == ',' && txtPrecioCompraProducto.Text.Contains(",")))
             {
                 e.Handled = true;
             }
         }
 
-        // Evento que se ejecuta al presionar una tecla en el TextBox de precio de venta
         private void txtPrecioVentaProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito, un control o una coma (y que no haya otra coma ya)
             if ((!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',') || (e.KeyChar == ',' && txtPrecioVentaProducto.Text.Contains(",")))
             {
                 e.Handled = true;
             }
         }
 
-        // Evento que se ejecuta al presionar una tecla en el TextBox de stock mínimo
         private void txtStockMinimoProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito o un control
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        // Evento que se ejecuta al presionar una tecla en el TextBox de stock
         private void txtStockProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es un dígito o un control
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        // Evento que se ejecuta al hacer clic en el botón para seleccionar una imagen del producto
         private void btnSeleccionarImagenProducto_Click(object sender, EventArgs e)
         {
-            // Crear y configurar el OpenFileDialog para seleccionar una imagen
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            openFileDialog.Title = "Seleccionar una imagen";
 
-            // Mostrar el diálogo y comprobar si se seleccionó un archivo
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            // Crear un OpenFileDialog para seleccionar la imagen
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                // Cargar la imagen seleccionada en el PictureBox
-                string rutaImagen = openFileDialog.FileName; // Obtener la ruta del archivo
-                pbImagenProducto.Image = Image.FromFile(rutaImagen); // Cargar la imagen en el PictureBox
+                // Filtro para mostrar solo archivos de imagen
+                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                openFileDialog.Title = "Seleccionar una imagen";
+
+                // Verificar si el usuario seleccionó una imagen y presionó OK
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Cargar la imagen seleccionada en el PictureBox
+                    pbImagenProducto.Image = Image.FromFile(openFileDialog.FileName);
+                }
             }
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
-            string mensajeProducto = string.Empty; // Mensaje para el resultado del proceso de usuario
-            int idProductoGenerado = 0; // ID de producto generado
-            string mensajeConfirmacion = "¿Desea agregar el producto"; // Mensaje de confirmación inicial
+            string mensajeProducto = string.Empty;
+            int idProductoGenerado = 0;
+            string mensajeConfirmacion = "¿Desea agregar el producto";
 
-            // Verifica si los campos están validados
             if (camposValidados())
             {
                 try
                 {
-                    // Obtiene los datos del formulario
+                    // Convertir la imagen del PictureBox a un arreglo de bytes (byte[])
+                    byte[] imagenProducto = ImageToByteArray(pbImagenProducto.Image);
+
                     string nombreProducto = txtNombreProducto.Text;
-                    decimal precioCompra = Convert.ToDecimal(txtPrecioCompraProducto.Text);
-                    decimal precioVenta = Convert.ToDecimal(txtPrecioVentaProducto.Text);
+                    double precioCompra = Convert.ToDouble(txtPrecioCompraProducto.Text);
+                    double precioVenta = Convert.ToDouble(txtPrecioVentaProducto.Text);
                     int stock = Convert.ToInt32(txtStockProducto.Text);
                     int stockMinimo = Convert.ToInt32(txtStockMinimoProducto.Text);
                     string detalleProducto = txtDetalleProducto.Text;
@@ -202,12 +192,9 @@ namespace CapaPresentacion
                     int idCategoriaSeleccionada = (int)cmbCategoriaProducto.SelectedValue;
 
 
-
-                    // Modifica el mensaje de confirmación si se está editando un producto existente
                     if (!string.IsNullOrEmpty(txtIdProducto.Text))
                         mensajeConfirmacion = "¿Confirma los cambios de";
 
-                    // Muestra un cuadro de diálogo de confirmación
                     var confirmacion = MessageBox.Show(
                         $"{mensajeConfirmacion} {nombreProducto} al sistema?",
                         "Confirmación",
@@ -217,7 +204,6 @@ namespace CapaPresentacion
 
                     if (confirmacion == DialogResult.Yes)
                     {
-                        // Crea un nuevo objeto Producto con los datos del formulario
                         Producto productoNuevo = new Producto()
                         {
                             idProducto = string.IsNullOrEmpty(txtIdProducto.Text) ? 0 : Convert.ToInt32(txtIdProducto.Text),
@@ -227,9 +213,10 @@ namespace CapaPresentacion
                             stock = stock,
                             stockMinimo = stockMinimo,
                             detalle = detalleProducto,
-                            oMarca = new Marca() { idMarca= idMarcaSeleccionada },
-                            oCategoria = new Categoria() {  idCategoria = idCategoriaSeleccionada },
-                            oProveedor = new Proveedor() {  idProveedor = idProveedorSeleccionado }
+                            oMarca = new Marca() { idMarca = idMarcaSeleccionada },
+                            oCategoria = new Categoria() { idCategoria = idCategoriaSeleccionada },
+                            oProveedor = new Proveedor() { idProveedor = idProveedorSeleccionado },
+                            Imagen = imagenProducto
                         };
 
                         // Registrar el nuevo producto
@@ -285,8 +272,24 @@ namespace CapaPresentacion
                 return false;
             }
 
-            
-            return true; // Todos los campos son válidos
+            if (pbImagenProducto.Image == CapaPresentacion.Properties.Resources.fotoProducto)
+            {
+                MessageBox.Show("Por favor, seleccione una imagen para el producto.");
+                return false;
+            }
+
+
+            return true;
+        }
+
+        //Función para convertir la imagen a byte[]
+        private byte[] ImageToByteArray(Image imageIn)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
         }
     }
 }

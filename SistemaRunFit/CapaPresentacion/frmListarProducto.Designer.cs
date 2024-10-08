@@ -55,7 +55,7 @@
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImagenProducto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlContenedorProducto.SuspendLayout();
             this.grbListaProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProducto)).BeginInit();
@@ -131,7 +131,7 @@
             this.Marca,
             this.Categoria,
             this.Proveedor,
-            this.ImagenProducto});
+            this.Imagen});
             this.dgvListaProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
@@ -459,18 +459,14 @@
             this.Proveedor.Visible = false;
             this.Proveedor.Width = 115;
             // 
-            // ImagenProducto
+            // Imagen
             // 
-            this.ImagenProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ImagenProducto.HeaderText = "Imagen";
-            this.ImagenProducto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.ImagenProducto.MinimumWidth = 6;
-            this.ImagenProducto.Name = "ImagenProducto";
-            this.ImagenProducto.ReadOnly = true;
-            this.ImagenProducto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ImagenProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ImagenProducto.Visible = false;
-            this.ImagenProducto.Width = 98;
+            this.Imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Imagen.HeaderText = "Imagen";
+            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Imagen.Name = "Imagen";
+            this.Imagen.ReadOnly = true;
+            this.Imagen.Width = 79;
             // 
             // frmListarProducto
             // 
@@ -514,6 +510,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
-        private System.Windows.Forms.DataGridViewImageColumn ImagenProducto;
+        private System.Windows.Forms.DataGridViewImageColumn Imagen;
     }
 }

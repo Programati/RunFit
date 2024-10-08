@@ -18,7 +18,7 @@ namespace CapaPresentacion
         private Producto _producto = null;
         private List<Carrito> _carrito = new List<Carrito>();
         private string factura = "";
-        private decimal _totalCompra = 0;
+        private double _totalCompra = 0;
 
         public frmRegistrarVenta(Inicio inicioForm)
         {
