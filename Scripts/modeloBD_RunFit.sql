@@ -120,6 +120,8 @@ EXEC sp_rename 'productos.imagen_temp', 'imagen', 'COLUMN';
 SELECT * FROM PRODUCTOS
 
 */
+delete from PRODUCTOS where id_producto=9
+
 -- Crear tabla DOMICILIOS
 CREATE TABLE DOMICILIOS (
     id_domicilio INT IDENTITY(1,1) NOT NULL,

@@ -802,3 +802,4 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+ select * from PRODUCTOS
