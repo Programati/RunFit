@@ -382,7 +382,7 @@ BEGIN
         SET @Mensaje = 'La Categoria no existe.';
     END
 END
-
+go
   --------------------------------------------------------------
  go
 
@@ -565,27 +565,6 @@ BEGIN
     END
 END
 
-
---REGISTRAR MARCAS
-CREATE PROC SP_REGISTRARMARCAS
-(
-    @nombre VARCHAR(20),
-	@Resultado int output,
-	@Mensaje VARCHAR(500) output 
- )
- as
- begin
-	set @Resultado = 0
-	IF NOT EXISTS (SELECT * FROM MARCAS WHERE nombre = @nombre)
-	begin
-		insert into MARCAS(nombre)values(@nombre)
-		set @Resultado = SCOPE_IDENTITY()
-	end
-	else
-		set @Mensaje = 'La marca ' + @nombre + ' ya existe!'
-end
-go
-
   --------------------------------------------------------------
  go
 
@@ -681,6 +660,7 @@ BEGIN
         SET @Mensaje = 'La Marca no existe.';
     END
 END
+go
 
 
 
@@ -802,4 +782,8 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+<<<<<<< HEAD
  select * from PRODUCTOS
+=======
+ select * from MARCAS
+>>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd

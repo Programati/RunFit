@@ -75,16 +75,32 @@ namespace CapaPresentacion
             txtNomPtoRegVtas.Clear();
             txtStockRegistrarVenta.Clear();
             int codigoProducto;
+            //Carrito codigoProducto = null;
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarCodigoVta.Text, out codigoProducto))
             {
                 // Buscar el producto
                 _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto);
-
+                
                 if (_producto != null)
                 {
                     txtNomPtoRegVtas.Text = _producto.nombre;
-                    txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    
+                    if (dgvDetalleVta.Rows.Count > 0)
+                    {
+                        var _productoDelCarrito = _carrito.FirstOrDefault(p => p.Producto.idProducto == codigoProducto);
+                        if (BuscarEnDataGridView(_producto.idProducto.ToString()))
+                        {
+                            txtStockRegistrarVenta.Text = (_producto.stock - (int)_productoDelCarrito.Cantidad).ToString();
+                            return;
+                        }
+                        txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    }
+                    else
+                    {
+                        txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    }
+                    
                 }
                 else
                 {
@@ -175,27 +191,8 @@ namespace CapaPresentacion
             txtNomPtoRegVtas.Clear();
             txtStockRegistrarVenta.Clear();
 
-            //ACA HAY QUE VACIAR EL GRID Y CARGARLO DENUEVO
             CargarDataGrid();
-            /*_totalCompra = 0;
-            if (_carrito.Count > 0)
-            {
-                dgvDetalleVta.Rows.Clear(); // Limpia el DataGridView
-                foreach (var item in _carrito)
-                {
-                    dgvDetalleVta.Rows.Add(new object[]
-                    {
-                        "#"+item.Producto.idProducto,
-                        item.Producto.nombre,
-                        item.Cantidad.ToString(),
-                        CapaPresentacion.Properties.Resources.Eliminar,
-                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString()
-                    });
-                    _totalCompra += (item.Cantidad * item.Producto.precioVenta);
-                }
-                lblMontoSubtotalVta.Text = "$"+_totalCompra.ToString();
-            }*/
-
+            
         }
 
         private void CargarCarrito(Producto p, int cant)
@@ -231,29 +228,26 @@ namespace CapaPresentacion
                 // Si el producto existe en la lista, eliminarlo
                 _carrito.Remove(itemAEliminar);
             }
-            else
-            {
-                // Si no se encuentra el producto, mostrar un mensaje
-                Console.WriteLine($"Producto con ID {idProducto} no encontrado en el carrito.");
-            }
         }
 
         private void CargarDataGrid()
         {
             _totalCompra = 0;
+
             if (_carrito.Count > 0)
             {
                 dgvDetalleVta.Rows.Clear(); // Limpia el DataGridView
                 foreach (var item in _carrito)
                 {
+                    
                     dgvDetalleVta.Rows.Add(new object[]
                     {
                         item.Producto.idProducto,
                         item.Producto.nombre,
                         item.Cantidad.ToString(),
-                        CapaPresentacion.Properties.Resources.Eliminar,
                         "$"+item.Producto.precioVenta.ToString(),
-                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString()
+                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString(),
+                        CapaPresentacion.Properties.Resources.Eliminar
                     });
                     _totalCompra += (item.Cantidad * item.Producto.precioVenta);
                 }
@@ -275,6 +269,30 @@ namespace CapaPresentacion
                     EliminarProductoDelCarrito(ProductoElegido);
                     CargarDataGrid();
                 }
+            }
+        }
+
+        private bool BuscarEnDataGridView(string codigo)
+        {
+            // Asegurarse de que la columna "Codigo" exista en el DataGridView
+            if (dgvDetalleVta.Columns["Codigo"] != null)
+            {
+                int indiceColumnaCodigo = dgvDetalleVta.Columns["Codigo"].Index;
+
+                foreach (DataGridViewRow fila in dgvDetalleVta.Rows)
+                {
+                    DataGridViewCell celda = fila.Cells[indiceColumnaCodigo];
+
+                    if (celda.Value != null && celda.Value.ToString().Contains(codigo))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
             }
         }
     }
