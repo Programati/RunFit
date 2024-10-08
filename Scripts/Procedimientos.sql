@@ -1,197 +1,4 @@
-<<<<<<< HEAD:modeloBD_RunFit.sql
-create database RunFit
 
-use  Runfit
-
-
-
--- Eliminar tablas si ya existen
-IF OBJECT_ID('DETALLE_VENTAS', 'U') IS NOT NULL DROP TABLE DETALLE_VENTAS;
-IF OBJECT_ID('VENTAS', 'U') IS NOT NULL DROP TABLE VENTAS;
-IF OBJECT_ID('USUARIOS', 'U') IS NOT NULL DROP TABLE USUARIOS;
-IF OBJECT_ID('PRODUCTOS', 'U') IS NOT NULL DROP TABLE PRODUCTOS;
-IF OBJECT_ID('PROVEEDORES', 'U') IS NOT NULL DROP TABLE PROVEEDORES;
-IF OBJECT_ID('PERSONAS', 'U') IS NOT NULL DROP TABLE PERSONAS;
-IF OBJECT_ID('DOMICILIOS', 'U') IS NOT NULL DROP TABLE DOMICILIOS;
-IF OBJECT_ID('CATEGORIAS', 'U') IS NOT NULL DROP TABLE CATEGORIAS;
-IF OBJECT_ID('MARCAS', 'U') IS NOT NULL DROP TABLE MARCAS;
-IF OBJECT_ID('ROL', 'U') IS NOT NULL DROP TABLE ROL;
-GO
-
--- Crear tabla ROL
-CREATE TABLE ROL (
-    id_rol INT IDENTITY(1,1) NOT NULL,
-    nombre_rol VARCHAR(20) NOT NULL,
-    fecha_alta DATE NOT NULL default getdate(),
-    fecha_baja DATE NULL,
-    CONSTRAINT PK_ROL PRIMARY KEY (id_rol)
-);
-GO
-
--- Crear tabla PERSONAS
-CREATE TABLE PERSONAS (
-    id_persona INT IDENTITY(1,1) NOT NULL,
-    dni VARCHAR(20) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    email VARCHAR(80) NOT NULL,
-    telefono VARCHAR(30) NOT NULL,
-    fecha_nacimiento DATE NOT NULL,
-    sexo CHAR(1) NOT NULL,
-    estado CHAR(1) NOT NULL DEFAULT '1', -- Campo estado de tipo CHAR(1) con valor por defecto '1'
-    CONSTRAINT PK_PERSONAS PRIMARY KEY (id_persona)
-);
-
-GO
-
-
--- Crear tabla PROVEEDORES
-CREATE TABLE PROVEEDORES (
-    id_proveedor INT IDENTITY(1,1) NOT NULL,
-    razon_social VARCHAR(50) NOT NULL,
-    cuit VARCHAR(11) NOT NULL,
-    descripcion VARCHAR(80) NULL,
-    fecha_alta DATE NOT NULL DEFAULT GETDATE(),
-    fecha_baja DATE NULL,
-    direccion VARCHAR(100) NULL,
-    telefono VARCHAR(10) NOT NULL,
-    email VARCHAR(100) NULL,  -- Nuevo campo para el email
-    CONSTRAINT PK_PROVEEDORES PRIMARY KEY (id_proveedor)
-);
-GO
-
-
- -- Agregar el nuevo campo para el email
-
-select * from PROVEEDORES
--- Crear tabla MARCAS
-CREATE TABLE MARCAS (
-    id_marca INT IDENTITY(1,1) NOT NULL,
-    nombre VARCHAR(20) NOT NULL,
-    fecha_alta DATE NOT NULL default getdate(),
-    fecha_baja DATE NULL,
-    CONSTRAINT PK_MARCAS PRIMARY KEY (id_marca)
-);
-GO
-
--- Crear tabla CATEGORIAS
-CREATE TABLE CATEGORIAS (
-    id_categoria INT IDENTITY(1,1) NOT NULL,
-    nombre_categoria VARCHAR(20) NOT NULL,
-    fecha_alta DATE NOT NULL default getdate(),
-    fecha_baja DATE NULL,
-    CONSTRAINT PK_CATEGORIAS PRIMARY KEY (id_categoria)
-);
-GO
-
--- Crear tabla PRODUCTOS
-create TABLE PRODUCTOS (
-    id_producto INT IDENTITY(1,1) NOT NULL,
-    detalle_producto VARCHAR(100) NULL,
-    nombre_producto VARCHAR(10) NOT NULL,
-    precio_compra FLOAT NOT NULL,
-	precio_venta FLOAT NOT NULL,
-    stock INT NOT NULL,
-    stock_minimo INT NOT NULL,
-    imagen VARCHAR(255) NULL,
-    fecha_alta DATE NOT NULL default getdate(),
-    fecha_baja DATE NULL,
-    id_marca INT NOT NULL,
-    id_categoria INT NOT NULL,
-    id_proveedor INT NOT NULL,
-    CONSTRAINT PK_PRODUCTOS PRIMARY KEY (id_producto),
-    CONSTRAINT FK_PRODUCTOS_MARCAS FOREIGN KEY (id_marca) REFERENCES MARCAS(id_marca),
-    CONSTRAINT FK_PRODUCTOS_CATEGORIAS FOREIGN KEY (id_categoria) REFERENCES CATEGORIAS(id_categoria),
-    CONSTRAINT FK_PRODUCTOS_PROVEEDORES FOREIGN KEY (id_proveedor) REFERENCES PROVEEDORES(id_proveedor)
-);
-GO
-ALTER TABLE PRODUCTOS
-ALTER COLUMN nombre_producto VARCHAR(100) NOT NULL;
--- Crear tabla DOMICILIOS
-CREATE TABLE DOMICILIOS (
-    id_domicilio INT IDENTITY(1,1) NOT NULL,
-    calle VARCHAR(50) NOT NULL,
-    altura VARCHAR(4) NULL,
-    casa VARCHAR(4) NULL,
-    manzana VARCHAR(4) NULL,
-    departamento VARCHAR(4) NULL,
-    piso VARCHAR(4) NULL,
-    id_persona INT NOT NULL,
-    CONSTRAINT PK_DOMICILIOS PRIMARY KEY (id_domicilio),
-    CONSTRAINT FK_DOMICILIOS_PERSONAS FOREIGN KEY (id_persona) REFERENCES PERSONAS(id_persona)
-);
-GO
-
--- Crear tabla USUARIOS
-CREATE TABLE USUARIOS (
-    id_usuario INT IDENTITY(1,1) NOT NULL,
-    nombre_usuario VARCHAR(20) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    fecha_alta DATE NOT NULL default getdate(),
-    fecha_baja DATE NULL,
-    id_persona INT NOT NULL,
-    id_rol INT NOT NULL,
-    CONSTRAINT PK_USUARIOS PRIMARY KEY (id_usuario),
-    CONSTRAINT FK_USUARIOS_PERSONAS FOREIGN KEY (id_persona) REFERENCES PERSONAS(id_persona),
-    CONSTRAINT FK_USUARIOS_ROL FOREIGN KEY (id_rol) REFERENCES ROL(id_rol)
-);
-GO
-
--- Crear tabla VENTAS
-CREATE TABLE VENTAS (
-    id_venta INT IDENTITY(1,1) NOT NULL,
-    importe_total INT NOT NULL,
-    fecha_factura DATE NOT NULL default getdate(),
-    id_usuario INT NOT NULL,
-    CONSTRAINT PK_VENTAS PRIMARY KEY (id_venta),
-    CONSTRAINT FK_VENTAS_USUARIOS FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario)
-);
-GO
-
--- Crear tabla DETALLE_VENTAS
-CREATE TABLE DETALLE_VENTAS (
-    id_detalleFactura INT IDENTITY(1,1) NOT NULL,
-    cantidad INT NOT NULL,
-    subtotal FLOAT NOT NULL,
-    id_producto INT NOT NULL,
-    id_venta INT NOT NULL,
-    CONSTRAINT PK_DETALLE_VENTAS PRIMARY KEY (id_detalleFactura),
-    CONSTRAINT FK_DETALLE_VENTAS_PRODUCTOS FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto),
-    CONSTRAINT FK_DETALLE_VENTAS_VENTAS FOREIGN KEY (id_venta) REFERENCES VENTAS(id_venta)
-);
-GO
-
-
-select * from USUARIOS;
-SELECT * FROM PERSONAS;
-SELECT * FROM ROL;
-UPDATE ROL set
-nombre_rol = 'Vendedor'
-WHERE id_rol = 3
-/*
-insert ROL(nombre_rol) VALUES('Sistema');
-insert ROL(nombre_rol) VALUES('Gerente');
-insert ROL(nombre_rol) VALUES('Vendedor');
-
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('35682527', 'Matias Jose', 'Martinez', 'mati@gmail.com', '3704646563', '1994-06-12','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('matias', '123', 1, 1);
-
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('49129901', 'Ramiro Andres', 'Lopez', 'ramiro@gmail.com', '3794734982', '2000-09-12','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('ramiro', '123', 2, 2);
-
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('43129901', 'Noelia Cecilia', 'Canepa', 'noelia@gmail.com', '3794378496', '2002-02-23','F');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('noelia', '123', 3, 3);
-
-insert PERSONAS(dni,nombre,apellido,email,telefono,fecha_nacimiento,sexo) values('37206965', 'Julio Osvaldo', 'Cantero', 'julio@gmail.com', '3794779822', '2000-09-03','M');
-insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123', 4,3);
-*/
-
-
- GO
-=======
-use RunFit
-go
->>>>>>> 13eb10680727d2a0193fd16e2543fe9b84376690:Scripts/Procedimientos.sql
 
 
 --Prodcedimientos almacenados
@@ -536,7 +343,45 @@ CREATE PROC SP_CATEGORIAS_EDITAR(
 		end
 end
 go
+CREATE PROC SP_CATEGORIA_ELIMINAR(
+    @id_categoria INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM CATEGORIAS WHERE id_categoria = @id_categoria)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM CATEGORIAS WHERE @id_categoria = @id_categoria;
 
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE CATEGORIAS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_categoria = @id_categoria;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE CATEGORIAS
+            SET fecha_baja = NULL
+            WHERE id_categoria = @id_categoria;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'La Categoria no existe.';
+    END
+END
 
   --------------------------------------------------------------
  go
@@ -797,6 +642,46 @@ CREATE PROC SP_MARCAS_EDITAR(
 end
 go
 
+CREATE PROC SP_MARCAS_ELIMINAR(
+    @id_marca INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM MARCAS WHERE id_marca = @id_marca)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM MARCAS WHERE @id_marca = id_marca;
+
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE MARCAS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_marca = @id_marca;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE MARCAS
+            SET fecha_baja = NULL
+            WHERE id_marca = @id_marca;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'La Marca no existe.';
+    END
+END
+
 
 
 
@@ -870,7 +755,9 @@ select * from PRODUCTOS
  select @idcategoriagenerada
  select @mensajegenerado
  GO
-
+ select p.dni from PERSONAS p
+ join DOMICILIOS d on d.id_persona=p.id_persona
+ select * from PRODUCTOS
  /*REGISTRAR MARCAS*/
  declare @idmarcagenerada int
  declare @mensajegenerado varchar(500)

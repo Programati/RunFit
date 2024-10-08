@@ -41,6 +41,12 @@ namespace CapaDeNegocios
                 return objcd_marca.Registrar(ObjMarca, out Mensaje);
             }
         }
+        // Método para eliminar un marca
+        public bool Eliminar(Marca ObjMarca, out string Mensaje)
+        {
+            // Llama al método Eliminar en la capa de datos y devuelve el resultado
+            return objcd_marca.Eliminar(ObjMarca, out Mensaje);
+        }
     }
 
 }

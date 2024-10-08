@@ -26,10 +26,17 @@ namespace CapaPresentacion
         }
         private void CargarProveedores()
         {
+            // Obtener todos los proveedores
             List<Proveedor> listaProveedor = objCN_proveedor.ListarProveedores();
+
+            // Filtrar los proveedores donde fecha_baja sea null
+            List<Proveedor> proveedoresActivos = listaProveedor
+                .Where(c => c.fechaBaja == null)
+                .ToList();
+
+            // Limpiar el combo box y asignar la lista filtrada
             cmbProveedorProducto.Items.Clear();
-            cmbProveedorProducto.Items.Add(new Proveedor { idProveedor = 0, razonSocial = "Seleccione un proveedor" });
-            cmbProveedorProducto.DataSource = listaProveedor;
+            cmbProveedorProducto.DataSource = proveedoresActivos; // Usar la lista filtrada aquí
             cmbProveedorProducto.DisplayMember = "razonSocial";
             cmbProveedorProducto.ValueMember = "idProveedor";
             cmbProveedorProducto.SelectedIndex = -1;
@@ -37,19 +44,36 @@ namespace CapaPresentacion
 
         private void CargarCategorias()
         {
+            // Obtener todas las categorías
             List<Categoria> listaCategorias = objCN_Categoria.ListarCategorias();
+
+            // Filtrar las categorías donde fecha_baja sea null
+            List<Categoria> categoriasActivas = listaCategorias
+                .Where(c => c.fecha_baja == null)
+                .ToList();
+
+            // Limpiar el combo box y asignar la lista filtrada
             cmbCategoriaProducto.Items.Clear();
-            cmbCategoriaProducto.DataSource = listaCategorias;
+            cmbCategoriaProducto.DataSource = categoriasActivas;
             cmbCategoriaProducto.DisplayMember = "nombre_categoria";
             cmbCategoriaProducto.ValueMember = "idCategoria";
             cmbCategoriaProducto.SelectedIndex = -1;
         }
 
+
         private void CargarMarcas()
         {
+            // Obtener todas las marcas
             List<Marca> listaMarcas = objCN_Marca.ListarMarcas();
+
+            // Filtrar las marcas donde fecha_baja sea null
+            List<Marca> marcasActivas = listaMarcas
+                .Where(c => c.fechaBaja == null)
+                .ToList();
+
+            // Limpiar el combo box y asignar la lista filtrada
             cmbMarcaProducto.Items.Clear();
-            cmbMarcaProducto.DataSource = listaMarcas;
+            cmbMarcaProducto.DataSource = marcasActivas; // Usar la lista filtrada aquí
             cmbMarcaProducto.DisplayMember = "nombre";
             cmbMarcaProducto.ValueMember = "idMarca";
             cmbMarcaProducto.SelectedIndex = -1;

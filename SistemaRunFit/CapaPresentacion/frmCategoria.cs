@@ -33,7 +33,7 @@ namespace CapaPresentacion
             {
                 dgvCategoria.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fecha_baja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.fecha_baja == null ? CapaPresentacion.Properties.Resources.eliminar_categoria: CapaPresentacion.Properties.Resources.activar_categoria, // Icono de acción
             item.idCategoria,
             item.fecha_baja == null ? "Activo" : "Inactivo", 
             item.nombre_categoria,
@@ -134,6 +134,7 @@ namespace CapaPresentacion
             }
         }
 
+        
         // Evento que se ejecuta al presionar una tecla en el campo txtCategoria.
         private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -171,7 +172,69 @@ namespace CapaPresentacion
             }
             this.Close(); 
         }
+
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica si la columna seleccionada es la de "Accion"
+            if (dgvCategoria.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    string mensaje = string.Empty; // Mensaje para la acción
+                    Categoria CategoriaEliminar = new Categoria() // Crea un objeto Usuario para la acción
+                    {
+                        idCategoria = (int)dgvCategoria.Rows[n].Cells["ID_Categoria"].Value // Asigna el ID del usuario
+                    };
+
+                    string estadoActual = dgvCategoria.Rows[n].Cells["Estado"].Value.ToString(); 
+                    string categoria = dgvCategoria.Rows[n].Cells["Categoria"].Value.ToString(); 
+
+                    // Si la categoria está inactiva, se le pregunta si desea activarlo
+                    if (estadoActual == "Inactivo")
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea ACTIVAR la categoria {categoria}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para activar la categoria
+                            bool respuesta = new CN_Categoria().Eliminar(CategoriaEliminar, out mensaje);
+
+                            if (respuesta)
+                            {
+                                // Actualizar el estado de la categoria
+                                dgvCategoria.Rows[n].Cells["Estado"].Value = "Activo";
+                                dgvCategoria.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black; // Cambia el color a negro
+                                dgvCategoria.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black; // Cambia el color de selección a negro
+
+                                MessageBox.Show("Categoria " + categoria + " activada correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                    }
+                    else // Si la categoria está activo, se le pregunta si desea desactivarlo
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea DESACTIVAR la categoria {categoria}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para desactivar la categoria
+                            bool respuesta = new CN_Categoria().Eliminar(CategoriaEliminar, out mensaje);
+
+                            // Actualizar el estado del usuario
+                            dgvCategoria.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvCategoria.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red; // Cambia el color a rojo
+                            dgvCategoria.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red; // Cambia el color de selección a rojo
+
+                            MessageBox.Show("Categoria " + categoria + " desactivada correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+                    // Limpia las filas del DataGridView y vuelve a cargar los datos
+                    dgvCategoria.Rows.Clear(); // Limpia el DataGridView
+                    Listar_Categorias(); // Llama a la función para volver a cargar los datos
+                }
+            }
+        }
+    }
     }
 
 
-}
+

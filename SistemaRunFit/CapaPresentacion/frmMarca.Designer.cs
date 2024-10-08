@@ -46,9 +46,9 @@
             this.dgvMarca = new Guna.UI.WinForms.GunaDataGridView();
             this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaCategoria.SuspendLayout();
             this.grbListaMarcas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -281,9 +281,9 @@
             this.dgvMarca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnEditarDataGrid,
             this.Eliminar,
-            this.ID,
+            this.ID_marca,
             this.Estado,
-            this.Categoria});
+            this.nombre_marca});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -325,6 +325,7 @@
             this.dgvMarca.ThemeStyle.RowsStyle.Height = 35;
             this.dgvMarca.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvMarca.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvMarca.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellContentClick);
             // 
             // btnEditarDataGrid
             // 
@@ -349,14 +350,14 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Width = 79;
             // 
-            // ID
+            // ID_marca
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.FillWeight = 33.23971F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 51;
+            this.ID_marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID_marca.FillWeight = 33.23971F;
+            this.ID_marca.HeaderText = "ID";
+            this.ID_marca.Name = "ID_marca";
+            this.ID_marca.ReadOnly = true;
+            this.ID_marca.Width = 51;
             // 
             // Estado
             // 
@@ -366,14 +367,14 @@
             this.Estado.ReadOnly = true;
             this.Estado.Width = 86;
             // 
-            // Categoria
+            // nombre_marca
             // 
-            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Categoria.FillWeight = 228.6892F;
-            this.Categoria.HeaderText = "Nombre de Marca";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 180;
+            this.nombre_marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombre_marca.FillWeight = 228.6892F;
+            this.nombre_marca.HeaderText = "Nombre de Marca";
+            this.nombre_marca.Name = "nombre_marca";
+            this.nombre_marca.ReadOnly = true;
+            this.nombre_marca.Width = 180;
             // 
             // frmMarca
             // 
@@ -406,11 +407,11 @@
         private Guna.UI.WinForms.GunaGroupBox grbListaMarcas;
         private Guna.UI.WinForms.GunaDataGridView dgvMarca;
         private Guna.UI.WinForms.GunaButton btnMenuMarca;
+        private System.Windows.Forms.TextBox txtIdMarca;
         private System.Windows.Forms.DataGridViewImageColumn btnEditarDataGrid;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.TextBox txtIdMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_marca;
     }
 }

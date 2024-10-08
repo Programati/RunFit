@@ -42,6 +42,12 @@ namespace CapaDeNegocios
                 return objcd_categoria.Registrar(ObjCategoria, out Mensaje);
             }
         }
+        // Método para eliminar un categoria
+        public bool Eliminar(Categoria ObjCategoria, out string Mensaje)
+        {
+            // Llama al método Eliminar en la capa de datos y devuelve el resultado
+            return objcd_categoria.Eliminar(ObjCategoria, out Mensaje);
+        }
     }
     
 }

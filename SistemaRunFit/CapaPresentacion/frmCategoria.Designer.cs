@@ -28,27 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
             this.lblCategoriaProd = new System.Windows.Forms.Label();
             this.txtCategoria = new Guna.UI.WinForms.GunaTextBox();
-            this.btnGuardarCategoria = new Guna.UI.WinForms.GunaButton();
             this.grbListaCategorias = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvCategoria = new Guna.UI.WinForms.GunaDataGridView();
-            this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaCategoria = new Guna.UI.WinForms.GunaShadowPanel();
             this.txtIdCategoria = new System.Windows.Forms.TextBox();
-            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
-            this.btnBuscarCategoria = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorCateg = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarCategoria = new Guna.UI.WinForms.GunaTextBox();
+            this.ID_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
+            this.btnGuardarCategoria = new Guna.UI.WinForms.GunaButton();
+            this.btnBuscarCategoria = new Guna.UI.WinForms.GunaTileButton();
             this.grbListaCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.pnlBusquedaCategoria.SuspendLayout();
@@ -86,34 +88,6 @@
             this.txtCategoria.TabIndex = 3;
             this.txtCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
-            // 
-            // btnGuardarCategoria
-            // 
-            this.btnGuardarCategoria.AnimationHoverSpeed = 0.07F;
-            this.btnGuardarCategoria.AnimationSpeed = 0.03F;
-            this.btnGuardarCategoria.BackColor = System.Drawing.Color.Transparent;
-            this.btnGuardarCategoria.BaseColor = System.Drawing.Color.White;
-            this.btnGuardarCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnGuardarCategoria.BorderSize = 2;
-            this.btnGuardarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarCategoria.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnGuardarCategoria.FocusedColor = System.Drawing.Color.White;
-            this.btnGuardarCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnGuardarCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCategoria.Image")));
-            this.btnGuardarCategoria.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarCategoria.Location = new System.Drawing.Point(223, 45);
-            this.btnGuardarCategoria.Name = "btnGuardarCategoria";
-            this.btnGuardarCategoria.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnGuardarCategoria.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnGuardarCategoria.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnGuardarCategoria.OnHoverImage = null;
-            this.btnGuardarCategoria.OnPressedColor = System.Drawing.Color.Black;
-            this.btnGuardarCategoria.Radius = 10;
-            this.btnGuardarCategoria.Size = new System.Drawing.Size(100, 34);
-            this.btnGuardarCategoria.TabIndex = 4;
-            this.btnGuardarCategoria.Text = "Guardar";
-            this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
             // 
             // grbListaCategorias
             // 
@@ -153,7 +127,7 @@
             this.dgvCategoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -164,13 +138,13 @@
             this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnEditarDataGrid,
             this.Eliminar,
-            this.ID,
+            this.ID_categoria,
             this.Estado,
             this.Categoria});
             this.dgvCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
@@ -199,68 +173,19 @@
             this.dgvCategoria.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvCategoria.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvCategoria.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvCategoria.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategoria.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCategoria.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvCategoria.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvCategoria.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvCategoria.ThemeStyle.ReadOnly = true;
             this.dgvCategoria.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvCategoria.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCategoria.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCategoria.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
             this.dgvCategoria.ThemeStyle.RowsStyle.Height = 35;
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvCategoria.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // btnEditarDataGrid
-            // 
-            this.btnEditarDataGrid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.btnEditarDataGrid.FillWeight = 38.07107F;
-            this.btnEditarDataGrid.HeaderText = "Editar";
-            this.btnEditarDataGrid.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.btnEditarDataGrid.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.btnEditarDataGrid.Name = "btnEditarDataGrid";
-            this.btnEditarDataGrid.ReadOnly = true;
-            this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditarDataGrid.Width = 79;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 79;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.FillWeight = 33.23971F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 51;
-            // 
-            // Estado
-            // 
-            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            this.Estado.Width = 86;
-            // 
-            // Categoria
-            // 
-            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Categoria.FillWeight = 228.6892F;
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 114;
+            this.dgvCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellContentClick);
             // 
             // pnlBusquedaCategoria
             // 
@@ -290,66 +215,12 @@
             this.txtIdCategoria.Size = new System.Drawing.Size(100, 20);
             this.txtIdCategoria.TabIndex = 88;
             // 
-            // btnMenuMarca
-            // 
-            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
-            this.btnMenuMarca.AnimationSpeed = 0.03F;
-            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
-            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
-            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnMenuMarca.BorderSize = 2;
-            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
-            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
-            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
-            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuMarca.Location = new System.Drawing.Point(26, 48);
-            this.btnMenuMarca.Name = "btnMenuMarca";
-            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnMenuMarca.OnHoverImage = null;
-            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
-            this.btnMenuMarca.Radius = 10;
-            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
-            this.btnMenuMarca.TabIndex = 87;
-            this.btnMenuMarca.Text = "MENU";
-            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
-            // 
             // guna2VSeparator1
             // 
             this.guna2VSeparator1.Location = new System.Drawing.Point(339, 10);
             this.guna2VSeparator1.Name = "guna2VSeparator1";
             this.guna2VSeparator1.Size = new System.Drawing.Size(22, 83);
             this.guna2VSeparator1.TabIndex = 67;
-            // 
-            // btnBuscarCategoria
-            // 
-            this.btnBuscarCategoria.AnimationHoverSpeed = 0.07F;
-            this.btnBuscarCategoria.AnimationSpeed = 0.03F;
-            this.btnBuscarCategoria.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCategoria.BaseColor = System.Drawing.Color.Transparent;
-            this.btnBuscarCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnBuscarCategoria.BorderSize = 2;
-            this.btnBuscarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCategoria.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarCategoria.FocusedColor = System.Drawing.Color.White;
-            this.btnBuscarCategoria.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnBuscarCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCategoria.Image")));
-            this.btnBuscarCategoria.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarCategoria.Location = new System.Drawing.Point(639, 11);
-            this.btnBuscarCategoria.Name = "btnBuscarCategoria";
-            this.btnBuscarCategoria.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnBuscarCategoria.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnBuscarCategoria.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBuscarCategoria.OnHoverImage = null;
-            this.btnBuscarCategoria.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscarCategoria.Radius = 5;
-            this.btnBuscarCategoria.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarCategoria.TabIndex = 2;
             // 
             // lblBuscarPorCateg
             // 
@@ -383,6 +254,161 @@
             this.txtBuscarCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCategoria_KeyPress);
             // 
+            // ID_categoria
+            // 
+            this.ID_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID_categoria.FillWeight = 33.23971F;
+            this.ID_categoria.HeaderText = "ID_categoria";
+            this.ID_categoria.Name = "ID_categoria";
+            this.ID_categoria.ReadOnly = true;
+            this.ID_categoria.Visible = false;
+            this.ID_categoria.Width = 189;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 116;
+            // 
+            // Categoria
+            // 
+            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Categoria.FillWeight = 228.6892F;
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 157;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.FillWeight = 38.07107F;
+            this.dataGridViewImageColumn1.HeaderText = "Editar";
+            this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.Width = 104;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "Eliminar";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 111;
+            // 
+            // btnEditarDataGrid
+            // 
+            this.btnEditarDataGrid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.btnEditarDataGrid.FillWeight = 38.07107F;
+            this.btnEditarDataGrid.HeaderText = "Editar";
+            this.btnEditarDataGrid.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.btnEditarDataGrid.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.btnEditarDataGrid.Name = "btnEditarDataGrid";
+            this.btnEditarDataGrid.ReadOnly = true;
+            this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnEditarDataGrid.Width = 104;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 111;
+            // 
+            // btnMenuMarca
+            // 
+            this.btnMenuMarca.AnimationHoverSpeed = 0.07F;
+            this.btnMenuMarca.AnimationSpeed = 0.03F;
+            this.btnMenuMarca.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenuMarca.BaseColor = System.Drawing.Color.White;
+            this.btnMenuMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnMenuMarca.BorderSize = 2;
+            this.btnMenuMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuMarca.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnMenuMarca.FocusedColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
+            this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
+            this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnMenuMarca.Location = new System.Drawing.Point(26, 48);
+            this.btnMenuMarca.Name = "btnMenuMarca";
+            this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnMenuMarca.OnHoverImage = null;
+            this.btnMenuMarca.OnPressedColor = System.Drawing.Color.Black;
+            this.btnMenuMarca.Radius = 10;
+            this.btnMenuMarca.Size = new System.Drawing.Size(113, 37);
+            this.btnMenuMarca.TabIndex = 87;
+            this.btnMenuMarca.Text = "MENU";
+            this.btnMenuMarca.Click += new System.EventHandler(this.btnMenuMarca_Click);
+            // 
+            // btnGuardarCategoria
+            // 
+            this.btnGuardarCategoria.AnimationHoverSpeed = 0.07F;
+            this.btnGuardarCategoria.AnimationSpeed = 0.03F;
+            this.btnGuardarCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarCategoria.BaseColor = System.Drawing.Color.White;
+            this.btnGuardarCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnGuardarCategoria.BorderSize = 2;
+            this.btnGuardarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarCategoria.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGuardarCategoria.FocusedColor = System.Drawing.Color.White;
+            this.btnGuardarCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarCategoria.Image")));
+            this.btnGuardarCategoria.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnGuardarCategoria.Location = new System.Drawing.Point(223, 45);
+            this.btnGuardarCategoria.Name = "btnGuardarCategoria";
+            this.btnGuardarCategoria.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarCategoria.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnGuardarCategoria.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnGuardarCategoria.OnHoverImage = null;
+            this.btnGuardarCategoria.OnPressedColor = System.Drawing.Color.Black;
+            this.btnGuardarCategoria.Radius = 10;
+            this.btnGuardarCategoria.Size = new System.Drawing.Size(100, 34);
+            this.btnGuardarCategoria.TabIndex = 4;
+            this.btnGuardarCategoria.Text = "Guardar";
+            this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
+            // 
+            // btnBuscarCategoria
+            // 
+            this.btnBuscarCategoria.AnimationHoverSpeed = 0.07F;
+            this.btnBuscarCategoria.AnimationSpeed = 0.03F;
+            this.btnBuscarCategoria.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscarCategoria.BaseColor = System.Drawing.Color.Transparent;
+            this.btnBuscarCategoria.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnBuscarCategoria.BorderSize = 2;
+            this.btnBuscarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCategoria.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBuscarCategoria.FocusedColor = System.Drawing.Color.White;
+            this.btnBuscarCategoria.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnBuscarCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarCategoria.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCategoria.Image")));
+            this.btnBuscarCategoria.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnBuscarCategoria.Location = new System.Drawing.Point(639, 11);
+            this.btnBuscarCategoria.Name = "btnBuscarCategoria";
+            this.btnBuscarCategoria.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnBuscarCategoria.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnBuscarCategoria.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnBuscarCategoria.OnHoverImage = null;
+            this.btnBuscarCategoria.OnPressedColor = System.Drawing.Color.Black;
+            this.btnBuscarCategoria.Radius = 5;
+            this.btnBuscarCategoria.Size = new System.Drawing.Size(35, 30);
+            this.btnBuscarCategoria.TabIndex = 2;
+            // 
             // frmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,11 +440,13 @@
         private Guna.UI.WinForms.GunaButton btnGuardarCategoria;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI.WinForms.GunaButton btnMenuMarca;
+        private System.Windows.Forms.TextBox txtIdCategoria;
         private System.Windows.Forms.DataGridViewImageColumn btnEditarDataGrid;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.TextBox txtIdCategoria;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }
