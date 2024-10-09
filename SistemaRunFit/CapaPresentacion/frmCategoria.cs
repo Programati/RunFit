@@ -121,6 +121,7 @@ namespace CapaPresentacion
                     {
                         // Muestra mensajes de error si no se guardaron los datos
                         MessageBox.Show(MensajeCategoria );
+                        txtIdCategoria.Text = "";
                     }
                     
                     // Borrar cuando se integre la BD

@@ -92,7 +92,7 @@ namespace CapaPresentacion
         {
             string MensajeMarca = string.Empty; // Mensaje para el resultado del proceso de usuario
             int IdMarcaGenerada = 0; // ID de persona generada
-
+            bool VerdadMarcaGenerada = false;
             // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
             string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
 
@@ -111,22 +111,22 @@ namespace CapaPresentacion
                 // Si el usuario confirma, se procede a guardar los datos.
                 if (confirmacion == DialogResult.Yes)
                 {
-                    Marca CategoriaNueva = new Marca()
+                    Marca MarcaNueva = new Marca()
                     {
-                         idMarca= txtIdMarca.Text != "" ? Convert.ToInt32(txtMarca.Text) : IdMarcaGenerada,
-                        nombre = txtMarca.Text,
+                        idMarca = txtIdMarca.Text != "" ? Convert.ToInt32(txtIdMarca.Text) : IdMarcaGenerada,
+                        nombre = txtMarca.Text.ToString(),
 
                     };
 
                     // Si hay un ID de persona, se edita
                     if (txtIdMarca.Text != "")
                     {
-                        // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
-                        // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        VerdadMarcaGenerada = new CN_Marca().Editar(MarcaNueva, out MensajeMarca);
+                        IdMarcaGenerada = MarcaNueva.idMarca; // Actualiza el ID de persona generada
                     }
                     else
                     {
-                        IdMarcaGenerada = new CN_Marca().Registrar(CategoriaNueva, out MensajeMarca);
+                        IdMarcaGenerada = new CN_Marca().Registrar(MarcaNueva, out MensajeMarca);
                     }
                     if (IdMarcaGenerada != 0)
                     {
