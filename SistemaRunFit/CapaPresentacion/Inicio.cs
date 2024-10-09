@@ -90,7 +90,7 @@ namespace CapaPresentacion
         // Función que abre el formulario para registrar una venta y bloquea el panel de botones
         private void btnRegistrarVentas_Click(object sender, EventArgs e)
         {
-            frmRegistrarVenta frmVenta = new frmRegistrarVenta(this); // Crea una nueva instancia del formulario para registrar una venta y pasa la referencia del formulario actual
+            frmRegistrarVenta frmVenta = new frmRegistrarVenta(this, UsuarioActual); // Crea una nueva instancia del formulario para registrar una venta y pasa la referencia del formulario actual
             abrirFormulario(btnRegistrarVentas, frmVenta); // Llama a la función para abrir el formulario y activar el botón correspondiente
             pnlContenedorMenu.Enabled = false; // Desactiva el panel de botones para evitar interacciones mientras el formulario de ventas está activo
         }

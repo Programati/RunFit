@@ -1,15 +1,17 @@
 ﻿using CapaDeEntidades;
 using CapaDeNegocios;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace CapaPresentacion
@@ -82,8 +84,8 @@ namespace CapaPresentacion
                     item.oCategoria.idCategoria,
                     item.oProveedor.razonSocial,
                     item.oProveedor.idProveedor,
-                    //item.Imagen,
-                    ImagenProducto(item)           
+                    ImagenProducto(item),
+                    item.detalle
                  });
             }
 
@@ -199,20 +201,17 @@ namespace CapaPresentacion
                 int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
                 if (n >= 0) // Verifica que el índice sea válido
                 {
+                    byte[] imagenProducto = dgvListaProducto.Rows[n].Cells["Imagen"].Value != null ? ImageToByteArray((Image)dgvListaProducto.Rows[n].Cells["Imagen"].Value) : null;
 
                     Categoria CategoriaEditar = new Categoria()
                     {
-                        nombre_categoria = dgvListaProducto.Rows[n].Cells["Categoria"].Value.ToString(),
-                       // idCategoria=Convert.ToInt32(dgvListaProducto.Rows[n].Cells["ID_Categoria"].Value),
-                        
-
-
+                        idCategoria = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["id_categoria"].Value),
+                        nombre_categoria = dgvListaProducto.Rows[n].Cells["Categoria"].Value.ToString()
                     };
                     Marca MarcaEditar = new Marca()
                     {
-                        nombre =dgvListaProducto.Rows[n].Cells["Marca"].Value.ToString(),
-                        idMarca = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["ID_Marca"].Value),
-
+                        nombre = dgvListaProducto.Rows[n].Cells["Marca"].Value.ToString(),
+                        idMarca = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["id_marca"].Value),
                     };
                     
                     Proveedor ProveedorEditar = new Proveedor()
@@ -229,7 +228,8 @@ namespace CapaPresentacion
                         precioVenta = Convert.ToDouble(dgvListaProducto.Rows[n].Cells["PrecioVenta"].Value),
                         stock = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["Stock"].Value),
                         stockMinimo = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["StockMinimo"].Value),
-                        //detalle = dgvListaProducto.Rows[n].Cells["Detalle"].Value.ToString() ,
+                        Imagen = imagenProducto,
+                        detalle = dgvListaProducto.Rows[n].Cells["Detalle"].Value.ToString(),
 
                         oCategoria = CategoriaEditar,
                         oMarca = MarcaEditar,
@@ -308,8 +308,20 @@ namespace CapaPresentacion
                 }
             }
         }
+        private byte[] ImageToByteArray(Image imageIn)
+        {
+            if (imageIn == null)
+            {
+                return null;
+            }
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
     }
 
-    
 
 }

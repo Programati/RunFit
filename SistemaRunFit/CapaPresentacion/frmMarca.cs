@@ -90,17 +90,13 @@ namespace CapaPresentacion
         }
         private void btnGuardarMarca_Click(object sender, EventArgs e)
         {
-            string MensajeMarca = string.Empty; // Mensaje para el resultado del proceso de usuario
-            int IdMarcaGenerada = 0; // ID de persona generada
+            string MensajeMarca = string.Empty;
+            int IdMarcaGenerada = 0;
+            bool VerdadMarcaGenerada = false;
+            string mensajeConfirmacion = "¿Desea agregar al";
 
-            // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
-            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
-
-
-            // Verifica si el campo de texto txtCategoria no está vacío.
             if (!string.IsNullOrEmpty(txtMarca.Text))
             {
-                // Muestra un cuadro de diálogo para confirmar la acción de agregar la categoría.
                 var confirmacion = MessageBox.Show(
                     $"Desea agregar la categoria {txtMarca.Text} ?",
                     "Confirmación",
@@ -111,22 +107,21 @@ namespace CapaPresentacion
                 // Si el usuario confirma, se procede a guardar los datos.
                 if (confirmacion == DialogResult.Yes)
                 {
-                    Marca CategoriaNueva = new Marca()
+                    Marca MarcaNueva = new Marca()
                     {
-                         idMarca= txtIdMarca.Text != "" ? Convert.ToInt32(txtMarca.Text) : IdMarcaGenerada,
+                         idMarca = txtIdMarca.Text != "" ? Convert.ToInt32(txtIdMarca.Text) : IdMarcaGenerada,
                         nombre = txtMarca.Text,
 
                     };
 
-                    // Si hay un ID de persona, se edita
                     if (txtIdMarca.Text != "")
                     {
-                        // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
-                        // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        VerdadMarcaGenerada = new CN_Marca().Editar(MarcaNueva, out MensajeMarca);
+                        IdMarcaGenerada = MarcaNueva.idMarca;
                     }
                     else
                     {
-                        IdMarcaGenerada = new CN_Marca().Registrar(CategoriaNueva, out MensajeMarca);
+                        IdMarcaGenerada = new CN_Marca().Registrar(MarcaNueva, out MensajeMarca);
                     }
                     if (IdMarcaGenerada != 0)
                     {
@@ -135,7 +130,6 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        // Muestra mensajes de error si no se guardaron los datos
                         MessageBox.Show(MensajeMarca);
                     }
 

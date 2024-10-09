@@ -20,8 +20,8 @@ namespace CapaDeDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.precio_compra, p.precio_venta, p.stock, p.stock_minimo, p.imagen, p.fecha_alta, p.fecha_baja,");
-                    query.AppendLine("m.nombre as marca_nombre, c.nombre_categoria, pv.razon_social");
+                    query.AppendLine("SELECT p.id_producto, p.nombre_producto, p.precio_compra, p.precio_venta, p.stock, p.stock_minimo, p.imagen, p.fecha_alta, p.fecha_baja, p.detalle_producto,");
+                    query.AppendLine("m.nombre as marca_nombre, m.id_marca, c.nombre_categoria, c.id_categoria, pv.id_proveedor, pv.razon_social");
                     query.AppendLine("FROM productos p");
                     query.AppendLine("INNER JOIN MARCAS m ON m.id_marca = p.id_marca");
                     query.AppendLine("INNER JOIN CATEGORIAS c ON c.id_categoria = p.id_categoria");
@@ -44,16 +44,15 @@ namespace CapaDeDatos
                                 precioVenta = (double)dr["precio_venta"],
                                 stock = Convert.ToInt32(dr["stock"]),
                                 stockMinimo = Convert.ToInt32(dr["stock_minimo"]),
-
-                                // Corregido: uso del nombre de la columna en lugar del índice
                                 Imagen = dr["imagen"] == DBNull.Value ? null : (byte[])dr["imagen"],
 
                                 fechaAlta = dr["fecha_alta"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["fecha_alta"]),
                                 fechaBaja = dr["fecha_baja"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(dr["fecha_baja"]),
+                                detalle = dr["detalle_producto"].ToString(),
 
-                                oMarca = new Marca() { nombre = dr["marca_nombre"].ToString() },
-                                oCategoria = new Categoria() { nombre_categoria = dr["nombre_categoria"].ToString() },
-                                oProveedor = new Proveedor() { razonSocial = dr["razon_social"].ToString() }
+                                oMarca = new Marca() { nombre = dr["marca_nombre"].ToString(), idMarca = Convert.ToInt32(dr["id_marca"]) },
+                                oCategoria = new Categoria() { nombre_categoria = dr["nombre_categoria"].ToString(), idCategoria = Convert.ToInt32(dr["id_categoria"]) },
+                                oProveedor = new Proveedor() { razonSocial = dr["razon_social"].ToString(), idProveedor = Convert.ToInt32(dr["id_proveedor"]) }
                             });
                         }
                         dr.Close();
@@ -110,7 +109,6 @@ namespace CapaDeDatos
         {
             bool Respuesta = false;
             Mensaje = string.Empty;
-
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -153,7 +151,6 @@ namespace CapaDeDatos
         {
             bool Respuesta = false;
             Mensaje = string.Empty;
-
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
@@ -180,7 +177,36 @@ namespace CapaDeDatos
             }
             return Respuesta;
         }
+        public int Actualizar(int idProducto, int cantidadCompra, out string Mensaje)
+    {
+        int Resultado = 0;
+        Mensaje = string.Empty;
+            
+        try
+        {
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("SP_PRODUCTO_ACTUALIZAR", oconexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_producto", SqlDbType.Int).Value = idProducto;
+                cmd.Parameters.AddWithValue("@cantidad", SqlDbType.Int).Value = cantidadCompra;
+                cmd.Parameters.Add("@Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
+                oconexion.Open();
+                cmd.ExecuteNonQuery();
+
+                Resultado = (int)cmd.Parameters["@Resultado"].Value;
+                Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+            }
+        }
+        catch(Exception ex)
+        {
+            Resultado = 0;
+            Mensaje = ex.Message;    
+        }
+       return Resultado;
+    }
 
     }
 }

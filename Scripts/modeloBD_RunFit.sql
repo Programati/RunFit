@@ -162,6 +162,17 @@ CREATE TABLE VENTAS (
     CONSTRAINT FK_VENTAS_USUARIOS FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario)
 );
 GO
+/*
+ALTER TABLE VENTAS
+ADD id_cliente INT NOT NULL;
+
+ALTER TABLE VENTAS
+ADD CONSTRAINT FK_VENTAS_PERSONAS FOREIGN KEY (id_cliente) REFERENCES PERSONAS(id_persona);
+
+ALTER TABLE VENTAS
+ALTER COLUMN importe_total DECIMAL(18, 2);
+
+*/
 
 -- Crear tabla DETALLE_VENTAS
 CREATE TABLE DETALLE_VENTAS (
@@ -175,6 +186,11 @@ CREATE TABLE DETALLE_VENTAS (
     CONSTRAINT FK_DETALLE_VENTAS_VENTAS FOREIGN KEY (id_venta) REFERENCES VENTAS(id_venta)
 );
 GO
+
+/*
+ALTER TABLE DETALLE_VENTAS
+ALTER COLUMN subtotal DECIMAL(18, 2);
+*/
 
 
 select * from USUARIOS;
@@ -267,3 +283,18 @@ inner join MARCAS m on m.id_marca=p.id_marca
 inner join CATEGORIAS c on c.id_categoria=p.id_categoria
 inner join PROVEEDORES pv on pv.id_proveedor=p.id_proveedor
 order by p.fecha_baja asc;
+
+
+select * from VENTAS;
+select * from DETALLE_VENTAS;
+select id_producto, nombre_producto, stock from PRODUCTOS
+where id_producto = 3
+select id_producto, nombre_producto, stock from PRODUCTOS
+where id_producto = 11
+
+select nombre, dni from PERSONAS
+join DOMICILIOS on DOMICILIOS.id_persona = PERSONAS.id_persona
+
+
+delete from VENTAS where id_venta = 5
+
