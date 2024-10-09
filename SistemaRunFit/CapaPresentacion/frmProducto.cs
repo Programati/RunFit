@@ -15,16 +15,26 @@ using System.IO;
 
 namespace CapaPresentacion
 {
+
     public partial class frmProducto : Form
     {
+        private static Producto ProductoDGV = null;
+
         private CN_Marca objCN_Marca;
         private CN_Categoria objCN_Categoria;
         private CN_proveedor objCN_proveedor;
+        private CN_Producto objCN_Producto;
         public frmProducto()
         {
             InitializeComponent();
-            this.Load += new EventHandler(frmProducto_Load);
-            
+            //this.Load += new EventHandler(frmProducto_Load_1);
+
+        }
+        public frmProducto(Producto ProductoEditar)
+        {
+            ProductoDGV = ProductoEditar; // Asigna el producto a editar
+            InitializeComponent();
+           
         }
         private void CargarProveedores()
         {
@@ -81,19 +91,28 @@ namespace CapaPresentacion
             cmbMarcaProducto.SelectedIndex = -1;
         }
 
-        private void frmProducto_Load(object sender, EventArgs e)
+       /* private void frmProducto_Load(object sender, EventArgs e)
         {
-            txtNombreProducto.Focus();
-            objCN_Marca = new CN_Marca();
-            objCN_Categoria = new CN_Categoria();
-            objCN_proveedor = new CN_proveedor();
-            CargarProveedores();
-            CargarCategorias();
-            CargarMarcas();
+           
+            
+            
+        }*/
+        private void LimpiarControles()
+        {
+            txtNombreProducto.Clear();
+            txtDetalleProducto.Clear();
+            txtStockProducto.Clear();
+            txtStockMinimoProducto.Clear();
+            txtPrecioCompraProducto.Clear();
+            txtPrecioVentaProducto.Clear();
+            cmbProveedorProducto.SelectedIndex = -1;
+            cmbCategoriaProducto.SelectedIndex = -1;
+            cmbMarcaProducto.SelectedIndex = -1;
         }
 
         private void btnVolverUser_Click(object sender, EventArgs e)
         {
+            ProductoDGV = null;
             this.Close();
         }
 
@@ -167,106 +186,109 @@ namespace CapaPresentacion
                 }
             }
         }
-
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
             string mensajeProducto = string.Empty;
             int idProductoGenerado = 0;
             string mensajeConfirmacion = "¿Desea agregar el producto";
+            bool VerdadProductoGenerado = false;
 
-            if (camposValidados())
+            // Validar imagen en el PictureBox antes de convertirla a byte[]
+            byte[] imagenProducto = pbImagenProducto.Image != null ? ImageToByteArray(pbImagenProducto.Image) : null;
+
+            // Validación de campos antes de convertirlos
+            if (camposValidados() && double.TryParse(txtPrecioCompraProducto.Text, out double precioCompra)
+                && double.TryParse(txtPrecioVentaProducto.Text, out double precioVenta)
+                && int.TryParse(txtStockProducto.Text, out int stock)
+                && int.TryParse(txtStockMinimoProducto.Text, out int stockMinimo))
             {
-                try
+                string nombreProducto = txtNombreProducto.Text;
+                string detalleProducto = txtDetalleProducto.Text;
+                int idMarcaSeleccionada = (int)cmbMarcaProducto.SelectedValue;
+                int idProveedorSeleccionado = (int)cmbProveedorProducto.SelectedValue;
+                int idCategoriaSeleccionada = (int)cmbCategoriaProducto.SelectedValue;
+
+                if (!string.IsNullOrEmpty(txtIdProducto.Text))
+                    mensajeConfirmacion = "¿Confirma los cambios de";
+
+                var confirmacion = MessageBox.Show(
+                    $"{mensajeConfirmacion} {nombreProducto} al sistema?",
+                    "Confirmación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmacion == DialogResult.Yes)
                 {
-                    // Convertir la imagen del PictureBox a un arreglo de bytes (byte[])
-                    byte[] imagenProducto = ImageToByteArray(pbImagenProducto.Image);
-
-                    string nombreProducto = txtNombreProducto.Text;
-                    double precioCompra = Convert.ToDouble(txtPrecioCompraProducto.Text);
-                    double precioVenta = Convert.ToDouble(txtPrecioVentaProducto.Text);
-                    int stock = Convert.ToInt32(txtStockProducto.Text);
-                    int stockMinimo = Convert.ToInt32(txtStockMinimoProducto.Text);
-                    string detalleProducto = txtDetalleProducto.Text;
-                    int idMarcaSeleccionada = (int)cmbMarcaProducto.SelectedValue;
-                    int idProveedorSeleccionado = (int)cmbProveedorProducto.SelectedValue;
-                    int idCategoriaSeleccionada = (int)cmbCategoriaProducto.SelectedValue;
-
-
-                    if (!string.IsNullOrEmpty(txtIdProducto.Text))
-                        mensajeConfirmacion = "¿Confirma los cambios de";
-
-                    var confirmacion = MessageBox.Show(
-                        $"{mensajeConfirmacion} {nombreProducto} al sistema?",
-                        "Confirmación",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question
-                    );
-
-                    if (confirmacion == DialogResult.Yes)
+                    Producto productoNuevo = new Producto()
                     {
-                        Producto productoNuevo = new Producto()
-                        {
-                            idProducto = string.IsNullOrEmpty(txtIdProducto.Text) ? 0 : Convert.ToInt32(txtIdProducto.Text),
-                            nombre = nombreProducto,
-                            precioCompra = precioCompra,
-                            precioVenta = precioVenta,
-                            stock = stock,
-                            stockMinimo = stockMinimo,
-                            detalle = detalleProducto,
-                            oMarca = new Marca() { idMarca = idMarcaSeleccionada },
-                            oCategoria = new Categoria() { idCategoria = idCategoriaSeleccionada },
-                            oProveedor = new Proveedor() { idProveedor = idProveedorSeleccionado },
-                            Imagen = imagenProducto
-                        };
+                        idProducto = string.IsNullOrEmpty(txtIdProducto.Text) ? 0 : Convert.ToInt32(txtIdProducto.Text),
+                        nombre = nombreProducto,
+                        precioCompra = precioCompra,
+                        precioVenta = precioVenta,
+                        stock = stock,
+                        stockMinimo = stockMinimo,
+                        detalle = detalleProducto,
+                        oMarca = new Marca() { idMarca = idMarcaSeleccionada },
+                        oCategoria = new Categoria() { idCategoria = idCategoriaSeleccionada },
+                        oProveedor = new Proveedor() { idProveedor = idProveedorSeleccionado },
+                        Imagen = imagenProducto
+                    };
 
-                        // Registrar el nuevo producto
+                    // Si hay un ID de producto, se edita
+                    if (!string.IsNullOrEmpty(txtIdProducto.Text))
+                    {
+                        VerdadProductoGenerado = new CN_Producto().Editar(productoNuevo, out mensajeProducto);
+                        idProductoGenerado = productoNuevo.idProducto;
+                    }
+                    // Si no hay ID de producto, se registra como nuevo
+                    else
+                    {
                         idProductoGenerado = new CN_Producto().Registrar(productoNuevo, out mensajeProducto);
+                    }
 
-                        if (idProductoGenerado > 0)
-                        {
-                            MessageBox.Show("Producto registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show(mensajeProducto, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    if (idProductoGenerado != 0)
+                    {
+                        MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensajeProducto);
                     }
                 }
-                catch (FormatException fe)
-                {
-                    MessageBox.Show("Por favor, asegúrese de que todos los campos numéricos estén correctamente formateados.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error al guardar el producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Error en la validación de los campos.");
             }
         }
 
+
         private bool camposValidados()//Metodo para validar los campos
         {
-           
+
             bool productoVacio = string.IsNullOrEmpty(txtIdProducto.Text);
-            
+
             bool precioCompraVacio = string.IsNullOrEmpty(txtPrecioCompraProducto.Text);
-          
+
             bool precioVentaVacio = string.IsNullOrEmpty(txtPrecioVentaProducto.Text);
-           
+
             bool stockVacio = string.IsNullOrEmpty(txtStockProducto.Text);
-           
+
             bool stockMinimoVacio = string.IsNullOrEmpty(txtStockMinimoProducto.Text);
-            
+
             bool marcaVacio = string.IsNullOrEmpty(cmbMarcaProducto.Text);
-            
+
             bool categoriaVacio = string.IsNullOrEmpty(cmbCategoriaProducto.Text);
-           
+
             bool proveedorVacio = string.IsNullOrEmpty(cmbProveedorProducto.Text);
-            
+
             bool detalle_productoVacio = string.IsNullOrEmpty(txtDetalleProducto.Text);
 
-           
+
             // Verifica si alguno de los campos obligatorios está vacío, incluyendo el sexo
-            if ( precioCompraVacio || precioVentaVacio || stockVacio || stockMinimoVacio || marcaVacio || categoriaVacio ||proveedorVacio||detalle_productoVacio)
+            if (precioCompraVacio || precioVentaVacio || stockVacio || stockMinimoVacio || marcaVacio || categoriaVacio || proveedorVacio || detalle_productoVacio)
             {
                 MessageBox.Show("Debe completar todos los campos del Formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -291,5 +313,62 @@ namespace CapaPresentacion
                 return ms.ToArray();
             }
         }
+
+        private void frmProducto_Load_1(object sender, EventArgs e)
+        {
+            txtNombreProducto.Focus();
+            objCN_Marca = new CN_Marca();
+            objCN_Categoria = new CN_Categoria();
+            objCN_proveedor = new CN_proveedor();
+            CargarProveedores();
+            CargarCategorias();
+            CargarMarcas();
+            if (ProductoDGV != null)
+            {
+                // Asignar valores de los TextBox
+                txtDetalleProducto.Text = ProductoDGV.detalle?.ToString() ?? string.Empty;  // Maneja también si el detalle es null
+                txtNombreProducto.Text = ProductoDGV.nombre?.ToString() ?? string.Empty;
+                txtStockProducto.Text = ProductoDGV.stock.ToString();
+                txtStockMinimoProducto.Text = ProductoDGV.stockMinimo.ToString();
+                txtPrecioCompraProducto.Text = ProductoDGV.precioCompra.ToString();
+                txtPrecioVentaProducto.Text = ProductoDGV.precioVenta.ToString();
+                txtIdProducto.Text = ProductoDGV.idProducto.ToString();
+                
+
+                // Seleccionar la categoría en el ComboBox correspondiente
+                foreach (Categoria item in cmbCategoriaProducto.Items)
+                {
+                    if (item.idCategoria == ProductoDGV.oCategoria.idCategoria)
+                    {
+                        cmbCategoriaProducto.SelectedItem = item;  // Establece el objeto seleccionado directamente
+                        break;
+                    }
+                }
+
+                // Seleccionar la marca en el ComboBox correspondiente
+                foreach (Marca item in cmbMarcaProducto.Items)
+                {
+                    if (item.idMarca == ProductoDGV.oMarca.idMarca)
+                    {
+                        cmbMarcaProducto.SelectedItem = item;  // Establece el objeto seleccionado directamente
+                        break;
+                    }
+                }
+
+                // Seleccionar el proveedor en el ComboBox correspondiente
+                foreach (Proveedor item in cmbProveedorProducto.Items)
+                {
+                    if (item.idProveedor == ProductoDGV.oProveedor.idProveedor)
+                    {
+                        cmbProveedorProducto.SelectedItem = item;  // Establece el objeto seleccionado directamente
+                        break;
+                    }
+                }
+            }
+           
+
+
+        }
     }
 }
+

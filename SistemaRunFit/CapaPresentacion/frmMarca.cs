@@ -32,7 +32,7 @@ namespace CapaPresentacion
             {
                 dgvMarca.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_marca: CapaPresentacion.Properties.Resources.activar_marca, // Icono de acción
             item.idMarca,
             item.fechaBaja == null ? "Activo" : "Inactivo",
             item.nombre,
@@ -155,6 +155,25 @@ namespace CapaPresentacion
 
         private void dgvMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvMarca.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+
+                    Marca MarcaEditar = new Marca()
+                    {
+                        idMarca = Convert.ToInt32(dgvMarca.Rows[n].Cells["ID_marca"].Value),
+                        nombre = dgvMarca.Rows[n].Cells["nombre_marca"].Value.ToString()
+                    };
+
+                    txtMarca.Text = MarcaEditar.nombre;
+                    txtIdMarca.Text = MarcaEditar.idMarca.ToString();
+                    // btnGuardarCategoria.Text = "Actualizar";
+
+                }
+                //txtIdCategoria.Text = "";
+            }
             // Verifica si la columna seleccionada es la de "Accion"
             if (dgvMarca.Columns[e.ColumnIndex].Name == "Eliminar")
             {

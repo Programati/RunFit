@@ -325,5 +325,23 @@
   <ItemGroup>
     <None Include="Resources\eliminar_categoria.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto_activar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto_eliminar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

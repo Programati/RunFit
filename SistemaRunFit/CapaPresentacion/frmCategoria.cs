@@ -73,8 +73,9 @@ namespace CapaPresentacion
         {
             string MensajeCategoria = string.Empty; // Mensaje para el resultado del proceso de usuario
             int IdCategoriaGenerada = 0; // ID de persona generada
-            
-           // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
+            bool VerdadCategoriaGenerada = false;
+
+            // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
             string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
             
 
@@ -99,11 +100,12 @@ namespace CapaPresentacion
                         
                     };
 
-                    // Si hay un ID de persona, se edita
+                    // Si hay un ID de categoria, se edita
                     if (txtIdCategoria.Text != "")
                     {
-                       // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
-                       // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        VerdadCategoriaGenerada = new CN_Categoria().Editar(CategoriaNueva, out MensajeCategoria);
+                        IdCategoriaGenerada = CategoriaNueva.idCategoria; // Actualiza el ID de categoria generada
+                       
                     }
                     else
                     {
@@ -112,7 +114,8 @@ namespace CapaPresentacion
                     if (IdCategoriaGenerada != 0 )
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        LimpiarCampos(); 
+                        LimpiarCampos();
+                        txtIdCategoria.Text = "";
                     }
                     else
                     {
@@ -175,6 +178,26 @@ namespace CapaPresentacion
 
         private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dgvCategoria.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    
+                    Categoria CategoriaEditar = new Categoria()
+                    {
+                        idCategoria = Convert.ToInt32(dgvCategoria.Rows[n].Cells["ID_categoria"].Value),
+                        nombre_categoria = dgvCategoria.Rows[n].Cells["categoria"].Value.ToString()
+                    };
+
+                   txtCategoria.Text= CategoriaEditar.nombre_categoria;
+                    txtIdCategoria.Text = CategoriaEditar.idCategoria.ToString();
+                   // btnGuardarCategoria.Text = "Actualizar";
+
+                }
+                //txtIdCategoria.Text = "";
+            }
+
             // Verifica si la columna seleccionada es la de "Accion"
             if (dgvCategoria.Columns[e.ColumnIndex].Name == "Eliminar")
             {

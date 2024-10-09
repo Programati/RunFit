@@ -21,7 +21,7 @@ namespace CapaDeDatos
                 {
                    
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id_categoria,nombre_categoria,fecha_alta,fecha_baja from categorias");
+                    query.AppendLine("select id_categoria,nombre_categoria,fecha_alta,fecha_baja from categorias order by fecha_baja asc");
                     
                     // Creamos un comando SQL con la consulta construida
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);

@@ -1,6 +1,6 @@
 
 
-
+select * from PRODUCTOS
 --Prodcedimientos almacenados
 /*REGISTRAR PERSONA*/
 CREATE PROC SP_PERSONA_REGISTRAR(
@@ -419,7 +419,100 @@ BEGIN
     END CATCH
 END
 GO
+select * from CATEGORIAS;
 select * from PRODUCTOS
+go
+CREATE PROC SP_PRODUCTO_EDITAR
+(
+    @id_producto int,
+    @detalle_producto VARCHAR(100),
+    @nombre_producto VARCHAR(100),
+    @precio_compra float,
+    @precio_venta float,
+    @stock int,
+    @stock_minimo int,
+    @id_marca int,
+    @id_categoria int,
+    @id_proveedor int,
+    @imagen varbinary(200),
+    @Respuesta bit output,
+    @Mensaje VARCHAR(500) output
+)
+AS
+BEGIN
+    -- Inicializamos los valores de salida
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
+
+    -- Verificamos si ya existe un producto con el mismo nombre
+    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND id_producto != @id_producto)
+    BEGIN
+        -- Si no existe, actualizamos el producto
+        UPDATE PRODUCTOS
+        SET
+            detalle_producto = @detalle_producto,
+            nombre_producto = @nombre_producto,
+            precio_compra = @precio_compra,
+            precio_venta = @precio_venta,
+            stock = @stock,
+            stock_minimo = @stock_minimo,
+            id_marca = @id_marca,
+            id_categoria = @id_categoria,
+            id_proveedor = @id_proveedor,
+            imagen = @imagen
+        WHERE
+            id_producto = @id_producto;
+
+        -- Indicamos que la operación fue exitosa
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Producto actualizado correctamente';
+    END
+    ELSE
+    BEGIN
+        -- Si existe otro producto con el mismo nombre, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre';
+    END
+END;
+
+CREATE PROC SP_PRODUCTO_ELIMINAR(
+    @id_producto INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM PRODUCTOS WHERE id_producto = @id_producto;
+
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE PRODUCTOS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_producto = @id_producto;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE PRODUCTOS
+            SET fecha_baja = NULL
+            WHERE id_producto = @id_producto;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el producto no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El producto no existe.';
+    END
+END
   --------------------------------------------------------------
  go
 
@@ -594,7 +687,7 @@ BEGIN
     END
 END
 GO
-
+select * from MARCAS
 /*EDITAR MARCAS*/
 CREATE PROC SP_MARCAS_EDITAR(
 	@id_marca INT,
@@ -782,8 +875,8 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
-<<<<<<< HEAD
+
  select * from PRODUCTOS
-=======
+
  select * from MARCAS
 >>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd

@@ -106,6 +106,49 @@ namespace CapaDeDatos
             }
             return IdProductoGenerado;
         }
+        public bool Editar(Producto ObjProducto, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_PRODUCTO_EDITAR", oconexion);
+
+                    cmd.Parameters.AddWithValue("id_producto", ObjProducto.idProducto);
+                    cmd.Parameters.AddWithValue("nombre_producto", ObjProducto.nombre);
+                    cmd.Parameters.AddWithValue("precio_compra", ObjProducto.precioCompra);
+                    cmd.Parameters.AddWithValue("precio_venta", ObjProducto.precioVenta);
+                    cmd.Parameters.AddWithValue("id_marca", ObjProducto.oMarca.idMarca);
+                    cmd.Parameters.AddWithValue("id_categoria", ObjProducto.oCategoria.idCategoria);
+                    cmd.Parameters.AddWithValue("id_proveedor", ObjProducto.oProveedor.idProveedor);
+                    cmd.Parameters.AddWithValue("stock", ObjProducto.stock);
+                    cmd.Parameters.AddWithValue("stock_minimo", ObjProducto.stockMinimo);
+                    cmd.Parameters.AddWithValue("detalle_producto", ObjProducto.detalle);
+                    cmd.Parameters.AddWithValue("imagen", (object)ObjProducto.Imagen ?? DBNull.Value);
+
+
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
+        }
         public bool Eliminar(Producto ObjProducto, out string Mensaje)
         {
             bool Respuesta = false;

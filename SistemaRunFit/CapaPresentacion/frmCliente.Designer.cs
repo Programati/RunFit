@@ -199,7 +199,7 @@
             this.btnVolverCliente.FocusedColor = System.Drawing.Color.White;
             this.btnVolverCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverCliente.Image")));
+            this.btnVolverCliente.Image = global::CapaPresentacion.Properties.Resources.volver;
             this.btnVolverCliente.ImageSize = new System.Drawing.Size(20, 20);
             this.btnVolverCliente.Location = new System.Drawing.Point(164, 331);
             this.btnVolverCliente.Name = "btnVolverCliente";

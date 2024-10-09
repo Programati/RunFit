@@ -2,6 +2,8 @@
 using CapaDeEntidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +41,29 @@ namespace CapaDeNegocios
             {
                 // Si no hay errores, llama al método Registrar en la capa de datos para guardar el usuario
                 return objcd_marca.Registrar(ObjMarca, out Mensaje);
+            }
+        }
+        public bool Editar(Marca ObjMarca, out string Mensaje)
+        {
+            // Inicializa el mensaje vacío
+            Mensaje = string.Empty;
+
+            // Verifica que el nombre del usuario no esté vacío
+            if (ObjMarca.nombre == "")
+            {
+                // Si el nombre está vacío, se añade un mensaje de error
+                Mensaje += "El NOMBRE es necesario para cargar la BD\n";
+            }
+
+            // Si hay algún mensaje de error, no se realiza la edición
+            if (Mensaje != string.Empty)
+            {
+                return false; // Devuelve false si hay errores
+            }
+            else
+            {
+                // Si no hay errores, llama al método Editar en la capa de datos para actualizar el usuario
+                return objcd_marca.Editar(ObjMarca, out Mensaje);
             }
         }
         // Método para eliminar un marca

@@ -44,7 +44,7 @@
             this.txtBuscarMarca = new Guna.UI.WinForms.GunaTextBox();
             this.grbListaMarcas = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvMarca = new Guna.UI.WinForms.GunaDataGridView();
-            this.btnEditarDataGrid = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.ID_marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -279,11 +279,12 @@
             this.dgvMarca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMarca.ColumnHeadersHeight = 34;
             this.dgvMarca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnEditarDataGrid,
+            this.Editar,
             this.Eliminar,
             this.ID_marca,
             this.Estado,
             this.nombre_marca});
+            this.dgvMarca.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,18 +328,18 @@
             this.dgvMarca.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvMarca.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellContentClick);
             // 
-            // btnEditarDataGrid
+            // Editar
             // 
-            this.btnEditarDataGrid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.btnEditarDataGrid.FillWeight = 38.07107F;
-            this.btnEditarDataGrid.HeaderText = "Editar";
-            this.btnEditarDataGrid.Image = global::CapaPresentacion.Properties.Resources.editar;
-            this.btnEditarDataGrid.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.btnEditarDataGrid.Name = "btnEditarDataGrid";
-            this.btnEditarDataGrid.ReadOnly = true;
-            this.btnEditarDataGrid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEditarDataGrid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditarDataGrid.Width = 79;
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Editar.FillWeight = 38.07107F;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::CapaPresentacion.Properties.Resources.editar;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 79;
             // 
             // Eliminar
             // 
@@ -408,7 +409,7 @@
         private Guna.UI.WinForms.GunaDataGridView dgvMarca;
         private Guna.UI.WinForms.GunaButton btnMenuMarca;
         private System.Windows.Forms.TextBox txtIdMarca;
-        private System.Windows.Forms.DataGridViewImageColumn btnEditarDataGrid;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
