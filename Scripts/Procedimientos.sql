@@ -423,6 +423,48 @@ select * from PRODUCTOS
   --------------------------------------------------------------
  go
 
+ /*ACTUALIZAR PRODUCTO*/ 
+CREATE PROCEDURE SP_PRODUCTO_ACTUALIZAR (
+    @id_producto INT,
+    @cantidad INT,
+    @Resultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Resultado = 0;
+    SET @Mensaje = '';
+
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto)
+    BEGIN
+        IF @cantidad > 0
+        BEGIN
+            IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto AND stock >= @cantidad)
+            BEGIN
+                UPDATE PRODUCTOS
+                SET stock = stock - @cantidad
+                WHERE id_producto = @id_producto;
+                SET @Resultado = 1;
+            END
+            ELSE
+            BEGIN
+                SET @Mensaje = 'Stock insuficiente para realizar la operación.';
+            END
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'La cantidad debe ser mayor a 0.';
+        END
+    END
+    ELSE
+    BEGIN
+        SET @Mensaje = 'El producto no existe!';
+    END
+END
+GO
+  --------------------------------------------------------------
+ go
+
 /*REGISTRAR PROVEEDOR*/
 CREATE PROCEDURE SP_PROVEEDOR_REGISTRAR(
     @razon_social VARCHAR(50),
@@ -664,6 +706,80 @@ go
 
 
 
+
+
+
+-------------------------------------------------------------
+GO
+
+/*REGISTRAR VENTA*/
+CREATE PROCEDURE SP_VENTAS_REGISTRAR(
+    @importe_total DECIMAL(18,2),
+    @id_usuario INT,
+    @id_cliente INT,
+	@IdVentaResultado int output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ BEGIN
+	set @IdVentaResultado = 0
+	set @Mensaje = ''
+	IF EXISTS (SELECT * FROM USUARIOS WHERE id_usuario = @id_usuario)
+		BEGIN
+			IF EXISTS (SELECT * FROM PERSONAS WHERE id_persona = @id_cliente)
+				BEGIN
+					INSERT INTO VENTAS(importe_total,fecha_factura,id_usuario,id_cliente) VALUES(@importe_total, GETDATE(),@id_usuario,@id_cliente)
+
+					set @IdVentaResultado = SCOPE_IDENTITY()
+					SET @Mensaje = 'Venta registrada';
+				END
+			ELSE
+				BEGIN
+					set @Mensaje = 'El cliente no existe!'
+				END
+		END
+	ELSE
+		BEGIN
+			set @Mensaje = 'El vendedor no existe!'
+		END
+END
+GO
+
+
+
+ -------------------------------------------------------------
+GO
+
+/*REGISTRAR DETALLE_VENTAS*/
+CREATE PROCEDURE SP_DETALLE_VENTAS_REGISTRAR(
+    @cantidad INT,
+	@subtotal DECIMAL(18,2),
+	@id_producto INT,
+	@id_venta INT,
+    @IdDetalleVentaResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @IdDetalleVentaResultado = 0
+    SET @Mensaje = ''
+    
+    IF EXISTS (SELECT 1 FROM VENTAS WHERE id_venta = @id_venta)
+		BEGIN
+			INSERT INTO DETALLE_VENTAS(cantidad, subtotal, id_producto, id_venta) 
+			VALUES(@cantidad,@subtotal,@id_producto,@id_venta);
+
+			SET @IdDetalleVentaResultado = SCOPE_IDENTITY();
+		END
+    ELSE
+		BEGIN
+			SET @Mensaje = 'No existe FACTURA para esta venta!';
+		END
+END
+GO
+
+ -------------------------------------------------------------
+GO
 
 
 select * from PERSONAS p

@@ -58,5 +58,24 @@ namespace CapaDeNegocios
             }
         }
 
+        public int Actualizar(int idProducto, int cantidadCompra, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (idProducto <= 0)
+            {
+                Mensaje += "Producto no encontrado\n";
+                return 0;
+            }
+            if (cantidadCompra <= 0)
+            {
+                Mensaje += "No se está cargando ningun producto\n";
+                return 0;
+            }
+            else
+            {
+                return objcd_producto.Actualizar(idProducto, cantidadCompra, out Mensaje);
+            }
+        }
     }
 }

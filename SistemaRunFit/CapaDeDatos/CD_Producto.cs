@@ -107,6 +107,36 @@ namespace CapaDeDatos
             return IdProductoGenerado;
         }
 
+        public int Actualizar(int idProducto, int cantidadCompra, out string Mensaje)
+        {
+            int Resultado = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_PRODUCTO_ACTUALIZAR", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id_producto", SqlDbType.Int).Value = idProducto;
+                    cmd.Parameters.AddWithValue("@cantidad", SqlDbType.Int).Value = cantidadCompra;
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    Resultado = (int)cmd.Parameters["@Resultado"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Resultado = 0;
+                Mensaje = ex.Message;
+            }
+            return Resultado;
+        }
 
 
     }
