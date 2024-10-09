@@ -90,6 +90,7 @@ namespace CapaPresentacion
         }
         private void btnGuardarMarca_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             string MensajeMarca = string.Empty; // Mensaje para el resultado del proceso de usuario
             int IdMarcaGenerada = 0; // ID de persona generada
             bool VerdadMarcaGenerada = false;
@@ -98,9 +99,15 @@ namespace CapaPresentacion
 
 
             // Verifica si el campo de texto txtCategoria no está vacío.
+=======
+            string MensajeMarca = string.Empty;
+            int IdMarcaGenerada = 0;
+            bool VerdadMarcaGenerada = false;
+            string mensajeConfirmacion = "¿Desea agregar al";
+
+>>>>>>> 6d736377c4440647d72df7ddc5756a8c894d504c
             if (!string.IsNullOrEmpty(txtMarca.Text))
             {
-                // Muestra un cuadro de diálogo para confirmar la acción de agregar la categoría.
                 var confirmacion = MessageBox.Show(
                     $"Desea agregar la categoria {txtMarca.Text} ?",
                     "Confirmación",
@@ -113,16 +120,24 @@ namespace CapaPresentacion
                 {
                     Marca MarcaNueva = new Marca()
                     {
+<<<<<<< HEAD
                         idMarca = txtIdMarca.Text != "" ? Convert.ToInt32(txtIdMarca.Text) : IdMarcaGenerada,
                         nombre = txtMarca.Text.ToString(),
+=======
+                         idMarca = txtIdMarca.Text != "" ? Convert.ToInt32(txtIdMarca.Text) : IdMarcaGenerada,
+                        nombre = txtMarca.Text,
+>>>>>>> 6d736377c4440647d72df7ddc5756a8c894d504c
 
                     };
 
-                    // Si hay un ID de persona, se edita
                     if (txtIdMarca.Text != "")
                     {
                         VerdadMarcaGenerada = new CN_Marca().Editar(MarcaNueva, out MensajeMarca);
+<<<<<<< HEAD
                         IdMarcaGenerada = MarcaNueva.idMarca; // Actualiza el ID de persona generada
+=======
+                        IdMarcaGenerada = MarcaNueva.idMarca;
+>>>>>>> 6d736377c4440647d72df7ddc5756a8c894d504c
                     }
                     else
                     {
@@ -135,7 +150,6 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        // Muestra mensajes de error si no se guardaron los datos
                         MessageBox.Show(MensajeMarca);
                     }
 

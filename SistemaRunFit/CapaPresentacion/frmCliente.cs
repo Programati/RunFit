@@ -221,7 +221,6 @@ namespace CapaPresentacion
                     MessageBoxIcon.Question
                 );
 
-                // Si el usuario confirma (elige "Yes").
                 if (confirmacion == DialogResult.Yes)
                 {
                     // Formatea la fecha seleccionada en el DateTimePicker para guardar en la BD.

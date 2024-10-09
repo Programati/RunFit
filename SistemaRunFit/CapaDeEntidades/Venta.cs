@@ -9,9 +9,10 @@ namespace CapaDeEntidades
     public class Venta
     {
         public int idVenta { get; set; }
-        public decimal importeTotal { get; set; }
+        public double importeTotal { get; set; }
         public string fechaFactura { get; set; }
-        public List<DetalleVenta> oDetalleVenta { get; set; }//Dentro de una venta, puede contener una lista de detalles de ventas
+        public List<DetalleVenta> oDetalleVenta { get; set; }//Lista de detalles de ventas
         public Usuario oUsuario { get; set; }
+        public Persona oCliente { get; set; }
     }
 }

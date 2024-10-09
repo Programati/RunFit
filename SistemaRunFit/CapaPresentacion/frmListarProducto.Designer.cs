@@ -57,8 +57,8 @@
             this.StockMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
@@ -76,7 +76,7 @@
             this.pnlContenedorProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedorProducto.Location = new System.Drawing.Point(0, 0);
             this.pnlContenedorProducto.Name = "pnlContenedorProducto";
-            this.pnlContenedorProducto.Size = new System.Drawing.Size(1456, 584);
+            this.pnlContenedorProducto.Size = new System.Drawing.Size(1370, 584);
             this.pnlContenedorProducto.TabIndex = 0;
             // 
             // grbListaProducto
@@ -97,7 +97,7 @@
             this.grbListaProducto.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaProducto.Name = "grbListaProducto";
             this.grbListaProducto.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
-            this.grbListaProducto.Size = new System.Drawing.Size(1456, 484);
+            this.grbListaProducto.Size = new System.Drawing.Size(1370, 484);
             this.grbListaProducto.TabIndex = 60;
             this.grbListaProducto.Text = "Lista de Productos";
             this.grbListaProducto.TextLocation = new System.Drawing.Point(10, 8);
@@ -137,8 +137,8 @@
             this.StockMinimo,
             this.Marca,
             this.id_marca,
-            this.id_categoria,
             this.Categoria,
+            this.id_categoria,
             this.Proveedor,
             this.id_proveedor,
             this.Imagen,
@@ -163,7 +163,7 @@
             this.dgvListaProducto.RowHeadersWidth = 51;
             this.dgvListaProducto.RowTemplate.Height = 35;
             this.dgvListaProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProducto.Size = new System.Drawing.Size(1452, 432);
+            this.dgvListaProducto.Size = new System.Drawing.Size(1366, 432);
             this.dgvListaProducto.TabIndex = 0;
             this.dgvListaProducto.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProducto.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -204,7 +204,7 @@
             this.pnlBusquedaProducto.Name = "pnlBusquedaProducto";
             this.pnlBusquedaProducto.Radius = 5;
             this.pnlBusquedaProducto.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaProducto.Size = new System.Drawing.Size(1456, 100);
+            this.pnlBusquedaProducto.Size = new System.Drawing.Size(1370, 100);
             this.pnlBusquedaProducto.TabIndex = 58;
             // 
             // btnMenuClientes
@@ -476,15 +476,11 @@
             // 
             // id_marca
             // 
+            this.id_marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id_marca.HeaderText = "ID_Marca";
             this.id_marca.Name = "id_marca";
             this.id_marca.ReadOnly = true;
-            // 
-            // id_categoria
-            // 
-            this.id_categoria.HeaderText = "ID_Categoria";
-            this.id_categoria.Name = "id_categoria";
-            this.id_categoria.ReadOnly = true;
+            this.id_marca.Width = 152;
             // 
             // Categoria
             // 
@@ -494,6 +490,14 @@
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
             this.Categoria.Width = 157;
+            // 
+            // id_categoria
+            // 
+            this.id_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id_categoria.HeaderText = "ID_Categoria";
+            this.id_categoria.Name = "id_categoria";
+            this.id_categoria.ReadOnly = true;
+            this.id_categoria.Width = 193;
             // 
             // Proveedor
             // 
@@ -506,9 +510,11 @@
             // 
             // id_proveedor
             // 
+            this.id_proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id_proveedor.HeaderText = "ID_Proveedor";
             this.id_proveedor.Name = "id_proveedor";
             this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Width = 193;
             // 
             // Imagen
             // 
@@ -521,15 +527,17 @@
             // 
             // Detalle
             // 
+            this.Detalle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Detalle.HeaderText = "DetalleProducto";
             this.Detalle.Name = "Detalle";
             this.Detalle.ReadOnly = true;
+            this.Detalle.Width = 224;
             // 
             // frmListarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 584);
+            this.ClientSize = new System.Drawing.Size(1370, 584);
             this.Controls.Add(this.pnlContenedorProducto);
             this.Name = "frmListarProducto";
             this.Text = "frmListarProducto";
@@ -568,8 +576,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StockMinimo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
         private System.Windows.Forms.DataGridViewImageColumn Imagen;

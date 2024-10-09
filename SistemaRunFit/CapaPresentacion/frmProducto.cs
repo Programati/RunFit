@@ -307,11 +307,31 @@ namespace CapaPresentacion
         //Función para convertir la imagen a byte[]
         private byte[] ImageToByteArray(Image imageIn)
         {
+            if (imageIn == null)
+            {
+                return null;
+            }
+
             using (MemoryStream ms = new MemoryStream())
             {
                 imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                 return ms.ToArray();
             }
+        }
+        public Image ImagenProducto(Producto p)
+        {
+            if (p.Imagen != null)
+            {
+                using (var ms = new MemoryStream(p.Imagen))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                return null; // Si no hay imagen
+            }
+
         }
 
         private void frmProducto_Load_1(object sender, EventArgs e)
@@ -333,7 +353,8 @@ namespace CapaPresentacion
                 txtPrecioCompraProducto.Text = ProductoDGV.precioCompra.ToString();
                 txtPrecioVentaProducto.Text = ProductoDGV.precioVenta.ToString();
                 txtIdProducto.Text = ProductoDGV.idProducto.ToString();
-                
+                pbImagenProducto.Image = ImagenProducto(ProductoDGV);
+
 
                 // Seleccionar la categoría en el ComboBox correspondiente
                 foreach (Categoria item in cmbCategoriaProducto.Items)

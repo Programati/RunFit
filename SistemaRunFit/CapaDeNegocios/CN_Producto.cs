@@ -59,32 +59,45 @@ namespace CapaDeNegocios
         }
         public bool Editar(Producto ObjProducto, out string Mensaje)
         {
-            // Inicializa el mensaje vacío
             Mensaje = string.Empty;
 
-            // Verifica que el nombre del usuario no esté vacío
             if (ObjProducto.nombre == "")
             {
-                // Si el nombre está vacío, se añade un mensaje de error
                 Mensaje += "El NOMBRE es necesario para cargar la BD\n";
             }
 
-            // Si hay algún mensaje de error, no se realiza la edición
             if (Mensaje != string.Empty)
             {
-                return false; // Devuelve false si hay errores
+                return false;
             }
             else
             {
-                // Si no hay errores, llama al método Editar en la capa de datos para actualizar el usuario
                 return objcd_producto.Editar(ObjProducto, out Mensaje);
             }
         }
         public bool Eliminar(Producto ObjProducto, out string Mensaje)
         {
-            // Llama al método Eliminar en la capa de datos y devuelve el resultado
             return objcd_producto.Eliminar(ObjProducto, out Mensaje);
         }
 
+        public int Actualizar(int idProducto, int cantidadCompra, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (idProducto <= 0)
+            {
+                Mensaje += "Producto no encontrado\n";
+                return 0;
+            }
+            if (cantidadCompra <= 0)
+            {
+                Mensaje += "No se está cargando ningun producto\n";
+                return 0;
+            }
+            else
+            {
+                return objcd_producto.Actualizar(idProducto, cantidadCompra, out Mensaje);
+            }
+        }
     }
 }
