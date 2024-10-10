@@ -157,6 +157,18 @@ namespace CapaPresentacion
             {
                 e.Handled = true; 
             }
+           
+            if (dgvCategoria.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvCategoria.Rows)
+                {
+                    
+                    if (row.Cells["Categoria"].Value.ToString().Trim().ToUpper().Contains(txtBuscarCategoria.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
+            }
         }
 
         // Evento que se ejecuta al cargar el formulario.

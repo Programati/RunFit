@@ -231,6 +231,7 @@
             this.txtBuscarMarca.Size = new System.Drawing.Size(183, 26);
             this.txtBuscarMarca.TabIndex = 52;
             this.txtBuscarMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuscarMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarMarca_KeyPress);
             // 
             // grbListaMarcas
             // 

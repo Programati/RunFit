@@ -233,6 +233,25 @@ namespace CapaPresentacion
                 }
             }
         }
+
+        private void txtBuscarMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (dgvMarca.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvMarca.Rows)
+                {
+                    
+                    if (row.Cells["nombre_marca"].Value.ToString().Trim().ToUpper().Contains(txtBuscarMarca.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
+            }
+        }
     }
 
 }

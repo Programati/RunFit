@@ -81,6 +81,17 @@ namespace CapaPresentacion
             {
                 e.Handled = true; 
             }
+            if (dgvListaProveedor.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvListaProveedor.Rows)
+                {
+
+                    if (row.Cells["Cuit_Prev"].Value.ToString().Trim().ToUpper().Contains(txtBuscarPorProveedor.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
+            }
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnBuscarPorProveedor.
