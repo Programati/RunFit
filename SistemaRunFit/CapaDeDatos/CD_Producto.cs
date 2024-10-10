@@ -128,16 +128,16 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("imagen", (object)ObjProducto.Imagen ?? DBNull.Value);
 
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = (bool)cmd.Parameters["@Respuesta"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)

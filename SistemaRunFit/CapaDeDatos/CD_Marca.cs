@@ -62,7 +62,7 @@ namespace CapaDeDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_MARCAS_REGISTRAR", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nombre", ObjMarca.nombre);
+                    cmd.Parameters.AddWithValue("nombre", ObjMarca.nombre);
                     SqlParameter resultadoParam = new SqlParameter("@Resultado", SqlDbType.Int);
                     resultadoParam.Direction = ParameterDirection.Output;
                     cmd.Parameters.Add(resultadoParam);
@@ -101,16 +101,16 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("nombre", ObjMarca.nombre);
 
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = (bool)cmd.Parameters["@Resultado"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -132,16 +132,16 @@ namespace CapaDeDatos
                     SqlCommand cmd = new SqlCommand("SP_MARCAS_ELIMINAR", oconexion);
                     cmd.Parameters.AddWithValue("id_marca", ObjMarca.idMarca);
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = (bool)cmd.Parameters["@Respuesta"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)

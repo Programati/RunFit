@@ -20,7 +20,7 @@ namespace CapaDeDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT * from proveedores");
+                    query.AppendLine("SELECT * from proveedores order by fecha_baja asc");
                     
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -108,15 +108,15 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("telefono", ObjProvee.telefono);
                     cmd.Parameters.AddWithValue("email", ObjProvee.email);
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = (bool)cmd.Parameters["@Respuesta"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)

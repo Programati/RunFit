@@ -298,3 +298,6 @@ join DOMICILIOS on DOMICILIOS.id_persona = PERSONAS.id_persona
 
 delete from VENTAS where id_venta = 5
 
+update PRODUCTOS
+SET imagen = null
+where id_producto > 0

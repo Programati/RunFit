@@ -111,7 +111,7 @@ namespace CapaPresentacion
                     {
                         IdCategoriaGenerada = new CN_Categoria().Registrar(CategoriaNueva, out MensajeCategoria);
                     }
-                    if (IdCategoriaGenerada != 0 )
+                    if (IdCategoriaGenerada != 0 && VerdadCategoriaGenerada)
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         LimpiarCampos();

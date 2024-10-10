@@ -434,7 +434,7 @@ CREATE PROC SP_PRODUCTO_EDITAR
     @id_marca int,
     @id_categoria int,
     @id_proveedor int,
-    @imagen varbinary(200),
+    @imagen varbinary(MAX) = NULL,
     @Respuesta bit output,
     @Mensaje VARCHAR(500) output
 )

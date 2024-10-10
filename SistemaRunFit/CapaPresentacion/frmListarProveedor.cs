@@ -145,6 +145,26 @@ namespace CapaPresentacion
             item.descripcion,
             });
             }
+            
+            for (int i = 0; i < dgvListaProveedor.Rows.Count; i++)
+            {
+                
+                string estado = dgvListaProveedor.Rows[i].Cells["Estado"].Value.ToString();
+
+                
+                if (estado == "Activo")
+                {
+                    // Cambiar el color del texto a negro si es "Activo"
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.ForeColor = Color.Black;
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Black; // También cuando está seleccionada
+                }
+                else if (estado == "Inactivo")
+                {
+                    // Cambiar el color del texto a rojo si es "Inactivo"
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.ForeColor = Color.Red;
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
+                }
+            }
         }
         
 
