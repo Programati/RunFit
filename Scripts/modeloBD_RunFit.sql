@@ -301,3 +301,65 @@ delete from VENTAS where id_venta = 5
 update PRODUCTOS
 SET imagen = null
 where id_producto > 0
+
+SELECT 
+    backupset.database_name AS DatabaseName, -- El nombre de la base de datos respaldada
+    backupset.backup_start_date AS BackupStartDate, -- Fecha de inicio del respaldo
+    backupset.backup_finish_date AS BackupFinishDate, -- Fecha de finalización
+    backupset.backup_type AS BackupType, -- El tipo de respaldo
+    CASE backupset.backup_type
+        WHEN 'D' THEN 'Full Backup'
+        WHEN 'I' THEN 'Differential Backup'
+        WHEN 'L' THEN 'Transaction Log Backup'
+        ELSE 'Other Backup Type'
+    END AS BackupTypeDescription, -- Descripción legible del tipo de respaldo
+    backupmediafamily.physical_device_name AS BackupLocation -- Ruta física del archivo de respaldo
+FROM 
+    msdb.dbo.backupset -- Tabla que almacena información de los respaldos
+JOIN 
+    msdb.dbo.backupmediafamily ON backupset.media_set_id = backupmediafamily.media_set_id -- Tabla que almacena las rutas
+WHERE 
+    backupset.database_name = 'RunFit' -- Filtrar por la base de datos que te interesa
+ORDER BY 
+    backupset.backup_start_date DESC; -- Ordenar los resultados por fecha de inicio de respaldo
+
+
+
+
+SELECT 
+    backupset.database_name AS DatabaseName,
+    backupset.backup_start_date AS BackupStartDate,
+    backupset.backup_finish_date AS BackupFinishDate,
+    CASE backupset.type
+        WHEN 'D' THEN 'Full Backup'
+        WHEN 'I' THEN 'Differential Backup'
+        WHEN 'L' THEN 'Transaction Log Backup'
+        ELSE 'Other Backup Type'
+    END AS BackupTypeDescription,
+    backupmediafamily.physical_device_name AS BackupLocation
+FROM 
+    msdb.dbo.backupset AS backupset
+INNER JOIN 
+    msdb.dbo.backupmediafamily AS backupmediafamily
+ON 
+    backupset.media_set_id = backupmediafamily.media_set_id
+WHERE 
+    backupset.database_name = 'RunFit'
+ORDER BY 
+    backupset.backup_finish_date DESC;
+
+
+
+	SELECT MAX(BackupStartDate) 
+FROM (
+    SELECT 
+        backupset.backup_start_date AS BackupStartDate
+    FROM 
+        msdb.dbo.backupset AS backupset
+    INNER JOIN 
+        msdb.dbo.backupmediafamily AS backupmediafamily
+    ON 
+        backupset.media_set_id = backupmediafamily.media_set_id
+    WHERE 
+        backupset.database_name = 'RunFit'
+) AS BackupDates;

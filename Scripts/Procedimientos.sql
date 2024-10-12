@@ -354,7 +354,7 @@ BEGIN
     IF EXISTS (SELECT 1 FROM CATEGORIAS WHERE id_categoria = @id_categoria)
     BEGIN
         DECLARE @fecha_baja_actual DATE;
-        SELECT @fecha_baja_actual = fecha_baja FROM CATEGORIAS WHERE @id_categoria = @id_categoria;
+        SELECT @fecha_baja_actual = fecha_baja FROM CATEGORIAS WHERE id_categoria = @id_categoria;
 
         -- Si la fecha de baja es NULL, la actualiza con la fecha actual
         IF @fecha_baja_actual IS NULL
