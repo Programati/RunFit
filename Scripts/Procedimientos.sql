@@ -71,7 +71,7 @@ CREATE PROC SP_PERSONA_EDITAR(
 
  end
  go
-
+ select * from PERSONAS
  /*ELIMINAR PERSONA*/
 CREATE PROC SP_PERSONA_ELIMINAR(
     @id_persona INT,

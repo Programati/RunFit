@@ -86,10 +86,10 @@ ALTER TABLE PRODUCTOS
 ALTER COLUMN nombre_producto VARCHAR(100) NOT NULL;
 
 -- Crear tabla PRODUCTOS
-DROP TABLE PRODUCTOS (
+create TABLE PRODUCTOS (
     id_producto INT IDENTITY(1,1) NOT NULL,
     detalle_producto VARCHAR(100) NULL,
-    nombre_producto VARCHAR(10) NOT NULL,
+    nombre_producto VARCHAR(100) NOT NULL,
     precio_compra FLOAT NOT NULL,
 	precio_venta FLOAT NOT NULL,
     stock INT NOT NULL,
@@ -201,6 +201,7 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
                     order by p.estado desc
 GO
 select * from PROVEEDORES
+select * from USUARIOS
 
 
 /*EDITAR proveedores*/
@@ -217,7 +218,7 @@ select * from PROVEEDORES
  INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
 VALUES ('Electrónica', GETDATE(), NULL);
 update  categorias
-set nombre_categoria='Zapatillas mujer' where id_categoria=2
+set nombre_categoria='Zapatillas hombre' where id_categoria=2
 INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
 VALUES ('Hogar', GETDATE(), NULL);
 SELECT COLUMN_NAME
