@@ -1,7 +1,6 @@
-use RunFit
-go
 
 
+select * from PRODUCTOS
 --Prodcedimientos almacenados
 /*REGISTRAR PERSONA*/
 CREATE PROC SP_PERSONA_REGISTRAR(
@@ -344,8 +343,46 @@ CREATE PROC SP_CATEGORIAS_EDITAR(
 		end
 end
 go
+CREATE PROC SP_CATEGORIA_ELIMINAR(
+    @id_categoria INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM CATEGORIAS WHERE id_categoria = @id_categoria)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM CATEGORIAS WHERE @id_categoria = @id_categoria;
 
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE CATEGORIAS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_categoria = @id_categoria;
 
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE CATEGORIAS
+            SET fecha_baja = NULL
+            WHERE id_categoria = @id_categoria;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'La Categoria no existe.';
+    END
+END
+go
   --------------------------------------------------------------
  go
 
@@ -360,7 +397,7 @@ CREATE PROC SP_PRODUCTO_REGISTRAR (
     @stock INT,
     @stock_minimo INT,
     @detalle VARCHAR(100),
-    @imagen VARCHAR(100),
+    @imagen varbinary(MAX) = NULL,
     @IdProductoResultado INT OUTPUT,
     @Mensaje VARCHAR(500) OUTPUT
 )
@@ -382,7 +419,142 @@ BEGIN
     END CATCH
 END
 GO
+select * from CATEGORIAS;
+select * from PRODUCTOS
+go
+CREATE PROC SP_PRODUCTO_EDITAR
+(
+    @id_producto int,
+    @detalle_producto VARCHAR(100),
+    @nombre_producto VARCHAR(100),
+    @precio_compra float,
+    @precio_venta float,
+    @stock int,
+    @stock_minimo int,
+    @id_marca int,
+    @id_categoria int,
+    @id_proveedor int,
+    @imagen varbinary(MAX) = NULL,
+    @Respuesta bit output,
+    @Mensaje VARCHAR(500) output
+)
+AS
+BEGIN
+    -- Inicializamos los valores de salida
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
 
+    -- Verificamos si ya existe un producto con el mismo nombre
+    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND id_producto != @id_producto)
+    BEGIN
+        -- Si no existe, actualizamos el producto
+        UPDATE PRODUCTOS
+        SET
+            detalle_producto = @detalle_producto,
+            nombre_producto = @nombre_producto,
+            precio_compra = @precio_compra,
+            precio_venta = @precio_venta,
+            stock = @stock,
+            stock_minimo = @stock_minimo,
+            id_marca = @id_marca,
+            id_categoria = @id_categoria,
+            id_proveedor = @id_proveedor,
+            imagen = @imagen
+        WHERE
+            id_producto = @id_producto;
+
+        -- Indicamos que la operación fue exitosa
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Producto actualizado correctamente';
+    END
+    ELSE
+    BEGIN
+        -- Si existe otro producto con el mismo nombre, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre';
+    END
+END;
+
+CREATE PROC SP_PRODUCTO_ELIMINAR(
+    @id_producto INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM PRODUCTOS WHERE id_producto = @id_producto;
+
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE PRODUCTOS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_producto = @id_producto;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE PRODUCTOS
+            SET fecha_baja = NULL
+            WHERE id_producto = @id_producto;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el producto no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El producto no existe.';
+    END
+END
+  --------------------------------------------------------------
+ go
+
+ /*ACTUALIZAR PRODUCTO*/ 
+CREATE PROCEDURE SP_PRODUCTO_ACTUALIZAR (
+    @id_producto INT,
+    @cantidad INT,
+    @Resultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @Resultado = 0;
+    SET @Mensaje = '';
+
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto)
+    BEGIN
+        IF @cantidad > 0
+        BEGIN
+            IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE id_producto = @id_producto AND stock >= @cantidad)
+            BEGIN
+                UPDATE PRODUCTOS
+                SET stock = stock - @cantidad
+                WHERE id_producto = @id_producto;
+                SET @Resultado = 1;
+            END
+            ELSE
+            BEGIN
+                SET @Mensaje = 'Stock insuficiente para realizar la operación.';
+            END
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'La cantidad debe ser mayor a 0.';
+        END
+    END
+    ELSE
+    BEGIN
+        SET @Mensaje = 'El producto no existe!';
+    END
+END
+GO
   --------------------------------------------------------------
  go
 
@@ -528,27 +700,6 @@ BEGIN
     END
 END
 
-
---REGISTRAR MARCAS
-CREATE PROC SP_REGISTRARMARCAS
-(
-    @nombre VARCHAR(20),
-	@Resultado int output,
-	@Mensaje VARCHAR(500) output 
- )
- as
- begin
-	set @Resultado = 0
-	IF NOT EXISTS (SELECT * FROM MARCAS WHERE nombre = @nombre)
-	begin
-		insert into MARCAS(nombre)values(@nombre)
-		set @Resultado = SCOPE_IDENTITY()
-	end
-	else
-		set @Mensaje = 'La marca ' + @nombre + ' ya existe!'
-end
-go
-
   --------------------------------------------------------------
  go
 
@@ -578,7 +729,7 @@ BEGIN
     END
 END
 GO
-
+select * from MARCAS
 /*EDITAR MARCAS*/
 CREATE PROC SP_MARCAS_EDITAR(
 	@id_marca INT,
@@ -605,8 +756,123 @@ CREATE PROC SP_MARCAS_EDITAR(
 end
 go
 
+CREATE PROC SP_MARCAS_ELIMINAR(
+    @id_marca INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    -- Verifica si la categoria existe
+    IF EXISTS (SELECT 1 FROM MARCAS WHERE id_marca = @id_marca)
+    BEGIN
+        DECLARE @fecha_baja_actual DATE;
+        SELECT @fecha_baja_actual = fecha_baja FROM MARCAS WHERE @id_marca = id_marca;
+
+        -- Si la fecha de baja es NULL, la actualiza con la fecha actual
+        IF @fecha_baja_actual IS NULL
+        BEGIN
+            UPDATE MARCAS
+            SET fecha_baja = CAST(GETDATE() AS DATE)
+            WHERE id_marca = @id_marca;
+
+            SET @Respuesta = 0;
+        END
+        ELSE
+        BEGIN
+            -- Si la fecha de baja no es NULL, la pone a NULL
+            UPDATE MARCAS
+            SET fecha_baja = NULL
+            WHERE id_marca = @id_marca;
+
+            SET @Respuesta = 1;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Si el usuario no existe, devuelve un mensaje de error
+        SET @Respuesta = 0;
+        SET @Mensaje = 'La Marca no existe.';
+    END
+END
+go
 
 
+
+
+
+
+-------------------------------------------------------------
+GO
+
+/*REGISTRAR VENTA*/
+CREATE PROCEDURE SP_VENTAS_REGISTRAR(
+    @importe_total DECIMAL(18,2),
+    @id_usuario INT,
+    @id_cliente INT,
+	@IdVentaResultado int output,
+	@Mensaje VARCHAR(500) output 
+ )
+ as
+ BEGIN
+	set @IdVentaResultado = 0
+	set @Mensaje = ''
+	IF EXISTS (SELECT * FROM USUARIOS WHERE id_usuario = @id_usuario)
+		BEGIN
+			IF EXISTS (SELECT * FROM PERSONAS WHERE id_persona = @id_cliente)
+				BEGIN
+					INSERT INTO VENTAS(importe_total,fecha_factura,id_usuario,id_cliente) VALUES(@importe_total, GETDATE(),@id_usuario,@id_cliente)
+
+					set @IdVentaResultado = SCOPE_IDENTITY()
+					SET @Mensaje = 'Venta registrada';
+				END
+			ELSE
+				BEGIN
+					set @Mensaje = 'El cliente no existe!'
+				END
+		END
+	ELSE
+		BEGIN
+			set @Mensaje = 'El vendedor no existe!'
+		END
+END
+GO
+
+
+
+ -------------------------------------------------------------
+GO
+
+/*REGISTRAR DETALLE_VENTAS*/
+CREATE PROCEDURE SP_DETALLE_VENTAS_REGISTRAR(
+    @cantidad INT,
+	@subtotal DECIMAL(18,2),
+	@id_producto INT,
+	@id_venta INT,
+    @IdDetalleVentaResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    SET @IdDetalleVentaResultado = 0
+    SET @Mensaje = ''
+    
+    IF EXISTS (SELECT 1 FROM VENTAS WHERE id_venta = @id_venta)
+		BEGIN
+			INSERT INTO DETALLE_VENTAS(cantidad, subtotal, id_producto, id_venta) 
+			VALUES(@cantidad,@subtotal,@id_producto,@id_venta);
+
+			SET @IdDetalleVentaResultado = SCOPE_IDENTITY();
+		END
+    ELSE
+		BEGIN
+			SET @Mensaje = 'No existe FACTURA para esta venta!';
+		END
+END
+GO
+
+ -------------------------------------------------------------
+GO
 
 
 select * from PERSONAS p
@@ -678,7 +944,9 @@ select * from PRODUCTOS
  select @idcategoriagenerada
  select @mensajegenerado
  GO
-
+ select p.dni from PERSONAS p
+ join DOMICILIOS d on d.id_persona=p.id_persona
+ select * from PRODUCTOS
  /*REGISTRAR MARCAS*/
  declare @idmarcagenerada int
  declare @mensajegenerado varchar(500)
@@ -723,3 +991,8 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+
+ select * from PRODUCTOS
+
+ select * from MARCAS
+>>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd

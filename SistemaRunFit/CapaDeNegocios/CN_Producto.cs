@@ -57,6 +57,47 @@ namespace CapaDeNegocios
                 return 0;
             }
         }
+        public bool Editar(Producto ObjProducto, out string Mensaje)
+        {
+            Mensaje = string.Empty;
 
+            if (ObjProducto.nombre == "")
+            {
+                Mensaje += "El NOMBRE es necesario para cargar la BD\n";
+            }
+
+            if (Mensaje != string.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                return objcd_producto.Editar(ObjProducto, out Mensaje);
+            }
+        }
+        public bool Eliminar(Producto ObjProducto, out string Mensaje)
+        {
+            return objcd_producto.Eliminar(ObjProducto, out Mensaje);
+        }
+
+        public int Actualizar(int idProducto, int cantidadCompra, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (idProducto <= 0)
+            {
+                Mensaje += "Producto no encontrado\n";
+                return 0;
+            }
+            if (cantidadCompra <= 0)
+            {
+                Mensaje += "No se está cargando ningun producto\n";
+                return 0;
+            }
+            else
+            {
+                return objcd_producto.Actualizar(idProducto, cantidadCompra, out Mensaje);
+            }
+        }
     }
 }

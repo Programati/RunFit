@@ -6,24 +6,28 @@ using System.Collections.Generic;
 using CapaDeEntidades;
 using System.Runtime.CompilerServices;
 using System.Linq;
+using System.IO;
+using System.Drawing;
 
 namespace CapaPresentacion
 {
     public partial class frmRegistrarVenta : Form
     {
         private Inicio _inicio;
+        private Usuario _usuarioVendedor;
         private List<Producto> _listaProductos = null;
         private List<Domicilio> _listaClientes = null;
         private Domicilio _cliente = null;
         private Producto _producto = null;
         private List<Carrito> _carrito = new List<Carrito>();
         private string factura = "";
-        private decimal _totalCompra = 0;
+        private double _totalCompra = 0;
 
-        public frmRegistrarVenta(Inicio inicioForm)
+        public frmRegistrarVenta(Inicio inicioForm, Usuario usuario)
         {
             InitializeComponent();
             _inicio = inicioForm;
+            _usuarioVendedor = usuario;
             this.Load += new EventHandler(frmRegistrarVenta_Load);
             _listaProductos = new CN_Producto().ListarProductos();
             _listaClientes = new CN_Domicilio().ListarDomicilios();
@@ -52,7 +56,6 @@ namespace CapaPresentacion
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarDniVta.Text, out dniCliente))
             {
-                // Buscar el producto
                 _cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == dniCliente);
 
                 if (_cliente != null)
@@ -80,11 +83,28 @@ namespace CapaPresentacion
             {
                 // Buscar el producto
                 _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto);
-
+                
                 if (_producto != null)
                 {
                     txtNomPtoRegVtas.Text = _producto.nombre;
-                    txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    pbImgProductoVenta.Image = ImagenProducto(_producto);
+
+
+                    if (dgvDetalleVta.Rows.Count > 0)
+                    {
+                        var _productoDelCarrito = _carrito.FirstOrDefault(p => p.Producto.idProducto == codigoProducto);
+                        if (BuscarEnDataGridView(_producto.idProducto.ToString()))
+                        {
+                            txtStockRegistrarVenta.Text = (_producto.stock - (int)_productoDelCarrito.Cantidad).ToString();
+                            return;
+                        }
+                        txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    }
+                    else
+                    {
+                        txtStockRegistrarVenta.Text = _producto.stock.ToString();
+                    }
+                    
                 }
                 else
                 {
@@ -98,12 +118,6 @@ namespace CapaPresentacion
 
         }
 
-        private void txtLimpiarBuscarPtoVta_Click(object sender, System.EventArgs e)
-        {
-            txtNomPtoRegVtas.Clear();
-            txtBuscarCodigoVta.Clear(); 
-            txtCantidadItenVta.Clear(); 
-        }
         private void txtBuscarDniVta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -175,26 +189,9 @@ namespace CapaPresentacion
             txtNomPtoRegVtas.Clear();
             txtStockRegistrarVenta.Clear();
 
-            //ACA HAY QUE VACIAR EL GRID Y CARGARLO DENUEVO
             CargarDataGrid();
-            /*_totalCompra = 0;
-            if (_carrito.Count > 0)
-            {
-                dgvDetalleVta.Rows.Clear(); // Limpia el DataGridView
-                foreach (var item in _carrito)
-                {
-                    dgvDetalleVta.Rows.Add(new object[]
-                    {
-                        "#"+item.Producto.idProducto,
-                        item.Producto.nombre,
-                        item.Cantidad.ToString(),
-                        CapaPresentacion.Properties.Resources.Eliminar,
-                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString()
-                    });
-                    _totalCompra += (item.Cantidad * item.Producto.precioVenta);
-                }
-                lblMontoSubtotalVta.Text = "$"+_totalCompra.ToString();
-            }*/
+            pbImgProductoVenta.Image = CapaPresentacion.Properties.Resources.fotoProducto;
+
 
         }
 
@@ -231,29 +228,26 @@ namespace CapaPresentacion
                 // Si el producto existe en la lista, eliminarlo
                 _carrito.Remove(itemAEliminar);
             }
-            else
-            {
-                // Si no se encuentra el producto, mostrar un mensaje
-                Console.WriteLine($"Producto con ID {idProducto} no encontrado en el carrito.");
-            }
         }
 
         private void CargarDataGrid()
         {
             _totalCompra = 0;
+
             if (_carrito.Count > 0)
             {
                 dgvDetalleVta.Rows.Clear(); // Limpia el DataGridView
                 foreach (var item in _carrito)
                 {
+                    
                     dgvDetalleVta.Rows.Add(new object[]
                     {
                         item.Producto.idProducto,
                         item.Producto.nombre,
                         item.Cantidad.ToString(),
-                        CapaPresentacion.Properties.Resources.Eliminar,
                         "$"+item.Producto.precioVenta.ToString(),
-                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString()
+                        "$"+(item.Cantidad * item.Producto.precioVenta).ToString(),
+                        CapaPresentacion.Properties.Resources.Eliminar
                     });
                     _totalCompra += (item.Cantidad * item.Producto.precioVenta);
                 }
@@ -276,6 +270,138 @@ namespace CapaPresentacion
                     CargarDataGrid();
                 }
             }
+        }
+
+        private bool BuscarEnDataGridView(string codigo)
+        {
+            // Asegurarse de que la columna "Codigo" exista en el DataGridView
+            if (dgvDetalleVta.Columns["Codigo"] != null)
+            {
+                int indiceColumnaCodigo = dgvDetalleVta.Columns["Codigo"].Index;
+
+                foreach (DataGridViewRow fila in dgvDetalleVta.Rows)
+                {
+                    DataGridViewCell celda = fila.Cells[indiceColumnaCodigo];
+
+                    if (celda.Value != null && celda.Value.ToString().Contains(codigo))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void btnConfirmarVta_Click(object sender, EventArgs e)
+        {
+            string MensajeVenta = string.Empty;
+            string MensajeDetalleVenta = string.Empty;
+            string MensajeProducto = string.Empty;
+            int IdVentaGenerada = 0;
+            int IdDetalleVentaGenerada = 0;
+            int ProductoActualizado = 0;
+
+            if (string.IsNullOrEmpty(txtNyApeRegVta.Text)) 
+            {
+                MessageBox.Show("No hay cliente para la venta");
+                return;
+            }
+            if (_carrito.Count <= 0)
+            {
+                MessageBox.Show("No hay productos para la venta");
+                return;
+            }
+
+            var confirmacion = MessageBox.Show(
+                    "Desea finalizar la compra?",
+                    "Confirmación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                string fechaFormateada = dtpFechaVenta.Value.ToString("yyyy-MM-dd");
+
+                Venta VentaNueva = new Venta()
+                {
+                    importeTotal = _totalCompra,
+                    fechaFactura = fechaFormateada,
+                    oUsuario = _usuarioVendedor,
+                    oCliente = new Persona() 
+                    { 
+                        idPersona = (_cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text))).oPersona.idPersona
+                    }
+                };
+
+                IdVentaGenerada = new CN_Venta().Registrar(VentaNueva, out MensajeVenta);
+
+                if (IdVentaGenerada != 0)
+                {
+                    foreach (var item in _carrito)
+                    {
+                        DetalleVenta DetalleVentaNuevo = new DetalleVenta()
+                        {
+                            cantidad = item.Cantidad,
+                            subTotal = item.Producto.precioCompra * item.Cantidad,
+                            oProducto = item.Producto,
+                            oVenta = new Venta() { idVenta = IdVentaGenerada }
+                        };
+
+                        IdDetalleVentaGenerada = new CN_DetalleVentas().Registrar(DetalleVentaNuevo, out MensajeDetalleVenta);
+
+                        if(IdDetalleVentaGenerada == 0)
+                        {
+                            MessageBox.Show(MensajeDetalleVenta);
+                            return;
+                        }
+                        ProductoActualizado = new CN_Producto().Actualizar(item.Producto.idProducto, item.Cantidad, out MensajeProducto);
+                    }
+                }
+                if (IdVentaGenerada != 0 && IdDetalleVentaGenerada != 0 && ProductoActualizado != 0)
+                {
+                    MessageBox.Show("Venta registrada correctamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    limpiarFormVenta();
+                    _listaProductos = new CN_Producto().ListarProductos();
+                }
+                else
+                {
+                    MessageBox.Show(MensajeVenta + "\n" + MensajeDetalleVenta);
+                }
+            }
+        }
+
+        private void limpiarFormVenta()
+        {
+            txtBuscarDniVta.Clear();
+            txtNyApeRegVta.Clear();
+            txtBuscarCodigoVta.Clear();
+            txtCantidadItenVta.Clear();
+            txtNomPtoRegVtas.Clear();
+            txtStockRegistrarVenta.Clear();
+            lblMontoSubtotalVta.Text = "$0.00";
+            dgvDetalleVta.Rows.Clear();
+            pbImgProductoVenta.Image = CapaPresentacion.Properties.Resources.fotoProducto;
+        }
+
+        public Image ImagenProducto(Producto p)
+        {
+            if (p.Imagen != null)
+            {
+                using (var ms = new MemoryStream(p.Imagen))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

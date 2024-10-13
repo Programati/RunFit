@@ -86,7 +86,11 @@ ALTER TABLE PRODUCTOS
 ALTER COLUMN nombre_producto VARCHAR(100) NOT NULL;
 
 -- Crear tabla PRODUCTOS
+<<<<<<< HEAD
 create TABLE PRODUCTOS (
+=======
+CREATE TABLE PRODUCTOS (
+>>>>>>> 767f9c1599ad3420d792e81cfd0e2c2d56764876
     id_producto INT IDENTITY(1,1) NOT NULL,
     detalle_producto VARCHAR(100) NULL,
     nombre_producto VARCHAR(100) NOT NULL,
@@ -94,7 +98,7 @@ create TABLE PRODUCTOS (
 	precio_venta FLOAT NOT NULL,
     stock INT NOT NULL,
     stock_minimo INT NOT NULL,
-    imagen VARCHAR(255) NULL,
+    imagen varbinary(MAX) NULL,
     fecha_alta DATE NOT NULL default getdate(),
     fecha_baja DATE NULL,
     id_marca INT NOT NULL,
@@ -106,6 +110,21 @@ create TABLE PRODUCTOS (
     CONSTRAINT FK_PRODUCTOS_PROVEEDORES FOREIGN KEY (id_proveedor) REFERENCES PROVEEDORES(id_proveedor)
 );
 GO
+/* pasos para el campo IMAGEN
+ALTER TABLE productos
+ADD imagen_temp varbinary(MAX);
+
+UPDATE productos
+SET imagen_temp = CONVERT(varbinary(MAX), imagen);
+
+ALTER TABLE productos
+DROP COLUMN imagen;
+
+EXEC sp_rename 'productos.imagen_temp', 'imagen', 'COLUMN';
+SELECT * FROM PRODUCTOS
+
+*/
+delete from PRODUCTOS where id_producto=9
 
 -- Crear tabla DOMICILIOS
 CREATE TABLE DOMICILIOS (
@@ -147,6 +166,17 @@ CREATE TABLE VENTAS (
     CONSTRAINT FK_VENTAS_USUARIOS FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario)
 );
 GO
+/*
+ALTER TABLE VENTAS
+ADD id_cliente INT NOT NULL;
+
+ALTER TABLE VENTAS
+ADD CONSTRAINT FK_VENTAS_PERSONAS FOREIGN KEY (id_cliente) REFERENCES PERSONAS(id_persona);
+
+ALTER TABLE VENTAS
+ALTER COLUMN importe_total DECIMAL(18, 2);
+
+*/
 
 -- Crear tabla DETALLE_VENTAS
 CREATE TABLE DETALLE_VENTAS (
@@ -160,6 +190,11 @@ CREATE TABLE DETALLE_VENTAS (
     CONSTRAINT FK_DETALLE_VENTAS_VENTAS FOREIGN KEY (id_venta) REFERENCES VENTAS(id_venta)
 );
 GO
+
+/*
+ALTER TABLE DETALLE_VENTAS
+ALTER COLUMN subtotal DECIMAL(18, 2);
+*/
 
 
 select * from USUARIOS;
@@ -253,3 +288,21 @@ inner join MARCAS m on m.id_marca=p.id_marca
 inner join CATEGORIAS c on c.id_categoria=p.id_categoria
 inner join PROVEEDORES pv on pv.id_proveedor=p.id_proveedor
 order by p.fecha_baja asc;
+
+
+select * from VENTAS;
+select * from DETALLE_VENTAS;
+select id_producto, nombre_producto, stock from PRODUCTOS
+where id_producto = 3
+select id_producto, nombre_producto, stock from PRODUCTOS
+where id_producto = 11
+
+select nombre, dni from PERSONAS
+join DOMICILIOS on DOMICILIOS.id_persona = PERSONAS.id_persona
+
+
+delete from VENTAS where id_venta = 5
+
+update PRODUCTOS
+SET imagen = null
+where id_producto > 0

@@ -42,6 +42,35 @@ namespace CapaDeNegocios
                 return objcd_categoria.Registrar(ObjCategoria, out Mensaje);
             }
         }
+        public bool Editar(Categoria ObjCategoria, out string Mensaje)
+        {
+            // Inicializa el mensaje vacío
+            Mensaje = string.Empty;
+
+            // Verifica que el nombre del usuario no esté vacío
+            if (ObjCategoria.nombre_categoria == "")
+            {
+                // Si el nombre está vacío, se añade un mensaje de error
+                Mensaje += "El NOMBRE es necesario para cargar la BD\n";
+            }
+
+            // Si hay algún mensaje de error, no se realiza la edición
+            if (Mensaje != string.Empty)
+            {
+                return false; // Devuelve false si hay errores
+            }
+            else
+            {
+                // Si no hay errores, llama al método Editar en la capa de datos para actualizar el usuario
+                return objcd_categoria.Editar(ObjCategoria, out Mensaje);
+            }
+        }
+        // Método para eliminar un categoria
+        public bool Eliminar(Categoria ObjCategoria, out string Mensaje)
+        {
+            // Llama al método Eliminar en la capa de datos y devuelve el resultado
+            return objcd_categoria.Eliminar(ObjCategoria, out Mensaje);
+        }
     }
     
 }

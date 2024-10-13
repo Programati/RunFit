@@ -32,7 +32,7 @@ namespace CapaPresentacion
             {
                 dgvMarca.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+            item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_marca: CapaPresentacion.Properties.Resources.activar_marca, // Icono de acción
             item.idMarca,
             item.fechaBaja == null ? "Activo" : "Inactivo",
             item.nombre,
@@ -90,17 +90,15 @@ namespace CapaPresentacion
         }
         private void btnGuardarMarca_Click(object sender, EventArgs e)
         {
-            string MensajeMarca = string.Empty; // Mensaje para el resultado del proceso de usuario
-            int IdMarcaGenerada = 0; // ID de persona generada
 
-            // bool VerdadUsuarioGenerado = false; // Bandera para verificar si el usuario fue generado correctamente
-            string mensajeConfirmacion = "¿Desea agregar al"; // Mensaje de confirmación inicial
+            string MensajeMarca = string.Empty;
+            int IdMarcaGenerada = 0;
+            bool VerdadMarcaGenerada = false;
+            string mensajeConfirmacion = "¿Desea agregar al";
 
 
-            // Verifica si el campo de texto txtCategoria no está vacío.
             if (!string.IsNullOrEmpty(txtMarca.Text))
             {
-                // Muestra un cuadro de diálogo para confirmar la acción de agregar la categoría.
                 var confirmacion = MessageBox.Show(
                     $"Desea agregar la categoria {txtMarca.Text} ?",
                     "Confirmación",
@@ -111,32 +109,35 @@ namespace CapaPresentacion
                 // Si el usuario confirma, se procede a guardar los datos.
                 if (confirmacion == DialogResult.Yes)
                 {
-                    Marca CategoriaNueva = new Marca()
+                    Marca MarcaNueva = new Marca()
                     {
-                         idMarca= txtIdMarca.Text != "" ? Convert.ToInt32(txtMarca.Text) : IdMarcaGenerada,
-                        nombre = txtMarca.Text,
+
+                        idMarca = txtIdMarca.Text != "" ? Convert.ToInt32(txtIdMarca.Text) : IdMarcaGenerada,
+                        nombre = txtMarca.Text.ToString(),
+
 
                     };
 
-                    // Si hay un ID de persona, se edita
                     if (txtIdMarca.Text != "")
                     {
-                        // VerdadPersonaGenerada = new CN_Persona().Editar(PersonaNueva, out MensajePersona);
-                        // IdPersonaGenerada = PersonaNueva.idPersona; // Actualiza el ID de persona generada
+                        VerdadMarcaGenerada = new CN_Marca().Editar(MarcaNueva, out MensajeMarca);
+
+                        IdMarcaGenerada = MarcaNueva.idMarca; 
+
                     }
                     else
                     {
-                        IdMarcaGenerada = new CN_Marca().Registrar(CategoriaNueva, out MensajeMarca);
+                        IdMarcaGenerada = new CN_Marca().Registrar(MarcaNueva, out MensajeMarca);
                     }
-                    if (IdMarcaGenerada != 0)
+                    if (IdMarcaGenerada != 0 && VerdadMarcaGenerada)
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         LimpiarCampos();
                     }
                     else
                     {
-                        // Muestra mensajes de error si no se guardaron los datos
                         MessageBox.Show(MensajeMarca);
+                        txtIdMarca.Text = "";
                     }
 
                     // Borrar cuando se integre la BD
@@ -150,6 +151,105 @@ namespace CapaPresentacion
             {
                 // Muestra un mensaje de error si la categoría está vacía.
                 MessageBox.Show("Categoria vacia!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvMarca.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+
+                    Marca MarcaEditar = new Marca()
+                    {
+                        idMarca = Convert.ToInt32(dgvMarca.Rows[n].Cells["ID_marca"].Value),
+                        nombre = dgvMarca.Rows[n].Cells["nombre_marca"].Value.ToString()
+                    };
+
+                    txtMarca.Text = MarcaEditar.nombre;
+                    txtIdMarca.Text = MarcaEditar.idMarca.ToString();
+                    // btnGuardarCategoria.Text = "Actualizar";
+
+                }
+                //txtIdCategoria.Text = "";
+            }
+            // Verifica si la columna seleccionada es la de "Accion"
+            if (dgvMarca.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    string mensaje = string.Empty; // Mensaje para la acción
+                    Marca MarcaEliminar = new Marca() // Crea un objeto marca para la acción
+                    {
+                        idMarca = (int)dgvMarca.Rows[n].Cells["ID_marca"].Value 
+                    };
+
+                    string estadoActual = dgvMarca.Rows[n].Cells["Estado"].Value.ToString();
+                    string marca = dgvMarca.Rows[n].Cells["nombre_marca"].Value.ToString();
+
+                    // Si la Marca está inactiva, se le pregunta si desea activarlo
+                    if (estadoActual == "Inactivo")
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea ACTIVAR la marca {marca}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para activar la marca
+                            bool respuesta = new CN_Marca().Eliminar(MarcaEliminar, out mensaje);
+
+                            if (respuesta)
+                            {
+                                // Actualizar el estado de la categoria
+                                dgvMarca.Rows[n].Cells["Estado"].Value = "Activo";
+                                dgvMarca.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black; // Cambia el color a negro
+                                dgvMarca.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black; // Cambia el color de selección a negro
+
+                                MessageBox.Show("Marca " + marca + " activada correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                    }
+                    else // Si la Marca está activo, se le pregunta si desea desactivarlo
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea DESACTIVAR la marca {marca}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para desactivar la categoria
+                            bool respuesta = new CN_Marca().Eliminar(MarcaEliminar, out mensaje);
+
+                            // Actualizar el estado del usuario
+                            dgvMarca.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvMarca.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red; // Cambia el color a rojo
+                            dgvMarca.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red; // Cambia el color de selección a rojo
+
+                            MessageBox.Show("Marca " + marca + " desactivada correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+                    // Limpia las filas del DataGridView y vuelve a cargar los datos
+                    dgvMarca.Rows.Clear(); // Limpia el DataGridView
+                    Listar_Marcas(); // Llama a la función para volver a cargar los datos
+                }
+            }
+        }
+
+        private void txtBuscarMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (dgvMarca.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvMarca.Rows)
+                {
+                    
+                    if (row.Cells["nombre_marca"].Value.ToString().Trim().ToUpper().Contains(txtBuscarMarca.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
             }
         }
     }
