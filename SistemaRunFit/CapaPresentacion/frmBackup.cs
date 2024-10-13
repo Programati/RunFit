@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDeNegocios;
 
 namespace CapaPresentacion
 {
     public partial class frmBackup : Form
     {
+        CN_Backup backup = new CN_Backup();
+        private Label lblUltimaCopia;
         // Campo privado que almacena la referencia al formulario principal 'Inicio'
         private Inicio _inicio;
 
@@ -21,6 +24,9 @@ namespace CapaPresentacion
             _inicio = inicio; // Guarda la referencia del formulario 'Inicio'
             InitializeComponent(); // Inicializa los componentes del formulario
             _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en 'Inicio' mientras se muestra este formulario
+            lblUltimoBackup = new Label();
+            lblUltima.Text = backup.ObtenerUltimaFechaBackup();
+            lblUltima.Text = backup.ObtenerUltimaCopia().Value.ToString();
         }
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal
@@ -34,6 +40,13 @@ namespace CapaPresentacion
             }
             this.Close(); // Cierra el formulario actual de 'Backup'
         }
-    }
 
+        private void btnHacerBackup_Click(object sender, EventArgs e)
+        {
+            CN_Backup backup = new CN_Backup();
+            backup.Backup(lblUltimoBackup); // Actualiza el label dentro del método
+            lblUltima.Text = backup.ObtenerUltimaFechaBackup();
+        }
+
+    }
 }
