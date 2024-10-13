@@ -23,6 +23,17 @@ namespace CapaDeNegocios
     {
         return objcd_backup.ObtenerUltimaFechaBackup();
     }
+        private CD_Backup _cdBackup;
+
+        public CN_Backup()
+        {
+            _cdBackup = new CD_Backup(); // Inicializa la clase de la capa de datos
+        }
+
+        public DateTime? ObtenerUltimaCopia()
+        {
+            return _cdBackup.UltimaCopia(); // Llama a la función de la capa de datos
+        }
     }
 
 }

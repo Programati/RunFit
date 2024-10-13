@@ -21,11 +21,12 @@ namespace CapaPresentacion
         // Constructor que inicializa el formulario y desactiva el panel del menú en 'Inicio'
         public frmBackup(Inicio inicio)
         {
-            _inicio = inicio; 
-            InitializeComponent(); 
-            _inicio.PnlContenedorMenu.Enabled = false; 
+            _inicio = inicio; // Guarda la referencia del formulario 'Inicio'
+            InitializeComponent(); // Inicializa los componentes del formulario
+            _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en 'Inicio' mientras se muestra este formulario
             lblUltimoBackup = new Label();
             lblUltima.Text = backup.ObtenerUltimaFechaBackup();
+            lblUltima.Text = backup.ObtenerUltimaCopia().Value.ToString();
         }
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal
