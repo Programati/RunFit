@@ -796,7 +796,7 @@ BEGIN
     END
 END
 go
-
+select * from USUARIOS
 
 
 
