@@ -305,6 +305,17 @@ namespace CapaPresentacion
             int IdDetalleVentaGenerada = 0;
             int ProductoActualizado = 0;
 
+            if(string.IsNullOrEmpty(txtBuscarDniVta.Text))
+            {
+                MessageBox.Show("Falta DNI");
+                return;
+            }
+            var cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text));
+            if ( cliente == null)
+            {
+                MessageBox.Show("No existe cliente");
+                return;
+            }
             if (string.IsNullOrEmpty(txtNyApeRegVta.Text)) 
             {
                 MessageBox.Show("No hay cliente para la venta");
@@ -347,7 +358,7 @@ namespace CapaPresentacion
                         DetalleVenta DetalleVentaNuevo = new DetalleVenta()
                         {
                             cantidad = item.Cantidad,
-                            subTotal = item.Producto.precioCompra * item.Cantidad,
+                            subTotal = item.Producto.precioVenta * item.Cantidad,
                             oProducto = item.Producto,
                             oVenta = new Venta() { idVenta = IdVentaGenerada }
                         };
