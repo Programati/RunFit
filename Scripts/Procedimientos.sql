@@ -991,8 +991,23 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+<<<<<<< HEAD
 
  select * from PRODUCTOS
 
  select * from MARCAS
 >>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
+=======
+ select * from MARCAS
+
+
+ SELECT * FROM PERSONAS p
+ JOIN DOMICILIOS d ON d.id_persona = p.id_persona
+
+ SELECT * FROM PRODUCTOS
+
+ SELECT * FROM VENTAS;
+ SELECT * FROM DETALLE_VENTAS;
+ 
+ delete from VENTAS where id_venta > 0
+>>>>>>> rama-matias
