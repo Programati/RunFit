@@ -1,15 +1,17 @@
 ﻿using CapaDeEntidades;
 using CapaDeNegocios;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace CapaPresentacion
@@ -46,6 +48,7 @@ namespace CapaPresentacion
         // Evento del botón para crear un nuevo producto
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
+            
             frmProducto CrearNuevoProducto = new frmProducto(); // Crea una nueva instancia del formulario 'frmProducto'
 
             CrearNuevoProducto.TopLevel = false; // El formulario no será de nivel superior
@@ -67,7 +70,7 @@ namespace CapaPresentacion
             {
                 dgvListaProducto.Rows.Add(new object[] {
                     CapaPresentacion.Properties.Resources.pencil, // Icono de editar
-                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user, // Icono de acción
+                    item.fechaBaja == null ? CapaPresentacion.Properties.Resources.producto_eliminar: CapaPresentacion.Properties.Resources.producto_activar, // Icono de acción
                     item.idProducto,
                     item.fechaBaja == null ? "Activo" : "Inactivo",
                     item.nombre,
@@ -76,10 +79,13 @@ namespace CapaPresentacion
                     item.stock,
                     item.stockMinimo,
                     item.oMarca.nombre,
+                    item.oMarca.idMarca,
                     item.oCategoria.nombre_categoria,
+                    item.oCategoria.idCategoria,
                     item.oProveedor.razonSocial,
-                    //item.Imagen,
-                    ImagenProducto(item)           
+                    item.oProveedor.idProveedor,
+                    ImagenProducto(item),
+                    item.detalle
                  });
             }
 
@@ -132,6 +138,19 @@ namespace CapaPresentacion
             {
                 e.Handled = true; 
             }
+           
+            // Filtra las filas de la lista de usuarios según el texto ingresado
+            if (dgvListaProducto.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvListaProducto.Rows)
+                {
+                    // Verifica si el nombre del producto contiene el texto de búsqueda
+                    if (row.Cells["ID_Producto"].Value.ToString().Trim().ToUpper().Contains(txtBuscarProducto.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
+            }
         }
 
         // Evento del botón para buscar un producto
@@ -174,8 +193,135 @@ namespace CapaPresentacion
             txtBuscarProducto.Focus();
             Listar_Productos();
         }
+
+        private void dgvListaProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvListaProducto.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    byte[] imagenProducto = dgvListaProducto.Rows[n].Cells["Imagen"].Value != null ? ImageToByteArray((Image)dgvListaProducto.Rows[n].Cells["Imagen"].Value) : null;
+
+                    Categoria CategoriaEditar = new Categoria()
+                    {
+                        idCategoria = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["id_categoria"].Value),
+                        nombre_categoria = dgvListaProducto.Rows[n].Cells["Categoria"].Value.ToString()
+                    };
+                    Marca MarcaEditar = new Marca()
+                    {
+                        nombre = dgvListaProducto.Rows[n].Cells["Marca"].Value.ToString(),
+                        idMarca = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["id_marca"].Value),
+                    };
+                    
+                    Proveedor ProveedorEditar = new Proveedor()
+                    {
+                        razonSocial = dgvListaProducto.Rows[n].Cells["Proveedor"].Value.ToString(),
+                        idProveedor = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["ID_Proveedor"].Value),
+
+                    };
+                    Producto ProductoEditar = new Producto()
+                    {
+                        idProducto = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["ID_producto"].Value),
+                        nombre = dgvListaProducto.Rows[n].Cells["Producto"].Value.ToString(),
+                        precioCompra = Convert.ToDouble(dgvListaProducto.Rows[n].Cells["PrecioCompra"].Value),
+                        precioVenta = Convert.ToDouble(dgvListaProducto.Rows[n].Cells["PrecioVenta"].Value),
+                        stock = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["Stock"].Value),
+                        stockMinimo = Convert.ToInt32(dgvListaProducto.Rows[n].Cells["StockMinimo"].Value),
+                        Imagen = imagenProducto,
+                        detalle = dgvListaProducto.Rows[n].Cells["Detalle"].Value.ToString(),
+
+                        oCategoria = CategoriaEditar,
+                        oMarca = MarcaEditar,
+                        oProveedor= ProveedorEditar,
+
+
+                    };
+                    // Abre el formulario para editar el usuario
+                    frmProducto CrearNuevoProducto = new frmProducto(ProductoEditar);
+
+                    CrearNuevoProducto.TopLevel = false; // Establece el formulario como hijo
+                    pnlContenedorProducto.Controls.Clear(); // Limpia los controles del panel contenedor
+                    pnlContenedorProducto.Controls.Add(CrearNuevoProducto); // Agrega el nuevo formulario al panel
+                    CrearNuevoProducto.FormBorderStyle = FormBorderStyle.None; // Elimina el borde del formulario
+                    CrearNuevoProducto.Dock = DockStyle.Fill; // Ajusta el tamaño del formulario al panel
+
+                    CrearNuevoProducto.Show(); // Muestra el nuevo formulario
+                    CrearNuevoProducto.FormClosing += frm_closing; // Suscribe al evento de cierre del formulario
+                }
+            }
+            // Verifica si la columna seleccionada es la de "Eliminar"
+            if (dgvListaProducto.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                int n = e.RowIndex; // Obtiene el índice de la fila seleccionada
+                if (n >= 0) // Verifica que el índice sea válido
+                {
+                    string mensaje = string.Empty; 
+                    Producto ProductoEliminar = new Producto() 
+                    {
+                         idProducto= (int)dgvListaProducto.Rows[n].Cells["ID_producto"].Value 
+                    };
+
+                    string estadoActual = dgvListaProducto.Rows[n].Cells["Estado"].Value.ToString(); 
+                    string producto = dgvListaProducto.Rows[n].Cells["Producto"].Value.ToString(); 
+
+                    // Si el producto está inactivo, se le pregunta si desea activarlo
+                    if (estadoActual == "Inactivo")
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea ACTIVAR al producto {producto}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para activar el usuario
+                            bool respuesta = new CN_Producto().Eliminar(ProductoEliminar, out mensaje);
+
+                            if (respuesta)
+                            {
+                                // Actualizar el estado del usuario
+                                dgvListaProducto.Rows[n].Cells["Estado"].Value = "Activo";
+                                dgvListaProducto.Rows[n].Cells["Estado"].Style.ForeColor = Color.Black; // Cambia el color a negro
+                                dgvListaProducto.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Black; // Cambia el color de selección a negro
+
+                                MessageBox.Show("Prdocuto " + producto + " activado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                        }
+                    }
+                    else // Si el producto está activo, se le pregunta si desea desactivarlo
+                    {
+                        DialogResult ask = MessageBox.Show($"¿Desea DESACTIVAR al producto {producto}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (ask == DialogResult.Yes)
+                        {
+                            // Llama al procedimiento almacenado para desactivar el producto
+                            bool respuesta = new CN_Producto().Eliminar(ProductoEliminar, out mensaje);
+
+                            // Actualizar el estado del producto
+                            dgvListaProducto.Rows[n].Cells["Estado"].Value = "Inactivo";
+                            dgvListaProducto.Rows[n].Cells["Estado"].Style.ForeColor = Color.Red; // Cambia el color a rojo
+                            dgvListaProducto.Rows[n].Cells["Estado"].Style.SelectionForeColor = Color.Red; // Cambia el color de selección a rojo
+
+                            MessageBox.Show("Producto " + producto + " desactivado correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+
+                    // Limpia las filas del DataGridView y vuelve a cargar los datos
+                    dgvListaProducto.Rows.Clear(); // Limpia el DataGridView
+                    Listar_Productos(); // Llama a la función para volver a cargar los datos
+                }
+            }
+        }
+        private byte[] ImageToByteArray(Image imageIn)
+        {
+            if (imageIn == null)
+            {
+                return null;
+            }
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
     }
 
-    
 
 }

@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="btnEditarDataGrid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Editar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -169,14 +169,14 @@
   </data>
   <data name="btnGuardarCategoria.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFwSURBVGhD7ZlBboMwEEW5RKP0Bixgx/0v0K7aRW4AgmV6
-        AHcGeVzHyDHGYTyu/KQvIaTg/2fGJlGaSqVSqfxXLqBP0Ie+Loo30BdIad1A76AiwGp/g1TXdavwWt8T
-        3wlT+bZt1TRNalkW1fd9EZ3YmCdKCPEwNvM8a+t/4D1rnO4gMQTNI04AlAi8Y2PjjJCYACnm8d2QlRTz
-        uImvoGywmMeNdcZr/OiGjTJvKqT1qnOXrfJnvMZ5K08VcqpxtBMslfcukhiCxTzyA/K212nt3nFKGZvo
-        kV0/GLFQaAGWmbcxD8BWj+Ool3hk5zixjY0NnvfmQQkhUsxHj42NWZh0IESWyttsQkTuCdaZ95HSiWyV
-        dzEnCClU1WEYVkVWPmnmQ0R14hmclXdJDpHTPHE4hATzRHQISeaJ3SEkmieCISSbJ7whSjBPbELgGX/2
-        G/bVbEI4Em2e8IUowjzhhijKPIHfZ/D3RJF/BVUqlaw0zS9WAWDJSNoQrAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAXBJREFUaEPtmUFugzAQRblEo/QGLGDH/S/QrtpFbgCCZXoAdwZ5XMfIMcZhPK78
+        pC8hpOD/Z8YmUZpKpVKp/FcuoE/Qh74uijfQF0hp3UDvoCLAan+DVNd1q/Ba3xPfCVP5tm3VNE1qWRbV
+        930RndiYJ0oI8TA28zxr63/gPWuc7iAxBM0jTgCUCLxjY+OMkJgAKebx3ZCVFPO4ia+gbLCYx411xmv8
+        6IaNMm8qpPWqc5et8me8xnkrTxVyqnG0EyyV9y6SGILFPPID8rbXae3ecUoZm+iRXT8YsVBoAZaZtzEP
+        wFaP46iXeGTnOLGNjQ2e9+ZBCSFSzEePjY1ZmHQgRJbK22xCRO4J1pn3kdKJbJV3MScIKVTVYRhWRVY+
+        aeZDRHXiGZyVd0kOkdM8cTiEBPNEdAhJ5ondISSaJ4IhJJsnvCFKME9sQuAZf/Yb9tVsQjgSbZ7whSjC
+        POGGKMo8gd9n8PdEkX8FVSqVrDTNL1YBYMlI2hCsAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnBuscarCategoria.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

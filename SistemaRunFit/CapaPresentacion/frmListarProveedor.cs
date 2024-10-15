@@ -81,6 +81,17 @@ namespace CapaPresentacion
             {
                 e.Handled = true; 
             }
+            if (dgvListaProveedor.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvListaProveedor.Rows)
+                {
+
+                    if (row.Cells["Cuit_Prev"].Value.ToString().Trim().ToUpper().Contains(txtBuscarPorProveedor.Text.Trim().ToUpper()))
+                        row.Visible = true; // Muestra la fila si coincide
+                    else
+                        row.Visible = false; // Oculta la fila si no coincide
+                }
+            }
         }
 
         // Evento que se ejecuta al hacer clic en el botón btnBuscarPorProveedor.
@@ -144,6 +155,26 @@ namespace CapaPresentacion
             item.direccion,
             item.descripcion,
             });
+            }
+            
+            for (int i = 0; i < dgvListaProveedor.Rows.Count; i++)
+            {
+                
+                string estado = dgvListaProveedor.Rows[i].Cells["Estado"].Value.ToString();
+
+                
+                if (estado == "Activo")
+                {
+                    // Cambiar el color del texto a negro si es "Activo"
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.ForeColor = Color.Black;
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Black; // También cuando está seleccionada
+                }
+                else if (estado == "Inactivo")
+                {
+                    // Cambiar el color del texto a rojo si es "Inactivo"
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.ForeColor = Color.Red;
+                    dgvListaProveedor.Rows[i].Cells["Estado"].Style.SelectionForeColor = Color.Red; // También cuando está seleccionada
+                }
             }
         }
         

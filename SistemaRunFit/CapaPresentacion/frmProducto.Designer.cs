@@ -104,7 +104,6 @@
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(59, 20);
             this.txtIdProducto.TabIndex = 78;
-            this.txtIdProducto.Visible = false;
             // 
             // btnVolverUser
             // 
@@ -417,7 +416,7 @@
             // 
             this.pbImagenProducto.BaseColor = System.Drawing.Color.White;
             this.pbImagenProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbImagenProducto.Image = global::CapaPresentacion.Properties.Resources.fotoProducto;
+            this.pbImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("pbImagenProducto.Image")));
             this.pbImagenProducto.Location = new System.Drawing.Point(507, 20);
             this.pbImagenProducto.Name = "pbImagenProducto";
             this.pbImagenProducto.Size = new System.Drawing.Size(150, 150);
@@ -566,6 +565,7 @@
             this.Controls.Add(this.pnlDatosProducto);
             this.Name = "frmProducto";
             this.Text = "frmProducto";
+            this.Load += new System.EventHandler(this.frmProducto_Load_1);
             this.pnlDatosProducto.ResumeLayout(false);
             this.pnlDatosProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).EndInit();

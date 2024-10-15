@@ -21,7 +21,7 @@ namespace CapaDeDatos
                 {
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select id_marca,nombre,fecha_alta,fecha_baja from MARCAS");
+                    query.AppendLine("select id_marca,nombre,fecha_alta,fecha_baja from MARCAS order by fecha_baja asc");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -62,7 +62,7 @@ namespace CapaDeDatos
                 {
                     SqlCommand cmd = new SqlCommand("SP_MARCAS_REGISTRAR", oconexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nombre", ObjMarca.nombre);
+                    cmd.Parameters.AddWithValue("nombre", ObjMarca.nombre);
                     SqlParameter resultadoParam = new SqlParameter("@Resultado", SqlDbType.Int);
                     resultadoParam.Direction = ParameterDirection.Output;
                     cmd.Parameters.Add(resultadoParam);
@@ -87,6 +87,39 @@ namespace CapaDeDatos
 
             return IdMarcaGenerada;
         }
+        public bool Editar(Marca ObjMarca, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_MARCAS_EDITAR", oconexion);
+                    cmd.Parameters.AddWithValue("id_marca", ObjMarca.idMarca);
+                    cmd.Parameters.AddWithValue("nombre", ObjMarca.nombre);
+
+
+                    cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (bool)cmd.Parameters["@Resultado"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
+        }
         public bool Eliminar(Marca ObjMarca, out string Mensaje)
         {
             bool Respuesta = false;
@@ -99,16 +132,16 @@ namespace CapaDeDatos
                     SqlCommand cmd = new SqlCommand("SP_MARCAS_ELIMINAR", oconexion);
                     cmd.Parameters.AddWithValue("id_marca", ObjMarca.idMarca);
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Respuesta = (bool)cmd.Parameters["@Respuesta"].Value;
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
