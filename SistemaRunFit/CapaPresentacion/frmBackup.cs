@@ -26,8 +26,27 @@ namespace CapaPresentacion
             InitializeComponent(); // Inicializa los componentes del formulario
             _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en 'Inicio' mientras se muestra este formulario
             lblUltimoBackup = new Label();
+
+            // Llamar al método para cargar el último backup
+            CargarUltimoBackup();
+        }
+
+        private void CargarUltimoBackup()
+        {
+            // Asigna la última fecha de backup
             lblUltima.Text = backup.ObtenerUltimaFechaBackup();
-            lblUltima.Text = backup.ObtenerUltimaCopia().Value.ToString();
+
+            // Verifica si el resultado de ObtenerUltimaCopia tiene valor
+            var ultimaCopia = backup.ObtenerUltimaCopia();
+
+            if (ultimaCopia.HasValue)
+            {
+                lblUltima.Text = ultimaCopia.Value.ToString();
+            }
+            else
+            {
+                lblUltima.Text = "No hay copias disponibles";  // Manejo del caso donde no hay valor
+            }
         }
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal

@@ -230,6 +230,24 @@ namespace CapaPresentacion
             }
         }
 
+        public bool RecorrerProductosDelCarrito(List<Carrito> CarritoLleno)
+        {
+            foreach (var item in _listaProductos)
+            {
+                var itemCarrito = CarritoLleno.FirstOrDefault(c => c.Producto.idProducto == item.idProducto);
+                if (itemCarrito != null)
+                {
+                    if(item.stock <= 0)
+                    {
+                        MessageBox.Show($"No hay stock suficiente del producto: {item.nombre}!");
+                        return false;
+                    }
+
+                }
+            }
+            return true;
+        }
+
         private void CargarDataGrid()
         {
             _totalCompra = 0;
@@ -298,6 +316,8 @@ namespace CapaPresentacion
 
         private void btnConfirmarVta_Click(object sender, EventArgs e)
         {
+            _listaProductos = new CN_Producto().ListarProductos();
+            
             string MensajeVenta = string.Empty;
             string MensajeDetalleVenta = string.Empty;
             string MensajeProducto = string.Empty;
@@ -305,6 +325,17 @@ namespace CapaPresentacion
             int IdDetalleVentaGenerada = 0;
             int ProductoActualizado = 0;
 
+            if(string.IsNullOrEmpty(txtBuscarDniVta.Text))
+            {
+                MessageBox.Show("Falta DNI");
+                return;
+            }
+            var cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text));
+            if ( cliente == null)
+            {
+                MessageBox.Show("No existe cliente");
+                return;
+            }
             if (string.IsNullOrEmpty(txtNyApeRegVta.Text)) 
             {
                 MessageBox.Show("No hay cliente para la venta");
@@ -325,52 +356,55 @@ namespace CapaPresentacion
 
             if (confirmacion == DialogResult.Yes)
             {
-                string fechaFormateada = dtpFechaVenta.Value.ToString("yyyy-MM-dd");
-
-                Venta VentaNueva = new Venta()
+                if (RecorrerProductosDelCarrito(_carrito))
                 {
-                    importeTotal = _totalCompra,
-                    fechaFactura = fechaFormateada,
-                    oUsuario = _usuarioVendedor,
-                    oCliente = new Persona() 
-                    { 
-                        idPersona = (_cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text))).oPersona.idPersona
-                    }
-                };
+                    string fechaFormateada = dtpFechaVenta.Value.ToString("yyyy-MM-dd");
 
-                IdVentaGenerada = new CN_Venta().Registrar(VentaNueva, out MensajeVenta);
-
-                if (IdVentaGenerada != 0)
-                {
-                    foreach (var item in _carrito)
+                    Venta VentaNueva = new Venta()
                     {
-                        DetalleVenta DetalleVentaNuevo = new DetalleVenta()
-                        {
-                            cantidad = item.Cantidad,
-                            subTotal = item.Producto.precioCompra * item.Cantidad,
-                            oProducto = item.Producto,
-                            oVenta = new Venta() { idVenta = IdVentaGenerada }
-                        };
-
-                        IdDetalleVentaGenerada = new CN_DetalleVentas().Registrar(DetalleVentaNuevo, out MensajeDetalleVenta);
-
-                        if(IdDetalleVentaGenerada == 0)
-                        {
-                            MessageBox.Show(MensajeDetalleVenta);
-                            return;
+                        importeTotal = _totalCompra,
+                        fechaFactura = fechaFormateada,
+                        oUsuario = _usuarioVendedor,
+                        oCliente = new Persona() 
+                        { 
+                            idPersona = (_cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text))).oPersona.idPersona
                         }
-                        ProductoActualizado = new CN_Producto().Actualizar(item.Producto.idProducto, item.Cantidad, out MensajeProducto);
+                    };
+
+                    IdVentaGenerada = new CN_Venta().Registrar(VentaNueva, out MensajeVenta);
+
+                    if (IdVentaGenerada != 0)
+                    {
+                        foreach (var item in _carrito)
+                        {
+                            DetalleVenta DetalleVentaNuevo = new DetalleVenta()
+                            {
+                                cantidad = item.Cantidad,
+                                subTotal = item.Producto.precioVenta * item.Cantidad,
+                                oProducto = item.Producto,
+                                oVenta = new Venta() { idVenta = IdVentaGenerada }
+                            };
+
+                            IdDetalleVentaGenerada = new CN_DetalleVentas().Registrar(DetalleVentaNuevo, out MensajeDetalleVenta);
+
+                            if(IdDetalleVentaGenerada == 0)
+                            {
+                                MessageBox.Show(MensajeDetalleVenta);
+                                return;
+                            }
+                            ProductoActualizado = new CN_Producto().Actualizar(item.Producto.idProducto, item.Cantidad, out MensajeProducto);
+                        }
                     }
-                }
-                if (IdVentaGenerada != 0 && IdDetalleVentaGenerada != 0 && ProductoActualizado != 0)
-                {
-                    MessageBox.Show("Venta registrada correctamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    limpiarFormVenta();
-                    _listaProductos = new CN_Producto().ListarProductos();
-                }
-                else
-                {
-                    MessageBox.Show(MensajeVenta + "\n" + MensajeDetalleVenta);
+                    if (IdVentaGenerada != 0 && IdDetalleVentaGenerada != 0 && ProductoActualizado != 0)
+                    {
+                        MessageBox.Show("Venta registrada correctamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        limpiarFormVenta();
+                        _listaProductos = new CN_Producto().ListarProductos();
+                    }
+                    else
+                    {
+                        MessageBox.Show(MensajeVenta + "\n" + MensajeDetalleVenta);
+                    }
                 }
             }
         }

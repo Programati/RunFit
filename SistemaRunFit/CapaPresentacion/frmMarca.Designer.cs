@@ -37,9 +37,8 @@
             this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.txtMarca = new Guna.UI.WinForms.GunaTextBox();
-            this.lblMarcaNombreProd = new System.Windows.Forms.Label();
+            this.lblNuevaMarca = new System.Windows.Forms.Label();
             this.btnGuardarMarca = new Guna.UI.WinForms.GunaButton();
-            this.btnBuscarMarca = new Guna.UI.WinForms.GunaTileButton();
             this.lblBuscarPorCateg = new Guna.UI.WinForms.GunaLabel();
             this.txtBuscarMarca = new Guna.UI.WinForms.GunaTextBox();
             this.grbListaMarcas = new Guna.UI.WinForms.GunaGroupBox();
@@ -62,9 +61,8 @@
             this.pnlBusquedaCategoria.Controls.Add(this.btnMenuMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.guna2VSeparator1);
             this.pnlBusquedaCategoria.Controls.Add(this.txtMarca);
-            this.pnlBusquedaCategoria.Controls.Add(this.lblMarcaNombreProd);
+            this.pnlBusquedaCategoria.Controls.Add(this.lblNuevaMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.btnGuardarMarca);
-            this.pnlBusquedaCategoria.Controls.Add(this.btnBuscarMarca);
             this.pnlBusquedaCategoria.Controls.Add(this.lblBuscarPorCateg);
             this.pnlBusquedaCategoria.Controls.Add(this.txtBuscarMarca);
             this.pnlBusquedaCategoria.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,15 +70,16 @@
             this.pnlBusquedaCategoria.Name = "pnlBusquedaCategoria";
             this.pnlBusquedaCategoria.Radius = 5;
             this.pnlBusquedaCategoria.ShadowColor = System.Drawing.Color.Black;
-            this.pnlBusquedaCategoria.Size = new System.Drawing.Size(800, 100);
+            this.pnlBusquedaCategoria.Size = new System.Drawing.Size(957, 100);
             this.pnlBusquedaCategoria.TabIndex = 57;
             // 
             // txtIdMarca
             // 
-            this.txtIdMarca.Location = new System.Drawing.Point(418, 67);
+            this.txtIdMarca.Location = new System.Drawing.Point(491, 56);
             this.txtIdMarca.Name = "txtIdMarca";
             this.txtIdMarca.Size = new System.Drawing.Size(100, 20);
             this.txtIdMarca.TabIndex = 87;
+            this.txtIdMarca.Visible = false;
             // 
             // btnMenuMarca
             // 
@@ -97,7 +96,7 @@
             this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
             this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
             this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuMarca.Location = new System.Drawing.Point(26, 48);
+            this.btnMenuMarca.Location = new System.Drawing.Point(15, 48);
             this.btnMenuMarca.Name = "btnMenuMarca";
             this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -112,7 +111,7 @@
             // 
             // guna2VSeparator1
             // 
-            this.guna2VSeparator1.Location = new System.Drawing.Point(339, 10);
+            this.guna2VSeparator1.Location = new System.Drawing.Point(394, 7);
             this.guna2VSeparator1.Name = "guna2VSeparator1";
             this.guna2VSeparator1.Size = new System.Drawing.Size(22, 83);
             this.guna2VSeparator1.TabIndex = 67;
@@ -128,7 +127,7 @@
             this.txtMarca.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtMarca.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtMarca.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMarca.Location = new System.Drawing.Point(95, 13);
+            this.txtMarca.Location = new System.Drawing.Point(143, 13);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.PasswordChar = '\0';
             this.txtMarca.Radius = 10;
@@ -137,16 +136,16 @@
             this.txtMarca.TabIndex = 36;
             this.txtMarca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblMarcaNombreProd
+            // lblNuevaMarca
             // 
-            this.lblMarcaNombreProd.AutoSize = true;
-            this.lblMarcaNombreProd.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarcaNombreProd.ForeColor = System.Drawing.Color.White;
-            this.lblMarcaNombreProd.Location = new System.Drawing.Point(12, 18);
-            this.lblMarcaNombreProd.Name = "lblMarcaNombreProd";
-            this.lblMarcaNombreProd.Size = new System.Drawing.Size(50, 16);
-            this.lblMarcaNombreProd.TabIndex = 37;
-            this.lblMarcaNombreProd.Text = "Marca";
+            this.lblNuevaMarca.AutoSize = true;
+            this.lblNuevaMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNuevaMarca.ForeColor = System.Drawing.Color.White;
+            this.lblNuevaMarca.Location = new System.Drawing.Point(12, 18);
+            this.lblNuevaMarca.Name = "lblNuevaMarca";
+            this.lblNuevaMarca.Size = new System.Drawing.Size(96, 16);
+            this.lblNuevaMarca.TabIndex = 37;
+            this.lblNuevaMarca.Text = "Nueva Marca";
             // 
             // btnGuardarMarca
             // 
@@ -163,7 +162,7 @@
             this.btnGuardarMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarMarca.Image")));
             this.btnGuardarMarca.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnGuardarMarca.Location = new System.Drawing.Point(223, 51);
+            this.btnGuardarMarca.Location = new System.Drawing.Point(258, 48);
             this.btnGuardarMarca.Name = "btnGuardarMarca";
             this.btnGuardarMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnGuardarMarca.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -171,47 +170,21 @@
             this.btnGuardarMarca.OnHoverImage = null;
             this.btnGuardarMarca.OnPressedColor = System.Drawing.Color.Black;
             this.btnGuardarMarca.Radius = 10;
-            this.btnGuardarMarca.Size = new System.Drawing.Size(100, 34);
+            this.btnGuardarMarca.Size = new System.Drawing.Size(113, 37);
             this.btnGuardarMarca.TabIndex = 66;
             this.btnGuardarMarca.Text = "Guardar";
             this.btnGuardarMarca.Click += new System.EventHandler(this.btnGuardarMarca_Click);
-            // 
-            // btnBuscarMarca
-            // 
-            this.btnBuscarMarca.AnimationHoverSpeed = 0.07F;
-            this.btnBuscarMarca.AnimationSpeed = 0.03F;
-            this.btnBuscarMarca.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscarMarca.BaseColor = System.Drawing.Color.Transparent;
-            this.btnBuscarMarca.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnBuscarMarca.BorderSize = 2;
-            this.btnBuscarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarMarca.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnBuscarMarca.FocusedColor = System.Drawing.Color.Empty;
-            this.btnBuscarMarca.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.btnBuscarMarca.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarMarca.Image")));
-            this.btnBuscarMarca.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnBuscarMarca.Location = new System.Drawing.Point(639, 11);
-            this.btnBuscarMarca.Name = "btnBuscarMarca";
-            this.btnBuscarMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnBuscarMarca.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnBuscarMarca.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnBuscarMarca.OnHoverImage = null;
-            this.btnBuscarMarca.OnPressedColor = System.Drawing.Color.Black;
-            this.btnBuscarMarca.Radius = 5;
-            this.btnBuscarMarca.Size = new System.Drawing.Size(35, 30);
-            this.btnBuscarMarca.TabIndex = 55;
             // 
             // lblBuscarPorCateg
             // 
             this.lblBuscarPorCateg.AutoSize = true;
             this.lblBuscarPorCateg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBuscarPorCateg.ForeColor = System.Drawing.Color.White;
-            this.lblBuscarPorCateg.Location = new System.Drawing.Point(384, 18);
+            this.lblBuscarPorCateg.Location = new System.Drawing.Point(457, 18);
             this.lblBuscarPorCateg.Name = "lblBuscarPorCateg";
-            this.lblBuscarPorCateg.Size = new System.Drawing.Size(51, 16);
+            this.lblBuscarPorCateg.Size = new System.Drawing.Size(124, 16);
             this.lblBuscarPorCateg.TabIndex = 1;
-            this.lblBuscarPorCateg.Text = "Buscar";
+            this.lblBuscarPorCateg.Text = "Buscar por marca";
             // 
             // txtBuscarMarca
             // 
@@ -223,7 +196,7 @@
             this.txtBuscarMarca.FocusedBorderColor = System.Drawing.Color.SeaGreen;
             this.txtBuscarMarca.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarMarca.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarMarca.Location = new System.Drawing.Point(450, 13);
+            this.txtBuscarMarca.Location = new System.Drawing.Point(589, 13);
             this.txtBuscarMarca.Name = "txtBuscarMarca";
             this.txtBuscarMarca.PasswordChar = '\0';
             this.txtBuscarMarca.Radius = 10;
@@ -251,7 +224,7 @@
             this.grbListaMarcas.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaMarcas.Name = "grbListaMarcas";
             this.grbListaMarcas.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
-            this.grbListaMarcas.Size = new System.Drawing.Size(800, 350);
+            this.grbListaMarcas.Size = new System.Drawing.Size(957, 350);
             this.grbListaMarcas.TabIndex = 58;
             this.grbListaMarcas.Text = "Lista de Marcas";
             this.grbListaMarcas.TextLocation = new System.Drawing.Point(10, 8);
@@ -303,7 +276,7 @@
             this.dgvMarca.RowHeadersVisible = false;
             this.dgvMarca.RowTemplate.Height = 35;
             this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMarca.Size = new System.Drawing.Size(796, 298);
+            this.dgvMarca.Size = new System.Drawing.Size(953, 298);
             this.dgvMarca.TabIndex = 0;
             this.dgvMarca.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvMarca.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -345,12 +318,12 @@
             // Eliminar
             // 
             this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.HeaderText = "Accion";
             this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 79;
+            this.Eliminar.Width = 73;
             // 
             // ID_marca
             // 
@@ -359,6 +332,7 @@
             this.ID_marca.HeaderText = "ID";
             this.ID_marca.Name = "ID_marca";
             this.ID_marca.ReadOnly = true;
+            this.ID_marca.Visible = false;
             this.ID_marca.Width = 51;
             // 
             // Estado
@@ -373,16 +347,16 @@
             // 
             this.nombre_marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombre_marca.FillWeight = 228.6892F;
-            this.nombre_marca.HeaderText = "Nombre de Marca";
+            this.nombre_marca.HeaderText = "Marca";
             this.nombre_marca.Name = "nombre_marca";
             this.nombre_marca.ReadOnly = true;
-            this.nombre_marca.Width = 180;
+            this.nombre_marca.Width = 87;
             // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(957, 450);
             this.Controls.Add(this.grbListaMarcas);
             this.Controls.Add(this.pnlBusquedaCategoria);
             this.Name = "frmMarca";
@@ -401,9 +375,8 @@
         private Guna.UI.WinForms.GunaShadowPanel pnlBusquedaCategoria;
         private Guna.UI2.WinForms.Guna2VSeparator guna2VSeparator1;
         private Guna.UI.WinForms.GunaTextBox txtMarca;
-        private System.Windows.Forms.Label lblMarcaNombreProd;
+        private System.Windows.Forms.Label lblNuevaMarca;
         private Guna.UI.WinForms.GunaButton btnGuardarMarca;
-        private Guna.UI.WinForms.GunaTileButton btnBuscarMarca;
         private Guna.UI.WinForms.GunaLabel lblBuscarPorCateg;
         private Guna.UI.WinForms.GunaTextBox txtBuscarMarca;
         private Guna.UI.WinForms.GunaGroupBox grbListaMarcas;
