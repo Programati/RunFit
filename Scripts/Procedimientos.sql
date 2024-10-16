@@ -995,4 +995,12 @@ select * from PRODUCTOS
  select * from PRODUCTOS
 
  select * from MARCAS
->>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
+
+
+
+RESTORE DATABASE [RunFit]
+FROM DISK = 'C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\15-10-2024_12 horas _32 minutos _14 segundos.bak'
+WITH REPLACE;
+
+select * from usuarios
+
