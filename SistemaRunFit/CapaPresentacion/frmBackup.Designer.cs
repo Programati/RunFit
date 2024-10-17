@@ -33,13 +33,18 @@
             this.pnlDatosUsuarioUser = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnRestaurar = new Guna.UI.WinForms.GunaButton();
             this.btnSeleccionarArchivo = new Guna.UI.WinForms.GunaButton();
-            this.txtRutaArchivo = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblUltima = new System.Windows.Forms.Label();
             this.lblUltimoBackup = new System.Windows.Forms.Label();
             this.btnMenuMarca = new Guna.UI.WinForms.GunaButton();
             this.lblBackupSistema = new System.Windows.Forms.Label();
             this.btnHacerBackup = new Guna.UI.WinForms.GunaButton();
+            this.txtUsuarioBackup = new Guna.UI.WinForms.GunaTextBox();
+            this.txtPassBackup = new Guna.UI.WinForms.GunaTextBox();
+            this.txtRutaArchivo = new Guna.UI.WinForms.GunaTextBox();
+            this.lblUsuarioBackup = new Guna.UI.WinForms.GunaLabel();
+            this.lblPassBackup = new Guna.UI.WinForms.GunaLabel();
+            this.lblPath = new Guna.UI.WinForms.GunaLabel();
             this.pnlContenedorBackup.SuspendLayout();
             this.pnlDatosUsuarioUser.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +65,14 @@
             this.pnlDatosUsuarioUser.AutoScroll = true;
             this.pnlDatosUsuarioUser.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosUsuarioUser.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlDatosUsuarioUser.Controls.Add(this.lblPath);
+            this.pnlDatosUsuarioUser.Controls.Add(this.lblPassBackup);
+            this.pnlDatosUsuarioUser.Controls.Add(this.lblUsuarioBackup);
+            this.pnlDatosUsuarioUser.Controls.Add(this.txtRutaArchivo);
+            this.pnlDatosUsuarioUser.Controls.Add(this.txtPassBackup);
+            this.pnlDatosUsuarioUser.Controls.Add(this.txtUsuarioBackup);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnRestaurar);
             this.pnlDatosUsuarioUser.Controls.Add(this.btnSeleccionarArchivo);
-            this.pnlDatosUsuarioUser.Controls.Add(this.txtRutaArchivo);
             this.pnlDatosUsuarioUser.Controls.Add(this.lblEstado);
             this.pnlDatosUsuarioUser.Controls.Add(this.lblUltima);
             this.pnlDatosUsuarioUser.Controls.Add(this.lblUltimoBackup);
@@ -92,7 +102,7 @@
             this.btnRestaurar.ForeColor = System.Drawing.Color.Red;
             this.btnRestaurar.Image = null;
             this.btnRestaurar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnRestaurar.Location = new System.Drawing.Point(580, 277);
+            this.btnRestaurar.Location = new System.Drawing.Point(591, 305);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnRestaurar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -121,7 +131,7 @@
             this.btnSeleccionarArchivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnSeleccionarArchivo.Image = null;
             this.btnSeleccionarArchivo.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnSeleccionarArchivo.Location = new System.Drawing.Point(561, 127);
+            this.btnSeleccionarArchivo.Location = new System.Drawing.Point(565, 132);
             this.btnSeleccionarArchivo.Name = "btnSeleccionarArchivo";
             this.btnSeleccionarArchivo.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnSeleccionarArchivo.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -135,18 +145,11 @@
             this.btnSeleccionarArchivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnSeleccionarArchivo.Click += new System.EventHandler(this.btnSeleccionarArchivo_Click);
             // 
-            // txtRutaArchivo
-            // 
-            this.txtRutaArchivo.Location = new System.Drawing.Point(552, 221);
-            this.txtRutaArchivo.Name = "txtRutaArchivo";
-            this.txtRutaArchivo.Size = new System.Drawing.Size(161, 20);
-            this.txtRutaArchivo.TabIndex = 93;
-            // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(84, 326);
+            this.lblEstado.Location = new System.Drawing.Point(44, 291);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(187, 66);
             this.lblEstado.TabIndex = 91;
@@ -156,7 +159,7 @@
             // 
             this.lblUltima.AutoSize = true;
             this.lblUltima.Font = new System.Drawing.Font("Century Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUltima.Location = new System.Drawing.Point(286, 344);
+            this.lblUltima.Location = new System.Drawing.Point(246, 309);
             this.lblUltima.Name = "lblUltima";
             this.lblUltima.Size = new System.Drawing.Size(102, 33);
             this.lblUltima.TabIndex = 90;
@@ -186,7 +189,7 @@
             this.btnMenuMarca.ForeColor = System.Drawing.Color.Red;
             this.btnMenuMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnMenuMarca.Image")));
             this.btnMenuMarca.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnMenuMarca.Location = new System.Drawing.Point(117, 238);
+            this.btnMenuMarca.Location = new System.Drawing.Point(77, 203);
             this.btnMenuMarca.Name = "btnMenuMarca";
             this.btnMenuMarca.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnMenuMarca.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -224,7 +227,7 @@
             this.btnHacerBackup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnHacerBackup.Image = ((System.Drawing.Image)(resources.GetObject("btnHacerBackup.Image")));
             this.btnHacerBackup.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnHacerBackup.Location = new System.Drawing.Point(101, 135);
+            this.btnHacerBackup.Location = new System.Drawing.Point(61, 100);
             this.btnHacerBackup.Name = "btnHacerBackup";
             this.btnHacerBackup.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnHacerBackup.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -236,6 +239,100 @@
             this.btnHacerBackup.TabIndex = 11;
             this.btnHacerBackup.Text = "Hacer Backup";
             this.btnHacerBackup.Click += new System.EventHandler(this.btnHacerBackup_Click);
+            // 
+            // txtUsuarioBackup
+            // 
+            this.txtUsuarioBackup.BackColor = System.Drawing.Color.Transparent;
+            this.txtUsuarioBackup.BaseColor = System.Drawing.Color.White;
+            this.txtUsuarioBackup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtUsuarioBackup.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtUsuarioBackup.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtUsuarioBackup.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtUsuarioBackup.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtUsuarioBackup.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuarioBackup.Location = new System.Drawing.Point(565, 214);
+            this.txtUsuarioBackup.MaxLength = 30;
+            this.txtUsuarioBackup.Name = "txtUsuarioBackup";
+            this.txtUsuarioBackup.PasswordChar = '\0';
+            this.txtUsuarioBackup.Radius = 10;
+            this.txtUsuarioBackup.SelectedText = "";
+            this.txtUsuarioBackup.Size = new System.Drawing.Size(183, 26);
+            this.txtUsuarioBackup.TabIndex = 97;
+            this.txtUsuarioBackup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtPassBackup
+            // 
+            this.txtPassBackup.BackColor = System.Drawing.Color.Transparent;
+            this.txtPassBackup.BaseColor = System.Drawing.Color.White;
+            this.txtPassBackup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtPassBackup.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassBackup.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtPassBackup.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtPassBackup.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtPassBackup.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassBackup.Location = new System.Drawing.Point(565, 255);
+            this.txtPassBackup.MaxLength = 30;
+            this.txtPassBackup.Name = "txtPassBackup";
+            this.txtPassBackup.PasswordChar = '●';
+            this.txtPassBackup.Radius = 10;
+            this.txtPassBackup.SelectedText = "";
+            this.txtPassBackup.Size = new System.Drawing.Size(183, 26);
+            this.txtPassBackup.TabIndex = 98;
+            this.txtPassBackup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPassBackup.UseSystemPasswordChar = true;
+            // 
+            // txtRutaArchivo
+            // 
+            this.txtRutaArchivo.BackColor = System.Drawing.Color.Transparent;
+            this.txtRutaArchivo.BaseColor = System.Drawing.Color.White;
+            this.txtRutaArchivo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.txtRutaArchivo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRutaArchivo.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtRutaArchivo.FocusedBorderColor = System.Drawing.Color.SeaGreen;
+            this.txtRutaArchivo.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtRutaArchivo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaArchivo.Location = new System.Drawing.Point(552, 100);
+            this.txtRutaArchivo.MaxLength = 30;
+            this.txtRutaArchivo.Name = "txtRutaArchivo";
+            this.txtRutaArchivo.PasswordChar = '\0';
+            this.txtRutaArchivo.Radius = 10;
+            this.txtRutaArchivo.SelectedText = "";
+            this.txtRutaArchivo.Size = new System.Drawing.Size(183, 26);
+            this.txtRutaArchivo.TabIndex = 99;
+            this.txtRutaArchivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblUsuarioBackup
+            // 
+            this.lblUsuarioBackup.AutoSize = true;
+            this.lblUsuarioBackup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioBackup.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioBackup.Location = new System.Drawing.Point(485, 224);
+            this.lblUsuarioBackup.Name = "lblUsuarioBackup";
+            this.lblUsuarioBackup.Size = new System.Drawing.Size(55, 16);
+            this.lblUsuarioBackup.TabIndex = 100;
+            this.lblUsuarioBackup.Text = "Usuario";
+            // 
+            // lblPassBackup
+            // 
+            this.lblPassBackup.AutoSize = true;
+            this.lblPassBackup.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassBackup.ForeColor = System.Drawing.Color.White;
+            this.lblPassBackup.Location = new System.Drawing.Point(469, 265);
+            this.lblPassBackup.Name = "lblPassBackup";
+            this.lblPassBackup.Size = new System.Drawing.Size(90, 16);
+            this.lblPassBackup.TabIndex = 101;
+            this.lblPassBackup.Text = "Contraseña: ";
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPath.ForeColor = System.Drawing.Color.White;
+            this.lblPath.Location = new System.Drawing.Point(487, 110);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(44, 16);
+            this.lblPath.TabIndex = 102;
+            this.lblPath.Text = "Ruta: ";
             // 
             // frmBackup
             // 
@@ -263,7 +360,12 @@
         private System.Windows.Forms.Label lblUltima;
         private System.Windows.Forms.Label lblEstado;
         private Guna.UI.WinForms.GunaButton btnSeleccionarArchivo;
-        private System.Windows.Forms.TextBox txtRutaArchivo;
         private Guna.UI.WinForms.GunaButton btnRestaurar;
+        private Guna.UI.WinForms.GunaTextBox txtRutaArchivo;
+        private Guna.UI.WinForms.GunaTextBox txtUsuarioBackup;
+        private Guna.UI.WinForms.GunaLabel lblPath;
+        private Guna.UI.WinForms.GunaLabel lblPassBackup;
+        private Guna.UI.WinForms.GunaLabel lblUsuarioBackup;
+        internal Guna.UI.WinForms.GunaTextBox txtPassBackup;
     }
 }

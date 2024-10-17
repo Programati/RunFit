@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDeEntidades;
 using CapaDeNegocios;
 
 namespace CapaPresentacion
@@ -67,43 +68,81 @@ namespace CapaPresentacion
             backup.Backup(lblUltimoBackup); // Actualiza el label dentro del método
             lblUltima.Text = backup.ObtenerUltimaFechaBackup();
         }
-
-
-
-        private void btnRestaurar_Click_1(object sender, EventArgs e)
+        private void comprobarUsuario()
         {
-            string rutaBackup = txtRutaArchivo.Text; // Obtener la ruta desde el TextBox
+            List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
-            // Verificar que la ruta no esté vacía
-            if (!string.IsNullOrEmpty(rutaBackup))
+
+            //Descomentar la linea de abajo, una vez que creaste el superAdmin
+            //Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
+            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.oRol.nombreRol=="Gerente" &&   u.passwordUsuario == (txtPassBackup.Text)).FirstOrDefault() ;
+
+
+            if (ousuario != null)
             {
-                // Pregunta crítica al usuario
-                DialogResult resultado = MessageBox.Show(
-                    "¿Estás seguro de que deseas restaurar la base de datos desde el backup? " +
-                    "Cualquier dato no guardado se perderá.", // Mensaje de advertencia
-                    "Confirmar Restauración",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                object estado = ousuario.fechaBaja;
 
-                // Si el usuario hace clic en "Sí", proceder con la restauración
-                if (resultado == DialogResult.Yes)
+                if (estado != null)
                 {
-                    try
+                    MessageBox.Show("Usted esta dado de BAJA en el sistema");
+                    return;
+                }
+              
+                string rutaBackup = txtRutaArchivo.Text; // Obtener la ruta desde el TextBox
+
+                // Verificar que la ruta no esté vacía
+                if (!string.IsNullOrEmpty(rutaBackup))
+                {
+                    // Pregunta crítica al usuario
+                    DialogResult resultado = MessageBox.Show(
+                        "¿Estás seguro de que deseas restaurar la base de datos desde el backup? " +
+                        "Cualquier dato no guardado se perderá.", // Mensaje de advertencia
+                        "Confirmar Restauración",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    // Si el usuario hace clic en "Sí", proceder con la restauración
+                    if (resultado == DialogResult.Yes)
                     {
-                        CN_Backup backup = new CN_Backup(); // Crear una instancia de CN_Backup
-                        backup.Restaurar(rutaBackup); // Llamar al método Restaurar
-                        txtRutaArchivo.Clear();
+                        try
+                        {
+                            CN_Backup backup = new CN_Backup(); // Crear una instancia de CN_Backup
+                            backup.Restaurar(rutaBackup); // Llamar al método Restaurar
+                            txtRutaArchivo.Clear();
+                            txtUsuarioBackup.Clear();
+                            txtPassBackup.Clear();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un archivo de respaldo (.bak) antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona un archivo de respaldo (.bak) antes de continuar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Usuario o Contraseña incorrectas o no tiene permisos suficientes", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+
+        private void btnRestaurar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRutaArchivo.Text))
+            {
+                MessageBox.Show("Debe seleccionar un archivo .bak para restaurar");
+                return;
+            }
+            if(string.IsNullOrEmpty(txtUsuarioBackup.Text) || string.IsNullOrEmpty(txtUsuarioBackup.Text))
+            {
+                MessageBox.Show("Debe introducir el nombre de usuario y contraseña con permisos para poder restaurar");
+                return;
+            }
+            comprobarUsuario();
         }
 
 
