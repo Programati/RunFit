@@ -237,12 +237,11 @@ namespace CapaPresentacion
                 var itemCarrito = CarritoLleno.FirstOrDefault(c => c.Producto.idProducto == item.idProducto);
                 if (itemCarrito != null)
                 {
-                    if(item.stock <= 0)
+                    if(item.stock <= 0 || item.stock < itemCarrito.Cantidad )
                     {
                         MessageBox.Show($"No hay stock suficiente del producto: {item.nombre}!");
                         return false;
                     }
-
                 }
             }
             return true;
