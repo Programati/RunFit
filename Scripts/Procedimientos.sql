@@ -555,6 +555,13 @@ BEGIN
     END
 END
 GO
+select * from PERSONAS
+select * from ventas 
+select  * from DETALLE_VENTAS
+select * from PRODUCTOS
+update productos
+set stock = 0
+where id_producto = 3
   --------------------------------------------------------------
  go
 
