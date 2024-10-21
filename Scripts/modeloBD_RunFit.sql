@@ -368,3 +368,9 @@ FROM (
     WHERE 
         backupset.database_name = 'RunFit'
 ) AS BackupDates;
+
+select * from PRODUCTOS where id_producto=14
+select * from PERSONAS
+update PRODUCTOS
+set stock=0
+where id_producto=14

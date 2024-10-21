@@ -999,12 +999,15 @@ select * from PRODUCTOS
  select * from PROVEEDORES
  select * from CATEGORIAS
 <<<<<<< HEAD
+<<<<<<< HEAD
 
  select * from PRODUCTOS
 
  select * from MARCAS
 >>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
 =======
+=======
+>>>>>>> 53d25f6e474e6eafaed02dd8074556453c398f5e
  select * from MARCAS
 
 
@@ -1017,4 +1020,25 @@ select * from PRODUCTOS
  SELECT * FROM DETALLE_VENTAS;
  
  delete from VENTAS where id_venta > 0
+<<<<<<< HEAD
+=======
+=======
+
+ select * from PRODUCTOS
+
+ select * from MARCAS
+<<<<<<< HEAD
+
+
+
+RESTORE DATABASE [RunFit]
+FROM DISK = 'C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\15-10-2024_12 horas _32 minutos _14 segundos.bak'
+WITH REPLACE;
+
+select * from usuarios
+
+=======
+>>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
+>>>>>>> rama-julio
+>>>>>>> 53d25f6e474e6eafaed02dd8074556453c398f5e
 >>>>>>> rama-matias

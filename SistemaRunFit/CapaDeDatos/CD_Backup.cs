@@ -48,6 +48,38 @@ namespace CapaDeDatos
                 }
             }
         }
+        private string connectionString = "Data Source=(local);Initial Catalog=RunFit;Integrated Security=True";
+
+        public void Restaurar(string rutaBackup)
+        {
+                     
+            string query = $@"
+        USE master;
+        ALTER DATABASE [RunFit] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+        RESTORE DATABASE [RunFit]
+        FROM DISK = '{rutaBackup}'
+        WITH REPLACE;
+        ALTER DATABASE [RunFit] SET MULTI_USER;";
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                try
+                {
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Base de datos restaurada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+
+
         public string ObtenerUltimaFechaBackup()
         {
             return ultimaFechaBackup;
