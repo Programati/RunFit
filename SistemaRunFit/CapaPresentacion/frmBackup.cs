@@ -30,9 +30,7 @@ namespace CapaPresentacion
 
             // Llamar al método para cargar el último backup
             CargarUltimoBackup();
-<<<<<<< HEAD
 
-=======
         }
 
         private void CargarUltimoBackup()
@@ -51,25 +49,9 @@ namespace CapaPresentacion
             {
                 lblUltima.Text = "No hay copias disponibles";  // Manejo del caso donde no hay valor
             }
->>>>>>> 53d25f6e474e6eafaed02dd8074556453c398f5e
-        }
-        private void CargarUltimoBackup()
-        {
-            // Asigna la última fecha de backup
-            lblUltima.Text = backup.ObtenerUltimaFechaBackup();
 
-            // Verifica si el resultado de ObtenerUltimaCopia tiene valor
-            var ultimaCopia = backup.ObtenerUltimaCopia();
-
-            if (ultimaCopia.HasValue)
-            {
-                lblUltima.Text = ultimaCopia.Value.ToString();
-            }
-            else
-            {
-                lblUltima.Text = "No hay copias disponibles";  // Manejo del caso donde no hay valor
-            }
         }
+       
 
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal
