@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrarVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtNombreProductoVenta = new Guna.UI.WinForms.GunaTextBox();
             this.txtBuscarCodigoVta = new Guna.UI.WinForms.GunaTextBox();
             this.lblBuscarCodigoVta = new Guna.UI.WinForms.GunaLabel();
@@ -39,9 +39,12 @@
             this.lblTituloPtosRegVtas = new Guna.UI.WinForms.GunaLabel();
             this.txtCantidadItenVta = new Guna.UI.WinForms.GunaTextBox();
             this.pnlNumVta = new Guna.UI.WinForms.GunaShadowPanel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pbImgProductoVenta = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtBuscarPtoVta = new Guna.UI.WinForms.GunaTileButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblMarca = new Guna.UI.WinForms.GunaLabel();
+            this.lblCategoria = new Guna.UI.WinForms.GunaLabel();
+            this.pbImgProductoVenta = new System.Windows.Forms.PictureBox();
             this.lblStockRegistrarVenta = new Guna.UI.WinForms.GunaLabel();
             this.txtStockRegistrarVenta = new Guna.UI.WinForms.GunaTextBox();
             this.btnAgregaritemVta = new Guna.UI.WinForms.GunaButton();
@@ -53,15 +56,6 @@
             this.lblBuscarClteVta = new Guna.UI.WinForms.GunaLabel();
             this.lblNyApRegistrarVenta = new Guna.UI.WinForms.GunaLabel();
             this.dgvDetalleVta = new Guna.UI.WinForms.GunaDataGridView();
-            this.lblTituloSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.grbDetalleVta = new Guna.UI.WinForms.GunaGroupBox();
-            this.lblMontoSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.pnlFinalVenta = new System.Windows.Forms.Panel();
-            this.btnCancelar = new Guna.UI.WinForms.GunaButton();
-            this.btnConfirmarVta = new Guna.UI.WinForms.GunaButton();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblCategoria = new Guna.UI.WinForms.GunaLabel();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Talle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,15 +63,21 @@
             this.PrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lblMarca = new Guna.UI.WinForms.GunaLabel();
+            this.lblTituloSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.grbDetalleVta = new Guna.UI.WinForms.GunaGroupBox();
+            this.lblMontoSubtotalVta = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.pnlFinalVenta = new System.Windows.Forms.Panel();
+            this.btnCancelar = new Guna.UI.WinForms.GunaButton();
+            this.btnConfirmarVta = new Guna.UI.WinForms.GunaButton();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pnlNumVta.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgProductoVenta)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVta)).BeginInit();
             this.grbDetalleVta.SuspendLayout();
             this.pnlFinalVenta.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombreProductoVenta
@@ -194,35 +194,20 @@
             this.pnlNumVta.Size = new System.Drawing.Size(849, 275);
             this.pnlNumVta.TabIndex = 78;
             // 
-            // groupBox3
+            // groupBox1
             // 
-            this.groupBox3.Controls.Add(this.lblMarca);
-            this.groupBox3.Controls.Add(this.lblCategoria);
-            this.groupBox3.Controls.Add(this.pbImgProductoVenta);
-            this.groupBox3.Controls.Add(this.lblStockRegistrarVenta);
-            this.groupBox3.Controls.Add(this.txtStockRegistrarVenta);
-            this.groupBox3.Controls.Add(this.btnAgregaritemVta);
-            this.groupBox3.Controls.Add(this.lblCantidadVta);
-            this.groupBox3.Controls.Add(this.txtCantidadItenVta);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(10, 137);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(829, 128);
-            this.groupBox3.TabIndex = 82;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Detalle Producto";
-            // 
-            // pbImgProductoVenta
-            // 
-            this.pbImgProductoVenta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbImgProductoVenta.Image = global::CapaPresentacion.Properties.Resources.ProductoGenerico;
-            this.pbImgProductoVenta.Location = new System.Drawing.Point(691, 16);
-            this.pbImgProductoVenta.Name = "pbImgProductoVenta";
-            this.pbImgProductoVenta.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.pbImgProductoVenta.Size = new System.Drawing.Size(135, 109);
-            this.pbImgProductoVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImgProductoVenta.TabIndex = 80;
-            this.pbImgProductoVenta.TabStop = false;
+            this.groupBox1.Controls.Add(this.txtBuscarCodigoVta);
+            this.groupBox1.Controls.Add(this.lblTituloPtosRegVtas);
+            this.groupBox1.Controls.Add(this.txtBuscarPtoVta);
+            this.groupBox1.Controls.Add(this.txtNombreProductoVenta);
+            this.groupBox1.Controls.Add(this.lblBuscarCodigoVta);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(10, 70);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(829, 60);
+            this.groupBox1.TabIndex = 83;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Buscar Producto";
             // 
             // txtBuscarPtoVta
             // 
@@ -250,6 +235,58 @@
             this.txtBuscarPtoVta.Size = new System.Drawing.Size(35, 30);
             this.txtBuscarPtoVta.TabIndex = 4;
             this.txtBuscarPtoVta.Click += new System.EventHandler(this.txtBuscarPtoVta_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblMarca);
+            this.groupBox3.Controls.Add(this.lblCategoria);
+            this.groupBox3.Controls.Add(this.pbImgProductoVenta);
+            this.groupBox3.Controls.Add(this.lblStockRegistrarVenta);
+            this.groupBox3.Controls.Add(this.txtStockRegistrarVenta);
+            this.groupBox3.Controls.Add(this.btnAgregaritemVta);
+            this.groupBox3.Controls.Add(this.lblCantidadVta);
+            this.groupBox3.Controls.Add(this.txtCantidadItenVta);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox3.Location = new System.Drawing.Point(10, 137);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(829, 128);
+            this.groupBox3.TabIndex = 82;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Detalle Producto";
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.Color.White;
+            this.lblMarca.Location = new System.Drawing.Point(198, 51);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(65, 18);
+            this.lblMarca.TabIndex = 82;
+            this.lblMarca.Text = "MARCA";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.White;
+            this.lblCategoria.Location = new System.Drawing.Point(198, 16);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(95, 18);
+            this.lblCategoria.TabIndex = 81;
+            this.lblCategoria.Text = "CATEGORIA";
+            // 
+            // pbImgProductoVenta
+            // 
+            this.pbImgProductoVenta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbImgProductoVenta.Image = global::CapaPresentacion.Properties.Resources.ProductoGenerico;
+            this.pbImgProductoVenta.Location = new System.Drawing.Point(691, 16);
+            this.pbImgProductoVenta.Name = "pbImgProductoVenta";
+            this.pbImgProductoVenta.Padding = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.pbImgProductoVenta.Size = new System.Drawing.Size(135, 109);
+            this.pbImgProductoVenta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImgProductoVenta.TabIndex = 80;
+            this.pbImgProductoVenta.TabStop = false;
             // 
             // lblStockRegistrarVenta
             // 
@@ -428,23 +465,23 @@
             this.dgvDetalleVta.AllowUserToDeleteRows = false;
             this.dgvDetalleVta.AllowUserToResizeColumns = false;
             this.dgvDetalleVta.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(2);
-            this.dgvDetalleVta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            this.dgvDetalleVta.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleVta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDetalleVta.BackgroundColor = System.Drawing.Color.White;
             this.dgvDetalleVta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleVta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetalleVta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleVta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleVta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleVta.ColumnHeadersHeight = 34;
             this.dgvDetalleVta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -455,14 +492,14 @@
             this.SubTotal,
             this.Eliminar});
             this.dgvDetalleVta.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleVta.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleVta.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleVta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleVta.EnableHeadersVisualStyles = false;
             this.dgvDetalleVta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -500,16 +537,76 @@
             this.dgvDetalleVta.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvDetalleVta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleVta_CellContentClick);
             // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 111;
+            // 
+            // Producto
+            // 
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 127;
+            // 
+            // Talle
+            // 
+            this.Talle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Talle.HeaderText = "Talle";
+            this.Talle.Name = "Talle";
+            this.Talle.ReadOnly = true;
+            this.Talle.Width = 82;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 132;
+            // 
+            // PrecioUnitario
+            // 
+            this.PrecioUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PrecioUnitario.HeaderText = "Precio Unit.";
+            this.PrecioUnitario.Name = "PrecioUnitario";
+            this.PrecioUnitario.ReadOnly = true;
+            this.PrecioUnitario.Width = 149;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SubTotal.HeaderText = "SUB TOTAL";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Width = 140;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 116;
+            // 
             // lblTituloSubtotalVta
             // 
-            this.lblTituloSubtotalVta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTituloSubtotalVta.AutoSize = true;
+            this.lblTituloSubtotalVta.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTituloSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(662, 12);
+            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(690, 0);
             this.lblTituloSubtotalVta.Name = "lblTituloSubtotalVta";
-            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(88, 28);
+            this.lblTituloSubtotalVta.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(88, 38);
             this.lblTituloSubtotalVta.TabIndex = 80;
             this.lblTituloSubtotalVta.Text = "TOTAL:";
             this.lblTituloSubtotalVta.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -539,14 +636,14 @@
             // 
             // lblMontoSubtotalVta
             // 
-            this.lblMontoSubtotalVta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMontoSubtotalVta.AutoSize = true;
+            this.lblMontoSubtotalVta.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMontoSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontoSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(756, 12);
+            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(778, 0);
             this.lblMontoSubtotalVta.Name = "lblMontoSubtotalVta";
-            this.lblMontoSubtotalVta.Size = new System.Drawing.Size(71, 28);
+            this.lblMontoSubtotalVta.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.lblMontoSubtotalVta.Size = new System.Drawing.Size(71, 38);
             this.lblMontoSubtotalVta.TabIndex = 81;
             this.lblMontoSubtotalVta.Text = "$0.00";
             this.lblMontoSubtotalVta.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -554,10 +651,10 @@
             // pnlFinalVenta
             // 
             this.pnlFinalVenta.AutoSize = true;
+            this.pnlFinalVenta.Controls.Add(this.lblTituloSubtotalVta);
             this.pnlFinalVenta.Controls.Add(this.btnCancelar);
             this.pnlFinalVenta.Controls.Add(this.btnConfirmarVta);
             this.pnlFinalVenta.Controls.Add(this.lblMontoSubtotalVta);
-            this.pnlFinalVenta.Controls.Add(this.lblTituloSubtotalVta);
             this.pnlFinalVenta.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFinalVenta.Location = new System.Drawing.Point(0, 504);
             this.pnlFinalVenta.Name = "pnlFinalVenta";
@@ -630,103 +727,6 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtBuscarCodigoVta);
-            this.groupBox1.Controls.Add(this.lblTituloPtosRegVtas);
-            this.groupBox1.Controls.Add(this.txtBuscarPtoVta);
-            this.groupBox1.Controls.Add(this.txtNombreProductoVenta);
-            this.groupBox1.Controls.Add(this.lblBuscarCodigoVta);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(10, 70);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(829, 60);
-            this.groupBox1.TabIndex = 83;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar Producto";
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.ForeColor = System.Drawing.Color.White;
-            this.lblCategoria.Location = new System.Drawing.Point(198, 16);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(95, 18);
-            this.lblCategoria.TabIndex = 81;
-            this.lblCategoria.Text = "CATEGORIA";
-            // 
-            // Codigo
-            // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 111;
-            // 
-            // Producto
-            // 
-            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 127;
-            // 
-            // Talle
-            // 
-            this.Talle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Talle.HeaderText = "Talle";
-            this.Talle.Name = "Talle";
-            this.Talle.ReadOnly = true;
-            this.Talle.Width = 82;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 132;
-            // 
-            // PrecioUnitario
-            // 
-            this.PrecioUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PrecioUnitario.HeaderText = "Precio Unit.";
-            this.PrecioUnitario.Name = "PrecioUnitario";
-            this.PrecioUnitario.ReadOnly = true;
-            this.PrecioUnitario.Width = 149;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SubTotal.HeaderText = "SUB TOTAL";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            this.SubTotal.Width = 140;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 116;
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(198, 51);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(65, 18);
-            this.lblMarca.TabIndex = 82;
-            this.lblMarca.Text = "MARCA";
-            // 
             // frmRegistrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,6 +740,8 @@
             this.Text = "Registrar Ventas";
             this.Load += new System.EventHandler(this.frmRegistrarVenta_Load);
             this.pnlNumVta.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImgProductoVenta)).EndInit();
@@ -749,8 +751,6 @@
             this.grbDetalleVta.ResumeLayout(false);
             this.pnlFinalVenta.ResumeLayout(false);
             this.pnlFinalVenta.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

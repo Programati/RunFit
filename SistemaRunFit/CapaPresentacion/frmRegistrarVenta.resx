@@ -118,29 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAgregaritemVta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAy1JREFUaEPtmU1oE0EYhhsjQhXEErxFCwXJKbR6bJNCaPEXhB4ixYPgOfXkoR6U
-        eGiDgherZ6GVYq/iwRT1IkLRYBEv4g9IoyCehCTFSKKf7zvMQixLM7uzW7vQBx7KLv2+mXeym/1Jzw47
-        2HMGfoVf4CnuiBqcuGjb8BqMwcjQGcDxMowMPGwYogpvQAb4BCPJLvgDMkSSO6LIY8gA59RWBLkKGeC2
-        2oogJyAD/IY8N97Ap/ABvAuvw0vwPOT/HoOH4T64LUhABvDjT8hrymahj8OjkKH3wlBoQJmenpbV1VUp
-        l8uyuLgoc3NzUiwWpVAoyOTkpIyNjcng4KAkk0np7e11C2RiE36Db+ETyNB3oFvoQ9Ao9GsouVxOvLC+
-        vi5ra2sq9PLy8j+hp6amVOjx8fEgQj+Dm3ILSiKR0FMLD9PQQ0NDKjTnpd2UNJRYLCbNZlMPtT3gvLRd
-        aUFZWlrSpdsDzknbFd5OSD6f16X+GR4elpGREb1lB+ek7cp9KP39/brUP+xDg8DpBbtyFko8Htel/mEf
-        GgROL9gV3tj9gbKysqLL/cEe1JZ2u+0pAPkO1deZDexBbZmfn/ccoAwlnU7rFt3hCcsaE72c2Fz9VCrV
-        WW9EAaorpimcFGtMzGQyuqo7G1b/HTTiAFRF1WpVt/KO08MvLqt/ARpTgzI7O6vbeYf11C8bVp/Xp93Q
-        mFdQRkdHdTvvsJ76wXb1SQlKX1+fbukd1lM/2K4+SUHVgHeOfuCJ7eWEdQhi9R1+QVlYWNCtt4YgVt/h
-        PZSJiQndOnwajYYMDAx0BvC9+uQeVA8UYdNqtaRSqUg2m+2c/Efoe/XJSdjZcKu1Wn3Cl73qAec/WIFx
-        aM0j6DZAmH6GR2AgXIFugwQtP2ke8zfhQRgYWcgB+P4mkuyB6vkAZrgjihQhAzBIHu6HkYLfxQ+hc7yG
-        6QsYCnxWvgjdfpoK0ucwVNQL4FKppC77fF7gtt5vgm29NWrAer2ubgFqtZozAWqCbb016pULV46TmJmZ
-        cQbnfhNs6635AJ1BO+Wdqwm29dbwF363CZyGJtjWBwIn8RLW9V+vg9vWR52enr9iN8G1uISoRAAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <metadata name="lblNombreYApellidoCliente.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="txtBuscarPtoVta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -164,6 +141,26 @@
         4KVEOxFWL4EYx7mwtbWlzY5WIsMprF4AY9hb6UTUXCBxhJOT5MeFHoFXwNcJHmXKy8sj5UDSKMYJhpO9
         rF4bfcLcPankGU7M2LhTV1RU2MaT30HSKeZN3ACv4jNBUsrPiaQ23ugmJ94K4434jz/+lOFPDX+ywHz9
         XVNKyv9HsgJ6iW7KmQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnAgregaritemVta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAy1JREFUaEPtmU1oE0EYhhsjQhXEErxFCwXJKbR6bJNCaPEXhB4ixYPgOfXkoR6U
+        eGiDgherZ6GVYq/iwRT1IkLRYBEv4g9IoyCehCTFSKKf7zvMQixLM7uzW7vQBx7KLv2+mXeym/1Jzw47
+        2HMGfoVf4CnuiBqcuGjb8BqMwcjQGcDxMowMPGwYogpvQAb4BCPJLvgDMkSSO6LIY8gA59RWBLkKGeC2
+        2oogJyAD/IY8N97Ap/ABvAuvw0vwPOT/HoOH4T64LUhABvDjT8hrymahj8OjkKH3wlBoQJmenpbV1VUp
+        l8uyuLgoc3NzUiwWpVAoyOTkpIyNjcng4KAkk0np7e11C2RiE36Db+ETyNB3oFvoQ9Ao9GsouVxOvLC+
+        vi5ra2sq9PLy8j+hp6amVOjx8fEgQj+Dm3ILSiKR0FMLD9PQQ0NDKjTnpd2UNJRYLCbNZlMPtT3gvLRd
+        aUFZWlrSpdsDzknbFd5OSD6f16X+GR4elpGREb1lB+ek7cp9KP39/brUP+xDg8DpBbtyFko8Htel/mEf
+        GgROL9gV3tj9gbKysqLL/cEe1JZ2u+0pAPkO1deZDexBbZmfn/ccoAwlnU7rFt3hCcsaE72c2Fz9VCrV
+        WW9EAaorpimcFGtMzGQyuqo7G1b/HTTiAFRF1WpVt/KO08MvLqt/ARpTgzI7O6vbeYf11C8bVp/Xp93Q
+        mFdQRkdHdTvvsJ76wXb1SQlKX1+fbukd1lM/2K4+SUHVgHeOfuCJ7eWEdQhi9R1+QVlYWNCtt4YgVt/h
+        PZSJiQndOnwajYYMDAx0BvC9+uQeVA8UYdNqtaRSqUg2m+2c/Efoe/XJSdjZcKu1Wn3Cl73qAec/WIFx
+        aM0j6DZAmH6GR2AgXIFugwQtP2ke8zfhQRgYWcgB+P4mkuyB6vkAZrgjihQhAzBIHu6HkYLfxQ+hc7yG
+        6QsYCnxWvgjdfpoK0ucwVNQL4FKppC77fF7gtt5vgm29NWrAer2ubgFqtZozAWqCbb016pULV46TmJmZ
+        cQbnfhNs6635AJ1BO+Wdqwm29dbwF363CZyGJtjWBwIn8RLW9V+vg9vWR52enr9iN8G1uISoRAAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <metadata name="lblNombreYApellidoCliente.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

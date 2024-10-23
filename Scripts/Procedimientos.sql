@@ -991,23 +991,20 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
-<<<<<<< HEAD
- select * from MARCAS
 
+select * from VENTAS v
+join DETALLE_VENTAS dv on dv.id_venta = v.id_venta
+where v.id_venta = 17
 
- SELECT * FROM PERSONAS p
- JOIN DOMICILIOS d ON d.id_persona = p.id_persona
-
- SELECT * FROM PRODUCTOS
-
- SELECT * FROM VENTAS;
- SELECT * FROM DETALLE_VENTAS;
- 
- delete from VENTAS where id_venta > 0
-=======
-
- select * from PRODUCTOS
-
- select * from MARCAS
->>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
->>>>>>> rama-julio
+SELECT v.id_venta, v.importe_total, v.fecha_factura,
+u.nombre_usuario,
+p.apellido, p.nombre, p.dni, p.telefono, p.email,
+d.calle, d.altura, d.manzana, d.casa, d.piso, d.departamento,
+dv.cantidad, prod.nombre_producto, prod.detalle_producto, prod.precio_venta, dv.subtotal
+FROM VENTAS v
+JOIN DETALLE_VENTAS dv ON dv.id_venta = v.id_venta
+JOIN PERSONAS p ON p.id_persona = v.id_cliente
+JOIN USUARIOS u ON u.id_usuario = v.id_usuario
+JOIN PRODUCTOS prod ON prod.id_producto = dv.id_producto
+JOIN DOMICILIOS d ON d.id_persona = v.id_cliente
+where v.id_venta = 17
