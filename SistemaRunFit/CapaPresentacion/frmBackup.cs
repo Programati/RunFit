@@ -65,9 +65,14 @@ namespace CapaPresentacion
         private void btnHacerBackup_Click(object sender, EventArgs e)
         {
             CN_Backup backup = new CN_Backup();
-            backup.Backup(lblUltimoBackup); // Actualiza el label dentro del método
+
+            // Realizar el backup y actualizar el label
+            backup.Backup(lblUltimoBackup);
+
+            // Actualizar la fecha del último backup en otro label
             lblUltima.Text = backup.ObtenerUltimaFechaBackup();
         }
+        
         private void comprobarUsuario()
         {
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();

@@ -67,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encrypt.cs" />
+    <Compile Include="frmReporteBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteBackup.Designer.cs">
+      <DependentUpon>frmReporteBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +151,17 @@
     <Compile Include="frmRegistrarVenta.Designer.cs">
       <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReporte.cs">
+    <Compile Include="frmReporteGerente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReporte.Designer.cs">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <Compile Include="frmReporteGerente.Designer.cs">
+      <DependentUpon>frmReporteGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteUsuario.Designer.cs">
+      <DependentUpon>frmReporteUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
@@ -215,8 +227,14 @@
     <EmbeddedResource Include="frmRegistrarVenta.resx">
       <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReporte.resx">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <EmbeddedResource Include="frmReporteGerente.resx">
+      <DependentUpon>frmReporteGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteUsuario.resx">
+      <DependentUpon>frmReporteUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteBackup.resx">
+      <DependentUpon>frmReporteBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>

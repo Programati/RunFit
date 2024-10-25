@@ -871,6 +871,33 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE Reporte_Usuario
+    @usuario INT,
+    @mensaje NVARCHAR(100) OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM ventas v WHERE v.id_usuario = @usuario)
+    BEGIN
+        SELECT v.fecha_factura, 
+               dv.cantidad, 
+               p.nombre_producto, 
+               p.precio_venta, 
+               dv.subtotal
+        FROM ventas v
+        INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+        INNER JOIN productos p ON dv.id_producto = p.id_producto
+        WHERE v.id_usuario = @usuario;
+
+        SET @mensaje = 'Consulta exitosa, se encontraron ventas para el usuario.';
+    END
+    ELSE
+    BEGIN
+        SET @mensaje = 'El usuario no tiene ventas o no existe.';
+    END
+END;
+EXEC Reporte_Usuario @usuario = 4, @mensaje = @mensaje OUTPUT;
+
+
  -------------------------------------------------------------
 GO
 
@@ -1004,12 +1031,12 @@ select * from PRODUCTOS
  SELECT * FROM DETALLE_VENTAS;
  
  delete from VENTAS where id_venta > 0
-=======
+
 
  select * from PRODUCTOS
 
  select * from MARCAS
-<<<<<<< HEAD
+
 
 
 
@@ -1018,8 +1045,76 @@ FROM DISK = 'C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\15-10-2
 WITH REPLACE;
 
 select * from usuarios
+select * from ventas
+--- script de mejor vendedor en numeros
+select  u.nombre_usuario as vendedor,sum(v.importe_total ) as total_ventas
+from usuarios u
+inner join ventas v on (v.id_usuario=u.id_usuario)
+group by u.nombre_usuario
 
-=======
->>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
->>>>>>> rama-julio
->>>>>>> rama-matias
+--scrip mejor vendedor en cantidades
+SELECT 
+    u.nombre_usuario AS vendedor, 
+    p.nombre_producto,
+    SUM(dv.cantidad) AS cantidad_total
+FROM 
+    usuarios u
+INNER JOIN 
+    ventas v ON v.id_usuario = u.id_usuario
+INNER JOIN 
+    detalle_ventas dv ON dv.id_venta = v.id_venta
+INNER JOIN 
+    productos p ON p.id_producto = dv.id_producto
+GROUP BY 
+    u.nombre_usuario, p.nombre_producto
+	order by cantidad_total desc
+
+
+SELECT 
+    p.nombre_producto,
+    SUM(dv.cantidad) AS cantidad_total
+FROM 
+    productos p
+INNER JOIN 
+    detalle_ventas dv ON p.id_producto = dv.id_producto
+GROUP BY 
+    p.nombre_producto;
+
+
+	WITH VentasMaximas AS (
+    SELECT 
+        u.nombre_usuario AS vendedor,
+        p.nombre_producto,
+        SUM(dv.cantidad) AS cantidad_total,
+        ROW_NUMBER() OVER (PARTITION BY p.nombre_producto ORDER BY SUM(dv.cantidad) DESC) AS fila
+    FROM 
+        usuarios u
+    INNER JOIN 
+        ventas v ON v.id_usuario = u.id_usuario
+    INNER JOIN 
+        detalle_ventas dv ON dv.id_venta = v.id_venta
+    INNER JOIN 
+        productos p ON p.id_producto = dv.id_producto
+    GROUP BY 
+        u.nombre_usuario, p.nombre_producto
+)
+SELECT 
+    vendedor, 
+    nombre_producto, 
+    cantidad_total
+FROM 
+    VentasMaximas
+WHERE 
+    fila = 1;
+
+SELECT 
+    p.nombre_producto,
+    SUM(dv.cantidad) AS cantidad_total
+FROM 
+    productos p
+INNER JOIN 
+    detalle_ventas dv ON p.id_producto = dv.id_producto
+GROUP BY 
+    p.nombre_producto
+ORDER BY 
+    cantidad_total DESC;

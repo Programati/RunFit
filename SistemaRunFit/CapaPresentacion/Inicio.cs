@@ -69,7 +69,7 @@ namespace CapaPresentacion
         {
             OcultarSubMenu(); // Oculta todos los submenús abiertos
             frmListarUsuario frmUsuario = new frmListarUsuario(this); // Crea una nueva instancia del formulario de usuarios y le pasa la referencia del formulario actual
-            abrirFormulario(btnUsuario, frmUsuario); // Llama a la función para abrir el formulario y activar el botón correspondiente
+            abrirFormulario(btnUsuario, frmUsuario); 
         }
 
         // Función que muestra la lista de clientes, oculta los submenús abiertos y oculta la imagen de fondo
@@ -112,8 +112,26 @@ namespace CapaPresentacion
         // Función que abre el formulario de reportes
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu(); 
-            abrirFormulario(btnReportes, new frmReporte()); // Crea una nueva instancia del formulario de reportes y lo abre
+            if (UsuarioActual.oRol.idRol == 3)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteUsuario(UsuarioActual));
+            }
+            if (UsuarioActual.oRol.idRol == 2)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteGerente());
+            }
+            if (UsuarioActual.oRol.idRol == 1)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteBackup());
+            }
+
+
         }
 
         // Función que oculta todos los submenús abiertos y despliega el submenú del mantenedor de stock
