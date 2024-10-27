@@ -599,14 +599,14 @@
             // 
             // lblTituloSubtotalVta
             // 
-            this.lblTituloSubtotalVta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTituloSubtotalVta.AutoSize = true;
+            this.lblTituloSubtotalVta.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTituloSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(662, 12);
+            this.lblTituloSubtotalVta.Location = new System.Drawing.Point(690, 0);
             this.lblTituloSubtotalVta.Name = "lblTituloSubtotalVta";
-            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(88, 28);
+            this.lblTituloSubtotalVta.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.lblTituloSubtotalVta.Size = new System.Drawing.Size(88, 38);
             this.lblTituloSubtotalVta.TabIndex = 80;
             this.lblTituloSubtotalVta.Text = "TOTAL:";
             this.lblTituloSubtotalVta.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -636,14 +636,14 @@
             // 
             // lblMontoSubtotalVta
             // 
-            this.lblMontoSubtotalVta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMontoSubtotalVta.AutoSize = true;
+            this.lblMontoSubtotalVta.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMontoSubtotalVta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMontoSubtotalVta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(756, 12);
+            this.lblMontoSubtotalVta.Location = new System.Drawing.Point(778, 0);
             this.lblMontoSubtotalVta.Name = "lblMontoSubtotalVta";
-            this.lblMontoSubtotalVta.Size = new System.Drawing.Size(71, 28);
+            this.lblMontoSubtotalVta.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.lblMontoSubtotalVta.Size = new System.Drawing.Size(71, 38);
             this.lblMontoSubtotalVta.TabIndex = 81;
             this.lblMontoSubtotalVta.Text = "$0.00";
             this.lblMontoSubtotalVta.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -651,10 +651,10 @@
             // pnlFinalVenta
             // 
             this.pnlFinalVenta.AutoSize = true;
+            this.pnlFinalVenta.Controls.Add(this.lblTituloSubtotalVta);
             this.pnlFinalVenta.Controls.Add(this.btnCancelar);
             this.pnlFinalVenta.Controls.Add(this.btnConfirmarVta);
             this.pnlFinalVenta.Controls.Add(this.lblMontoSubtotalVta);
-            this.pnlFinalVenta.Controls.Add(this.lblTituloSubtotalVta);
             this.pnlFinalVenta.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFinalVenta.Location = new System.Drawing.Point(0, 504);
             this.pnlFinalVenta.Name = "pnlFinalVenta";

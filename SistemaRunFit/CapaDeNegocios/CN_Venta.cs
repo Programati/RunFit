@@ -12,6 +12,10 @@ namespace CapaDeNegocios
     {
         private CD_Venta objcd_venta = new CD_Venta();
 
+        public Venta ObtenerVentaPorId(int idVenta)
+        {
+            return objcd_venta.ObtenerVentaPorId(idVenta);
+        }
         public int Registrar(Venta ObjVenta, out string Mensaje)
         {
             Mensaje = string.Empty;
