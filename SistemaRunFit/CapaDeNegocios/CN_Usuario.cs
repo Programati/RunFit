@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,28 @@ namespace CapaDeNegocios
                 return objcd_usuario.Editar(ObjUsuario, out Mensaje);
             }
         }
+        public List<Venta> ListarReporteUsuario(int idUsuario, out string mensaje)
+        {
+            // Llama al método de la capa de datos que devuelve el reporte de usuario
+            return objcd_usuario.ReporteUsuario(idUsuario, out mensaje);
+        }
+        public List<Venta> ListarReporteUsuario2(int idUsuario, out string mensaje)
+        {
+            // Instancia de la capa de datos
+            CD_Usuario objcd_usuario = new CD_Usuario();
+
+            // Llama al método de la capa de datos que devuelve el reporte de usuario
+            return objcd_usuario.ReporteUsuario2(idUsuario, out mensaje);
+        }
+        public List<Venta> ListarReporteUsuario3(int idUsuario, out string mensaje)
+        {
+            // Instancia de la capa de datos
+            CD_Usuario objcd_usuario = new CD_Usuario();
+
+            // Llama al método de la capa de datos que devuelve el reporte de usuario
+            return objcd_usuario.ReporteUsuario3(idUsuario, out mensaje);
+        }
+
 
         // Método para eliminar un usuario
         public bool Eliminar(Usuario ObjUsuario, out string Mensaje)
@@ -78,6 +101,10 @@ namespace CapaDeNegocios
             // Llama al método Eliminar en la capa de datos y devuelve el resultado
             return objcd_usuario.Eliminar(ObjUsuario, out Mensaje);
         }
+        
+
+
+
     }
 
 

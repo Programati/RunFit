@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Data;
 
 
 
@@ -16,9 +17,11 @@ namespace CapaDeDatos
     {
         private static string ultimaFechaBackup = string.Empty;
         Label lblUltimoBackup = new Label();
+
         public void Backup(Label lblUltimoBackup)
         {
             string nombre_copia = DateTime.Now.ToString("dd-MM-yyyy_HH' horas '_mm' minutos '_ss' segundos'");
+
 
             string ruta_copia = $"C:\\Users\\JULIO-NOTEBOOK2\\Desktop\\Runfit_repositorio\\BackUp\\{nombre_copia}.bak";
 
@@ -26,18 +29,36 @@ namespace CapaDeDatos
             string comando_consulta = $"BACKUP DATABASE [RunFit] TO DISK = N'{ruta_copia}' WITH NOFORMAT, NOINIT, NAME = N'RunFit-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10";
 
         //C: \Users\JULIO - NOTEBOOK2\Desktop\Runfit_repositorio\BackUp\\{ nombre_copia}.bak
+/*
+            string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
+            string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' ');
+
+            // Comando para realizar el backup
+            string comando_consulta = $"BACKUP DATABASE [RunFit] TO DISK = N'{ruta_copia}' WITH NOFORMAT, NOINIT, NAME = N'RunFit-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10";*/
+
+            // Comando para insertar la información del backup en la tabla BackupLogs
+            string comando_insert = $"INSERT INTO BackupList (BackupFileName, BackupDate) VALUES (@BackupFileName, @BackupDate)";
+
 
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand(comando_consulta, conexion);
+                SqlCommand cmdBackup = new SqlCommand(comando_consulta, conexion);
+                SqlCommand cmdInsert = new SqlCommand(comando_insert, conexion);
 
                 try
                 {
                     conexion.Open();
-                    cmd.ExecuteNonQuery();
+
+                    // Ejecutar el backup
+                    cmdBackup.ExecuteNonQuery();
+
+                    // Insertar el registro en la tabla BackupLogs
+                    cmdInsert.Parameters.AddWithValue("@BackupFileName", nombre_copia);
+                    cmdInsert.Parameters.AddWithValue("@BackupDate", DateTime.Now);
+                    cmdInsert.ExecuteNonQuery();
 
                     // Actualiza la última fecha de backup
-                    ultimaFechaBackup = nuevo_formato; // Guardar el nombre de la copia
+                    ultimaFechaBackup = nuevo_formato;
                     lblUltimoBackup.Text = "Última copia realizada: " + ultimaFechaBackup;
 
                     MessageBox.Show($"Copia de seguridad realizada con éxito.\nNombre del archivo: {nuevo_formato}");
@@ -48,6 +69,8 @@ namespace CapaDeDatos
                 }
             }
         }
+
+        
         private string connectionString = "Data Source=(local);Initial Catalog=RunFit;Integrated Security=True";
 
         public void Restaurar(string rutaBackup)
@@ -128,7 +151,76 @@ namespace CapaDeDatos
                 }
             }
         }
+        // Método para verificar los backups ejecutando el procedimiento almacenado
+
+
+        public string VerificarBackups()
+        {
+            string mensaje = string.Empty;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    // Crear y configurar el comando para el procedimiento almacenado
+                    using (SqlCommand cmd = new SqlCommand("VerificarBackups", conexion))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Definir el parámetro de salida
+                        SqlParameter paramMensaje = new SqlParameter("@mensaje", SqlDbType.NVarChar, 255)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(paramMensaje);
+
+                        // Ejecutar el procedimiento almacenado
+                        cmd.ExecuteNonQuery();
+
+                        // Obtener el mensaje de salida
+                        mensaje = (string)paramMensaje.Value;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    mensaje = "Error al verificar los backups: " + ex.Message;
+                }
+            }
+
+            return mensaje;
+        }
+
+
+        public DataTable ListarBackups()
+        {
+            DataTable backups = new DataTable();
+
+            string query = "SELECT * FROM BackupList order by BackupDate desc";
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+
+                try
+                {
+                    conexion.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(backups);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al listar los backups: " + ex.Message);
+                }
+            }
+
+            return backups;
+        }
     }
 
 }
+
+
 

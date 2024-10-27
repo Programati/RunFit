@@ -42,6 +42,81 @@ CREATE TABLE PERSONAS (
 );
 
 GO
+CREATE TABLE BackupList (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    BackupFileName NVARCHAR(255),
+    BackupDate DATETIME
+);
+select * from BackupList
+
+select * from ventas
+select * from detalle_ventas
+select * from productos
+select * from usuarios
+select * from PERSONAS
+
+SELECT v.fecha_factura, dv.cantidad, p.nombre_producto,p.precio_venta,dv.subtotal
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+inner join usuarios us on  us.id_usu
+group by p.nombre_producto
+where id_usuario=4
+
+
+SELECT p.nombre_producto, 
+       SUM(dv.cantidad) AS total_cantidad, 
+       MAX(p.precio_venta) AS precio_venta,
+       SUM(dv.subtotal) AS total_subtotal,
+       MAX(v.fecha_factura) AS ultima_fecha_factura
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+INNER JOIN usuarios us ON us.id_usuario = v.id_usuario
+WHERE us.id_usuario = 4  -- Filtrar por el usuario con id 3
+GROUP BY p.nombre_producto;
+
+
+SELECT p.nombre_producto, 
+       SUM(dv.cantidad) AS total_cantidad, 
+       MAX(p.precio_venta) AS precio_venta, 
+       SUM(dv.subtotal) AS total_subtotal,
+       MAX(v.fecha_factura) AS ultima_fecha_factura
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+WHERE v.id_usuario = 4
+GROUP BY p.nombre_producto
+        order by total_subtotal desc;
+
+SELECT p.nombre_producto, 
+       SUM(dv.cantidad) AS total_cantidad, 
+       MAX(p.precio_venta) AS precio_venta, 
+       SUM(dv.subtotal) AS total_subtotal,
+       MAX(v.fecha_factura) AS ultima_fecha_factura
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+WHERE v.id_usuario = 4
+GROUP BY p.nombre_producto
+        order by total_cantidad desc;
+
+
+
+
+SELECT p.nombre_producto, 
+       SUM(dv.cantidad) AS total_cantidad, 
+       MAX(p.precio_venta) AS precio_venta, 
+       SUM(dv.subtotal) AS total_subtotal,
+       MAX(v.fecha_factura) AS ultima_fecha_factura
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+
+GROUP BY p.nombre_producto
+order by total_cantidad desc
+
+
 
 
 -- Crear tabla PROVEEDORES
@@ -371,10 +446,67 @@ FROM (
 
 select * from PRODUCTOS where id_producto=14
 select * from PERSONAS
+select * from BackupList order by BackupDate desc
 update PRODUCTOS
 set stock=0
 where id_producto=14
 
+<<<<<<< HEAD
 select * from productos;
 select * from VENTAS;
 select * from DETALLE_VENTAS
+=======
+
+CREATE PROCEDURE VerificarBackups
+    @mensaje NVARCHAR(255) OUTPUT
+AS
+BEGIN
+    DECLARE @alerta NVARCHAR(255);  -- Variable para almacenar el mensaje de alerta
+
+    WITH BackupDiff AS (
+        SELECT 
+            Id, 
+            BackupFileName, 
+            BackupDate, 
+            LAG(BackupDate) OVER (ORDER BY BackupDate) AS PreviousBackupDate,
+            DATEDIFF(HOUR, LAG(BackupDate) OVER (ORDER BY BackupDate), BackupDate) AS HoursDifference
+        FROM BackupList
+    )
+    SELECT 
+        Id,
+        BackupFileName,
+        BackupDate,
+        PreviousBackupDate,
+        HoursDifference
+    INTO #BackupResult
+    FROM BackupDiff
+    WHERE PreviousBackupDate IS NOT NULL;
+
+    IF EXISTS (SELECT * FROM #BackupResult WHERE HoursDifference > 24)
+    BEGIN
+        -- Si hay una diferencia de más de 24 horas
+        SET @alerta = '¡ALERTA! Los backups no se han realizado con continuidad. Es de suma importancia que se realicen de manera regular.';
+        
+        -- Mostrar detalles de los backups que superaron las 24 horas
+        SELECT 
+            BackupFileName, 
+            BackupDate, 
+            PreviousBackupDate, 
+            HoursDifference AS DiferenciaEnHoras
+        FROM #BackupResult
+        WHERE HoursDifference > 24;
+    END
+    ELSE
+    BEGIN
+        -- Si todos los backups se realizaron con menos de 24 horas de diferencia
+        SET @alerta = 'Los backups se realizaron con regularidad dentro de las últimas 24 horas.';
+    END
+
+    -- Asignar el mensaje de alerta a la variable de salida
+    SET @mensaje = @alerta;
+END;
+
+
+
+EXEC VerificarBackups;
+>>>>>>> d3bcf23359550fb9b6c27b2c04c9375ab115bffe
