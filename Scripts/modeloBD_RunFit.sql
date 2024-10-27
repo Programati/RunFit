@@ -374,3 +374,7 @@ select * from PERSONAS
 update PRODUCTOS
 set stock=0
 where id_producto=14
+
+select * from productos;
+select * from VENTAS;
+select * from DETALLE_VENTAS
