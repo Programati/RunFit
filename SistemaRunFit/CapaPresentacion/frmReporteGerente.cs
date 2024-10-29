@@ -18,79 +18,162 @@ namespace CapaPresentacion
         public frmReporteGerente()
         {
             InitializeComponent();
-            CargarReporteGerente_3();
+            //CargarReporteGerente_3();
         }
 
         private void CargarReporteGerente_1()
         {
-            // Llama al método de la instancia de la capa de negocios
-            List<Venta> ventas = cnGerente.ListarReporteGerente_1();
+            // Obtén las fechas seleccionadas en los DateTimePickers
+            DateTime fechaDesde = dtpFechaDesde.Value;
+            DateTime fechaHasta = dtpFechaHasta.Value;
 
-            if (ventas.Count > 0)
+            // Llama al método de la instancia de la capa de negocios con las fechas
+            List<ReporteGrafico> reporteGrafico = cnGerente.ListarReporteGerente_1(fechaDesde, fechaHasta);
+
+            if (reporteGrafico.Count > 0)
             {
                 // Crear una lista para almacenar los datos que se mostrarán en el DataGridView
-                var dataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                var dataSource = reporteGrafico.Select(rg => new
                 {
-                    Vendedor = v.oUsuario != null ? v.oUsuario.nombreUsuario : "Sin vendedor", // Asegúrate de tener la propiedad correcta
-                    Nombre_Producto = dv.oProducto != null ? dv.oProducto.nombre : "Sin producto", // Nombre del producto
-                    Cantidad_Total = dv.cantidad // Cantidad total vendida
-                })).OrderByDescending(x => x.Cantidad_Total).ToList(); // Ordenar por cantidad total
+                    Vendedor = rg.Vendedor,
+                    Importe_Total = rg.SubTotal
+                })
+                .OrderByDescending(x => x.Importe_Total)
+                .ToList();
 
                 // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
+
+                // Limpiar las series del gráfico antes de cargar nuevos datos
+                chartGerente.Series.Clear();
+
+                // Crear una nueva serie para el gráfico
+                var series = chartGerente.Series.Add("Importe Total");
+
+                // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                // Recorrer los datos del reporte para llenarlo en el gráfico
+                foreach (var item in reporteGrafico)
+                {
+                    series.Points.AddXY(item.Vendedor, item.SubTotal);
+                }
+
+                // Opcional: configurar títulos y leyendas
+                chartGerente.Titles.Clear();
+                chartGerente.Titles.Add("Importe Total por Vendedor");
             }
             else
             {
-                // Muestra un mensaje si no hay ventas
                 MessageBox.Show("Atención", "No se encontraron ventas para mostrar.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar el gráfico si no hay datos
+                chartGerente.Series.Clear();
             }
         }
         private void CargarReporteGerente_2()
         {
-            // Llama al método de la instancia de la capa de negocios
-            List<Venta> ventas = cnGerente.ListarReporteGerente_2();
+            // Obtén las fechas seleccionadas en los DateTimePickers
+            DateTime fechaDesde = dtpFechaDesde.Value;
+            DateTime fechaHasta = dtpFechaHasta.Value;
 
-            if (ventas.Count > 0)
+            // Llama al método de la instancia de la capa de negocios con las fechas
+            List<ReporteGrafico> reporteGrafico = cnGerente.ListarReporteGerente_2(fechaDesde, fechaHasta);
+
+            if (reporteGrafico.Count > 0)
             {
                 // Crear una lista para almacenar los datos que se mostrarán en el DataGridView
-                var dataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                var dataSource = reporteGrafico.Select(rg => new
                 {
-                    
-                    Nombre_Producto = dv.oProducto != null ? dv.oProducto.nombre : "Sin producto", // Nombre del producto
-                    Cantidad_Total = dv.cantidad // Cantidad total vendida
-                })).OrderByDescending(x => x.Cantidad_Total).ToList(); // Ordenar por cantidad total
+                    Producto = rg.Producto,
+                    Cantidad = rg.Cantidad
+                })
+                .OrderByDescending(x => x.Cantidad)
+                .ToList();
 
                 // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
+
+                // Limpiar las series del gráfico antes de cargar nuevos datos
+                chartGerente.Series.Clear();
+
+                // Crear una nueva serie para el gráfico
+                var series = chartGerente.Series.Add("Cantidad");
+
+                // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                // Recorrer los datos del reporte para llenarlo en el gráfico
+                foreach (var item in reporteGrafico)
+                {
+                    series.Points.AddXY(item.Producto, item.Cantidad);
+                }
+
+                // Opcional: configurar títulos y leyendas
+                chartGerente.Titles.Clear();
+                chartGerente.Titles.Add("Ventas por Producto ");
             }
             else
             {
-                // Muestra un mensaje si no hay ventas
                 MessageBox.Show("Atención", "No se encontraron ventas para mostrar.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar el gráfico si no hay datos
+                chartGerente.Series.Clear();
             }
         }
+
+
+
+
+
         private void CargarReporteGerente_3()
         {
-            // Llama al método de la instancia de la capa de negocios
-            List<Venta> ventas = cnGerente.ListarReporteGerente_3();
+            // Obtén las fechas seleccionadas en los DateTimePickers
+            DateTime fechaDesde = dtpFechaDesde.Value;
+            DateTime fechaHasta = dtpFechaHasta.Value;
 
-            if (ventas.Count > 0)
+            // Llama al método de la instancia de la capa de negocios con las fechas
+            List<ReporteGrafico> reporteGrafico = cnGerente.ListarReporteGerente_3(fechaDesde, fechaHasta);
+
+            if (reporteGrafico.Count > 0)
             {
                 // Crear una lista para almacenar los datos que se mostrarán en el DataGridView
-                var dataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                var dataSource = reporteGrafico.Select(rg => new
                 {
-                    Vendedor = v.oUsuario != null ? v.oUsuario.nombreUsuario : "Sin vendedor", // Asegúrate de tener la propiedad correcta
-                    Nombre_Producto = dv.oProducto != null ? dv.oProducto.nombre : "Sin producto", // Nombre del producto
-                    Cantidad_Total = dv.cantidad // Cantidad total vendida
-                })).OrderByDescending(x => x.Cantidad_Total).ToList(); // Ordenar por cantidad total
+                    Producto = rg.Producto,
+                    Ventas_Totales = rg.SubTotal
+                })
+                .OrderByDescending(x => x.Ventas_Totales)
+                .ToList();
 
                 // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
+
+                // Limpiar las series del gráfico antes de cargar nuevos datos
+                chartGerente.Series.Clear();
+
+                // Crear una nueva serie para el gráfico
+                var series = chartGerente.Series.Add("Ventas Totales");
+
+                // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
+                series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+
+                // Recorrer los datos del reporte para llenarlo en el gráfico
+                foreach (var item in reporteGrafico)
+                {
+                    series.Points.AddXY(item.Producto, item.SubTotal);
+                }
+
+                // Opcional: configurar títulos y leyendas
+                chartGerente.Titles.Clear();
+                chartGerente.Titles.Add("Productos mas rentables ");
             }
             else
             {
-                // Muestra un mensaje si no hay ventas
                 MessageBox.Show("Atención", "No se encontraron ventas para mostrar.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Limpiar el gráfico si no hay datos
+                chartGerente.Series.Clear();
             }
         }
 

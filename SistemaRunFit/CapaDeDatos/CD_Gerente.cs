@@ -7,40 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CapaDeDatos
 {
    
 public class CD_Gerente
     {
-        public List<Venta> ReporteGerente_1()
+        public List<ReporteGrafico> ReporteGerente_1(DateTime fechaDesde, DateTime fechaHasta)
         {
-            List<Venta> lista = new List<Venta>();
+            List<ReporteGrafico> listaGrafico = new List<ReporteGrafico>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Consulta SQL para obtener el reporte
+                    // Consulta SQL con filtro de fechas
                     string consulta = @"
-                SELECT 
-                    u.nombre_usuario AS vendedor, 
-                    p.nombre_producto,
-                    SUM(dv.cantidad) AS cantidad_total
-                FROM 
-                    usuarios u
-                INNER JOIN 
-                    ventas v ON v.id_usuario = u.id_usuario
-                INNER JOIN 
-                    detalle_ventas dv ON dv.id_venta = v.id_venta
-                INNER JOIN 
-                    productos p ON p.id_producto = dv.id_producto
-                GROUP BY 
-                    u.nombre_usuario, p.nombre_producto
-                ORDER BY 
-                    cantidad_total DESC;";
+            SELECT 
+                u.nombre_usuario AS vendedor, 
+                SUM(dv.cantidad) AS cantidad_total,
+                SUM(dv.subtotal) AS importe_total
+            FROM 
+                usuarios u
+            INNER JOIN 
+                ventas v ON v.id_usuario = u.id_usuario
+            INNER JOIN 
+                detalle_ventas dv ON dv.id_venta = v.id_venta
+            WHERE 
+                v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
+            GROUP BY 
+                u.nombre_usuario
+            ORDER BY 
+                importe_total DESC;";
 
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);
                     cmd.CommandType = CommandType.Text;
+
+                    // Asignación de parámetros de fecha
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -48,65 +53,59 @@ public class CD_Gerente
                     {
                         while (dr.Read())
                         {
-                            // Crear una nueva instancia de Venta
-                            Venta venta = new Venta
+                            // Crear una nueva instancia de ReporteGrafico
+                            ReporteGrafico grafico = new ReporteGrafico
                             {
-                                // Asignar el objeto Usuario
-                                oUsuario = new Usuario
-                                {
-                                    nombreUsuario = dr["vendedor"].ToString() // Obtener el nombre del vendedor
-                                },
-                                oDetalleVenta = new List<DetalleVenta>
-                            {
-                                new DetalleVenta
-                                {
-                                    cantidad = Convert.ToInt32(dr["cantidad_total"]),
-                                    // Asignar valores adicionales según lo necesites
-                                    subTotal = 0, // Asigna el subtotal adecuado aquí
-                                    oProducto = new Producto
-                                    {
-                                        nombre = dr["nombre_producto"].ToString(),
-                                        precioVenta = 0 // Asigna el precio correcto aquí
-                                    }
-                                }
-                            }
+                                Vendedor = dr["vendedor"].ToString(), // Nombre del vendedor
+                                SubTotal = Convert.ToDouble(dr["importe_total"]) // Importe total
                             };
 
-                            lista.Add(venta);
+                            listaGrafico.Add(grafico);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de errores, puedes registrar el error en un log
-                    lista = new List<Venta>(); // Retornar lista vacía en caso de error
+                    // Manejo de errores
+                    listaGrafico = new List<ReporteGrafico>(); // Retorna lista vacía en caso de error
+                                                               // Aquí puedes agregar más lógica para manejar el error (logging, etc.)
                 }
             }
 
-            return lista; // Retorna la lista de ventas
+            return listaGrafico; // Retorna la lista para el gráfico
         }
-        public List<Venta> ReporteGerente_2()
+
+        public List<ReporteGrafico> ReporteGerente_2(DateTime fechaDesde, DateTime fechaHasta)
         {
-            List<Venta> lista = new List<Venta>();
+            List<ReporteGrafico> listaGrafico = new List<ReporteGrafico>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Consulta SQL para obtener el reporte
+                    // Consulta SQL para obtener el reporte con filtros de fecha
                     string consulta = @"
-                SELECT 
-                    p.nombre_producto,
-                    SUM(dv.cantidad) AS cantidad_total
-                FROM 
-                    productos p
-                INNER JOIN 
-                    detalle_ventas dv ON p.id_producto = dv.id_producto
-                GROUP BY 
-                    p.nombre_producto;";
+            SELECT 
+                p.nombre_producto,
+                SUM(dv.cantidad) AS cantidad_total
+            FROM 
+                productos p
+            INNER JOIN 
+                detalle_ventas dv ON p.id_producto = dv.id_producto
+            INNER JOIN 
+                ventas v ON dv.id_venta = v.id_venta
+            WHERE 
+                v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
+            GROUP BY 
+                p.nombre_producto
+                order by cantidad_total desc;";
 
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);
                     cmd.CommandType = CommandType.Text;
+
+                    // Asignación de parámetros de fecha
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -114,76 +113,61 @@ public class CD_Gerente
                     {
                         while (dr.Read())
                         {
-                            // Crear una nueva instancia de Venta
-                            Venta venta = new Venta
+                            // Crear una nueva instancia de ReporteGrafico
+                            ReporteGrafico reporte = new ReporteGrafico
                             {
-                                oDetalleVenta = new List<DetalleVenta>
-                        {
-                            new DetalleVenta
-                            {
-                                cantidad = Convert.ToInt32(dr["cantidad_total"]),
-                                // Asignar valores adicionales según lo necesites
-                                subTotal = 0, // Asigna el subtotal adecuado aquí
-                                oProducto = new Producto
-                                {
-                                    nombre = dr["nombre_producto"].ToString(),
-                                    precioVenta = 0 // Asigna el precio correcto aquí si es necesario
-                                }
-                            }
-                        }
+                                Producto = dr["nombre_producto"].ToString(), // Asigna el nombre del producto
+                                Cantidad = Convert.ToInt32(dr["cantidad_total"]) // Asigna la cantidad total
                             };
 
-                            lista.Add(venta);
+                            listaGrafico.Add(reporte);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     // Manejo de errores, puedes registrar el error en un log
-                    lista = new List<Venta>(); // Retornar lista vacía en caso de error
+                    listaGrafico = new List<ReporteGrafico>(); // Retornar lista vacía en caso de error
                 }
             }
 
-            return lista; // Retorna la lista de ventas
+            return listaGrafico; // Retorna la lista de ReporteGrafico
         }
-        public List<Venta> ReporteGerente_3()
+
+
+
+
+        public List<ReporteGrafico> ReporteGerente_3(DateTime fechaDesde, DateTime fechaHasta)
         {
-            List<Venta> lista = new List<Venta>();
+            List<ReporteGrafico> listaGrafico = new List<ReporteGrafico>();
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Consulta SQL para obtener el reporte
+                    // Consulta SQL para obtener el reporte con filtros de fecha
                     string consulta = @"
-                	WITH VentasMaximas AS (
-                    SELECT 
-                        u.nombre_usuario AS vendedor,
-                        p.nombre_producto,
-                        SUM(dv.cantidad) AS cantidad_total,
-                        ROW_NUMBER() OVER (PARTITION BY p.nombre_producto ORDER BY SUM(dv.cantidad) DESC) AS fila
-                    FROM 
-                        usuarios u
-                    INNER JOIN 
-                        ventas v ON v.id_usuario = u.id_usuario
-                    INNER JOIN 
-                        detalle_ventas dv ON dv.id_venta = v.id_venta
-                    INNER JOIN 
-                        productos p ON p.id_producto = dv.id_producto
-                    GROUP BY 
-                        u.nombre_usuario, p.nombre_producto
-                )
-                SELECT 
-                    vendedor, 
-                    nombre_producto, 
-                    cantidad_total
-                FROM 
-                    VentasMaximas
-                WHERE 
-                    fila = 1;";
+            SELECT 
+                p.nombre_producto,
+                 SUM(dv.subtotal) AS monto_total
+            FROM 
+                productos p
+            INNER JOIN 
+                detalle_ventas dv ON p.id_producto = dv.id_producto
+            INNER JOIN 
+                ventas v ON dv.id_venta = v.id_venta
+            WHERE 
+                v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
+            GROUP BY 
+                p.nombre_producto
+                order by monto_total desc;";
 
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);
                     cmd.CommandType = CommandType.Text;
+
+                    // Asignación de parámetros de fecha
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -191,42 +175,25 @@ public class CD_Gerente
                     {
                         while (dr.Read())
                         {
-                            // Crear una nueva instancia de Venta
-                            Venta venta = new Venta
+                            // Crear una nueva instancia de ReporteGrafico
+                            ReporteGrafico reporte = new ReporteGrafico
                             {
-                                // Asignar el objeto Usuario
-                                oUsuario = new Usuario
-                                {
-                                    nombreUsuario = dr["vendedor"].ToString() // Obtener el nombre del vendedor
-                                },
-                                oDetalleVenta = new List<DetalleVenta>
-                            {
-                                new DetalleVenta
-                                {
-                                    cantidad = Convert.ToInt32(dr["cantidad_total"]),
-                                    // Asignar valores adicionales según lo necesites
-                                    subTotal = 0, // Asigna el subtotal adecuado aquí
-                                    oProducto = new Producto
-                                    {
-                                        nombre = dr["nombre_producto"].ToString(),
-                                        precioVenta = 0 // Asigna el precio correcto aquí
-                                    }
-                                }
-                            }
+                                Producto = dr["nombre_producto"].ToString(), // Asigna el nombre del producto
+                                SubTotal = Convert.ToDouble(dr["monto_total"]) // Importe total
                             };
 
-                            lista.Add(venta);
+                            listaGrafico.Add(reporte);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     // Manejo de errores, puedes registrar el error en un log
-                    lista = new List<Venta>(); // Retornar lista vacía en caso de error
+                    listaGrafico = new List<ReporteGrafico>(); // Retornar lista vacía en caso de error
                 }
             }
 
-            return lista; // Retorna la lista de ventas
+            return listaGrafico; // Retorna la lista de ReporteGrafico
         }
 
     }
