@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace CapaDeDatos
 {
@@ -92,6 +93,61 @@ namespace CapaDeDatos
                 }
             }
             return _venta;
+        }
+        public List<Venta> UltimasVentas()
+        {
+            List<Venta> _ListaVenta = new List<Venta>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT top(15) v.id_venta, v.fecha_factura, p.apellido,");
+                    query.AppendLine("p.nombre, v.importe_total, u.nombre_usuario");
+                    query.AppendLine("FROM VENTAS v");
+                    query.AppendLine("JOIN USUARIOS u ON u.id_usuario = v.id_usuario");
+                    query.AppendLine("JOIN PERSONAS p ON p.id_persona = v.id_cliente");
+                    query.AppendLine("ORDER BY v.fecha_factura DESC");
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            _ListaVenta.Add(new Venta()
+                            {
+                                idVenta = Convert.ToInt32(dr["id_venta"]),
+                                fechaFactura = Convert.ToDateTime(dr["fecha_factura"]).ToString("dd/MM/yyyy"),
+                                oCliente = new Domicilio
+                                {
+                                    oPersona = new Persona
+                                    {
+                                        apellido = dr["apellido"].ToString(),
+                                        nombre = dr["nombre"].ToString()
+                                    }
+                                },
+                                importeTotal = Convert.ToDouble(dr["importe_total"]),
+                                oUsuario = new Usuario
+                                {
+                                    nombreUsuario = dr["nombre_usuario"].ToString()
+                                }
+                            });
+                        }
+                        dr.Close();
+                        oconexion.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _ListaVenta = new List<Venta>();
+                }
+            }
+
+            return _ListaVenta;
         }
         public int Registrar(Venta ObjVenta, out string Mensaje)
         {

@@ -363,3 +363,16 @@ FROM (
     WHERE 
         backupset.database_name = 'RunFit'
 ) AS BackupDates;
+
+select * from VENTAS
+SELECT u.nombre_usuario, p.apellido, p.nombre FROM USUARIOS u
+JOIN PERSONAS p ON p.id_persona = u.id_persona
+WHERE u.id_rol = 3
+
+SELECT top(10) v.id_venta, v.fecha_factura, p.apellido, p.nombre, v.importe_total, u.nombre_usuario
+FROM VENTAS v
+JOIN USUARIOS u ON u.id_usuario = v.id_usuario
+JOIN PERSONAS p ON p.id_persona = v.id_cliente
+ORDER BY v.fecha_factura DESC
+
+

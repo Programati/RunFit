@@ -375,7 +375,7 @@ namespace CapaPresentacion
             }
 
             var confirmacion = MessageBox.Show(
-                    "Desea finalizar la compra?",
+                    "Desea finalizar la venta?",
                     "Confirmación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -433,7 +433,6 @@ namespace CapaPresentacion
                         if (factura.idVenta != 0)
                         {
                             frmFactura VistaFactura = new frmFactura(factura);
-
                             VistaFactura.Show();
                         }
                         else

@@ -16,6 +16,10 @@ namespace CapaDeNegocios
         {
             return objcd_venta.ObtenerVentaPorId(idVenta);
         }
+        public List<Venta> UltimasVentas()
+        {
+            return objcd_venta.UltimasVentas();
+        }
         public int Registrar(Venta ObjVenta, out string Mensaje)
         {
             Mensaje = string.Empty;
