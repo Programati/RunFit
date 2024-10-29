@@ -1018,10 +1018,12 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+
+select * from VENTAS v
+join DETALLE_VENTAS dv on dv.id_venta = v.id_venta
+where v.id_venta = 17
+
 <<<<<<< HEAD
- select * from MARCAS
-
-
  SELECT * FROM PERSONAS p
  JOIN DOMICILIOS d ON d.id_persona = p.id_persona
 
@@ -1181,3 +1183,17 @@ INNER JOIN productos p ON dv.id_producto = p.id_producto
 
 GROUP BY p.nombre_producto
         order by total_subtotal desc
+=======
+SELECT v.id_venta, v.importe_total, v.fecha_factura,
+u.nombre_usuario,
+p.apellido, p.nombre, p.dni, p.telefono, p.email,
+d.calle, d.altura, d.manzana, d.casa, d.piso, d.departamento,
+dv.cantidad, prod.nombre_producto, prod.detalle_producto, prod.precio_venta, dv.subtotal
+FROM VENTAS v
+JOIN DETALLE_VENTAS dv ON dv.id_venta = v.id_venta
+JOIN PERSONAS p ON p.id_persona = v.id_cliente
+JOIN USUARIOS u ON u.id_usuario = v.id_usuario
+JOIN PRODUCTOS prod ON prod.id_producto = dv.id_producto
+JOIN DOMICILIOS d ON d.id_persona = v.id_cliente
+where v.id_venta = 17
+>>>>>>> rama-matias

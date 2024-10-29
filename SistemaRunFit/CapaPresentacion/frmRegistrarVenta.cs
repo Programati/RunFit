@@ -24,7 +24,6 @@ namespace CapaPresentacion
         private double _totalCompra = 0;
         DateTime fechaHoy = DateTime.Today;
        
-
         public frmRegistrarVenta(Inicio inicioForm, Usuario usuario)
         {
             InitializeComponent();
@@ -49,12 +48,10 @@ namespace CapaPresentacion
             txtNombreProductoVenta.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtNombreProductoVenta.AutoCompleteCustomSource = _ListaProductosAutoCompletar;
         }
-
         private void frmRegistrarVenta_Load(object sender, EventArgs e)
         {
             txtBuscarDniVta.Focus();
         }
-
         private void btnBuscarClteVta_Click(object sender, System.EventArgs e)
         {
 
@@ -89,7 +86,6 @@ namespace CapaPresentacion
                 MessageBox.Show("El DNI ingresado no es válido.");
             }
         }
-       
         private void txtBuscarPtoVta_Click(object sender, EventArgs e)
         {
             LimpiarGrupoDetalle();
@@ -136,7 +132,6 @@ namespace CapaPresentacion
             }
 
         }
-
         private void txtBuscarDniVta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -144,7 +139,6 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-
         private void txtBuscarCodigoVta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -152,7 +146,6 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-
         private void txtCantidadItenVta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -160,7 +153,6 @@ namespace CapaPresentacion
                 e.Handled = true;
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (_inicio != null)
@@ -170,7 +162,6 @@ namespace CapaPresentacion
             }
             this.Close();
         }
-
         private void btnAgregaritemVta_Click(object sender, EventArgs e)
         {
             int cantidadProducto = 0;
@@ -207,7 +198,6 @@ namespace CapaPresentacion
             LimpiarGrupoDetalle();
             CargarDataGrid();
         }
-
         private void CargarCarrito(Producto p, int cant)
         {
             // Buscar si el producto ya está en el carrito
@@ -230,7 +220,6 @@ namespace CapaPresentacion
             }
             
         }
-
         public void EliminarProductoDelCarrito(int idProducto)
         {
             // Buscar el producto en la lista
@@ -242,7 +231,6 @@ namespace CapaPresentacion
                 _carrito.Remove(itemAEliminar);
             }
         }
-
         public bool RecorrerProductosDelCarrito(List<Carrito> CarritoLleno)
         {
             foreach (var item in _listaProductos)
@@ -261,7 +249,6 @@ namespace CapaPresentacion
             }
             return true;
         }
-
         private void CargarDataGrid()
         {
             _totalCompra = 0;
@@ -290,7 +277,6 @@ namespace CapaPresentacion
             lblMontoSubtotalVta.Text = "$0";
             dgvDetalleVta.Rows.Clear();
         }
-
         private void dgvDetalleVta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvDetalleVta.Columns[e.ColumnIndex].Name == "Eliminar")
@@ -304,7 +290,6 @@ namespace CapaPresentacion
                 }
             }
         }
-
         private bool BuscarEnDataGridView(string codigo)
         {
             if (dgvDetalleVta.Columns["Codigo"] != null)
@@ -330,7 +315,6 @@ namespace CapaPresentacion
             }
             return false; // Código no encontrado
         }
-
         private void BuscarYPintarEnDataGridView(string codigo)
         {
             // Asegurarse de que la columna "Codigo" exista en el DataGridView
@@ -357,7 +341,6 @@ namespace CapaPresentacion
 
 
         }
-
         private void btnConfirmarVta_Click(object sender, EventArgs e)
         {
             _listaProductos = new CN_Producto().ListarProductos();
@@ -392,7 +375,7 @@ namespace CapaPresentacion
             }
 
             var confirmacion = MessageBox.Show(
-                    "Desea finalizar la compra?",
+                    "Desea finalizar la venta?",
                     "Confirmación",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -407,9 +390,12 @@ namespace CapaPresentacion
                         importeTotal = _totalCompra,
                         fechaFactura = fechaHoy.ToString("yyyy-MM-dd"),
                         oUsuario = _usuarioVendedor,
-                        oCliente = new Persona() 
+                        oCliente = new Domicilio() 
                         { 
-                            idPersona = (_cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text))).oPersona.idPersona
+                            oPersona = new Persona()
+                            {
+                                idPersona = (_cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == Convert.ToInt32(txtBuscarDniVta.Text))).oPersona.idPersona
+                            }
                         }
                     };
 
@@ -442,6 +428,17 @@ namespace CapaPresentacion
                         MessageBox.Show("Venta registrada correctamente.", "Exito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         limpiarFormVentaCompleto();
                         _listaProductos = new CN_Producto().ListarProductos();
+
+                        Venta factura = new CN_Venta().ObtenerVentaPorId(IdVentaGenerada);
+                        if (factura.idVenta != 0)
+                        {
+                            frmFactura VistaFactura = new frmFactura(factura);
+                            VistaFactura.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Numero de factura incorrecta!");
+                        }
                     }
                     else
                     {
@@ -450,7 +447,6 @@ namespace CapaPresentacion
                 }
             }
         }
-
         private void LimpiarGrupoCliente()
         {
             lblNombreYApellidoCliente.Text = "";
@@ -477,7 +473,6 @@ namespace CapaPresentacion
             dgvDetalleVta.Rows.Clear();
             lblMontoSubtotalVta.Text = "$0.00";
         }
-
         public Image ImagenProducto(Producto p)
         {
             if (p.Imagen != null)
@@ -499,7 +494,6 @@ namespace CapaPresentacion
             txtCantidadItenVta.Clear();
             AplicarProductoSeleccionado();
         }
-
         private void AplicarProductoSeleccionado()
         {
             int cod;
@@ -557,7 +551,6 @@ namespace CapaPresentacion
                 LimpiarGrupoDetalle();
             }
         }
-
         private void txtNombreProductoVenta_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
