@@ -28,21 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarProveedor));
             this.pnlContenedorDatosProveedor = new System.Windows.Forms.Panel();
             this.grbListaUsuarios = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvListaProveedor = new Guna.UI.WinForms.GunaDataGridView();
-            this.Nombre_Prov = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cuit_Prev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descrip_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Cuit_Prev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razon_social = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_alta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descrip_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBusquedaProv = new Guna.UI.WinForms.GunaShadowPanel();
             this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarPorProveedor = new Guna.UI.WinForms.GunaTileButton();
@@ -77,15 +80,17 @@
             this.grbListaUsuarios.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.Controls.Add(this.dgvListaProveedor);
             this.grbListaUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbListaUsuarios.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListaUsuarios.ForeColor = System.Drawing.Color.White;
             this.grbListaUsuarios.LineBottom = 2;
             this.grbListaUsuarios.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbListaUsuarios.LineLeft = 2;
             this.grbListaUsuarios.LineRight = 2;
+            this.grbListaUsuarios.LineTop = 50;
             this.grbListaUsuarios.Location = new System.Drawing.Point(0, 100);
+            this.grbListaUsuarios.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbListaUsuarios.Name = "grbListaUsuarios";
-            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 30, 2, 2);
+            this.grbListaUsuarios.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
             this.grbListaUsuarios.Size = new System.Drawing.Size(692, 365);
             this.grbListaUsuarios.TabIndex = 54;
             this.grbListaUsuarios.Text = "Lista de Proveedores";
@@ -94,52 +99,60 @@
             // dgvListaProveedor
             // 
             this.dgvListaProveedor.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvListaProveedor.AllowUserToDeleteRows = false;
+            this.dgvListaProveedor.AllowUserToResizeColumns = false;
+            this.dgvListaProveedor.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.dgvListaProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaProveedor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaProveedor.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaProveedor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListaProveedor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListaProveedor.ColumnHeadersHeight = 34;
             this.dgvListaProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre_Prov,
-            this.Cuit_Prev,
-            this.Direccion,
-            this.Telefono,
-            this.Email,
-            this.Descrip_Proveedor,
             this.Editar,
-            this.Eliminar});
+            this.Eliminar,
+            this.Cuit_Prev,
+            this.id_proveedor,
+            this.razon_social,
+            this.Estado,
+            this.fecha_alta,
+            this.Email,
+            this.Telefono,
+            this.Direccion,
+            this.Descrip_Proveedor});
             this.dgvListaProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaProveedor.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProveedor.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListaProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListaProveedor.EnableHeadersVisualStyles = false;
             this.dgvListaProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
-            this.dgvListaProveedor.Location = new System.Drawing.Point(2, 30);
+            this.dgvListaProveedor.Location = new System.Drawing.Point(2, 50);
             this.dgvListaProveedor.MultiSelect = false;
             this.dgvListaProveedor.Name = "dgvListaProveedor";
             this.dgvListaProveedor.ReadOnly = true;
             this.dgvListaProveedor.RowHeadersVisible = false;
             this.dgvListaProveedor.RowHeadersWidth = 51;
+            this.dgvListaProveedor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaProveedor.RowTemplate.Height = 35;
             this.dgvListaProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 333);
+            this.dgvListaProveedor.Size = new System.Drawing.Size(688, 313);
             this.dgvListaProveedor.TabIndex = 5;
             this.dgvListaProveedor.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvListaProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -151,71 +164,19 @@
             this.dgvListaProveedor.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvListaProveedor.ThemeStyle.HeaderStyle.Height = 34;
             this.dgvListaProveedor.ThemeStyle.ReadOnly = true;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvListaProveedor.ThemeStyle.RowsStyle.Height = 22;
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Gray;
+            this.dgvListaProveedor.ThemeStyle.RowsStyle.Height = 35;
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvListaProveedor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // Nombre_Prov
-            // 
-            this.Nombre_Prov.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nombre_Prov.HeaderText = "Razon Social";
-            this.Nombre_Prov.MinimumWidth = 6;
-            this.Nombre_Prov.Name = "Nombre_Prov";
-            this.Nombre_Prov.ReadOnly = true;
-            this.Nombre_Prov.Width = 117;
-            // 
-            // Cuit_Prev
-            // 
-            this.Cuit_Prev.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cuit_Prev.HeaderText = "CUIT";
-            this.Cuit_Prev.MinimumWidth = 6;
-            this.Cuit_Prev.Name = "Cuit_Prev";
-            this.Cuit_Prev.ReadOnly = true;
-            this.Cuit_Prev.Width = 62;
-            // 
-            // Direccion
-            // 
-            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Direccion.HeaderText = "Direccioin";
-            this.Direccion.MinimumWidth = 6;
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 88;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 70;
-            // 
-            // Descrip_Proveedor
-            // 
-            this.Descrip_Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descrip_Proveedor.HeaderText = "Descripcion";
-            this.Descrip_Proveedor.MinimumWidth = 6;
-            this.Descrip_Proveedor.Name = "Descrip_Proveedor";
-            this.Descrip_Proveedor.ReadOnly = true;
-            this.Descrip_Proveedor.Width = 111;
+            this.dgvListaProveedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaProveedor_CellContentClick_1);
             // 
             // Editar
             // 
@@ -226,7 +187,7 @@
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
-            this.Editar.Width = 53;
+            this.Editar.Width = 60;
             // 
             // Eliminar
             // 
@@ -237,7 +198,87 @@
             this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 68;
+            this.Eliminar.Width = 79;
+            // 
+            // Cuit_Prev
+            // 
+            this.Cuit_Prev.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cuit_Prev.HeaderText = "CUIT";
+            this.Cuit_Prev.MinimumWidth = 6;
+            this.Cuit_Prev.Name = "Cuit_Prev";
+            this.Cuit_Prev.ReadOnly = true;
+            this.Cuit_Prev.Width = 69;
+            // 
+            // id_proveedor
+            // 
+            this.id_proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id_proveedor.HeaderText = "ID_proveedor";
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.ReadOnly = true;
+            this.id_proveedor.Visible = false;
+            this.id_proveedor.Width = 140;
+            // 
+            // razon_social
+            // 
+            this.razon_social.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.razon_social.HeaderText = "Razon Social";
+            this.razon_social.MinimumWidth = 6;
+            this.razon_social.Name = "razon_social";
+            this.razon_social.ReadOnly = true;
+            this.razon_social.Width = 134;
+            // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 86;
+            // 
+            // fecha_alta
+            // 
+            this.fecha_alta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fecha_alta.HeaderText = "Fecha Alta";
+            this.fecha_alta.Name = "fecha_alta";
+            this.fecha_alta.ReadOnly = true;
+            this.fecha_alta.Visible = false;
+            this.fecha_alta.Width = 120;
+            // 
+            // Email
+            // 
+            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 79;
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 101;
+            // 
+            // Direccion
+            // 
+            this.Direccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Direccion.HeaderText = "Direccioin";
+            this.Direccion.MinimumWidth = 6;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 114;
+            // 
+            // Descrip_Proveedor
+            // 
+            this.Descrip_Proveedor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Descrip_Proveedor.HeaderText = "Descripcion";
+            this.Descrip_Proveedor.MinimumWidth = 6;
+            this.Descrip_Proveedor.Name = "Descrip_Proveedor";
+            this.Descrip_Proveedor.ReadOnly = true;
+            this.Descrip_Proveedor.Width = 127;
             // 
             // pnlBusquedaProv
             // 
@@ -325,7 +366,7 @@
             this.btnNuevoProveedor.FocusedColor = System.Drawing.Color.White;
             this.btnNuevoProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
-            this.btnNuevoProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoProveedor.Image")));
+            this.btnNuevoProveedor.Image = global::CapaPresentacion.Properties.Resources.Proveedor;
             this.btnNuevoProveedor.ImageSize = new System.Drawing.Size(25, 25);
             this.btnNuevoProveedor.Location = new System.Drawing.Point(482, 33);
             this.btnNuevoProveedor.Name = "btnNuevoProveedor";
@@ -448,14 +489,17 @@
         private Guna.UI.WinForms.GunaTextBox txtBuscarPorProveedor;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Prov;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Prev;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descrip_Proveedor;
+        private Guna.UI.WinForms.GunaButton btnCancelar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private Guna.UI.WinForms.GunaButton btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuit_Prev;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razon_social;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_alta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descrip_Proveedor;
     }
 }

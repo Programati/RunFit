@@ -10,7 +10,7 @@ namespace CapaDeEntidades
     {
         public int idMarca { get; set; }
         public string nombre { get; set; }
-        public string fechaAlta { get; set; }
-        public string fechaBaja { get; set; }
+        public DateTime? fechaAlta { get; set; }
+        public DateTime? fechaBaja { get; set; }
     }
 }

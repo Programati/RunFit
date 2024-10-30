@@ -53,6 +53,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,11 +68,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encrypt.cs" />
+    <Compile Include="frmReporteBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteBackup.Designer.cs">
+      <DependentUpon>frmReporteBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBackup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBackup.Designer.cs">
       <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMarca.cs">
       <SubType>Form</SubType>
@@ -145,11 +158,17 @@
     <Compile Include="frmRegistrarVenta.Designer.cs">
       <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReporte.cs">
+    <Compile Include="frmReporteGerente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReporte.Designer.cs">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <Compile Include="frmReporteGerente.Designer.cs">
+      <DependentUpon>frmReporteGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteUsuario.Designer.cs">
+      <DependentUpon>frmReporteUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
@@ -178,6 +197,9 @@
     </Compile>
     <EmbeddedResource Include="frmBackup.resx">
       <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarProveedor.resx">
       <DependentUpon>frmListarProveedor.cs</DependentUpon>
@@ -215,8 +237,14 @@
     <EmbeddedResource Include="frmRegistrarVenta.resx">
       <DependentUpon>frmRegistrarVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReporte.resx">
-      <DependentUpon>frmReporte.cs</DependentUpon>
+    <EmbeddedResource Include="frmReporteGerente.resx">
+      <DependentUpon>frmReporteGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteUsuario.resx">
+      <DependentUpon>frmReporteUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteBackup.resx">
+      <DependentUpon>frmReporteBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
@@ -309,6 +337,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backup_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_prov.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_prov.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activar_marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_marca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto_activar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\producto_eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProductoGenerico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ver.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

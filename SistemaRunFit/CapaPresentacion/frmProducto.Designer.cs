@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosProducto = new Guna.UI.WinForms.GunaShadowPanel();
+            this.txtIdProducto = new System.Windows.Forms.TextBox();
             this.btnVolverUser = new Guna.UI.WinForms.GunaButton();
             this.btnGuardarProducto = new Guna.UI.WinForms.GunaButton();
             this.btnLimpiarContenedorProducto = new Guna.UI.WinForms.GunaButton();
@@ -56,6 +57,7 @@
             this.txtNombreProducto = new Guna.UI.WinForms.GunaTextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ofdSeleccionar = new System.Windows.Forms.OpenFileDialog();
             this.pnlDatosProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +66,7 @@
             // 
             this.pnlDatosProducto.BackColor = System.Drawing.Color.Transparent;
             this.pnlDatosProducto.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(162)))), ((int)(((byte)(198)))));
+            this.pnlDatosProducto.Controls.Add(this.txtIdProducto);
             this.pnlDatosProducto.Controls.Add(this.btnVolverUser);
             this.pnlDatosProducto.Controls.Add(this.btnGuardarProducto);
             this.pnlDatosProducto.Controls.Add(this.btnLimpiarContenedorProducto);
@@ -94,6 +97,13 @@
             this.pnlDatosProducto.ShadowColor = System.Drawing.Color.Black;
             this.pnlDatosProducto.Size = new System.Drawing.Size(687, 433);
             this.pnlDatosProducto.TabIndex = 58;
+            // 
+            // txtIdProducto
+            // 
+            this.txtIdProducto.Location = new System.Drawing.Point(472, 332);
+            this.txtIdProducto.Name = "txtIdProducto";
+            this.txtIdProducto.Size = new System.Drawing.Size(59, 20);
+            this.txtIdProducto.TabIndex = 78;
             // 
             // btnVolverUser
             // 
@@ -149,6 +159,7 @@
             this.btnGuardarProducto.Size = new System.Drawing.Size(100, 40);
             this.btnGuardarProducto.TabIndex = 11;
             this.btnGuardarProducto.Text = "Guardar";
+            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
             // 
             // btnLimpiarContenedorProducto
             // 
@@ -405,7 +416,7 @@
             // 
             this.pbImagenProducto.BaseColor = System.Drawing.Color.White;
             this.pbImagenProducto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbImagenProducto.Image = global::CapaPresentacion.Properties.Resources.fotoProducto;
+            this.pbImagenProducto.Image = ((System.Drawing.Image)(resources.GetObject("pbImagenProducto.Image")));
             this.pbImagenProducto.Location = new System.Drawing.Point(507, 20);
             this.pbImagenProducto.Name = "pbImagenProducto";
             this.pbImagenProducto.Size = new System.Drawing.Size(150, 150);
@@ -522,9 +533,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -542,6 +553,10 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // ofdSeleccionar
+            // 
+            this.ofdSeleccionar.FileName = "openFileDialog1";
+            // 
             // frmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -550,6 +565,7 @@
             this.Controls.Add(this.pnlDatosProducto);
             this.Name = "frmProducto";
             this.Text = "frmProducto";
+            this.Load += new System.EventHandler(this.frmProducto_Load_1);
             this.pnlDatosProducto.ResumeLayout(false);
             this.pnlDatosProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).EndInit();
@@ -584,5 +600,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Guna.UI.WinForms.GunaButton btnVolverUser;
+        private System.Windows.Forms.TextBox txtIdProducto;
+        private System.Windows.Forms.OpenFileDialog ofdSeleccionar;
     }
 }

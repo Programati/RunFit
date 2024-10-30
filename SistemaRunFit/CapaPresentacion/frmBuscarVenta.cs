@@ -7,39 +7,110 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDeEntidades;
+using CapaDeNegocios;
 using Guna.UI.WinForms;
 
 namespace CapaPresentacion
 {
     public partial class frmBuscarVenta : Form
     {
-        // Campo privado que almacena la referencia al formulario principal 'Inicio'
         Inicio _inicio;
 
-        // Constructor que inicializa el formulario y desactiva el panel del menú en 'Inicio'
         public frmBuscarVenta(Inicio inicio)
         {
-            _inicio = inicio; // Almacena la referencia al formulario 'Inicio'
-            InitializeComponent(); // Inicializa los componentes del formulario
-            _inicio.PnlContenedorMenu.Enabled = false; // Desactiva el panel del menú en el formulario principal
+            _inicio = inicio;
+            InitializeComponent();
+            _inicio.PnlContenedorMenu.Enabled = false;
         }
 
-        // Evento que se ejecuta cuando el formulario se carga
         private void frmBuscarVenta_Load(object sender, EventArgs e)
         {
-            txtBuscarUser.Focus(); // Establece el foco en el campo de búsqueda de usuario al cargar el formulario
+            txtBuscarFactura.Focus();
+            ListarUltimasVentas();
         }
 
-        // Evento del botón que regresa al menú principal de 'Marca'
         private void btnMenuMarca_Click(object sender, EventArgs e)
         {
-            // Si hay una referencia válida al formulario 'Inicio'
             if (_inicio != null)
             {
-                _inicio.PnlContenedorMenu.Enabled = true; // Reactiva el panel del menú en 'Inicio'
-                _inicio.MostrarImagenFondo(); // Muestra nuevamente la imagen de fondo en 'Inicio'
+                _inicio.PnlContenedorMenu.Enabled = true;
+                _inicio.MostrarImagenFondo();
             }
-            this.Close(); // Cierra el formulario actual de búsqueda de ventas
+            this.Close();
+        }
+
+        private void ListarUltimasVentas()
+        {
+            List<Venta> _ListaVentas = new CN_Venta().UltimasVentas();
+            foreach (Venta item in _ListaVentas)
+            {
+                dgvVentas.Rows.Add(new object[] {
+                    item.idVenta,
+                    item.fechaFactura,
+                    item.oCliente.oPersona.apellido+" "+item.oCliente.oPersona.nombre,
+                    "$"+item.importeTotal,
+                    item.oUsuario.nombreUsuario,
+                    CapaPresentacion.Properties.Resources.ver
+                });
+            }
+        }
+
+        private void btnBuscarBuscarVta_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscarFactura.Text))
+            {
+                MessageBox.Show("N° Factrua vacia!");
+                return;
+            }
+
+            int _NumeroFactura;
+
+            if (int.TryParse(txtBuscarFactura.Text, out _NumeroFactura))
+            {
+                Venta factura = new CN_Venta().ObtenerVentaPorId(_NumeroFactura);
+                if (factura.idVenta != 0)
+                {
+                    frmFactura VistaFactura = new frmFactura(factura);
+                    VistaFactura.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Numero de factura incorrecta!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingresa un número de Factura válido!");
+            }
+
+        }
+
+        private void dgvVentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvVentas.Columns[e.ColumnIndex].Name == "Ver")
+            {
+                int n = e.RowIndex;
+                if (n >= 0)
+                {
+                    int _FacturaElegida = Convert.ToInt32(dgvVentas.Rows[n].Cells["Factura"].Value);
+                    Venta factura = new CN_Venta().ObtenerVentaPorId(_FacturaElegida);
+                    if (factura.idVenta != 0)
+                    {
+                        frmFactura VistaFactura = new frmFactura(factura);
+                        VistaFactura.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Numero de factura incorrecta!");
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiarBuscarVta_Click(object sender, EventArgs e)
+        {
+            txtBuscarFactura.Clear();
         }
     }
 

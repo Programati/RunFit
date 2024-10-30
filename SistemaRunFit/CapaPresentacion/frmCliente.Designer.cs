@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlDatosPersonalesCliente = new Guna.UI.WinForms.GunaShadowPanel();
             this.txtIdDomicilio = new Guna.UI.WinForms.GunaTextBox();
             this.lblIdDomicilio = new System.Windows.Forms.Label();
@@ -199,7 +199,7 @@
             this.btnVolverCliente.FocusedColor = System.Drawing.Color.White;
             this.btnVolverCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnVolverCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverCliente.Image")));
+            this.btnVolverCliente.Image = global::CapaPresentacion.Properties.Resources.volver;
             this.btnVolverCliente.ImageSize = new System.Drawing.Size(20, 20);
             this.btnVolverCliente.Location = new System.Drawing.Point(164, 331);
             this.btnVolverCliente.Name = "btnVolverCliente";
@@ -768,9 +768,9 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.NullValue = "null";
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "null";
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewImageColumn1.HeaderText = "Editar";
             this.dataGridViewImageColumn1.Image = global::CapaPresentacion.Properties.Resources.editar;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;

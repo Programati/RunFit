@@ -39,6 +39,7 @@
             this.dgvListaClientes = new Guna.UI.WinForms.GunaDataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Accion = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPersona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +123,7 @@
             this.dgvListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Accion,
+            this.Estado,
             this.idPersona,
             this.Dni,
             this.Nombre,
@@ -212,6 +214,14 @@
             this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Accion.Width = 92;
             // 
+            // Estado
+            // 
+            this.Estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 86;
+            // 
             // idPersona
             // 
             this.idPersona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -219,7 +229,6 @@
             this.idPersona.MinimumWidth = 6;
             this.idPersona.Name = "idPersona";
             this.idPersona.ReadOnly = true;
-            this.idPersona.Visible = false;
             this.idPersona.Width = 75;
             // 
             // Dni
@@ -568,6 +577,7 @@
         private RunFitDataSetTableAdapters.PERSONASTableAdapter pERSONASTableAdapter;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Accion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPersona;
         private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;

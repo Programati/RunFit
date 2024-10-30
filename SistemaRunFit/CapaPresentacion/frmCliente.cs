@@ -23,14 +23,12 @@ namespace CapaPresentacion
     {
         // Variable estática para almacenar el objeto Domicilio que se pasará desde el DataGridView
         private static Domicilio DomicilioDGV = null;
-
-        // Definición de un color personalizado (un tono de azul) para usar en la interfaz de usuario
         Color colorAzul = Color.FromArgb(6, 71, 109);
 
         // Constructor por defecto (sin parámetros)
         public frmCliente()
         {
-            // Inicializa los componentes del formulario (generado por el diseñador de Visual Studio)
+            
             InitializeComponent();
 
         }
@@ -38,10 +36,7 @@ namespace CapaPresentacion
         // Constructor que recibe un objeto Domicilio para editar
         public frmCliente(Domicilio DomicilioEditar)
         {
-            // Asigna el Domicilio recibido al campo estático DomicilioDGV para que esté disponible en todo el formulario
             DomicilioDGV = DomicilioEditar;
-
-            // Inicializa los componentes del formulario
             InitializeComponent();
         }
 
@@ -52,7 +47,7 @@ namespace CapaPresentacion
             // Si el carácter presionado no es una letra, un carácter de control (como Backspace), o un espacio, se anula la entrada.
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                e.Handled = true; // Se bloquea la entrada del carácter.
+                e.Handled = true; 
             }
         }
 
@@ -60,32 +55,31 @@ namespace CapaPresentacion
         // Solo permite letras, controles como Backspace, y espacios en blanco.
         private void txtApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Si el carácter presionado no es una letra, un carácter de control (como Backspace), o un espacio, se anula la entrada.
+            
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                e.Handled = true; // Se bloquea la entrada del carácter.
+                e.Handled = true; 
             }
         }
 
-        // Evento para restringir la entrada de caracteres en el TextBox txtDniCliente.
+        
         // Solo permite dígitos y caracteres de control como Backspace.
         private void txtDniCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Si el carácter presionado no es un dígito ni un carácter de control, se anula la entrada.
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Se bloquea la entrada del carácter.
+                e.Handled = true; 
             }
         }
 
-        // Evento para restringir la entrada de caracteres en el TextBox txtTelefonoCliente.
+        
         // Solo permite dígitos y caracteres de control como Backspace.
         private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Si el carácter presionado no es un dígito ni un carácter de control, se anula la entrada.
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Se bloquea la entrada del carácter.
+                e.Handled = true; 
             }
         }
         // Solo permite números y teclas de control en txtAlturaCliente.
@@ -93,7 +87,7 @@ namespace CapaPresentacion
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Bloquea caracteres no permitidos.
+                e.Handled = true; 
             }
         }
 
@@ -102,7 +96,7 @@ namespace CapaPresentacion
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Bloquea caracteres no permitidos.
+                e.Handled = true;
             }
         }
 
@@ -111,7 +105,7 @@ namespace CapaPresentacion
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Bloquea caracteres no permitidos.
+                e.Handled = true;
             }
         }
 
@@ -120,7 +114,7 @@ namespace CapaPresentacion
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Bloquea caracteres no permitidos.
+                e.Handled = true; 
             }
         }
 
@@ -129,21 +123,21 @@ namespace CapaPresentacion
         {
             if (chbActivarOpcion1Cliente.Checked == true)
             {
-                chbActivarOpcion2Cliente.Checked = false; // Desmarca Opcion2.
-                grbOpcion2Cliente.Enabled = false; // Desactiva el grupo Opcion2.
+                chbActivarOpcion2Cliente.Checked = false; 
+                grbOpcion2Cliente.Enabled = false;
 
-                grbOpcion1Cliente.Enabled = true; // Activa el grupo Opcion1.
-                txtDeptoCliente.ForeColor = colorAzul; // Cambia el color del texto de Depto.
-                txtPisoCliente.ForeColor = colorAzul;  // Cambia el color del texto de Piso.
+                grbOpcion1Cliente.Enabled = true; 
+                txtDeptoCliente.ForeColor = colorAzul; 
+                txtPisoCliente.ForeColor = colorAzul;  
 
-                txtCasaCliente.Clear(); // Limpia el campo Casa de Opcion2.
-                txtManzanaCliente.Clear(); // Limpia el campo Manzana de Opcion2.
-                txtPisoCliente.Focus(); // Coloca el foco en el campo Piso.
+                txtCasaCliente.Clear(); 
+                txtManzanaCliente.Clear(); 
+                txtPisoCliente.Focus();
             }
             if (chbActivarOpcion1Cliente.Checked == false)
             {
-                grbOpcion1Cliente.Enabled = false; // Desactiva el grupo Opcion1.
-                txtAlturaCliente.Focus(); // Coloca el foco en el campo Altura.
+                grbOpcion1Cliente.Enabled = false; 
+                txtAlturaCliente.Focus(); 
             }
         }
 
@@ -227,7 +221,6 @@ namespace CapaPresentacion
                     MessageBoxIcon.Question
                 );
 
-                // Si el usuario confirma (elige "Yes").
                 if (confirmacion == DialogResult.Yes)
                 {
                     // Formatea la fecha seleccionada en el DateTimePicker para guardar en la BD.
