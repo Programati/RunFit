@@ -21,12 +21,10 @@ namespace CapaDeDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_persona, p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo FROM DOMICILIOS d");
+                    query.AppendLine("SELECT d.id_domicilio, d.calle, d.altura, d.casa, d.manzana, d.departamento, d.piso, d.id_persona, p.dni, p.nombre, p.apellido, p.email, p.telefono, p.fecha_nacimiento, p.sexo,p.estado FROM DOMICILIOS d");
                     query.AppendLine("inner join PERSONAS p on p.id_persona = d.id_persona");
                     query.AppendLine("WHERE d.id_persona = p.id_persona");
-
-
-                    
+                    query.AppendLine("order by p.estado desc");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -36,7 +34,7 @@ namespace CapaDeDatos
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
-                        {
+                        { 
                             Lista.Add(new Domicilio()
                             {
                                 idDomicilio = Convert.ToInt32(dr["id_domicilio"]),
@@ -46,7 +44,18 @@ namespace CapaDeDatos
                                 departamento = dr["departamento"].ToString(),
                                 manzana = dr["manzana"].ToString(),
                                 casa = dr["casa"].ToString(),
-                                oPersona = new Persona { idPersona = Convert.ToInt32(dr["id_persona"]), dni = dr["dni"].ToString(), nombre = dr["nombre"].ToString(), apellido = dr["apellido"].ToString(), email = dr["email"].ToString(), telefono = dr["telefono"].ToString(), fechaNacimiento = dr["fecha_nacimiento"].ToString(), sexo = Convert.ToChar(dr["sexo"]) }
+                                oPersona = new Persona
+                                {
+                                    idPersona = Convert.ToInt32(dr["id_persona"]),
+                                    dni = dr["dni"].ToString(),
+                                    nombre = dr["nombre"].ToString(),
+                                    apellido = dr["apellido"].ToString(),
+                                    email = dr["email"].ToString(),
+                                    telefono = dr["telefono"].ToString(),
+                                    fechaNacimiento = dr["fecha_nacimiento"].ToString(),
+                                    sexo = Convert.ToChar(dr["sexo"]),
+                                    estado= Convert.ToChar(dr["estado"]),
+                                }
                             });
                         }
                         dr.Close();
@@ -70,8 +79,7 @@ namespace CapaDeDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-
-                    SqlCommand cmd = new SqlCommand("SP_REGISTRARDOMICILIO", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_DOMICILIO_REGISTRAR", oconexion);
                     cmd.Parameters.AddWithValue("calle", ObjDomicilio.calle);
                     cmd.Parameters.AddWithValue("altura", ObjDomicilio.altura);
                     cmd.Parameters.AddWithValue("casa", ObjDomicilio.casa);
@@ -81,7 +89,7 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("id_persona", ObjDomicilio.oPersona.idPersona);
 
                     cmd.Parameters.Add("IdDomicilioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
@@ -90,11 +98,9 @@ namespace CapaDeDatos
 
                     IdDomicilioGenerado = (int)cmd.Parameters["IdDomicilioResultado"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-
                 }
-
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 IdDomicilioGenerado = 0;
                 Mensaje = ex.Message;
@@ -109,9 +115,9 @@ namespace CapaDeDatos
 
             try
             {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena)) 
                 {
-                  SqlCommand cmd = new SqlCommand("SP_EDITARDOMICILIO", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_DOMICILIO_EDITAR", oconexion);
                     cmd.Parameters.AddWithValue("@id_domicilio", ObjDomicilio.idDomicilio);
                     cmd.Parameters.AddWithValue("calle", ObjDomicilio.calle);
                     cmd.Parameters.AddWithValue("altura", ObjDomicilio.altura);
@@ -122,7 +128,7 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("id_persona", ObjDomicilio.oPersona.idPersona);
 
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
@@ -131,9 +137,7 @@ namespace CapaDeDatos
 
                     Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -143,4 +147,5 @@ namespace CapaDeDatos
             return Respuesta;
         }
     }
+
 }

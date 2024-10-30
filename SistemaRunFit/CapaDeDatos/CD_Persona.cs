@@ -19,7 +19,7 @@ namespace CapaDeDatos
             {
                 try
                 {
-                    string query = " SELECT id_persona, dni, nombre, apellido, email, telefono, fecha_nacimiento, sexo FROM PERSONAS";
+                    string query = " SELECT id_persona, dni, nombre, apellido, email, telefono, fecha_nacimiento, sexo,estado FROM PERSONAS";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -39,8 +39,10 @@ namespace CapaDeDatos
                                 email = dr["email"].ToString(),
                                 telefono = dr["telefono"].ToString(),
                                 fechaNacimiento = dr["fecha_nacimiento"].ToString(),
-                                sexo = Convert.ToChar(dr["sexo"])
+                                sexo = Convert.ToChar(dr["sexo"]),
+                                estado = Convert.ToChar(dr["estado"]),
                             });
+                            
                         }
                         dr.Close();
                         oconexion.Close();
@@ -63,7 +65,7 @@ namespace CapaDeDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                   SqlCommand cmd = new SqlCommand("SP_REGISTRARPERSONA", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_REGISTRAR", oconexion);
                     cmd.Parameters.AddWithValue("dni", ObjPersona.dni);
                     cmd.Parameters.AddWithValue("nombre", ObjPersona.nombre);
                     cmd.Parameters.AddWithValue("apellido", ObjPersona.apellido);
@@ -73,13 +75,12 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("sexo", ObjPersona.sexo);
 
                     cmd.Parameters.Add("IdPersonaResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
-
                     IdPersonaGenerada = (int)cmd.Parameters["IdPersonaResultado"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
@@ -98,12 +99,11 @@ namespace CapaDeDatos
         {
             bool Respuesta = false;
             Mensaje = string.Empty;
-
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                  SqlCommand cmd = new SqlCommand("SP_EDITARPERSONA", oconexion);
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_EDITAR", oconexion);
                     cmd.Parameters.AddWithValue("@id_persona", ObjPersona.idPersona);
                     cmd.Parameters.AddWithValue("dni", ObjPersona.dni);
                     cmd.Parameters.AddWithValue("nombre", ObjPersona.nombre);
@@ -112,9 +112,9 @@ namespace CapaDeDatos
                     cmd.Parameters.AddWithValue("telefono", ObjPersona.telefono);
                     cmd.Parameters.AddWithValue("fecha_nacimiento", ObjPersona.fechaNacimiento);
                     cmd.Parameters.AddWithValue("sexo", ObjPersona.sexo);
-
+                   
                     cmd.Parameters.Add("Respuesta", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     oconexion.Open();
@@ -123,7 +123,6 @@ namespace CapaDeDatos
 
                     Respuesta = (bool)cmd.Parameters["Respuesta"].Value;
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-
                 }
 
             }
@@ -134,5 +133,46 @@ namespace CapaDeDatos
             }
             return Respuesta;
         }
+        public bool Eliminar(Persona ObjPersona, out string Mensaje)
+        {
+            bool Respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_PERSONA_ELIMINAR", oconexion);
+                    cmd.Parameters.AddWithValue("@id_persona", ObjPersona.idPersona);
+                    SqlParameter respuestaParam = new SqlParameter("@Respuesta", SqlDbType.Char, 1)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(respuestaParam);
+
+                    SqlParameter mensajeParam = new SqlParameter("@Mensaje", SqlDbType.VarChar, 500)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(mensajeParam);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    Respuesta = (respuestaParam.Value.ToString() == "1");
+                    Mensaje = mensajeParam.Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return Respuesta;
+        }
+
+        
     }
 }

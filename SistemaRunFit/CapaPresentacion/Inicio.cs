@@ -8,159 +8,199 @@ namespace CapaPresentacion
 {
     public partial class Inicio : Form
     {
-        private static Usuario UsuarioActual = null;
-        private static GunaGradientButton menuActivo = null;
-        private static Form formularioActivo = null;
+        private static Usuario UsuarioActual = null; // Variable estática para almacenar el usuario actual
+        private static GunaGradientButton menuActivo = null; // Variable estática para almacenar el botón activo del menú
+        private static Form formularioActivo = null; // Variable estática para almacenar el formulario activo
 
-        Color colorCeleste = Color.FromArgb(25, 162, 198);
-        Color colorAzul = Color.FromArgb(6, 71, 109);
-        Color colorVerde = Color.FromArgb(77, 163, 108);
-        Color colorClaro = Color.FromArgb(227, 211, 154);
-        Color colorRojo = Color.FromArgb(235, 57, 32);
+        // Definición de colores que se utilizarán en la interfaz de usuario
+        Color colorCeleste = Color.FromArgb(25, 162, 198); // Color personalizado celeste
+        Color colorAzul = Color.FromArgb(6, 71, 109); // Color personalizado azul oscuro
+        Color colorVerde = Color.FromArgb(77, 163, 108); // Color personalizado verde
+        Color colorClaro = Color.FromArgb(227, 211, 154); // Color personalizado claro
+        Color colorRojo = Color.FromArgb(235, 57, 32); // Color personalizado rojo
 
+        // Constructor del formulario 'Inicio', recibe un objeto 'Usuario'
         public Inicio(Usuario objUsuario)
-
         {
-            UsuarioActual = objUsuario;
-            InitializeComponent();
-            IniciarSubMenuOculto();
-            lblUsuarioInicio.Text = UsuarioActual.nombreUsuario.ToString();
-            lblRolInicio.Text=UsuarioActual.oRol.nombreRol.ToString().ToUpper();
+            UsuarioActual = objUsuario; // Asigna el usuario actual a la variable estática
+            InitializeComponent(); // Inicializa los componentes del formulario
+            IniciarSubMenuOculto(); // Llama a la función para ocultar los submenús al iniciar
+            lblUsuarioInicio.Text = UsuarioActual.nombreUsuario.ToString(); // Muestra el nombre del usuario en el label correspondiente
+            lblRolInicio.Text = UsuarioActual.oRol.nombreRol.ToString().ToUpper(); // Muestra el rol del usuario en mayúsculas en el label correspondiente
         }
 
-        private void IniciarSubMenuOculto()//Funcion que muestra el menu sin desplegar los botones
+        // Función que oculta los submenús al iniciar el formulario
+        private void IniciarSubMenuOculto()
         {
-            subVentas.Visible = false;
-            panelSubMantenedor.Visible = false;
-            
+            subVentas.Visible = false; // Oculta el submenú de ventas
+            panelSubMantenedor.Visible = false; // Oculta el panel de mantenimiento
         }
 
-        protected void OcultarSubMenu() //veifica si ciertos submenús están visibles y, si es así, los oculta
+        // Función que oculta los submenús si están visibles
+        protected void OcultarSubMenu()
         {
-            if (subVentas.Visible == true)
+            if (subVentas.Visible == true) // Si el submenú de ventas está visible, lo oculta
             {
                 subVentas.Visible = false;
             }
-            if (panelSubMantenedor.Visible == true)
+            if (panelSubMantenedor.Visible == true) // Si el panel de mantenimiento está visible, lo oculta
             {
                 panelSubMantenedor.Visible = false;
             }
         }
 
-        private void MostrarSubmenu(Panel Submenu)//Funcion que muestra los submenu si esta oculto, y visceversa
+        // Función que alterna la visibilidad de un submenú, lo muestra si está oculto y lo oculta si está visible
+        private void MostrarSubmenu(Panel Submenu)
         {
-            if (Submenu.Visible == false)
+            if (Submenu.Visible == false) // Si el submenú está oculto, lo muestra
             {
-                OcultarSubMenu();
-                Submenu.Visible = true;
+                OcultarSubMenu(); // Antes de mostrar el submenú, oculta los demás submenús
+                Submenu.Visible = true; // Muestra el submenú
             }
-            else
+            else // Si el submenú está visible, lo oculta
             {
                 Submenu.Visible = false;
             }
-            
         }
 
-        private void btnUsuario_Click(object sender, EventArgs e)//Funcion que muestra los clientes, oculta los submenus abiertos, y abre form usuario
+
+        // Función que muestra los clientes, oculta los submenús abiertos, y abre el formulario de usuarios
+        private void btnUsuario_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            frmListarUsuario frmUsuario= new frmListarUsuario(this);
-            abrirFormulario(btnUsuario, frmUsuario);
+            OcultarSubMenu(); // Oculta todos los submenús abiertos
+            frmListarUsuario frmUsuario = new frmListarUsuario(this); // Crea una nueva instancia del formulario de usuarios y le pasa la referencia del formulario actual
+            abrirFormulario(btnUsuario, frmUsuario); 
         }
 
+        // Función que muestra la lista de clientes, oculta los submenús abiertos y oculta la imagen de fondo
         public void btnClientes_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            imagenFondo.Hide();
-            frmListarCliente frmClientes = new frmListarCliente(this,UsuarioActual);
-            abrirFormulario(btnClientes, frmClientes);
+            OcultarSubMenu(); // Oculta todos los submenús abiertos
+            imagenFondo.Hide(); // Oculta la imagen de fondo
+            frmListarCliente frmClientes = new frmListarCliente(this, UsuarioActual); // Crea una nueva instancia del formulario de clientes y pasa la referencia del formulario y el usuario actual
+            abrirFormulario(btnClientes, frmClientes); // Llama a la función para abrir el formulario y activar el botón correspondiente
         }
 
-        private void btnVentas_Click_1(object sender, EventArgs e)//Funcion que despliega el subMenu de ventas
+        // Función que despliega el submenú de ventas
+        private void btnVentas_Click_1(object sender, EventArgs e)
         {
-            MostrarSubmenu(subVentas);
+            MostrarSubmenu(subVentas); // Muestra u oculta el submenú de ventas dependiendo de su estado actual
         }
 
-        private void btnRegistrarVentas_Click(object sender, EventArgs e)// Funcion que abre el formulario para registrar una venta, bloquea el panel de botones
+        // Función que abre el formulario para registrar una venta y bloquea el panel de botones
+        private void btnRegistrarVentas_Click(object sender, EventArgs e)
         {
-            // Crear el formulario y pasar la referencia de 'this'
-            frmRegistrarVenta frmVenta = new frmRegistrarVenta(this);
-            abrirFormulario(btnRegistrarVentas, frmVenta);
-            pnlContenedorMenu.Enabled = false;
+            frmRegistrarVenta frmVenta = new frmRegistrarVenta(this, UsuarioActual); // Crea una nueva instancia del formulario para registrar una venta y pasa la referencia del formulario actual
+            abrirFormulario(btnRegistrarVentas, frmVenta); // Llama a la función para abrir el formulario y activar el botón correspondiente
+            pnlContenedorMenu.Enabled = false; // Desactiva el panel de botones para evitar interacciones mientras el formulario de ventas está activo
         }
 
-        private void btnBuscarVentas_Click(object sender, EventArgs e)// Funcion que abre el formulario para buscar una venta
+        // Función que abre el formulario para buscar una venta
+        private void btnBuscarVentas_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnBuscarVentas, new frmBuscarVenta());
+            abrirFormulario(btnBuscarVentas, new frmBuscarVenta(this)); // Crea una nueva instancia del formulario de búsqueda de ventas y lo abre
         }
 
+        // Función que abre el formulario para listar proveedores
         private void btnProveedores_Click(object sender, EventArgs e)
         {
-            frmListarProveedor frmProv = new frmListarProveedor(this);
-            OcultarSubMenu();
-            abrirFormulario(btnProveedores, frmProv);
+            frmListarProveedor frmProv = new frmListarProveedor(this); // Crea una nueva instancia del formulario de proveedores y pasa la referencia del formulario actual
+            OcultarSubMenu(); 
+            abrirFormulario(btnProveedores, frmProv); // Llama a la función para abrir el formulario y activar el botón correspondiente
         }
 
+        // Función que abre el formulario de reportes
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            abrirFormulario(btnReportes, new frmReporte());
+            if (UsuarioActual.oRol.idRol == 3)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteUsuario(UsuarioActual));
+            }
+            if (UsuarioActual.oRol.idRol == 2)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteGerente());
+            }
+            if (UsuarioActual.oRol.idRol == 1)
+            {
+                OcultarSubMenu();
+
+                abrirFormulario(btnReportes, new frmReporteBackup());
+            }
+
+
         }
 
+        // Función que oculta todos los submenús abiertos y despliega el submenú del mantenedor de stock
         private void btnStock_Click(object sender, EventArgs e)
         {
-            OcultarSubMenu();
-            MostrarSubmenu(panelSubMantenedor);
+            OcultarSubMenu(); 
+            MostrarSubmenu(panelSubMantenedor); // Muestra el submenú del panel mantenedor
         }
 
+        // Función que oculta todos los submenús abiertos y abre el formulario de categoría
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnCategoria, new frmCategoria());
+           
+            abrirFormulario(btnCategoria, new frmCategoria(this)); // Abre el formulario de categoría
         }
 
+        // Función que oculta todos los submenús abiertos y abre el formulario para listar productos
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            imagenFondo.Hide();
-            frmListarProducto frmPto = new frmListarProducto(this);
-            abrirFormulario(btnRegistrarVentas, frmPto);
+           
+            frmListarProducto frmPto = new frmListarProducto(this); // Crea una nueva instancia del formulario para listar productos
+            abrirFormulario(btnRegistrarVentas, frmPto); // Abre el formulario de productos
         }
 
+        // Función que oculta los submenús y abre el formulario de "Acerca de"
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
-            imagenFondo.Hide();
-            OcultarSubMenu();
-            abrirFormulario(btnAcercaDe, new frmAcercaDe());
+            imagenFondo.Hide(); // Oculta la imagen de fondo
+            OcultarSubMenu(); 
+            abrirFormulario(btnAcercaDe, new frmAcercaDe()); // Abre el formulario "Acerca de"
         }
 
+        // Función que abre el formulario deseado y cambia el estilo del botón que lo invoca
         private void abrirFormulario(GunaGradientButton menu, Form formulario)
         {
-            imagenFondo.Hide();
-           if (menuActivo != null)
+            imagenFondo.Hide(); // Oculta la imagen de fondo
+
+            // Si ya hay un menú activo, restablece sus colores a los originales
+            if (menuActivo != null)
             {
                 menuActivo.BaseColor1 = Color.Transparent;
                 menuActivo.BaseColor2 = Color.Transparent;
                 menuActivo.ForeColor = Color.White;
             }
+
+            // Cambia los colores del menú seleccionado para que destaque
             menu.BaseColor1 = Color.White;
             menu.BaseColor2 = colorClaro;
             menu.ForeColor = colorAzul;
-            menuActivo = menu;
+            menuActivo = menu; // Establece el nuevo menú activo
 
-           if (formularioActivo != null)
+            // Si ya hay un formulario activo, lo cierra
+            if (formularioActivo != null)
                 formularioActivo.Close();
-            
-            formularioActivo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.White;
 
-            panelContenedorFormularios.Controls.Add(formulario);
-            formulario.Show();
+            formularioActivo = formulario; // Establece el nuevo formulario activo
+            formulario.TopLevel = false; // El formulario no será de nivel superior
+            formulario.FormBorderStyle = FormBorderStyle.None; // Elimina los bordes del formulario
+            formulario.Dock = DockStyle.Fill; // Hace que el formulario ocupe todo el espacio disponible
+            formulario.BackColor = Color.White; // Establece el color de fondo del formulario
+
+            panelContenedorFormularios.Controls.Add(formulario); // Añade el formulario al panel contenedor
+            formulario.Show(); // Muestra el formulario
         }
 
-        private void Inicio_Load(object sender, EventArgs e)//Funcion que muestra el menu de acuerdo al rol del usuario que ingresa
+        // Función que configura la visibilidad de los botones del menú según el rol del usuario
+        private void Inicio_Load(object sender, EventArgs e)
         {
+            // Si el rol del usuario es 2, se muestra el botón de clientes y se ocultan otros
             if (UsuarioActual.oRol.idRol == 2)
             {
                 btnClientes.Visible = true;
@@ -168,6 +208,8 @@ namespace CapaPresentacion
                 btnVentas.Visible = false;
                 btnBackup.Visible = false;
             }
+
+            // Si el rol del usuario es 3, se ocultan botones específicos
             if (UsuarioActual.oRol.idRol == 3)
             {
                 btnUsuario.Visible = false;
@@ -175,6 +217,8 @@ namespace CapaPresentacion
                 btnStock.Visible = false;
                 btnBackup.Visible = false;
             }
+
+            // Si el rol del usuario es 1, se ocultan otros botones
             if (UsuarioActual.oRol.idRol == 1)
             {
                 btnClientes.Visible = false;
@@ -184,27 +228,35 @@ namespace CapaPresentacion
             }
         }
 
+        // Función que abre el formulario de marcas
         private void btnMarca_Click(object sender, EventArgs e)
         {
-            abrirFormulario(btnMarca, new frmMarca());
+            abrirFormulario(btnMarca, new frmMarca(this)); // Abre el formulario de marcas
         }
 
-        public Panel PnlContenedorMenu // Metodo para obtener acceso al control pnlContenedorMenu desde fuera de la clase en la que está definido.
+        // Propiedad que permite acceder al control pnlContenedorMenu desde otras clases
+        public Panel PnlContenedorMenu
         {
-            get {
-                return pnlContenedorMenu;
+            get
+            {
+                return pnlContenedorMenu; // Devuelve el panel contenedor del menú
             }
         }
+
+        // Función que muestra la imagen de fondo
         public void MostrarImagenFondo()
         {
-            imagenFondo.Show(); // Mostrar la imagen nuevamente
+            imagenFondo.Show(); // Muestra la imagen de fondo nuevamente
         }
 
+        // Función que oculta los submenús abiertos y abre el formulario de respaldo (backup)
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            imagenFondo.Hide();
-            OcultarSubMenu();
-            abrirFormulario(btnBackup, new frmBackup(this));
+            imagenFondo.Hide(); // Oculta la imagen de fondo
+            OcultarSubMenu(); // Oculta todos los submenús visibles
+            abrirFormulario(btnBackup, new frmBackup(this)); // Abre el formulario de respaldo
         }
+
     }
 }
+

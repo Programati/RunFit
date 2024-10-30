@@ -9,9 +9,12 @@ namespace CapaDeEntidades
     public class Categoria
     {
         public int idCategoria { get; set; }
-        public string nombre { get; set; }
-        public string fechaAlta { get; set; }
-        public string fechaBaja { get; set; }
 
+        public string nombre_categoria { get; set; }
+
+        public  DateTime? fecha_alta { get; set; }
+
+        public DateTime? fecha_baja { get; set; }
     }
+
 }

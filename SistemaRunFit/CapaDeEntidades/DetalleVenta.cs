@@ -10,8 +10,10 @@ namespace CapaDeEntidades
     {
         public int idDetalleVenta { get; set; }
         public int cantidad { get; set; }
-        public decimal subTotal { get; set; }
+        public double subTotal { get; set; }
         public Producto oProducto { get; set; }
-        //Omitimos el Objeto venta, porque venta contiene una lista de DetalleVenta
+        public Venta oVenta { get; set; }
+
     }
+
 }

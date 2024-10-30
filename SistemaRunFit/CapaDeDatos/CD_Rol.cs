@@ -19,10 +19,9 @@ namespace CapaDeDatos
                 try
                 {
                     string query = "select id_rol, nombre_rol, fecha_alta, fecha_baja from ROL";
-
                     SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.CommandType = CommandType.Text;
-
+                    cmd.CommandType = CommandType.Text; 
+                   
                     oconexion.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())

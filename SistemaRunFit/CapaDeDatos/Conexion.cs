@@ -12,3 +12,4 @@ namespace CapaDeDatos
         public static string cadena = ConfigurationManager.ConnectionStrings["cadena_conexion"].ToString();
     }
 }
+
