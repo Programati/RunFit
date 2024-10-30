@@ -274,6 +274,7 @@ ALTER COLUMN subtotal DECIMAL(18, 2);
 
 select * from USUARIOS;
 SELECT * FROM PERSONAS;
+select * from productos
 SELECT * FROM ROL;
 UPDATE ROL set
 nombre_rol = 'Vendedor'
@@ -505,7 +506,7 @@ BEGIN
     -- Asignar el mensaje de alerta a la variable de salida
     SET @mensaje = @alerta;
 END;
-
+select * from personas
 
 
 EXEC VerificarBackups;
