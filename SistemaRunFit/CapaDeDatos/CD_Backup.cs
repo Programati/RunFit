@@ -144,44 +144,6 @@ namespace CapaDeDatos
         // Método para verificar los backups ejecutando el procedimiento almacenado
 
 
-        public string VerificarBackups()
-        {
-            string mensaje = string.Empty;
-
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    conexion.Open();
-
-                    // Crear y configurar el comando para el procedimiento almacenado
-                    using (SqlCommand cmd = new SqlCommand("VerificarBackups", conexion))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        // Definir el parámetro de salida
-                        SqlParameter paramMensaje = new SqlParameter("@mensaje", SqlDbType.NVarChar, 255)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        cmd.Parameters.Add(paramMensaje);
-
-                        // Ejecutar el procedimiento almacenado
-                        cmd.ExecuteNonQuery();
-
-                        // Obtener el mensaje de salida
-                        mensaje = (string)paramMensaje.Value;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    mensaje = "Error al verificar los backups: " + ex.Message;
-                }
-            }
-
-            return mensaje;
-        }
-
 
         public DataTable ListarBackups()
         {

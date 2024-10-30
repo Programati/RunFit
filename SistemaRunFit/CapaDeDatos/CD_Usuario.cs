@@ -168,19 +168,23 @@ namespace CapaDeDatos
             {
                 try
                 {
-                    // Crear el comando para el procedimiento almacenado
-                    SqlCommand cmd = new SqlCommand("Reporte_Usuario", oconexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    // Crear la consulta SQL directamente
+                    string consulta = @"
+                SELECT v.fecha_factura, 
+               dv.cantidad, 
+               p.nombre_producto, 
+               p.precio_venta, 
+               dv.subtotal
+        FROM ventas v
+        INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+        INNER JOIN productos p ON dv.id_producto = p.id_producto;";
+
+                    // Crear el comando para ejecutar la consulta
+                    SqlCommand cmd = new SqlCommand(consulta, oconexion);
+                    cmd.CommandType = CommandType.Text;
 
                     // Agregar el parámetro de entrada
-                    cmd.Parameters.AddWithValue("@usuario", idUsuario);
-
-                    // Crear el parámetro de salida
-                    SqlParameter outputMensaje = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100)
-                    {
-                        Direction = ParameterDirection.Output
-                    };
-                    cmd.Parameters.Add(outputMensaje);
+                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
 
                     oconexion.Open();
 
@@ -213,8 +217,6 @@ namespace CapaDeDatos
                         }
                     }
 
-                    // Obtener el mensaje de salida
-                    mensaje = outputMensaje.Value.ToString();
                 }
                 catch (Exception ex)
                 {
