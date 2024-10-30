@@ -35,11 +35,7 @@ namespace CapaDeNegocios
         {
             objcd_backup.Restaurar(rutaBackup); // Llamada a la capa de datos
         }
-        public string VerificarBackups()
-        {
-            // Llama al método de la capa de datos y devuelve el resultado
-            return objcd_backup.VerificarBackups();
-        }
+        
 
         public DataTable ListarBackups()
         {

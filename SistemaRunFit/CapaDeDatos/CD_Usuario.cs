@@ -170,6 +170,7 @@ namespace CapaDeDatos
                 {
                     // Crear la consulta SQL directamente
                     string consulta = @"
+<<<<<<< HEAD
         SELECT v.fecha_factura, 
        dv.cantidad, 
        p.nombre_producto, 
@@ -178,6 +179,16 @@ namespace CapaDeDatos
 FROM ventas v
 INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
 INNER JOIN productos p ON dv.id_producto = p.id_producto;";
+=======
+                SELECT v.fecha_factura, 
+               dv.cantidad, 
+               p.nombre_producto, 
+               p.precio_venta, 
+               dv.subtotal
+        FROM ventas v
+        INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+        INNER JOIN productos p ON dv.id_producto = p.id_producto;";
+>>>>>>> d12b56d4a3f0452bc1101c700ae50a1baf1aa99f
 
                     // Crear el comando para ejecutar la consulta
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);

@@ -69,7 +69,7 @@
             this.grbDetalleVta.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbDetalleVta.Name = "grbDetalleVta";
             this.grbDetalleVta.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
-            this.grbDetalleVta.Size = new System.Drawing.Size(661, 377);
+            this.grbDetalleVta.Size = new System.Drawing.Size(519, 377);
             this.grbDetalleVta.TabIndex = 81;
             this.grbDetalleVta.Text = "Detalle de reporte";
             this.grbDetalleVta.TextLocation = new System.Drawing.Point(10, 8);
@@ -118,7 +118,7 @@
             this.dgvReporteGerente.RowHeadersWidth = 51;
             this.dgvReporteGerente.RowTemplate.Height = 30;
             this.dgvReporteGerente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReporteGerente.Size = new System.Drawing.Size(657, 325);
+            this.dgvReporteGerente.Size = new System.Drawing.Size(515, 325);
             this.dgvReporteGerente.TabIndex = 0;
             this.dgvReporteGerente.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -231,7 +231,7 @@
             this.panel1.Controls.Add(this.grbDetalleVta);
             this.panel1.Location = new System.Drawing.Point(-4, 195);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 377);
+            this.panel1.Size = new System.Drawing.Size(519, 377);
             this.panel1.TabIndex = 89;
             // 
             // chartGerente
@@ -240,13 +240,13 @@
             this.chartGerente.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartGerente.Legends.Add(legend1);
-            this.chartGerente.Location = new System.Drawing.Point(666, 195);
+            this.chartGerente.Location = new System.Drawing.Point(519, 195);
             this.chartGerente.Name = "chartGerente";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartGerente.Series.Add(series1);
-            this.chartGerente.Size = new System.Drawing.Size(317, 196);
+            this.chartGerente.Size = new System.Drawing.Size(356, 278);
             this.chartGerente.TabIndex = 90;
             this.chartGerente.Text = "chart1";
             // 
