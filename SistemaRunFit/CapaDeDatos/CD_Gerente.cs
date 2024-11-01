@@ -221,7 +221,8 @@ public class CD_Gerente
                 INNER JOIN 
                     productos pr ON df.id_producto = pr.id_producto
                 WHERE 
-                    u.fecha_factura BETWEEN @fechaDesde AND @fechaHasta;";
+                    u.fecha_factura BETWEEN @fechaDesde AND @fechaHasta 
+                   order by u.fecha_factura DESC;";
 
                     // Crear el comando para ejecutar la consulta
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);

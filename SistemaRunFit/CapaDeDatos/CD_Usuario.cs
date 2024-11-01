@@ -181,7 +181,6 @@ namespace CapaDeDatos
             WHERE v.id_usuario = @idUsuario
               AND v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
             ORDER BY v.fecha_factura DESC;";
-
                     // Crear el comando para ejecutar la consulta
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -205,18 +204,18 @@ namespace CapaDeDatos
                : string.Empty, // O establece otra cadena predeterminada si es necesario
 
                                 oDetalleVenta = new List<DetalleVenta>
+                {
+                    new DetalleVenta
+                    {
+                        cantidad =  Convert.ToInt32(dr["cantidad"]),
+                        subTotal =  Convert.ToDouble(dr["subtotal"]),
+                        oProducto = new Producto
                         {
-                            new DetalleVenta
-                            {
-                                cantidad =  Convert.ToInt32(dr["cantidad"]),
-                                subTotal =  Convert.ToDouble(dr["subtotal"]),
-                                oProducto = new Producto
-                                {
-                                    nombre = dr["nombre_producto"] != DBNull.Value ? dr["nombre_producto"].ToString() : "Sin nombre",
-                                    precioVenta = Convert.ToDouble(dr["precio_venta"])
-                                }
-                            }
+                            nombre = dr["nombre_producto"] != DBNull.Value ? dr["nombre_producto"].ToString() : "Sin nombre",
+                            precioVenta = Convert.ToDouble(dr["precio_venta"])
                         }
+                    }
+                }
                             };
                             lista.Add(venta);
                         }

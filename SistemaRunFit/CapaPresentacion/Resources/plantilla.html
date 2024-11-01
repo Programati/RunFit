@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factura</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+    </style>
+</head>
+<body>
+    <table border=1 style="width: 100%;">
+        <tr>
+            <td style="width: 20%;">
+                <table>
+                    <tr>
+                        <td align="center">9 de Julio 1234</td>
+                    </tr>
+                    <tr>
+                        <td align="center">Corrientes Capital</td>
+                    </tr>
+                    <tr>
+                        <td align="center">3794-1234569</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 50%;">
+                <table align="center">
+                    <tr>
+                        <td align="center" style="font-size: 40px;">RunFit</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td align="center">contacto@runfit.com</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 30%;">
+                <table class="border" style="width: 100%;">
+                    <tr>
+                        <td align="center">Factura: @NUMFACTURA</td>
+                    </tr>
+                    <tr>
+                        <td align="center">Vendedor: @VENDEDOR</td>
+                    </tr>
+                    <tr>
+                        <td align="center">Fecha: @FECHA</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" height="20"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <table>
+                    <tr>
+                        <td colspan="1" style="width: 10%;">CLIENTE:</td>
+                        <td colspan="3" style="width: 40%;border-bottom: 1px solid black;">@CLIENTE</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width: 10%;">DIRECCION:</td>
+                        <td colspan="3" style="width: 40%;border-bottom: 1px solid black;">@DIRECCION</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">DNI:</td>
+                        <td colspan="1" style="border-bottom: 1px solid black;">@DNI</td>
+                        <td colspan="1">TELEFONO:</td>
+                        <td colspan="1" style="border-bottom: 1px solid black;">@TELEFONO</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1">EMAIL:</td>
+                        <td colspan="3" style="border-bottom: 1px solid black;">@EMAIL</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" height="20"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width: 100%;">
+                    <thead style="background-color: dimgray;">
+                        <tr>
+                            <th>Cant.</th>
+                            <th>Descripcion</th>
+                            <th>Precio Unitario</th>
+                            <th>Importe Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td>2</td>
+                            <td>Zapatillas Nike Talle 40</td>
+                            <td>500</td>
+                            <td>1000</td>
+                        </tr>-->
+                        @FILAS
+                        <tr>
+                            <td style="border: 0px !important;"></td>
+                            <td style="border: 0px !important;"></td>
+                            <td align="right">Total:</td>
+                            <td>@TOTAL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+    </table>
+</body>
+</html>
