@@ -20,7 +20,6 @@ namespace CapaPresentacion
         public frmReporteGerente()
         {
             InitializeComponent();
-            CargarVendedores();
             componentesInicio();
         }
 
@@ -379,6 +378,5 @@ namespace CapaPresentacion
                 MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
     }
 }
