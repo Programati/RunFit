@@ -1048,6 +1048,16 @@ WITH REPLACE;
 
 select * from usuarios
 select * from ventas
+select * from DETALLE_VENTAS
+select * from PRODUCTOS
+select nombre_producto,detalle_producto,stock,stock_minimo,m.nombre,c.nombre_categoria,p.razon_social from productos pr
+inner join MARCAS m on m.id_marca=pr.id_marca
+inner join CATEGORIAS c on c.id_categoria=pr.id_categoria
+inner join PROVEEDORES p on p.id_proveedor=pr.id_proveedor
+where stock=stock_minimo+5 or stock<=stock_minimo
+
+where v.fecha_factura between
+
 --- script de mejor vendedor en numeros
 select  u.nombre_usuario as vendedor,sum(v.importe_total ) as total_ventas
 from usuarios u

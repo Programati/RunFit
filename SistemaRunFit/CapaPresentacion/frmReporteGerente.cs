@@ -15,10 +15,13 @@ namespace CapaPresentacion
     public partial class frmReporteGerente : Form
     {
         private CN_Gerente cnGerente = new CN_Gerente();
+        private CN_Usuario objCN_Usuario = new CN_Usuario();
+
         public frmReporteGerente()
         {
             InitializeComponent();
-            //CargarReporteGerente_3();
+            CargarVendedores();
+            componentesInicio();
         }
 
         private void CargarReporteGerente_1()
@@ -176,6 +179,60 @@ namespace CapaPresentacion
                 chartGerente.Series.Clear();
             }
         }
+        private void CargarReporteGerente_4( )
+        {
+            DateTime fechaDesde = dtpFechaDesde.Value;
+            DateTime fechaHasta = dtpFechaHasta.Value;
+            List<Venta> ventas = cnGerente.ListarReporteGerente_4( fechaDesde, fechaHasta);
+
+            if (ventas.Count > 0)
+            {
+                // Llena el DataGridView con los datos de ventas
+                dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                {
+                    Fecha = v.fechaFactura,
+                    Num_Factura =dv.idDetalleVenta,
+                    Vendedor = v.oUsuario.nombreUsuario,
+                    Cantidad=dv.cantidad,
+                    Producto = dv.oProducto.nombre,
+                    Subtotal = dv.subTotal
+                })).ToList();
+            }
+            else
+            {
+                dgvReporteGerente.DataSource = null;
+                MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+        private void CargarReporteGerente_5()
+        {
+            //DateTime fechaDesde = dtpFechaDesde.Value;
+           // DateTime fechaHasta = dtpFechaHasta.Value;
+            List<Venta> ventas = cnGerente.ListarReporteGerente_5();
+
+            if (ventas.Count > 0)
+            {
+                // Llena el DataGridView con los datos de ventas
+                dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                {
+                    Producto = dv.oProducto.nombre,
+                    Talle = dv.oProducto.detalle,
+                    Stock = dv.oProducto.stock,
+                    Stock_Min = dv.oProducto.stockMinimo,
+                    Marca = dv.oProducto.oMarca.nombre,
+                    Categoria = dv.oProducto.oCategoria.nombre_categoria,
+                    Proveedor = dv.oProducto.oProveedor.razonSocial
+                })).ToList();
+            }
+            else
+            {
+                dgvReporteGerente.DataSource = null;
+                MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+        
 
         private void cmbReporteGerente_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -193,16 +250,40 @@ namespace CapaPresentacion
                     // Determina qué reporte generar según la selección en el ComboBox
                     if (cmbReporteGerente.SelectedIndex == 0) // "Ventas cronológico"
                     {
+                        RestaurarPanel();
                         CargarReporteGerente_1();
+                        cmbVendedorSelector.Visible = false;
+                        lblVendedorSelector.Visible = false;
 
                     }
                     else if (cmbReporteGerente.SelectedIndex == 1) // "Productos más vendidos por unidad"
                     {
+                        RestaurarPanel();
                         CargarReporteGerente_2();
+                        cmbVendedorSelector.Visible = false;
+                        lblVendedorSelector.Visible = false;
                     }
                     else if (cmbReporteGerente.SelectedIndex == 2) // "Productos más vendidos en dinero"
                     {
+                        RestaurarPanel();
                         CargarReporteGerente_3();
+                        cmbVendedorSelector.Visible = false;
+                        lblVendedorSelector.Visible=false;
+
+                    }
+                    else if (cmbReporteGerente.SelectedIndex == 3) // "Productos más vendidos en dinero"
+                    {
+                        ExpandirPanel();
+                        CargarReporteGerente_4();
+                        cmbVendedorSelector.Visible= true;
+                        CargarVendedores();
+
+                    }
+                    else if (cmbReporteGerente.SelectedIndex == 4) // "Productos más vendidos en dinero"
+                    {
+                        
+                        ExpandirPanel();
+                        CargarReporteGerente_5();
 
                     }
                 }
@@ -215,6 +296,89 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Ocurrió un error al generar el reporte: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Método para expandir el panel y ocultar el gráfico
+            
+
         }
+
+        private void componentesInicio()
+        {
+            cmbVendedorSelector.Visible = false;
+            lblVendedorSelector.Visible = false;
+            chartGerente.Visible = false;
+        }
+        private void ExpandirPanel()
+        {
+            panel1.Size = new Size(900, 402); 
+            chartGerente.Visible = false;     
+            panel1.BringToFront();           
+        }
+        private void RestaurarPanel()
+        {
+            panel1.Size = new Size(406, 420); 
+            chartGerente.Visible = true;
+            chartGerente.Location = new Point(453, 195);
+        }
+
+       
+        private void CargarVendedores()
+        {
+            List<Usuario> listaVendores = objCN_Usuario.ListarUsuarios();
+
+            // Filtrar usuarios activos con id_rol igual a 3, verificando que oRol no sea null
+            List<Usuario> UsuariosActivas = listaVendores
+                .Where(c => c.fechaBaja == null && c.oRol != null && c.oRol.idRol == 3)
+                .ToList();
+
+            
+            cmbVendedorSelector.DataSource = UsuariosActivas;
+            cmbVendedorSelector.DisplayMember = "nombreUsuario";
+            cmbVendedorSelector.ValueMember = "idUsuario";
+            cmbVendedorSelector.SelectedIndex = -1;
+
+          
+            cmbVendedorSelector.SelectionChangeCommitted += cmbVendedorSelector_SelectionChangeCommitted;
+        }
+
+        
+        private void cmbVendedorSelector_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbVendedorSelector.SelectedIndex != -1)
+            {
+                
+                int idUsuarioSeleccionado = (int)cmbVendedorSelector.SelectedValue;
+                CargarReporteGerente_6(idUsuarioSeleccionado);
+            }
+        }
+
+       
+        private void CargarReporteGerente_6(int idUsuario)
+        {
+            DateTime fechaDesde = dtpFechaDesde.Value;
+            DateTime fechaHasta = dtpFechaHasta.Value;
+
+            
+            List<Venta> ventas = cnGerente.ListarReporteGerente_6(idUsuario, fechaDesde, fechaHasta);
+
+            if (ventas.Count > 0)
+            {
+                
+                dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                {
+                    Fecha = v.fechaFactura,
+                    Num_Factura = dv.idDetalleVenta,
+                    Vendedor = v.oUsuario.nombreUsuario != null ? v.oUsuario.nombreUsuario : "Sin vendedor", // Manejo de null
+                    Cantidad = dv.cantidad,
+                    Producto = dv.oProducto.nombre,
+                    Subtotal = dv.subTotal
+                })).ToList();
+            }
+            else
+            {
+                dgvReporteGerente.DataSource = null;
+                MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 }
