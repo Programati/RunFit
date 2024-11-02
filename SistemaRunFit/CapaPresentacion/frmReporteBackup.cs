@@ -18,14 +18,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void btnComprobarBackup_Click(object sender, EventArgs e)
-        {
-            CN_Backup backup = new CN_Backup(); // Instancia de la capa de negocios
-            string resultado = backup.VerificarBackups(); // Llama al método de la capa de negocios y obtiene el resultado
-
-            // Mostrar el resultado en un cuadro de mensaje
-            MessageBox.Show(resultado, "Verificación de Backups", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+       
 
         private void frmReporteBackup_Load(object sender, EventArgs e)
         {

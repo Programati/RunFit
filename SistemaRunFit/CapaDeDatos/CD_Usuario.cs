@@ -159,28 +159,36 @@ namespace CapaDeDatos
             }
             return Respuesta;
         }
-        public List<Venta> ReporteUsuario(int idUsuario, out string mensaje)
+        public List<Venta> ReporteUsuario(int idUsuario, DateTime fechaDesde, DateTime fechaHasta)
         {
             List<Venta> lista = new List<Venta>();
-            mensaje = string.Empty; // Inicializa el mensaje
+           // mensaje = string.Empty; // Inicializa el mensaje
 
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Crear el comando para el procedimiento almacenado
-                    SqlCommand cmd = new SqlCommand("Reporte_Usuario", oconexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    // Crear la consulta SQL directamente
+                    string consulta = @"
+            SELECT v.fecha_factura, 
+                   dv.cantidad, 
+                   p.nombre_producto, 
+                   p.precio_venta, 
+                   dv.subtotal
+            FROM ventas v
+            INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+            INNER JOIN productos p ON dv.id_producto = p.id_producto
+            WHERE v.id_usuario = @idUsuario
+              AND v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
+            ORDER BY v.fecha_factura DESC;";
+                    // Crear el comando para ejecutar la consulta
+                    SqlCommand cmd = new SqlCommand(consulta, oconexion);
+                    cmd.CommandType = CommandType.Text;
 
                     // Agregar el parámetro de entrada
-                    cmd.Parameters.AddWithValue("@usuario", idUsuario);
-
-                    // Crear el parámetro de salida
-                    SqlParameter outputMensaje = new SqlParameter("@mensaje", SqlDbType.NVarChar, 100)
-                    {
-                        Direction = ParameterDirection.Output
-                    };
-                    cmd.Parameters.Add(outputMensaje);
+                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -196,45 +204,42 @@ namespace CapaDeDatos
                : string.Empty, // O establece otra cadena predeterminada si es necesario
 
                                 oDetalleVenta = new List<DetalleVenta>
+                {
+                    new DetalleVenta
+                    {
+                        cantidad =  Convert.ToInt32(dr["cantidad"]),
+                        subTotal =  Convert.ToDouble(dr["subtotal"]),
+                        oProducto = new Producto
                         {
-                            new DetalleVenta
-                            {
-                                cantidad =  Convert.ToInt32(dr["cantidad"]),
-                                subTotal =  Convert.ToDouble(dr["subtotal"]),
-                                oProducto = new Producto
-                                {
-                                    nombre = dr["nombre_producto"] != DBNull.Value ? dr["nombre_producto"].ToString() : "Sin nombre",
-                                    precioVenta = Convert.ToDouble(dr["precio_venta"])
-                                }
-                            }
+                            nombre = dr["nombre_producto"] != DBNull.Value ? dr["nombre_producto"].ToString() : "Sin nombre",
+                            precioVenta = Convert.ToDouble(dr["precio_venta"])
                         }
+                    }
+                }
                             };
                             lista.Add(venta);
                         }
                     }
 
-                    // Obtener el mensaje de salida
-                    mensaje = outputMensaje.Value.ToString();
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "Error en la consulta: " + ex.Message;
-                    lista = new List<Venta>(); // Retorna una lista vacía en caso de error
+                    
+                    lista = new List<Venta>(); 
                 }
             }
 
-            return lista; // Retorna la lista de ventas
+            return lista; 
         }
-        public List<Venta> ReporteUsuario2(int idUsuario, out string mensaje)
+        public List<Venta> ReporteUsuario2(int idUsuario, DateTime fechaDesde,DateTime fechaHasta)
         {
             List<Venta> lista = new List<Venta>();
-            mensaje = string.Empty; // Inicializa el mensaje
-
+           
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
-                    // Crear la consulta SQL directamente
+                   
                     string consulta = @"
                 SELECT p.nombre_producto, 
                        SUM(dv.cantidad) AS total_cantidad, 
@@ -245,6 +250,7 @@ namespace CapaDeDatos
                 INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
                 INNER JOIN productos p ON dv.id_producto = p.id_producto
                 WHERE v.id_usuario = @idUsuario
+                AND v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
                 GROUP BY p.nombre_producto
                         order by total_cantidad desc;";
 
@@ -254,6 +260,8 @@ namespace CapaDeDatos
 
                     // Agregar el parámetro de entrada
                     cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -266,7 +274,7 @@ namespace CapaDeDatos
                             {
                                 fechaFactura = dr["ultima_fecha_factura"] != DBNull.Value
                                     ? Convert.ToDateTime(dr["ultima_fecha_factura"]).ToString("yyyy-MM-dd")
-                                    : string.Empty, // O establece otra cadena predeterminada si es necesario
+                                    : string.Empty, 
 
                                 oDetalleVenta = new List<DetalleVenta>
                         {
@@ -289,18 +297,16 @@ namespace CapaDeDatos
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "Error en la consulta: " + ex.Message;
-                    lista = new List<Venta>(); // Retorna una lista vacía en caso de error
+                    lista = new List<Venta>(); 
                 }
             }
 
             return lista;
         }
-        public List<Venta> ReporteUsuario3(int idUsuario, out string mensaje)
+        public List<Venta> ReporteUsuario3(int idUsuario,DateTime fechaDesde, DateTime fechaHasta)
         {
             List<Venta> lista = new List<Venta>();
-            mensaje = string.Empty; // Inicializa el mensaje
-
+            
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
@@ -316,6 +322,7 @@ namespace CapaDeDatos
                 INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
                 INNER JOIN productos p ON dv.id_producto = p.id_producto
                 WHERE v.id_usuario = @idUsuario
+                AND v.fecha_factura BETWEEN @fechaDesde AND @fechaHasta
                 GROUP BY p.nombre_producto
                         order by total_subtotal desc;";
 
@@ -325,6 +332,8 @@ namespace CapaDeDatos
 
                     // Agregar el parámetro de entrada
                     cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    cmd.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@fechaHasta", fechaHasta);
 
                     oconexion.Open();
 
@@ -360,13 +369,15 @@ namespace CapaDeDatos
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "Error en la consulta: " + ex.Message;
-                    lista = new List<Venta>(); // Retorna una lista vacía en caso de error
+                   lista = new List<Venta>(); // Retorna una lista vacía en caso de error
                 }
             }
 
             return lista;
         }
+        
+
+
 
 
     }

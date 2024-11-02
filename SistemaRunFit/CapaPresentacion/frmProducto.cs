@@ -91,12 +91,7 @@ namespace CapaPresentacion
             cmbMarcaProducto.SelectedIndex = -1;
         }
 
-       /* private void frmProducto_Load(object sender, EventArgs e)
-        {
-           
-            
-            
-        }*/
+       
         private void LimpiarControles()
         {
             txtNombreProducto.Clear();

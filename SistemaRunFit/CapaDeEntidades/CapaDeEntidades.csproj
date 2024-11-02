@@ -45,6 +45,7 @@
     <Compile Include="Categoria.cs" />
     <Compile Include="DetalleVenta.cs" />
     <Compile Include="Domicilio.cs" />
+    <Compile Include="Grafico.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />

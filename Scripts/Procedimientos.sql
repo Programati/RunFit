@@ -1075,6 +1075,16 @@ WITH REPLACE;
 
 select * from usuarios
 select * from ventas
+select * from DETALLE_VENTAS
+select * from PRODUCTOS
+select nombre_producto,detalle_producto,stock,stock_minimo,m.nombre,c.nombre_categoria,p.razon_social from productos pr
+inner join MARCAS m on m.id_marca=pr.id_marca
+inner join CATEGORIAS c on c.id_categoria=pr.id_categoria
+inner join PROVEEDORES p on p.id_proveedor=pr.id_proveedor
+where stock=stock_minimo+5 or stock<=stock_minimo
+
+where v.fecha_factura between
+
 --- script de mejor vendedor en numeros
 select  u.nombre_usuario as vendedor,sum(v.importe_total ) as total_ventas
 from usuarios u
@@ -1144,17 +1154,85 @@ WHERE
     fila = 1;
 
 SELECT 
+    u.nombre_usuario AS vendedor, 
+	v.fecha_factura,
+    SUM(dv.cantidad) AS cantidad_total,
+    SUM(dv.subtotal) AS importe_total
+FROM 
+    usuarios u
+INNER JOIN 
+    ventas v ON v.id_usuario = u.id_usuario
+INNER JOIN 
+    detalle_ventas dv ON dv.id_venta = v.id_venta
+GROUP BY 
+    u.nombre_usuario
+ORDER BY 
+    importe_total DESC;
+
+ SELECT 
+     p.nombre_producto,
+     SUM(dv.cantidad) AS cantidad_total
+ FROM 
+     productos p
+ INNER JOIN 
+     detalle_ventas dv ON p.id_producto = dv.id_producto
+ INNER JOIN 
+     ventas v ON dv.id_venta = v.id_venta
+ 
+ GROUP BY 
+     p.nombre_producto
+
+	  SELECT 
+     p.nombre_producto,
+     SUM(dv.subtotal) AS monto_total
+ FROM 
+     productos p
+ INNER JOIN 
+     detalle_ventas dv ON p.id_producto = dv.id_producto
+ INNER JOIN 
+     ventas v ON dv.id_venta = v.id_venta
+
+ GROUP BY 
+     p.nombre_producto
+	 order by monto_total desc
+
+
+	SELECT 
     p.nombre_producto,
-    SUM(dv.cantidad) AS cantidad_total
+     SUM(dv.subtotal) AS monto_total
 FROM 
     productos p
 INNER JOIN 
     detalle_ventas dv ON p.id_producto = dv.id_producto
+INNER JOIN 
+    ventas v ON dv.id_venta = v.id_venta
+
 GROUP BY 
     p.nombre_producto
+<<<<<<< HEAD
 ORDER BY 
     cantidad_total DESC;
 >>>>>>> d3bcf23359550fb9b6c27b2c04c9375ab115bffe
+=======
+    order by monto_total desc
+	select * from PRODUCTOS
+	select * from DETALLE_VENTAS 
+	update DETALLE_VENTAS
+	set subtotal=1000 where id_producto=14
+
+
+	SELECT p.nombre_producto, 
+       SUM(dv.cantidad) AS total_cantidad, 
+       MAX(p.precio_venta) AS precio_venta, 
+       SUM(dv.subtotal) AS total_subtotal,
+       MAX(v.fecha_factura) AS ultima_fecha_factura
+FROM ventas v
+INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
+INNER JOIN productos p ON dv.id_producto = p.id_producto
+
+GROUP BY p.nombre_producto
+        order by total_subtotal desc
+>>>>>>> 5c4bacb58284dc80cdae2419a7e3632fc0949535
 =======
 SELECT v.id_venta, v.importe_total, v.fecha_factura,
 u.nombre_usuario,

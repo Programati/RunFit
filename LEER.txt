@@ -1,0 +1,14 @@
+Para el correcto funcionamiento del sistema. Tener en cuenta al momento de ejecutar el script de la Base de Datos
+
+Crear las todas las tablas
+
+En el script hay inserciones iniciales, estan comentadas. Para ingrear por primera vez, con la BD vacia hay que hacer
+esas inserciones mediante SQL
+
+
+Ingresar mediante SQL los ROLES
+Primero el rol "Sistema"
+Segundo el rol "Gerente"
+Tercero el rol "Vendedor"
+
+Ingresar mediante SQL la PERSONA y el USUARIO que va relacionado con la persona

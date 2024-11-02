@@ -72,26 +72,26 @@ namespace CapaDeNegocios
                 return objcd_usuario.Editar(ObjUsuario, out Mensaje);
             }
         }
-        public List<Venta> ListarReporteUsuario(int idUsuario, out string mensaje)
+        public List<Venta> ListarReporteUsuario(int idUsuario, DateTime fechaDesde, DateTime fechaHasta)
         {
-            // Llama al método de la capa de datos que devuelve el reporte de usuario
-            return objcd_usuario.ReporteUsuario(idUsuario, out mensaje);
+            return objcd_usuario.ReporteUsuario(idUsuario, fechaDesde, fechaHasta);
         }
-        public List<Venta> ListarReporteUsuario2(int idUsuario, out string mensaje)
+
+        public List<Venta> ListarReporteUsuario2(int idUsuario, DateTime fechaDesde, DateTime fechaHasta)
         {
             // Instancia de la capa de datos
             CD_Usuario objcd_usuario = new CD_Usuario();
 
             // Llama al método de la capa de datos que devuelve el reporte de usuario
-            return objcd_usuario.ReporteUsuario2(idUsuario, out mensaje);
+            return objcd_usuario.ReporteUsuario2(idUsuario,fechaDesde,fechaHasta);
         }
-        public List<Venta> ListarReporteUsuario3(int idUsuario, out string mensaje)
+        public List<Venta> ListarReporteUsuario3(int idUsuario, DateTime fechaDesde, DateTime fechaHasta)
         {
             // Instancia de la capa de datos
             CD_Usuario objcd_usuario = new CD_Usuario();
 
             // Llama al método de la capa de datos que devuelve el reporte de usuario
-            return objcd_usuario.ReporteUsuario3(idUsuario, out mensaje);
+            return objcd_usuario.ReporteUsuario3(idUsuario, fechaDesde, fechaHasta);
         }
 
 
