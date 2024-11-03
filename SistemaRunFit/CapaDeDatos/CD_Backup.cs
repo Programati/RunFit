@@ -21,7 +21,7 @@ namespace CapaDeDatos
         public void Backup(Label lblUltimoBackup)
         {
             string nombre_copia = DateTime.Now.ToString("dd-MM-yyyy_HH' horas '_mm' minutos '_ss' segundos'");
-<<<<<<< HEAD
+
 
 
             string ruta_copia = $"C:\\Users\\JULIO-NOTEBOOK2\\Desktop\\Runfit_repositorio\\BackUp\\{nombre_copia}.bak";
@@ -32,9 +32,7 @@ namespace CapaDeDatos
         //C: \Users\JULIO - NOTEBOOK2\Desktop\Runfit_repositorio\BackUp\\{ nombre_copia}.bak
 /*
             string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
-=======
-            string ruta_copia = $"C:\\Users\\Matias-Pc\\OneDrive\\Documentos\\BackUp\\{nombre_copia}.bak";
->>>>>>> 5c4bacb58284dc80cdae2419a7e3632fc0949535
+
             string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' ');
 
             // Comando para realizar el backup
