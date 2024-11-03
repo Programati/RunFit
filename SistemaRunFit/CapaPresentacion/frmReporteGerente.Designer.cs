@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReporteGerente));
             this.grbDetalleVta = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvReporteGerente = new Guna.UI.WinForms.GunaDataGridView();
             this.lblTituloReporte = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.chartGerente = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblVendedorSelector = new Guna.UI.WinForms.GunaLabel();
             this.cmbVendedorSelector = new Guna.UI.WinForms.GunaComboBox();
+            this.btnExportarExcel = new Guna.UI.WinForms.GunaButton();
             this.grbDetalleVta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteGerente)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,33 +84,32 @@
             this.dgvReporteGerente.AllowUserToDeleteRows = false;
             this.dgvReporteGerente.AllowUserToResizeColumns = false;
             this.dgvReporteGerente.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            this.dgvReporteGerente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            this.dgvReporteGerente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvReporteGerente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReporteGerente.BackgroundColor = System.Drawing.Color.White;
             this.dgvReporteGerente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReporteGerente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvReporteGerente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReporteGerente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReporteGerente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvReporteGerente.ColumnHeadersHeight = 34;
             this.dgvReporteGerente.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReporteGerente.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReporteGerente.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvReporteGerente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReporteGerente.EnableHeadersVisualStyles = false;
             this.dgvReporteGerente.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
@@ -118,13 +119,13 @@
             this.dgvReporteGerente.ReadOnly = true;
             this.dgvReporteGerente.RowHeadersVisible = false;
             this.dgvReporteGerente.RowHeadersWidth = 51;
-            this.dgvReporteGerente.RowTemplate.Height = 30;
+            this.dgvReporteGerente.RowTemplate.Height = 35;
             this.dgvReporteGerente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReporteGerente.Size = new System.Drawing.Size(402, 368);
             this.dgvReporteGerente.TabIndex = 0;
             this.dgvReporteGerente.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvReporteGerente.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -139,9 +140,9 @@
             this.dgvReporteGerente.ThemeStyle.ReadOnly = true;
             this.dgvReporteGerente.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvReporteGerente.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvReporteGerente.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReporteGerente.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvReporteGerente.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvReporteGerente.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReporteGerente.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvReporteGerente.ThemeStyle.RowsStyle.Height = 35;
             this.dgvReporteGerente.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvReporteGerente.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
@@ -240,16 +241,16 @@
             // 
             // chartGerente
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartGerente.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartGerente.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartGerente.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartGerente.Legends.Add(legend1);
             this.chartGerente.Location = new System.Drawing.Point(453, 195);
             this.chartGerente.Name = "chartGerente";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartGerente.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartGerente.Series.Add(series1);
             this.chartGerente.Size = new System.Drawing.Size(430, 355);
             this.chartGerente.TabIndex = 90;
             this.chartGerente.Text = "chart1";
@@ -286,11 +287,40 @@
             this.cmbVendedorSelector.Size = new System.Drawing.Size(178, 24);
             this.cmbVendedorSelector.TabIndex = 95;
             // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.AnimationHoverSpeed = 0.07F;
+            this.btnExportarExcel.AnimationSpeed = 0.03F;
+            this.btnExportarExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportarExcel.BaseColor = System.Drawing.Color.White;
+            this.btnExportarExcel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnExportarExcel.BorderSize = 2;
+            this.btnExportarExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportarExcel.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnExportarExcel.FocusedColor = System.Drawing.Color.White;
+            this.btnExportarExcel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportarExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
+            this.btnExportarExcel.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnExportarExcel.Location = new System.Drawing.Point(264, 155);
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnExportarExcel.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnExportarExcel.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnExportarExcel.OnHoverImage = null;
+            this.btnExportarExcel.OnPressedColor = System.Drawing.Color.Black;
+            this.btnExportarExcel.Radius = 10;
+            this.btnExportarExcel.Size = new System.Drawing.Size(138, 34);
+            this.btnExportarExcel.TabIndex = 97;
+            this.btnExportarExcel.Text = "Exportar Excel";
+            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
+            // 
             // frmReporteGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 627);
+            this.Controls.Add(this.btnExportarExcel);
             this.Controls.Add(this.lblVendedorSelector);
             this.Controls.Add(this.cmbVendedorSelector);
             this.Controls.Add(this.chartGerente);
@@ -328,5 +358,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartGerente;
         private Guna.UI.WinForms.GunaLabel lblVendedorSelector;
         private Guna.UI.WinForms.GunaComboBox cmbVendedorSelector;
+        private Guna.UI.WinForms.GunaButton btnExportarExcel;
     }
 }
