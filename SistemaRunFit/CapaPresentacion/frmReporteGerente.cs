@@ -25,7 +25,6 @@ namespace CapaPresentacion
             componentesInicio();
             CargarVendedores();
         }
-
         private void CargarReporteGerente_1()
         {
             // Obtén las fechas seleccionadas en los DateTimePickers
@@ -188,7 +187,7 @@ namespace CapaPresentacion
                 dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
                 {
                     Fecha = v.fechaFactura,
-                    Num_Factura =dv.idDetalleVenta,
+                    Factura = dv.oVenta.idVenta,
                     Vendedor = v.oUsuario.nombreUsuario,
                     Cantidad=dv.cantidad,
                     Producto = dv.oProducto.nombre,
@@ -227,8 +226,6 @@ namespace CapaPresentacion
                 return;
             }
         }
-        
-
         private void cmbReporteGerente_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -296,7 +293,6 @@ namespace CapaPresentacion
             
 
         }
-
         private void componentesInicio()
         {
             cmbVendedorSelector.Visible = false;
@@ -315,8 +311,6 @@ namespace CapaPresentacion
             chartGerente.Visible = true;
             chartGerente.Location = new System.Drawing.Point(453, 195);
         }
-
-       
         private void CargarVendedores()
         {
             List<Usuario> listaVendores = objCN_Usuario.ListarUsuarios();
@@ -335,8 +329,6 @@ namespace CapaPresentacion
           
             cmbVendedorSelector.SelectionChangeCommitted += cmbVendedorSelector_SelectionChangeCommitted;
         }
-
-        
         private void cmbVendedorSelector_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cmbVendedorSelector.SelectedIndex != -1)
@@ -345,8 +337,6 @@ namespace CapaPresentacion
                 CargarReporteGerente_6(idUsuarioSeleccionado);
             }
         }
-
-       
         private void CargarReporteGerente_6(int idUsuario)
         {
             DateTime fechaDesde = dtpFechaDesde.Value;
@@ -361,7 +351,7 @@ namespace CapaPresentacion
                 dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
                 {
                     Fecha = v.fechaFactura,
-                    Num_Factura = dv.idDetalleVenta,
+                    Factura = dv.oVenta.idVenta,
                     Vendedor = v.oUsuario.nombreUsuario != null ? v.oUsuario.nombreUsuario : "Sin vendedor", // Manejo de null
                     Cantidad = dv.cantidad,
                     Producto = dv.oProducto.nombre,
@@ -374,7 +364,6 @@ namespace CapaPresentacion
                 MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnExportarExcel_Click(object sender, EventArgs e)
         {
             if(dgvReporteGerente.Rows.Count < 1)

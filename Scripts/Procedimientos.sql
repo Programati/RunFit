@@ -406,22 +406,31 @@ BEGIN
     SET @IdProductoResultado = 0
     SET @Mensaje = ''
 
-    -- Inserción del producto
-    BEGIN TRY
-        INSERT INTO PRODUCTOS (nombre_producto, precio_compra, precio_venta, id_marca, id_categoria, id_proveedor, stock, stock_minimo, detalle_producto, imagen)
-        VALUES (@nombre_producto, @precio_compra, @precio_venta, @id_marca, @id_categoria, @id_proveedor, @stock, @stock_minimo, @detalle, @imagen)
+    -- Verificar si ya existe un producto con el mismo nombre y detalle
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND detalle_producto = @detalle)
+    BEGIN
+        -- Si existe un producto duplicado, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre y detalle.'
+    END
+    ELSE
+    BEGIN
+        -- Inserción del producto
+        BEGIN TRY
+            INSERT INTO PRODUCTOS (nombre_producto, precio_compra, precio_venta, id_marca, id_categoria, id_proveedor, stock, stock_minimo, detalle_producto, imagen)
+            VALUES (@nombre_producto, @precio_compra, @precio_venta, @id_marca, @id_categoria, @id_proveedor, @stock, @stock_minimo, @detalle, @imagen)
 
-        SET @IdProductoResultado = SCOPE_IDENTITY()  -- Obtener el ID del producto recién insertado
-        SET @Mensaje = 'Producto agregado correctamente.'
-    END TRY
-    BEGIN CATCH
-        SET @Mensaje = ERROR_MESSAGE()  -- Captura el error
-    END CATCH
+            SET @IdProductoResultado = SCOPE_IDENTITY()  -- Obtener el ID del producto recién insertado
+            SET @Mensaje = 'Producto agregado correctamente.'
+        END TRY
+        BEGIN CATCH
+            SET @Mensaje = ERROR_MESSAGE()  -- Captura el error
+        END CATCH
+    END
 END
-GO
-select * from CATEGORIAS;
-select * from PRODUCTOS
+
 go
+
+/*EDITAR PRODUCTO*/ 
 CREATE PROC SP_PRODUCTO_EDITAR
 (
     @id_producto int,
@@ -444,8 +453,13 @@ BEGIN
     SET @Respuesta = 0;
     SET @Mensaje = '';
 
-    -- Verificamos si ya existe un producto con el mismo nombre
-    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND id_producto != @id_producto)
+    -- Verificamos si ya existe un producto con el mismo nombre y detalle, excluyendo el producto actual
+    IF EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND detalle_producto = @detalle_producto AND id_producto != @id_producto)
+    BEGIN
+        -- Si existe otro producto con el mismo nombre y detalle, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre y detalle.';
+    END
+    ELSE
     BEGIN
         -- Si no existe, actualizamos el producto
         UPDATE PRODUCTOS
@@ -467,12 +481,8 @@ BEGIN
         SET @Respuesta = 1;
         SET @Mensaje = 'Producto actualizado correctamente';
     END
-    ELSE
-    BEGIN
-        -- Si existe otro producto con el mismo nombre, enviamos un mensaje de error
-        SET @Mensaje = 'Ya existe un producto con el mismo nombre';
-    END
 END;
+
 
 CREATE PROC SP_PRODUCTO_ELIMINAR(
     @id_producto INT,

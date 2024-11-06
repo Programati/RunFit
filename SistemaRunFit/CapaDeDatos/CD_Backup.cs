@@ -63,7 +63,7 @@ namespace CapaDeDatos
         
         private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=RunFit;Integrated Security=True";
 
-        public void Restaurar(string rutaBackup)
+        public void Restaurar2(string rutaBackup)
         {
                      
             string query = $@"
@@ -90,6 +90,38 @@ namespace CapaDeDatos
             }
         }
 
+        public void Restaurar(string rutaBackup)
+        {
+            // Ruta de destino para los archivos de datos y log en tu sistema
+            string rutaMDF = @"C:\Users\Matias-Pc\OneDrive\Documentos\BackUp\RunFit.mdf";
+            string rutaLDF = @"C:\Users\Matias-Pc\OneDrive\Documentos\BackUp\RunFit_log.ldf";
+
+            string query = $@"
+USE master;
+ALTER DATABASE [RunFit] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+RESTORE DATABASE [RunFit]
+FROM DISK = '{rutaBackup}'
+WITH 
+    MOVE 'RunFit' TO '{rutaMDF}', 
+    MOVE 'RunFit_log' TO '{rutaLDF}', 
+    REPLACE;
+ALTER DATABASE [RunFit] SET MULTI_USER;";
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                try
+                {
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Base de datos restaurada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
 
 
