@@ -55,6 +55,8 @@ select * from productos
 select * from usuarios
 select * from PERSONAS
 
+
+
 SELECT v.fecha_factura, dv.cantidad, p.nombre_producto,p.precio_venta,dv.subtotal
 FROM ventas v
 INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta

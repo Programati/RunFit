@@ -20,13 +20,13 @@ namespace CapaPresentacion
         public frmReporteGerente()
         {
             InitializeComponent();
-            CargarVendedores();
             componentesInicio();
+            CargarVendedores();
         }
 
         private void CargarReporteGerente_1()
         {
-            // Obtén las fechas seleccionadas en los DateTimePickers
+            
             DateTime fechaDesde = dtpFechaDesde.Value;
             DateTime fechaHasta = dtpFechaHasta.Value;
 
@@ -35,7 +35,7 @@ namespace CapaPresentacion
 
             if (reporteGrafico.Count > 0)
             {
-                // Crear una lista para almacenar los datos que se mostrarán en el DataGridView
+               
                 var dataSource = reporteGrafico.Select(rg => new
                 {
                     Vendedor = rg.Vendedor,
@@ -44,10 +44,8 @@ namespace CapaPresentacion
                 .OrderByDescending(x => x.Importe_Total)
                 .ToList();
 
-                // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
 
-                // Limpiar las series del gráfico antes de cargar nuevos datos
                 chartGerente.Series.Clear();
 
                 // Crear una nueva serie para el gráfico
@@ -56,13 +54,12 @@ namespace CapaPresentacion
                 // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                // Recorrer los datos del reporte para llenarlo en el gráfico
+                
                 foreach (var item in reporteGrafico)
                 {
                     series.Points.AddXY(item.Vendedor, item.SubTotal);
                 }
 
-                // Opcional: configurar títulos y leyendas
                 chartGerente.Titles.Clear();
                 chartGerente.Titles.Add("Importe Total por Vendedor");
             }
@@ -76,11 +73,10 @@ namespace CapaPresentacion
         }
         private void CargarReporteGerente_2()
         {
-            // Obtén las fechas seleccionadas en los DateTimePickers
+            
             DateTime fechaDesde = dtpFechaDesde.Value;
             DateTime fechaHasta = dtpFechaHasta.Value;
 
-            // Llama al método de la instancia de la capa de negocios con las fechas
             List<ReporteGrafico> reporteGrafico = cnGerente.ListarReporteGerente_2(fechaDesde, fechaHasta);
 
             if (reporteGrafico.Count > 0)
@@ -94,20 +90,15 @@ namespace CapaPresentacion
                 .OrderByDescending(x => x.Cantidad)
                 .ToList();
 
-                // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
 
-                // Limpiar las series del gráfico antes de cargar nuevos datos
                 chartGerente.Series.Clear();
 
-                // Crear una nueva serie para el gráfico
                 var series = chartGerente.Series.Add("Cantidad");
 
-                // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                // Recorrer los datos del reporte para llenarlo en el gráfico
-                foreach (var item in reporteGrafico)
+                 foreach (var item in reporteGrafico)
                 {
                     series.Points.AddXY(item.Producto, item.Cantidad);
                 }
@@ -207,8 +198,7 @@ namespace CapaPresentacion
         }
         private void CargarReporteGerente_5()
         {
-            //DateTime fechaDesde = dtpFechaDesde.Value;
-           // DateTime fechaHasta = dtpFechaHasta.Value;
+            
             List<Venta> ventas = cnGerente.ListarReporteGerente_5();
 
             if (ventas.Count > 0)
@@ -271,19 +261,22 @@ namespace CapaPresentacion
                         lblVendedorSelector.Visible=false;
 
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 3) // "Productos más vendidos en dinero"
+                    else if (cmbReporteGerente.SelectedIndex == 3) //ventas totales
                     {
                         ExpandirPanel();
                         CargarReporteGerente_4();
                         cmbVendedorSelector.Visible= true;
-                        CargarVendedores();
+                        cmbVendedorSelector.SelectedIndex = -1;
+                        
 
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 4) // "Productos más vendidos en dinero"
+                    else if (cmbReporteGerente.SelectedIndex == 4) 
                     {
                         
                         ExpandirPanel();
                         CargarReporteGerente_5();
+                        cmbVendedorSelector.Visible = false;
+                        lblVendedorSelector.Visible = false;
 
                     }
                 }
