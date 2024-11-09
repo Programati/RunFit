@@ -242,7 +242,7 @@ namespace CapaPresentacion
                         idProductoGenerado = new CN_Producto().Registrar(productoNuevo, out mensajeProducto);
                     }
 
-                    if (idProductoGenerado != 0)
+                    if (idProductoGenerado != 0 && VerdadProductoGenerado)
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         LimpiarCampos();

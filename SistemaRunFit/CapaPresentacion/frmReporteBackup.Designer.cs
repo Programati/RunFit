@@ -34,8 +34,10 @@
             this.grbDetalleBackup = new Guna.UI.WinForms.GunaGroupBox();
             this.dgvReporteBackup = new Guna.UI.WinForms.GunaDataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grbDetalleBackup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteBackup)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbDetalleBackup
@@ -44,7 +46,7 @@
             this.grbDetalleBackup.BaseColor = System.Drawing.Color.White;
             this.grbDetalleBackup.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
             this.grbDetalleBackup.Controls.Add(this.dgvReporteBackup);
-            this.grbDetalleBackup.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grbDetalleBackup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbDetalleBackup.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDetalleBackup.ForeColor = System.Drawing.Color.White;
             this.grbDetalleBackup.LineBottom = 2;
@@ -52,11 +54,11 @@
             this.grbDetalleBackup.LineLeft = 2;
             this.grbDetalleBackup.LineRight = 2;
             this.grbDetalleBackup.LineTop = 50;
-            this.grbDetalleBackup.Location = new System.Drawing.Point(0, 117);
+            this.grbDetalleBackup.Location = new System.Drawing.Point(0, 0);
             this.grbDetalleBackup.Margin = new System.Windows.Forms.Padding(3, 3, 6, 3);
             this.grbDetalleBackup.Name = "grbDetalleBackup";
             this.grbDetalleBackup.Padding = new System.Windows.Forms.Padding(2, 50, 2, 2);
-            this.grbDetalleBackup.Size = new System.Drawing.Size(800, 333);
+            this.grbDetalleBackup.Size = new System.Drawing.Size(797, 352);
             this.grbDetalleBackup.TabIndex = 81;
             this.grbDetalleBackup.Text = "Detalle de  Backup";
             this.grbDetalleBackup.TextLocation = new System.Drawing.Point(10, 8);
@@ -88,8 +90,8 @@
             this.dgvReporteBackup.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -105,7 +107,7 @@
             this.dgvReporteBackup.RowHeadersWidth = 51;
             this.dgvReporteBackup.RowTemplate.Height = 30;
             this.dgvReporteBackup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReporteBackup.Size = new System.Drawing.Size(796, 281);
+            this.dgvReporteBackup.Size = new System.Drawing.Size(793, 300);
             this.dgvReporteBackup.TabIndex = 0;
             this.dgvReporteBackup.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.FeterRiver;
             this.dgvReporteBackup.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
@@ -124,8 +126,8 @@
             this.dgvReporteBackup.ThemeStyle.ReadOnly = true;
             this.dgvReporteBackup.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(234)))), ((int)(((byte)(247)))));
             this.dgvReporteBackup.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvReporteBackup.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvReporteBackup.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvReporteBackup.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvReporteBackup.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvReporteBackup.ThemeStyle.RowsStyle.Height = 30;
             this.dgvReporteBackup.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(186)))), ((int)(((byte)(231)))));
             this.dgvReporteBackup.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -140,18 +142,27 @@
             this.label1.TabIndex = 82;
             this.label1.Text = "HISTORIAL DE BACKUPS";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.grbDetalleBackup);
+            this.panel1.Location = new System.Drawing.Point(3, 95);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(797, 352);
+            this.panel1.TabIndex = 83;
+            // 
             // frmReporteBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.grbDetalleBackup);
             this.Name = "frmReporteBackup";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmReporteBackup_Load);
             this.grbDetalleBackup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteBackup)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,5 +173,6 @@
         private Guna.UI.WinForms.GunaGroupBox grbDetalleBackup;
         private Guna.UI.WinForms.GunaDataGridView dgvReporteBackup;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

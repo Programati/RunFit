@@ -430,10 +430,15 @@ BEGIN
     END
 END
 
+<<<<<<< HEAD
 go
 select * from CATEGORIAS;
 select * from PRODUCTOS
+=======
+>>>>>>> rama-matias
 go
+
+/*EDITAR PRODUCTO*/ 
 CREATE PROC SP_PRODUCTO_EDITAR
 (
     @id_producto int,
@@ -485,6 +490,7 @@ BEGIN
         SET @Mensaje = 'Producto actualizado correctamente';
     END
 END;
+
 
 CREATE PROC SP_PRODUCTO_ELIMINAR(
     @id_producto INT,
