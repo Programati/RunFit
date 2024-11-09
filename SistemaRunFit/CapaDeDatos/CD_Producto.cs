@@ -26,11 +26,9 @@ namespace CapaDeDatos
                     query.AppendLine("INNER JOIN MARCAS m ON m.id_marca = p.id_marca");
                     query.AppendLine("INNER JOIN CATEGORIAS c ON c.id_categoria = p.id_categoria");
                     query.AppendLine("INNER JOIN PROVEEDORES pv ON pv.id_proveedor = p.id_proveedor");
-<<<<<<< HEAD
+
                     query.AppendLine("ORDER BY p.fecha_baja ASC, p.nombre_producto asc;");
-=======
-                    query.AppendLine("ORDER BY p.fecha_baja ASC, p.nombre_producto Asc;");
->>>>>>> 780363ffa319f578ec603d08972274978ed95c8c
+
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
