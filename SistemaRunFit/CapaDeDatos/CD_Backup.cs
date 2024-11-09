@@ -21,14 +21,30 @@ namespace CapaDeDatos
         public void Backup(Label lblUltimoBackup)
         {
             string nombre_copia = DateTime.Now.ToString("dd-MM-yyyy_HH' horas '_mm' minutos '_ss' segundos'");
+<<<<<<< HEAD
             string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
+=======
+
+
+
+            string ruta_copia = $"C:\\Users\\JULIO-NOTEBOOK2\\Desktop\\Runfit_repositorio\\BackUp\\{nombre_copia}.bak";
+
+            string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' '); // Cambiamos '/' a '-' y ' ' a '_' para un nombre de archivo válido
+            string comando_consulta = $"BACKUP DATABASE [RunFit] TO DISK = N'{ruta_copia}' WITH NOFORMAT, NOINIT, NAME = N'RunFit-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10";
+
+        //C: \Users\JULIO - NOTEBOOK2\Desktop\Runfit_repositorio\BackUp\\{ nombre_copia}.bak
+/*
+            string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
+
+>>>>>>> 780363ffa319f578ec603d08972274978ed95c8c
             string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' ');
 
             // Comando para realizar el backup
-            string comando_consulta = $"BACKUP DATABASE [RunFit] TO DISK = N'{ruta_copia}' WITH NOFORMAT, NOINIT, NAME = N'RunFit-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10";
+            string comando_consulta = $"BACKUP DATABASE [RunFit] TO DISK = N'{ruta_copia}' WITH NOFORMAT, NOINIT, NAME = N'RunFit-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10";*/
 
             // Comando para insertar la información del backup en la tabla BackupLogs
             string comando_insert = $"INSERT INTO BackupList (BackupFileName, BackupDate) VALUES (@BackupFileName, @BackupDate)";
+
 
             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
             {

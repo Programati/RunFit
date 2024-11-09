@@ -30,6 +30,7 @@ namespace CapaPresentacion
 
             // Llamar al método para cargar el último backup
             CargarUltimoBackup();
+
         }
 
         private void CargarUltimoBackup()
@@ -48,7 +49,10 @@ namespace CapaPresentacion
             {
                 lblUltima.Text = "No hay copias disponibles";  // Manejo del caso donde no hay valor
             }
+
         }
+       
+
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal
         private void btnMenuMarca_Click(object sender, EventArgs e)

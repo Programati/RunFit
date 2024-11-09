@@ -163,10 +163,14 @@ ALTER TABLE PRODUCTOS
 ALTER COLUMN nombre_producto VARCHAR(100) NOT NULL;
 
 -- Crear tabla PRODUCTOS
+<<<<<<< HEAD
+create TABLE PRODUCTOS (
+=======
 CREATE TABLE PRODUCTOS (
+>>>>>>> 767f9c1599ad3420d792e81cfd0e2c2d56764876
     id_producto INT IDENTITY(1,1) NOT NULL,
     detalle_producto VARCHAR(100) NULL,
-    nombre_producto VARCHAR(10) NOT NULL,
+    nombre_producto VARCHAR(100) NOT NULL,
     precio_compra FLOAT NOT NULL,
 	precio_venta FLOAT NOT NULL,
     stock INT NOT NULL,
@@ -272,6 +276,7 @@ ALTER COLUMN subtotal DECIMAL(18, 2);
 
 select * from USUARIOS;
 SELECT * FROM PERSONAS;
+select * from productos
 SELECT * FROM ROL;
 UPDATE ROL set
 nombre_rol = 'Vendedor'
@@ -309,6 +314,7 @@ insert USUARIOS(nombre_usuario,password,id_persona,id_rol) values('julio', '123'
                     order by p.estado desc
 GO
 select * from PROVEEDORES
+select * from USUARIOS
 
 
 /*EDITAR proveedores*/
@@ -325,7 +331,7 @@ select * from PROVEEDORES
  INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
 VALUES ('Electrónica', GETDATE(), NULL);
 update  categorias
-set nombre_categoria='Zapatillas mujer' where id_categoria=2
+set nombre_categoria='Zapatillas hombre' where id_categoria=2
 INSERT INTO CATEGORIAS (nombre_categoria, fecha_alta, fecha_baja)
 VALUES ('Hogar', GETDATE(), NULL);
 SELECT COLUMN_NAME
@@ -449,6 +455,11 @@ update PRODUCTOS
 set stock=0
 where id_producto=14
 
+<<<<<<< HEAD
+select * from productos;
+select * from VENTAS;
+select * from DETALLE_VENTAS
+=======
 
 CREATE PROCEDURE VerificarBackups
     @mensaje NVARCHAR(255) OUTPUT
@@ -498,10 +509,13 @@ BEGIN
     -- Asignar el mensaje de alerta a la variable de salida
     SET @mensaje = @alerta;
 END;
-
+select * from personas
 
 
 EXEC VerificarBackups;
+<<<<<<< HEAD
+>>>>>>> d3bcf23359550fb9b6c27b2c04c9375ab115bffe
+=======
 =======
 select * from VENTAS
 SELECT u.nombre_usuario, p.apellido, p.nombre FROM USUARIOS u
@@ -516,3 +530,4 @@ ORDER BY v.fecha_factura DESC
 
 
 >>>>>>> rama-matias
+>>>>>>> 5c4bacb58284dc80cdae2419a7e3632fc0949535
