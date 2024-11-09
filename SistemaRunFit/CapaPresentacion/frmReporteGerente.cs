@@ -1,5 +1,7 @@
 ﻿using CapaDeEntidades;
 using CapaDeNegocios;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +22,8 @@ namespace CapaPresentacion
         public frmReporteGerente()
         {
             InitializeComponent();
-            CargarVendedores();
             componentesInicio();
+            CargarVendedores();
         }
 
         private void CargarReporteGerente_1()
@@ -124,11 +126,6 @@ namespace CapaPresentacion
                 chartGerente.Series.Clear();
             }
         }
-
-
-
-
-
         private void CargarReporteGerente_3()
         {
             // Obtén las fechas seleccionadas en los DateTimePickers
@@ -207,8 +204,6 @@ namespace CapaPresentacion
         }
         private void CargarReporteGerente_5()
         {
-            //DateTime fechaDesde = dtpFechaDesde.Value;
-           // DateTime fechaHasta = dtpFechaHasta.Value;
             List<Venta> ventas = cnGerente.ListarReporteGerente_5();
 
             if (ventas.Count > 0)
@@ -248,7 +243,7 @@ namespace CapaPresentacion
                     string mensaje = string.Empty;
 
                     // Determina qué reporte generar según la selección en el ComboBox
-                    if (cmbReporteGerente.SelectedIndex == 0) // "Ventas cronológico"
+                    if (cmbReporteGerente.SelectedIndex == 0) // "Mejor Vendedor"
                     {
                         RestaurarPanel();
                         CargarReporteGerente_1();
@@ -256,35 +251,36 @@ namespace CapaPresentacion
                         lblVendedorSelector.Visible = false;
 
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 1) // "Productos más vendidos por unidad"
+                    else if (cmbReporteGerente.SelectedIndex == 1) // "Productos más vendidos"
                     {
                         RestaurarPanel();
                         CargarReporteGerente_2();
                         cmbVendedorSelector.Visible = false;
                         lblVendedorSelector.Visible = false;
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 2) // "Productos más vendidos en dinero"
+                    else if (cmbReporteGerente.SelectedIndex == 2) // "Productos más rentables"
                     {
                         RestaurarPanel();
                         CargarReporteGerente_3();
                         cmbVendedorSelector.Visible = false;
-                        lblVendedorSelector.Visible=false;
+                        lblVendedorSelector.Visible = false;
 
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 3) // "Productos más vendidos en dinero"
+                    else if (cmbReporteGerente.SelectedIndex == 3) // "Ventas totales"
                     {
                         ExpandirPanel();
                         CargarReporteGerente_4();
                         cmbVendedorSelector.Visible= true;
-                        CargarVendedores();
-
+                        cmbVendedorSelector.SelectedIndex = -1;
+                        lblVendedorSelector.Visible = true;
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 4) // "Productos más vendidos en dinero"
+                    else if (cmbReporteGerente.SelectedIndex == 4) // "Productos proximos al punto de pedido"
                     {
                         
                         ExpandirPanel();
                         CargarReporteGerente_5();
-
+                        cmbVendedorSelector.Visible = false;
+                        lblVendedorSelector.Visible = false;
                     }
                 }
                 else
@@ -317,7 +313,7 @@ namespace CapaPresentacion
         {
             panel1.Size = new Size(406, 420); 
             chartGerente.Visible = true;
-            chartGerente.Location = new Point(453, 195);
+            chartGerente.Location = new System.Drawing.Point(453, 195);
         }
 
        
@@ -345,7 +341,6 @@ namespace CapaPresentacion
         {
             if (cmbVendedorSelector.SelectedIndex != -1)
             {
-                
                 int idUsuarioSeleccionado = (int)cmbVendedorSelector.SelectedValue;
                 CargarReporteGerente_6(idUsuarioSeleccionado);
             }
@@ -380,5 +375,64 @@ namespace CapaPresentacion
             }
         }
 
+        private void btnExportarExcel_Click(object sender, EventArgs e)
+        {
+            if(dgvReporteGerente.Rows.Count < 1)
+            {
+                MessageBox.Show("No hay datos que exportar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+
+                DataTable dt = new DataTable();
+
+                foreach (DataGridViewColumn columna in dgvReporteGerente.Columns)
+                {
+                    dt.Columns.Add(columna.HeaderText, typeof(string));
+                }
+
+                foreach (DataGridViewRow row in dgvReporteGerente.Rows)
+                {
+                    if (!row.IsNewRow) // Verifica que no sea una fila nueva en blanco
+                    {
+                        // Crear un array para almacenar los valores de la fila
+                        object[] values = new object[dgvReporteGerente.Columns.Count];
+
+                        // Llenar el array con los valores de la fila
+                        for (int i = 0; i < dgvReporteGerente.Columns.Count; i++)
+                        {
+                            values[i] = row.Cells[i].Value?.ToString() ?? ""; // Maneja valores nulos
+                        }
+
+                        // Agrega la fila al DataTable
+                        dt.Rows.Add(values);
+                    }
+                }
+
+                SaveFileDialog guardarExcel = new SaveFileDialog();
+                guardarExcel.FileName = string.Format("Reporte " + cmbReporteGerente.Text + "_{0}.xlsx", DateTime.Now.ToString("yyyyMMdd"));
+                guardarExcel.Filter = "Excel  File | *.xlsx";
+
+                if(guardarExcel.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        XLWorkbook wb = new XLWorkbook();
+
+                        var hoja = wb.Worksheets.Add(dt, "Informe");
+                        hoja.ColumnsUsed().AdjustToContents();
+                        wb.SaveAs(guardarExcel.FileName);
+
+                        MessageBox.Show("Reporte generado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al generar reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+
+            }
+        }
     }
 }
