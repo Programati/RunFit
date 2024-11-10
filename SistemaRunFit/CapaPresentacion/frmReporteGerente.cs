@@ -25,10 +25,9 @@ namespace CapaPresentacion
             componentesInicio();
             CargarVendedores();
         }
-
         private void CargarReporteGerente_1()
         {
-            // Obtén las fechas seleccionadas en los DateTimePickers
+            
             DateTime fechaDesde = dtpFechaDesde.Value;
             DateTime fechaHasta = dtpFechaHasta.Value;
 
@@ -37,7 +36,7 @@ namespace CapaPresentacion
 
             if (reporteGrafico.Count > 0)
             {
-                // Crear una lista para almacenar los datos que se mostrarán en el DataGridView
+               
                 var dataSource = reporteGrafico.Select(rg => new
                 {
                     Vendedor = rg.Vendedor,
@@ -46,10 +45,8 @@ namespace CapaPresentacion
                 .OrderByDescending(x => x.Importe_Total)
                 .ToList();
 
-                // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
 
-                // Limpiar las series del gráfico antes de cargar nuevos datos
                 chartGerente.Series.Clear();
 
                 // Crear una nueva serie para el gráfico
@@ -58,13 +55,12 @@ namespace CapaPresentacion
                 // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                // Recorrer los datos del reporte para llenarlo en el gráfico
+                
                 foreach (var item in reporteGrafico)
                 {
                     series.Points.AddXY(item.Vendedor, item.SubTotal);
                 }
 
-                // Opcional: configurar títulos y leyendas
                 chartGerente.Titles.Clear();
                 chartGerente.Titles.Add("Importe Total por Vendedor");
             }
@@ -78,11 +74,10 @@ namespace CapaPresentacion
         }
         private void CargarReporteGerente_2()
         {
-            // Obtén las fechas seleccionadas en los DateTimePickers
+            
             DateTime fechaDesde = dtpFechaDesde.Value;
             DateTime fechaHasta = dtpFechaHasta.Value;
 
-            // Llama al método de la instancia de la capa de negocios con las fechas
             List<ReporteGrafico> reporteGrafico = cnGerente.ListarReporteGerente_2(fechaDesde, fechaHasta);
 
             if (reporteGrafico.Count > 0)
@@ -96,20 +91,15 @@ namespace CapaPresentacion
                 .OrderByDescending(x => x.Cantidad)
                 .ToList();
 
-                // Asignar la lista resultante como origen de datos del DataGridView
                 dgvReporteGerente.DataSource = dataSource;
 
-                // Limpiar las series del gráfico antes de cargar nuevos datos
                 chartGerente.Series.Clear();
 
-                // Crear una nueva serie para el gráfico
                 var series = chartGerente.Series.Add("Cantidad");
 
-                // Definir el tipo de gráfico, por ejemplo, un gráfico de barras
                 series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
 
-                // Recorrer los datos del reporte para llenarlo en el gráfico
-                foreach (var item in reporteGrafico)
+                 foreach (var item in reporteGrafico)
                 {
                     series.Points.AddXY(item.Producto, item.Cantidad);
                 }
@@ -176,34 +166,46 @@ namespace CapaPresentacion
                 chartGerente.Series.Clear();
             }
         }
-        private void CargarReporteGerente_4( )
+        private void CargarReporteGerente_4()
         {
             DateTime fechaDesde = dtpFechaDesde.Value;
             DateTime fechaHasta = dtpFechaHasta.Value;
-            List<Venta> ventas = cnGerente.ListarReporteGerente_4( fechaDesde, fechaHasta);
+            List<Venta> ventas = cnGerente.ListarReporteGerente_4(fechaDesde, fechaHasta);
 
             if (ventas.Count > 0)
             {
                 // Llena el DataGridView con los datos de ventas
-                dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+                var data = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
                 {
                     Fecha = v.fechaFactura,
-                    Num_Factura =dv.idDetalleVenta,
+                    Factura = dv.oVenta.idVenta,
                     Vendedor = v.oUsuario.nombreUsuario,
-                    Cantidad=dv.cantidad,
+                    Cantidad = dv.cantidad,
                     Producto = dv.oProducto.nombre,
                     Subtotal = dv.subTotal
                 })).ToList();
+
+                dgvReporteGerente.DataSource = data;
+
+                // Calcula el total de la columna Subtotal
+                double totalSubtotal = data.Sum(d => d.Subtotal);
+
+                // Muestra el total en el Label
+                lblTotalSubtotal.Text = $"Total Subtotal: {totalSubtotal:C}";
             }
             else
             {
                 dgvReporteGerente.DataSource = null;
+                lblTotalSubtotal.Text = "Total Subtotal: $0.00";
                 MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
         }
+
+
+
         private void CargarReporteGerente_5()
         {
+
             List<Venta> ventas = cnGerente.ListarReporteGerente_5();
 
             if (ventas.Count > 0)
@@ -227,8 +229,6 @@ namespace CapaPresentacion
                 return;
             }
         }
-        
-
         private void cmbReporteGerente_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -249,6 +249,7 @@ namespace CapaPresentacion
                         CargarReporteGerente_1();
                         cmbVendedorSelector.Visible = false;
                         lblVendedorSelector.Visible = false;
+                        lblTotalSubtotal.Visible = false;
 
                     }
                     else if (cmbReporteGerente.SelectedIndex == 1) // "Productos más vendidos"
@@ -257,6 +258,7 @@ namespace CapaPresentacion
                         CargarReporteGerente_2();
                         cmbVendedorSelector.Visible = false;
                         lblVendedorSelector.Visible = false;
+                        lblTotalSubtotal.Visible = false;
                     }
                     else if (cmbReporteGerente.SelectedIndex == 2) // "Productos más rentables"
                     {
@@ -264,23 +266,30 @@ namespace CapaPresentacion
                         CargarReporteGerente_3();
                         cmbVendedorSelector.Visible = false;
                         lblVendedorSelector.Visible = false;
+                        lblTotalSubtotal.Visible = false;
 
                     }
-                    else if (cmbReporteGerente.SelectedIndex == 3) // "Ventas totales"
+
+                    else if (cmbReporteGerente.SelectedIndex == 3) //ventas totales
+
                     {
                         ExpandirPanel();
                         CargarReporteGerente_4();
                         cmbVendedorSelector.Visible= true;
                         cmbVendedorSelector.SelectedIndex = -1;
+                        lblTotalSubtotal.Visible=true;
                         lblVendedorSelector.Visible = true;
                     }
                     else if (cmbReporteGerente.SelectedIndex == 4) // "Productos proximos al punto de pedido"
+
                     {
                         
                         ExpandirPanel();
                         CargarReporteGerente_5();
                         cmbVendedorSelector.Visible = false;
                         lblVendedorSelector.Visible = false;
+                        lblTotalSubtotal.Visible = false;
+
                     }
                 }
                 else
@@ -296,7 +305,6 @@ namespace CapaPresentacion
             
 
         }
-
         private void componentesInicio()
         {
             cmbVendedorSelector.Visible = false;
@@ -315,8 +323,6 @@ namespace CapaPresentacion
             chartGerente.Visible = true;
             chartGerente.Location = new System.Drawing.Point(453, 195);
         }
-
-       
         private void CargarVendedores()
         {
             List<Usuario> listaVendores = objCN_Usuario.ListarUsuarios();
@@ -335,8 +341,6 @@ namespace CapaPresentacion
           
             cmbVendedorSelector.SelectionChangeCommitted += cmbVendedorSelector_SelectionChangeCommitted;
         }
-
-        
         private void cmbVendedorSelector_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cmbVendedorSelector.SelectedIndex != -1)
@@ -345,8 +349,6 @@ namespace CapaPresentacion
                 CargarReporteGerente_6(idUsuarioSeleccionado);
             }
         }
-
-       
         private void CargarReporteGerente_6(int idUsuario)
         {
             DateTime fechaDesde = dtpFechaDesde.Value;
@@ -357,16 +359,23 @@ namespace CapaPresentacion
 
             if (ventas.Count > 0)
             {
-                
-                dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
+
+                var data = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
                 {
                     Fecha = v.fechaFactura,
-                    Num_Factura = dv.idDetalleVenta,
-                    Vendedor = v.oUsuario.nombreUsuario != null ? v.oUsuario.nombreUsuario : "Sin vendedor", // Manejo de null
+                    Factura = dv.oVenta.idVenta,
+                    Vendedor = v.oUsuario.nombreUsuario,
                     Cantidad = dv.cantidad,
                     Producto = dv.oProducto.nombre,
                     Subtotal = dv.subTotal
                 })).ToList();
+                dgvReporteGerente.DataSource = data;
+
+                // Calcula el total de la columna Subtotal
+                double totalSubtotal = data.Sum(d => d.Subtotal);
+
+                // Muestra el total en el Label
+                lblTotalSubtotal.Text = $"Total Subtotal: {totalSubtotal:C}";
             }
             else
             {
@@ -374,7 +383,6 @@ namespace CapaPresentacion
                 MessageBox.Show("NO HAY VENTAS EN EL PERIODO SELECCIONADO", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void btnExportarExcel_Click(object sender, EventArgs e)
         {
             if(dgvReporteGerente.Rows.Count < 1)

@@ -85,7 +85,7 @@ public class CD_Gerente
                 {
                     // Consulta SQL para obtener el reporte con filtros de fecha
                     string consulta = @"
-            SELECT 
+            SELECT TOP 5
                 p.nombre_producto,
                 SUM(dv.cantidad) AS cantidad_total
             FROM 
@@ -147,7 +147,7 @@ public class CD_Gerente
                 {
                     // Consulta SQL para obtener el reporte con filtros de fecha
                     string consulta = @"
-            SELECT 
+            SELECT TOP 5
                 p.nombre_producto,
                  SUM(dv.subtotal) AS monto_total
             FROM 
@@ -207,7 +207,7 @@ public class CD_Gerente
                     string consulta = @"
                 SELECT 
                     u.fecha_factura AS Fecha,
-                    df.id_detalleFactura AS Factura,
+                    df.id_venta AS Factura,
                     us.nombre_usuario AS Vendedor, 
                     df.cantidad, 
                     df.subtotal, 
@@ -255,6 +255,10 @@ public class CD_Gerente
                                 oProducto = new Producto
                                 {
                                     nombre = dr["Producto"] != DBNull.Value ? dr["Producto"].ToString() : "Sin nombre"
+                                },
+                                oVenta = new Venta
+                                {
+                                    idVenta = dr["Factura"] != DBNull.Value ? Convert.ToInt32(dr["Factura"]) : 0,
                                 }
                             }
                         },
@@ -386,7 +390,7 @@ public class CD_Gerente
                     string consulta = @"
                 SELECT 
                     u.fecha_factura AS Fecha,
-                    df.id_detalleFactura AS Factura,
+                    df.id_venta AS Factura,
                     us.nombre_usuario AS Vendedor, 
                     df.cantidad, 
                     df.subtotal, 
@@ -437,6 +441,10 @@ public class CD_Gerente
                                 oProducto = new Producto
                                 {
                                     nombre = dr["Producto"] != DBNull.Value ? dr["Producto"].ToString() : "Sin nombre"
+                                },
+                                oVenta = new Venta
+                                {
+                                    idVenta = dr["Factura"] != DBNull.Value ? Convert.ToInt32(dr["Factura"]) : 0,
                                 }
                             }
                         },
