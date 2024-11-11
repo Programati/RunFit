@@ -16,6 +16,10 @@ namespace CapaDeNegocios
         {
             return objcd_producto.ListarProducto();
         }
+        public List<Producto> ListarProductosActivos()
+        {
+            return objcd_producto.ListarProductosActivos();
+        }
         public int Registrar(Producto ObjProducto, out string Mensaje)
         {
             StringBuilder sbMensaje = new StringBuilder();

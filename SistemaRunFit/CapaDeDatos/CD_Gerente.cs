@@ -312,7 +312,7 @@ public class CD_Gerente
                 INNER JOIN 
                     PROVEEDORES p ON p.id_proveedor = pr.id_proveedor
                 WHERE 
-                    stock = stock_minimo + 5 OR stock <= stock_minimo;";
+                    stock <= stock_minimo;";
 
                     // Crear el comando para ejecutar la consulta
                     SqlCommand cmd = new SqlCommand(consulta, oconexion);

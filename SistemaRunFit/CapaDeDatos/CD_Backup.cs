@@ -22,7 +22,7 @@ namespace CapaDeDatos
         {
             string nombre_copia = DateTime.Now.ToString("dd-MM-yyyy_HH' horas '_mm' minutos '_ss' segundos'");
 
-            string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
+            string ruta_copia = $"C:\\Users\\JULIO-NOTEBOOK2\\Desktop\\Runfit_repositorio\\BackUp\\{nombre_copia}.bak";
 
             string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' ');
 

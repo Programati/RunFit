@@ -30,7 +30,7 @@ namespace CapaPresentacion
             _inicio = inicioForm;
             _usuarioVendedor = usuario;
             this.Load += new EventHandler(frmRegistrarVenta_Load);
-            _listaProductos = new CN_Producto().ListarProductos();
+            _listaProductos = new CN_Producto().ListarProductosActivos();
             _listaClientes = new CN_Domicilio().ListarDomicilios();
             lblFechaVenta.Text = fechaHoy.ToString("dd/MM/yyyy");
             autocompletar();
@@ -54,7 +54,6 @@ namespace CapaPresentacion
         }
         private void btnBuscarClteVta_Click(object sender, System.EventArgs e)
         {
-
             if (txtBuscarDniVta.Text.Length > 8)
             {
                 MessageBox.Show("El DNI no puede contener más de 8 dígitos");
@@ -70,11 +69,20 @@ namespace CapaPresentacion
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarDniVta.Text, out dniCliente))
             {
+                // Buscar cliente por DNI
                 _cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == dniCliente);
 
                 if (_cliente != null)
                 {
-                    lblNombreYApellidoCliente.Text = _cliente.oPersona.apellido + " " + _cliente.oPersona.nombre;
+                    // Verificar si el cliente está activo
+                    if (_cliente.oPersona.estado == '1')
+                    {
+                        lblNombreYApellidoCliente.Text = _cliente.oPersona.apellido + " " + _cliente.oPersona.nombre;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está inactivo.");
+                    }
                 }
                 else
                 {
@@ -94,19 +102,18 @@ namespace CapaPresentacion
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarCodigoVta.Text, out codigoProducto))
             {
-                // Buscar el producto
-                _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto);
+                // Buscar el producto que no tenga fecha de baja
+                _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto && p.fechaBaja == null);
 
                 if (_producto != null)
                 {
-                    //txtNombreProductoVenta.Text = _producto.nombre;
                     txtNombreProductoVenta.Text = _producto.nombre + " " + _producto.detalle;
                     pbImgProductoVenta.Image = ImagenProducto(_producto);
 
                     if (dgvDetalleVta.Rows.Count > 0)
                     {
                         var _productoDelCarrito = _carrito.FirstOrDefault(p => p.Producto.idProducto == codigoProducto);
-                        if ( BuscarEnDataGridView(_producto.idProducto.ToString()) )
+                        if (BuscarEnDataGridView(_producto.idProducto.ToString()))
                         {
                             txtStockRegistrarVenta.Text = (_producto.stock - (int)_productoDelCarrito.Cantidad).ToString();
                             return;
@@ -117,11 +124,10 @@ namespace CapaPresentacion
                     {
                         txtStockRegistrarVenta.Text = _producto.stock.ToString();
                     }
-                    
                 }
                 else
                 {
-                    MessageBox.Show("No existe producto con el códgio #" + txtBuscarCodigoVta.Text);
+                    MessageBox.Show("No existe producto activo con el código #" + txtBuscarCodigoVta.Text);
                     LimpiarGrupoDetalle();
                     LimpiarGrupoProducto();
                 }
@@ -130,7 +136,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("El código ingresado no es válido.");
             }
-
         }
         private void txtBuscarDniVta_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -242,7 +247,7 @@ namespace CapaPresentacion
                     {
                         MessageBox.Show($"No hay stock suficiente del producto: {item.nombre}!");
                         BuscarYPintarEnDataGridView(itemCarrito.Producto.idProducto.ToString());
-                        _listaProductos = new CN_Producto().ListarProductos();
+                        _listaProductos = new CN_Producto().ListarProductosActivos();
                         return false;
                     }
                 }
@@ -343,7 +348,7 @@ namespace CapaPresentacion
         }
         private void btnConfirmarVta_Click(object sender, EventArgs e)
         {
-            _listaProductos = new CN_Producto().ListarProductos();
+            _listaProductos = new CN_Producto().ListarProductosActivos();
             
             string MensajeVenta = string.Empty;
             string MensajeDetalleVenta = string.Empty;

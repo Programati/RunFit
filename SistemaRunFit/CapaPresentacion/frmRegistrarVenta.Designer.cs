@@ -93,7 +93,7 @@
             this.txtNombreProductoVenta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNombreProductoVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProductoVenta.Location = new System.Drawing.Point(508, 25);
-            this.txtNombreProductoVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreProductoVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProductoVenta.Name = "txtNombreProductoVenta";
             this.txtNombreProductoVenta.PasswordChar = '\0';
             this.txtNombreProductoVenta.Radius = 10;
@@ -115,7 +115,7 @@
             this.txtBuscarCodigoVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarCodigoVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCodigoVta.Location = new System.Drawing.Point(129, 25);
-            this.txtBuscarCodigoVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarCodigoVta.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarCodigoVta.MaxLength = 10;
             this.txtBuscarCodigoVta.Name = "txtBuscarCodigoVta";
             this.txtBuscarCodigoVta.PasswordChar = '\0';
@@ -173,7 +173,7 @@
             this.txtCantidadItenVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtCantidadItenVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidadItenVta.Location = new System.Drawing.Point(132, 23);
-            this.txtCantidadItenVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidadItenVta.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadItenVta.MaxLength = 4;
             this.txtCantidadItenVta.Name = "txtCantidadItenVta";
             this.txtCantidadItenVta.PasswordChar = '\0';
@@ -193,7 +193,7 @@
             this.pnlNumVta.Controls.Add(this.groupBox2);
             this.pnlNumVta.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNumVta.Location = new System.Drawing.Point(0, 0);
-            this.pnlNumVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNumVta.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNumVta.Name = "pnlNumVta";
             this.pnlNumVta.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.pnlNumVta.Radius = 5;
@@ -210,9 +210,9 @@
             this.groupBox1.Controls.Add(this.lblBuscarCodigoVta);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(13, 86);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1106, 74);
             this.groupBox1.TabIndex = 83;
             this.groupBox1.TabStop = false;
@@ -234,7 +234,7 @@
             this.txtBuscarPtoVta.Image = ((System.Drawing.Image)(resources.GetObject("txtBuscarPtoVta.Image")));
             this.txtBuscarPtoVta.ImageSize = new System.Drawing.Size(25, 25);
             this.txtBuscarPtoVta.Location = new System.Drawing.Point(268, 22);
-            this.txtBuscarPtoVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarPtoVta.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarPtoVta.Name = "txtBuscarPtoVta";
             this.txtBuscarPtoVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.txtBuscarPtoVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -258,9 +258,9 @@
             this.groupBox3.Controls.Add(this.txtCantidadItenVta);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Location = new System.Drawing.Point(13, 168);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1106, 158);
             this.groupBox3.TabIndex = 82;
             this.groupBox3.TabStop = false;
@@ -295,7 +295,7 @@
             this.pbImgProductoVenta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pbImgProductoVenta.Image = global::CapaPresentacion.Properties.Resources.ProductoGenerico;
             this.pbImgProductoVenta.Location = new System.Drawing.Point(922, 19);
-            this.pbImgProductoVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImgProductoVenta.Margin = new System.Windows.Forms.Padding(4);
             this.pbImgProductoVenta.Name = "pbImgProductoVenta";
             this.pbImgProductoVenta.Padding = new System.Windows.Forms.Padding(0, 0, 4, 4);
             this.pbImgProductoVenta.Size = new System.Drawing.Size(180, 135);
@@ -327,7 +327,7 @@
             this.txtStockRegistrarVenta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtStockRegistrarVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStockRegistrarVenta.Location = new System.Drawing.Point(132, 63);
-            this.txtStockRegistrarVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStockRegistrarVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txtStockRegistrarVenta.MaxLength = 4;
             this.txtStockRegistrarVenta.Name = "txtStockRegistrarVenta";
             this.txtStockRegistrarVenta.PasswordChar = '\0';
@@ -353,7 +353,7 @@
             this.btnAgregaritemVta.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregaritemVta.Image")));
             this.btnAgregaritemVta.ImageSize = new System.Drawing.Size(20, 20);
             this.btnAgregaritemVta.Location = new System.Drawing.Point(508, 79);
-            this.btnAgregaritemVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregaritemVta.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregaritemVta.Name = "btnAgregaritemVta";
             this.btnAgregaritemVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnAgregaritemVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -376,9 +376,9 @@
             this.groupBox2.Controls.Add(this.lblNyApRegistrarVenta);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(13, 12);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1106, 74);
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
@@ -422,7 +422,7 @@
             this.txtBuscarDniVta.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txtBuscarDniVta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarDniVta.Location = new System.Drawing.Point(508, 25);
-            this.txtBuscarDniVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarDniVta.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarDniVta.MaxLength = 8;
             this.txtBuscarDniVta.Name = "txtBuscarDniVta";
             this.txtBuscarDniVta.PasswordChar = '\0';
@@ -449,7 +449,7 @@
             this.btnBuscarClteVta.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClteVta.Image")));
             this.btnBuscarClteVta.ImageSize = new System.Drawing.Size(25, 25);
             this.btnBuscarClteVta.Location = new System.Drawing.Point(720, 22);
-            this.btnBuscarClteVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarClteVta.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarClteVta.Name = "btnBuscarClteVta";
             this.btnBuscarClteVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnBuscarClteVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -530,7 +530,7 @@
             this.dgvDetalleVta.EnableHeadersVisualStyles = false;
             this.dgvDetalleVta.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(220)))), ((int)(((byte)(242)))));
             this.dgvDetalleVta.Location = new System.Drawing.Point(3, 62);
-            this.dgvDetalleVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDetalleVta.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetalleVta.MultiSelect = false;
             this.dgvDetalleVta.Name = "dgvDetalleVta";
             this.dgvDetalleVta.ReadOnly = true;
@@ -692,7 +692,7 @@
             this.pnlFinalVenta.Controls.Add(this.lblMontoSubtotalVta);
             this.pnlFinalVenta.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFinalVenta.Location = new System.Drawing.Point(0, 621);
-            this.pnlFinalVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlFinalVenta.Margin = new System.Windows.Forms.Padding(4);
             this.pnlFinalVenta.Name = "pnlFinalVenta";
             this.pnlFinalVenta.Size = new System.Drawing.Size(1132, 60);
             this.pnlFinalVenta.TabIndex = 84;
@@ -713,7 +713,7 @@
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageSize = new System.Drawing.Size(20, 20);
             this.btnCancelar.Location = new System.Drawing.Point(255, 7);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnCancelar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -742,7 +742,7 @@
             this.btnConfirmarVta.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmarVta.Image")));
             this.btnConfirmarVta.ImageSize = new System.Drawing.Size(20, 20);
             this.btnConfirmarVta.Location = new System.Drawing.Point(4, 7);
-            this.btnConfirmarVta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirmarVta.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmarVta.Name = "btnConfirmarVta";
             this.btnConfirmarVta.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
             this.btnConfirmarVta.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -776,7 +776,7 @@
             this.Controls.Add(this.grbDetalleVta);
             this.Controls.Add(this.pnlFinalVenta);
             this.Controls.Add(this.pnlNumVta);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegistrarVenta";
             this.Text = "Registrar Ventas";
             this.Load += new System.EventHandler(this.frmRegistrarVenta_Load);
