@@ -81,10 +81,8 @@ namespace CapaPresentacion
         {
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
-
-            //Descomentar la linea de abajo, una vez que creaste el superAdmin
-            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.passwordUsuario == Encrypt.GetSHA256(txtPassBackup.Text)).FirstOrDefault();
-            //Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.oRol.nombreRol=="Gerente" &&   u.passwordUsuario == (txtPassBackup.Text)).FirstOrDefault() ;
+                       
+            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.oRol.nombreRol=="Gerente" && u.passwordUsuario == Encrypt.GetSHA256(txtPassBackup.Text)).FirstOrDefault();
 
 
             if (ousuario != null)

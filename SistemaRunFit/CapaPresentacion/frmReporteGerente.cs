@@ -214,7 +214,7 @@ namespace CapaPresentacion
                 dgvReporteGerente.DataSource = ventas.SelectMany(v => v.oDetalleVenta.Select(dv => new
                 {
                     Producto = dv.oProducto.nombre,
-                    Talle = dv.oProducto.detalle,
+                    Detalle = dv.oProducto.detalle,
                     Stock = dv.oProducto.stock,
                     Stock_Min = dv.oProducto.stockMinimo,
                     Marca = dv.oProducto.oMarca.nombre,
