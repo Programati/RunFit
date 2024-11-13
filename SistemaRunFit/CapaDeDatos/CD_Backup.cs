@@ -22,7 +22,7 @@ namespace CapaDeDatos
         {
             string nombre_copia = DateTime.Now.ToString("dd-MM-yyyy_HH' horas '_mm' minutos '_ss' segundos'");
 
-            string ruta_copia = $"C:\\Users\\JULIO-NOTEBOOK2\\Desktop\\Runfit_repositorio\\BackUp\\{nombre_copia}.bak";
+            string ruta_copia = $"C:\\Users\\JULIO_GAMER_PC\\Desktop\\runfit_3_repositorio\\BackUp\\{nombre_copia}.bak";
 
             string nuevo_formato = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss").Replace('-', '/').Replace('_', ' ');
 
@@ -67,40 +67,15 @@ namespace CapaDeDatos
         private string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=RunFit;Integrated Security=True";
 
 
-        /* public void Restaurar(string rutaBackup)
-         {
-
-             string query = $@"
-         USE master;
-         ALTER DATABASE [RunFit] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-         RESTORE DATABASE [RunFit]
-         FROM DISK = '{rutaBackup}'
-         WITH REPLACE;
-         ALTER DATABASE [RunFit] SET MULTI_USER;";
-
-             using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-             {
-                 SqlCommand cmd = new SqlCommand(query, conexion);
-                 try
-                 {
-                     conexion.Open();
-                     cmd.ExecuteNonQuery();
-                     MessageBox.Show("Base de datos restaurada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                 }
-             }
-         }*/
+       
 
 
         public void Restaurar(string rutaBackup)
 
         {
             // Ruta de destino para los archivos de datos y log en tu sistema
-            string rutaMDF = @"C:\Users\JULIO-NOTEBOOK2\Desktop\Runfit_repositorio\BackUp\RunFit.mdf";
-            string rutaLDF = @"C:\Users\JULIO-NOTEBOOK2\Desktop\Runfit_repositorio\BackUp\RunFit_log.ldf";
+            string rutaMDF = @"C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\RunFit.mdf";
+            string rutaLDF = @"C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\RunFit_log.ldf";
 
             string query = $@"
 USE master;
@@ -129,38 +104,7 @@ ALTER DATABASE [RunFit] SET MULTI_USER;";
             }
         }
 
-        /*public void Restaurar(string rutaBackup)
-        {
-            // Ruta de destino para los archivos de datos y log en tu sistema
-            string rutaMDF = @"C:\Users\Matias-Pc\OneDrive\Documentos\BackUp\RunFit.mdf";
-            string rutaLDF = @"C:\Users\Matias-Pc\OneDrive\Documentos\BackUp\RunFit_log.ldf";
-
-            string query = $@"
-USE master;
-ALTER DATABASE [RunFit] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-RESTORE DATABASE [RunFit]
-FROM DISK = '{rutaBackup}'
-WITH 
-    MOVE 'RunFit' TO '{rutaMDF}', 
-    MOVE 'RunFit_log' TO '{rutaLDF}', 
-    REPLACE;
-ALTER DATABASE [RunFit] SET MULTI_USER;";
-
-            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
-            {
-                SqlCommand cmd = new SqlCommand(query, conexion);
-                try
-                {
-                    conexion.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Base de datos restaurada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al restaurar la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }*/
+        
 
         public string ObtenerUltimaFechaBackup()
         {
