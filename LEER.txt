@@ -1,5 +1,7 @@
 Pasos para restaurar copia seguridad desde sql.seerver
 
+Dentro de la carpeta BackUp se encuentra el .bak para realizar los siguientes pasos
+Nombre del archivo: "09-11-2024_09 horas _30 minutos _50 segundos.bak"
 
 1- Ingresar al sql server
 2- Crear una base de datos nueva con el nombre,de preferencia, RunFit.
