@@ -1,6 +1,8 @@
 
 
 select * from PRODUCTOS
+select * from categorias
+select * from MARCAS
 --Prodcedimientos almacenados
 /*REGISTRAR PERSONA*/
 CREATE PROC SP_PERSONA_REGISTRAR(
@@ -70,7 +72,7 @@ CREATE PROC SP_PERSONA_EDITAR(
 
  end
  go
-
+ select * from PERSONAS
  /*ELIMINAR PERSONA*/
 CREATE PROC SP_PERSONA_ELIMINAR(
     @id_persona INT,
@@ -428,6 +430,12 @@ BEGIN
     END
 END
 
+<<<<<<< HEAD
+go
+select * from CATEGORIAS;
+select * from PRODUCTOS
+=======
+>>>>>>> rama-matias
 go
 
 /*EDITAR PRODUCTO*/ 
@@ -565,6 +573,13 @@ BEGIN
     END
 END
 GO
+select * from PERSONAS
+select * from ventas 
+select  * from DETALLE_VENTAS
+select * from PRODUCTOS
+update productos
+set stock = 0
+where id_producto = 3
   --------------------------------------------------------------
  go
 
@@ -806,7 +821,7 @@ BEGIN
     END
 END
 go
-
+select * from USUARIOS
 
 
 
@@ -1028,6 +1043,20 @@ select * from PRODUCTOS
  select * from DOMICILIOS
  select * from PROVEEDORES
  select * from CATEGORIAS
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+ select * from PRODUCTOS
+
+ select * from MARCAS
+>>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
+=======
+=======
+>>>>>>> 53d25f6e474e6eafaed02dd8074556453c398f5e
+ select * from MARCAS
+=======
+>>>>>>> rama-matias
 
 select * from VENTAS v
 join DETALLE_VENTAS dv on dv.id_venta = v.id_venta
@@ -1043,7 +1072,13 @@ where v.id_venta = 17
  SELECT * FROM DETALLE_VENTAS;
  
  delete from VENTAS where id_venta > 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+=======
 
+>>>>>>> d3bcf23359550fb9b6c27b2c04c9375ab115bffe
 
  select * from PRODUCTOS
 
@@ -1074,6 +1109,13 @@ from usuarios u
 inner join ventas v on (v.id_usuario=u.id_usuario)
 group by u.nombre_usuario
 
+<<<<<<< HEAD
+=======
+>>>>>>> 7d6a0c2a18c081626269c263c191ea1c11f3cffd
+>>>>>>> rama-julio
+>>>>>>> 53d25f6e474e6eafaed02dd8074556453c398f5e
+>>>>>>> rama-matias
+=======
 --scrip mejor vendedor en cantidades
 SELECT 
     u.nombre_usuario AS vendedor, 
@@ -1185,6 +1227,11 @@ INNER JOIN
 
 GROUP BY 
     p.nombre_producto
+<<<<<<< HEAD
+ORDER BY 
+    cantidad_total DESC;
+>>>>>>> d3bcf23359550fb9b6c27b2c04c9375ab115bffe
+=======
     order by monto_total desc
 	select * from PRODUCTOS
 	select * from DETALLE_VENTAS 
@@ -1203,6 +1250,7 @@ INNER JOIN productos p ON dv.id_producto = p.id_producto
 
 GROUP BY p.nombre_producto
         order by total_subtotal desc
+>>>>>>> 5c4bacb58284dc80cdae2419a7e3632fc0949535
 =======
 SELECT v.id_venta, v.importe_total, v.fecha_factura,
 u.nombre_usuario,
@@ -1217,3 +1265,4 @@ JOIN PRODUCTOS prod ON prod.id_producto = dv.id_producto
 JOIN DOMICILIOS d ON d.id_persona = v.id_cliente
 where v.id_venta = 17
 >>>>>>> rama-matias
+select * from usuarios

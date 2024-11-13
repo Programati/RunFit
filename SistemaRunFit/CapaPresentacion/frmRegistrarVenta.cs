@@ -80,7 +80,11 @@ namespace CapaPresentacion
                     }
                     else
                     {
+<<<<<<< HEAD
                         MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está DADO DE BAJA.");
+=======
+                        MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está inactivo.");
+>>>>>>> rama-julio
                     }
                 }
                 else
@@ -101,12 +105,11 @@ namespace CapaPresentacion
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarCodigoVta.Text, out codigoProducto))
             {
-                // Buscar el producto
-                _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto);
+                // Buscar el producto que no tenga fecha de baja
+                _producto = _listaProductos.FirstOrDefault(p => p.idProducto == codigoProducto && p.fechaBaja == null);
 
                 if (_producto != null)
                 {
-                    //txtNombreProductoVenta.Text = _producto.nombre;
                     txtNombreProductoVenta.Text = _producto.nombre + " " + _producto.detalle;
                     pbImgProductoVenta.Image = ImagenProducto(_producto);
                     lblPrecio.Text = "$"+_producto.precioVenta.ToString("N2");
@@ -114,7 +117,7 @@ namespace CapaPresentacion
                     if (dgvDetalleVta.Rows.Count > 0)
                     {
                         var _productoDelCarrito = _carrito.FirstOrDefault(p => p.Producto.idProducto == codigoProducto);
-                        if ( BuscarEnDataGridView(_producto.idProducto.ToString()) )
+                        if (BuscarEnDataGridView(_producto.idProducto.ToString()))
                         {
                             txtStockRegistrarVenta.Text = (_producto.stock - (int)_productoDelCarrito.Cantidad).ToString();
                             return;
@@ -125,11 +128,10 @@ namespace CapaPresentacion
                     {
                         txtStockRegistrarVenta.Text = _producto.stock.ToString();
                     }
-                    
                 }
                 else
                 {
-                    MessageBox.Show("No existe producto con el códgio #" + txtBuscarCodigoVta.Text);
+                    MessageBox.Show("No existe producto activo con el código #" + txtBuscarCodigoVta.Text);
                     LimpiarGrupoDetalle();
                     LimpiarGrupoProducto();
                 }
@@ -138,7 +140,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("El código ingresado no es válido.");
             }
-
         }
         private void txtBuscarDniVta_KeyPress(object sender, KeyPressEventArgs e)
         {

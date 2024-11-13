@@ -99,6 +99,7 @@
             this.txtIdProvee.Size = new System.Drawing.Size(47, 25);
             this.txtIdProvee.TabIndex = 81;
             this.txtIdProvee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdProvee.Visible = false;
             // 
             // lblIdProv
             // 
@@ -110,6 +111,7 @@
             this.lblIdProv.Size = new System.Drawing.Size(48, 16);
             this.lblIdProv.TabIndex = 80;
             this.lblIdProv.Text = "ID prov";
+            this.lblIdProv.Visible = false;
             // 
             // label3
             // 

@@ -605,4 +605,8 @@ go
  select @idusuariogenerado
  select @mensajegenerado
  GO
+<<<<<<< HEAD
+ SELECT * FROM personas
+=======
  SELECT * FROM USUARIOS
+>>>>>>> 5c4bacb58284dc80cdae2419a7e3632fc0949535
