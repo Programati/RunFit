@@ -70,6 +70,7 @@
             this.btnCancelar = new Guna.UI.WinForms.GunaButton();
             this.btnConfirmarVta = new Guna.UI.WinForms.GunaButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.pnlNumVta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -196,6 +197,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblPrecio);
             this.groupBox1.Controls.Add(this.txtBuscarCodigoVta);
             this.groupBox1.Controls.Add(this.lblTituloPtosRegVtas);
             this.groupBox1.Controls.Add(this.txtBuscarPtoVta);
@@ -727,6 +729,16 @@
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(675, 24);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(58, 19);
+            this.lblPrecio.TabIndex = 77;
+            this.lblPrecio.Text = "$00.00";
+            // 
             // frmRegistrarVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -795,5 +807,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private Guna.UI.WinForms.GunaLabel lblMarca;
+        private System.Windows.Forms.Label lblPrecio;
     }
 }

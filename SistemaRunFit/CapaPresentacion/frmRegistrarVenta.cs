@@ -30,7 +30,7 @@ namespace CapaPresentacion
             _inicio = inicioForm;
             _usuarioVendedor = usuario;
             this.Load += new EventHandler(frmRegistrarVenta_Load);
-            _listaProductos = new CN_Producto().ListarProductos();
+            _listaProductos = new CN_Producto().ListarProductosActivos();
             _listaClientes = new CN_Domicilio().ListarDomicilios();
             lblFechaVenta.Text = fechaHoy.ToString("dd/MM/yyyy");
             autocompletar();
@@ -42,7 +42,6 @@ namespace CapaPresentacion
             {
                 _ListaProductosAutoCompletar.Add(producto.nombre + " " + producto.detalle);
             }
-
             // Configurar las propiedades del autocompletado
             txtNombreProductoVenta.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtNombreProductoVenta.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -54,7 +53,6 @@ namespace CapaPresentacion
         }
         private void btnBuscarClteVta_Click(object sender, System.EventArgs e)
         {
-
             if (txtBuscarDniVta.Text.Length > 8)
             {
                 MessageBox.Show("El DNI no puede contener más de 8 dígitos");
@@ -70,11 +68,20 @@ namespace CapaPresentacion
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarDniVta.Text, out dniCliente))
             {
+                // Buscar cliente por DNI
                 _cliente = _listaClientes.FirstOrDefault(c => Convert.ToInt32(c.oPersona.dni) == dniCliente);
 
                 if (_cliente != null)
                 {
-                    lblNombreYApellidoCliente.Text = _cliente.oPersona.apellido + " " + _cliente.oPersona.nombre;
+                    // Verificar si el cliente está activo
+                    if (_cliente.oPersona.estado == '1')
+                    {
+                        lblNombreYApellidoCliente.Text = _cliente.oPersona.apellido + " " + _cliente.oPersona.nombre;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está DADO DE BAJA.");
+                    }
                 }
                 else
                 {
@@ -102,6 +109,7 @@ namespace CapaPresentacion
                     //txtNombreProductoVenta.Text = _producto.nombre;
                     txtNombreProductoVenta.Text = _producto.nombre + " " + _producto.detalle;
                     pbImgProductoVenta.Image = ImagenProducto(_producto);
+                    lblPrecio.Text = _producto.precioVenta.ToString();
 
                     if (dgvDetalleVta.Rows.Count > 0)
                     {
@@ -242,7 +250,7 @@ namespace CapaPresentacion
                     {
                         MessageBox.Show($"No hay stock suficiente del producto: {item.nombre}!");
                         BuscarYPintarEnDataGridView(itemCarrito.Producto.idProducto.ToString());
-                        _listaProductos = new CN_Producto().ListarProductos();
+                        _listaProductos = new CN_Producto().ListarProductosActivos();
                         return false;
                     }
                 }
@@ -343,7 +351,7 @@ namespace CapaPresentacion
         }
         private void btnConfirmarVta_Click(object sender, EventArgs e)
         {
-            _listaProductos = new CN_Producto().ListarProductos();
+            _listaProductos = new CN_Producto().ListarProductosActivos();
             
             string MensajeVenta = string.Empty;
             string MensajeDetalleVenta = string.Empty;
@@ -464,6 +472,7 @@ namespace CapaPresentacion
             lblCategoria.Text = "";
             lblMarca.Text = "";
             pbImgProductoVenta.Image = CapaPresentacion.Properties.Resources.ProductoGenerico;
+            lblPrecio.Text = "$00.00";
         }
         private void limpiarFormVentaCompleto()
         {
@@ -513,7 +522,8 @@ namespace CapaPresentacion
                 pbImgProductoVenta.Image = ImagenProducto(producto);
                 lblCategoria.Text = producto.oCategoria.nombre_categoria;
                 lblMarca.Text = producto.oMarca.nombre;
-                _producto = producto;                
+                _producto = producto;
+                lblPrecio.Text = producto.precioVenta.ToString();
             }
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarCodigoVta.Text, out cod))
@@ -559,6 +569,7 @@ namespace CapaPresentacion
                 AplicarProductoSeleccionado();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
+
             }
         }
     }
