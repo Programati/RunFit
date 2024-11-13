@@ -109,7 +109,7 @@ namespace CapaPresentacion
                     //txtNombreProductoVenta.Text = _producto.nombre;
                     txtNombreProductoVenta.Text = _producto.nombre + " " + _producto.detalle;
                     pbImgProductoVenta.Image = ImagenProducto(_producto);
-                    lblPrecio.Text = _producto.precioVenta.ToString();
+                    lblPrecio.Text = "$"+_producto.precioVenta.ToString("N2");
 
                     if (dgvDetalleVta.Rows.Count > 0)
                     {
@@ -523,7 +523,7 @@ namespace CapaPresentacion
                 lblCategoria.Text = producto.oCategoria.nombre_categoria;
                 lblMarca.Text = producto.oMarca.nombre;
                 _producto = producto;
-                lblPrecio.Text = producto.precioVenta.ToString();
+                lblPrecio.Text = "$"+producto.precioVenta.ToString("N2");
             }
             // Verificar si el valor ingresado es un número válido
             if (int.TryParse(txtBuscarCodigoVta.Text, out cod))
