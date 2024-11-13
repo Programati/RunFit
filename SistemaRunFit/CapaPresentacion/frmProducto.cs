@@ -91,12 +91,7 @@ namespace CapaPresentacion
             cmbMarcaProducto.SelectedIndex = -1;
         }
 
-       /* private void frmProducto_Load(object sender, EventArgs e)
-        {
-           
-            
-            
-        }*/
+       
         private void LimpiarControles()
         {
             txtNombreProducto.Clear();
@@ -247,7 +242,7 @@ namespace CapaPresentacion
                         idProductoGenerado = new CN_Producto().Registrar(productoNuevo, out mensajeProducto);
                     }
 
-                    if (idProductoGenerado != 0)
+                    if (idProductoGenerado != 0 && VerdadProductoGenerado)
                     {
                         MessageBox.Show("Datos guardados exitosamente.", "Éxito!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         LimpiarCampos();

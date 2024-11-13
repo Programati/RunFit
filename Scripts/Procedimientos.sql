@@ -1,6 +1,3 @@
-
-
-select * from PRODUCTOS
 --Prodcedimientos almacenados
 /*REGISTRAR PERSONA*/
 CREATE PROC SP_PERSONA_REGISTRAR(
@@ -70,7 +67,6 @@ CREATE PROC SP_PERSONA_EDITAR(
 
  end
  go
-
  /*ELIMINAR PERSONA*/
 CREATE PROC SP_PERSONA_ELIMINAR(
     @id_persona INT,
@@ -406,22 +402,29 @@ BEGIN
     SET @IdProductoResultado = 0
     SET @Mensaje = ''
 
-    -- Inserción del producto
-    BEGIN TRY
-        INSERT INTO PRODUCTOS (nombre_producto, precio_compra, precio_venta, id_marca, id_categoria, id_proveedor, stock, stock_minimo, detalle_producto, imagen)
-        VALUES (@nombre_producto, @precio_compra, @precio_venta, @id_marca, @id_categoria, @id_proveedor, @stock, @stock_minimo, @detalle, @imagen)
+    -- Verificar si ya existe un producto con el mismo nombre y detalle
+    IF EXISTS (SELECT 1 FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND detalle_producto = @detalle)
+    BEGIN
+        -- Si existe un producto duplicado, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre y detalle.'
+    END
+    ELSE
+    BEGIN
+        -- Inserción del producto
+        BEGIN TRY
+            INSERT INTO PRODUCTOS (nombre_producto, precio_compra, precio_venta, id_marca, id_categoria, id_proveedor, stock, stock_minimo, detalle_producto, imagen)
+            VALUES (@nombre_producto, @precio_compra, @precio_venta, @id_marca, @id_categoria, @id_proveedor, @stock, @stock_minimo, @detalle, @imagen)
 
-        SET @IdProductoResultado = SCOPE_IDENTITY()  -- Obtener el ID del producto recién insertado
-        SET @Mensaje = 'Producto agregado correctamente.'
-    END TRY
-    BEGIN CATCH
-        SET @Mensaje = ERROR_MESSAGE()  -- Captura el error
-    END CATCH
+            SET @IdProductoResultado = SCOPE_IDENTITY()  -- Obtener el ID del producto recién insertado
+            SET @Mensaje = 'Producto agregado correctamente.'
+        END TRY
+        BEGIN CATCH
+            SET @Mensaje = ERROR_MESSAGE()  -- Captura el error
+        END CATCH
+    END
 END
-GO
-select * from CATEGORIAS;
-select * from PRODUCTOS
-go
+
+/*EDITAR PRODUCTO*/ 
 CREATE PROC SP_PRODUCTO_EDITAR
 (
     @id_producto int,
@@ -444,8 +447,13 @@ BEGIN
     SET @Respuesta = 0;
     SET @Mensaje = '';
 
-    -- Verificamos si ya existe un producto con el mismo nombre
-    IF NOT EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND id_producto != @id_producto)
+    -- Verificamos si ya existe un producto con el mismo nombre y detalle, excluyendo el producto actual
+    IF EXISTS (SELECT * FROM PRODUCTOS WHERE nombre_producto = @nombre_producto AND detalle_producto = @detalle_producto AND id_producto != @id_producto)
+    BEGIN
+        -- Si existe otro producto con el mismo nombre y detalle, enviamos un mensaje de error
+        SET @Mensaje = 'Ya existe un producto con el mismo nombre y detalle.';
+    END
+    ELSE
     BEGIN
         -- Si no existe, actualizamos el producto
         UPDATE PRODUCTOS
@@ -467,12 +475,8 @@ BEGIN
         SET @Respuesta = 1;
         SET @Mensaje = 'Producto actualizado correctamente';
     END
-    ELSE
-    BEGIN
-        -- Si existe otro producto con el mismo nombre, enviamos un mensaje de error
-        SET @Mensaje = 'Ya existe un producto con el mismo nombre';
-    END
 END;
+
 
 CREATE PROC SP_PRODUCTO_ELIMINAR(
     @id_producto INT,
@@ -555,8 +559,6 @@ BEGIN
     END
 END
 GO
-  --------------------------------------------------------------
- go
 
 /*REGISTRAR PROVEEDOR*/
 CREATE PROCEDURE SP_PROVEEDOR_REGISTRAR(
@@ -703,7 +705,6 @@ END
   --------------------------------------------------------------
  go
 
- select * from MARCAS
  /*REGISTRAR MARCAS*/
 CREATE PROC SP_MARCAS_REGISTRAR(
     @nombre VARCHAR(20),
@@ -729,7 +730,7 @@ BEGIN
     END
 END
 GO
-select * from MARCAS
+
 /*EDITAR MARCAS*/
 CREATE PROC SP_MARCAS_EDITAR(
 	@id_marca INT,
@@ -795,14 +796,6 @@ BEGIN
         SET @Mensaje = 'La Marca no existe.';
     END
 END
-go
-
-
-
-
-
-
--------------------------------------------------------------
 GO
 
 /*REGISTRAR VENTA*/
@@ -836,11 +829,6 @@ CREATE PROCEDURE SP_VENTAS_REGISTRAR(
 			set @Mensaje = 'El vendedor no existe!'
 		END
 END
-GO
-
-
-
- -------------------------------------------------------------
 GO
 
 /*REGISTRAR DETALLE_VENTAS*/
@@ -900,300 +888,3 @@ EXEC Reporte_Usuario @usuario = 4, @mensaje = @mensaje OUTPUT;
 
  -------------------------------------------------------------
 GO
-
-
-select * from PERSONAS p
-join DOMICILIOS d on d.id_persona = p.id_persona
-select * from PRODUCTOS
-
-
-
--- PRUEBAS DE LOS PROCEDIMIENTOS
-	/*REGISTRAR PERSONA*/
- declare @idpersonagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_REGISTRARPERSONA '20789456','test1','De Prueba','test@gmail.com','3794030345','2000-01-01','M', @idpersonagenerada output, @mensajegenerado output
- 
- select @idpersonagenerada
- select @mensajegenerado
- GO
-
- /*EDITAR PERSONA*/
- declare @Respuesta int
- declare @mensajegenerado varchar(500)
-
- exec SP_EDITARPERSONA 5,'35682527','testeo del5','De Prueba','test@gmail.com','3794030345','2000-01-01','M', @Respuesta output, @mensajegenerado output
- 
- select @Respuesta
- select @mensajegenerado
- select * from PERSONAS
- GO
-
- /*REGISTRAR DOMICILIO*/
- declare @iddomiciliogenerado int
- declare @mensajegenerado varchar(500)
- exec SP_REGISTRARDOMICILIO 'Pedro de Esnaola','5590','','','','',5, @iddomiciliogenerado output, @mensajegenerado output
- 
- select @iddomiciliogenerado
- select @mensajegenerado
- SELECT * FROM DOMICILIOS
-
- GO
-
- /*EDITAR DOMICILIO*/
- declare @Respuesta int
- declare @mensajegenerado varchar(500)
- exec SP_EDITARDOMICILIO 2,'Pedro de Esnaola','5590','','','12','2',5, @Respuesta output, @mensajegenerado output
- 
- select @Respuesta
- select @mensajegenerado
- SELECT * FROM DOMICILIOS
-
- GO
-
-/*REGISTRAR CATEGORIAS*/
- declare @idcategoriagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_REGISTRARCATEGORIAS'MEDIAS', @idcategoriagenerada output, @mensajegenerado output
- 
- select @idcategoriagenerada
- select @mensajegenerado
- GO
-
- /*EDITAR CATEGORIAS*/
- declare @idcategoriagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_EDITARCATEGORIAS 2,'ZAPATILLAS', @idcategoriagenerada output, @mensajegenerado output
- 
- select @idcategoriagenerada
- select @mensajegenerado
- GO
- select p.dni from PERSONAS p
- join DOMICILIOS d on d.id_persona=p.id_persona
- select * from PRODUCTOS
- /*REGISTRAR MARCAS*/
- declare @idmarcagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_REGISTRARMARCAS 'TOPPER', @idmarcagenerada output, @mensajegenerado output
- 
- select @idmarcagenerada
- select @mensajegenerado
- GO
-
- /*EDITAR MARCAS*/
- declare @idmarcagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_EDITARMARCAS 2,'TOPPER', @idmarcagenerada output, @mensajegenerado output
- 
- select @idmarcagenerada
- select @mensajegenerado
- GO
-
-  /*EDITAR CATEGORIAS*/
- declare @idmarcagenerada int
- declare @mensajegenerado varchar(500)
-
- exec SP_EDITARCATEGORIAS 2,'CAMISETAS', @idmarcagenerada output, @mensajegenerado output
- 
- select @idmarcagenerada
- select @mensajegenerado
- GO
-  select * from USUARIOS
-
- /*EDITAR USUARIO*/
- declare @idusuariogenerado int
- declare @mensajegenerado varchar(500)
-
- exec SP_EDITARUSUARIO 3,'ROMINA',NULL,3,3, @idusuariogenerado output, @mensajegenerado output
- select @idusuariogenerado
- select @mensajegenerado
- GO
- SELECT * FROM USUARIOS
- select * from PERSONAS
- select * from DOMICILIOS
- select * from PROVEEDORES
- select * from CATEGORIAS
-
-select * from VENTAS v
-join DETALLE_VENTAS dv on dv.id_venta = v.id_venta
-where v.id_venta = 17
-
-<<<<<<< HEAD
- SELECT * FROM PERSONAS p
- JOIN DOMICILIOS d ON d.id_persona = p.id_persona
-
- SELECT * FROM PRODUCTOS
-
- SELECT * FROM VENTAS;
- SELECT * FROM DETALLE_VENTAS;
- 
- delete from VENTAS where id_venta > 0
-
-
- select * from PRODUCTOS
-
- select * from MARCAS
-
-
-
-
-RESTORE DATABASE [RunFit]
-FROM DISK = 'C:\Users\JULIO_GAMER_PC\Desktop\runfit_3_repositorio\BackUp\15-10-2024_12 horas _32 minutos _14 segundos.bak'
-WITH REPLACE;
-
-select * from usuarios
-select * from ventas
---- script de mejor vendedor en numeros
-select  u.nombre_usuario as vendedor,sum(v.importe_total ) as total_ventas
-from usuarios u
-inner join ventas v on (v.id_usuario=u.id_usuario)
-group by u.nombre_usuario
-
---scrip mejor vendedor en cantidades
-SELECT 
-    u.nombre_usuario AS vendedor, 
-    p.nombre_producto,
-    SUM(dv.cantidad) AS cantidad_total
-FROM 
-    usuarios u
-INNER JOIN 
-    ventas v ON v.id_usuario = u.id_usuario
-INNER JOIN 
-    detalle_ventas dv ON dv.id_venta = v.id_venta
-INNER JOIN 
-    productos p ON p.id_producto = dv.id_producto
-GROUP BY 
-    u.nombre_usuario, p.nombre_producto
-	order by cantidad_total desc
-
-
-SELECT 
-    p.nombre_producto,
-    SUM(dv.cantidad) AS cantidad_total
-FROM 
-    productos p
-INNER JOIN 
-    detalle_ventas dv ON p.id_producto = dv.id_producto
-GROUP BY 
-    p.nombre_producto;
-
-
-	WITH VentasMaximas AS (
-    SELECT 
-        u.nombre_usuario AS vendedor,
-        p.nombre_producto,
-        SUM(dv.cantidad) AS cantidad_total,
-        ROW_NUMBER() OVER (PARTITION BY p.nombre_producto ORDER BY SUM(dv.cantidad) DESC) AS fila
-    FROM 
-        usuarios u
-    INNER JOIN 
-        ventas v ON v.id_usuario = u.id_usuario
-    INNER JOIN 
-        detalle_ventas dv ON dv.id_venta = v.id_venta
-    INNER JOIN 
-        productos p ON p.id_producto = dv.id_producto
-    GROUP BY 
-        u.nombre_usuario, p.nombre_producto
-)
-SELECT 
-    vendedor, 
-    nombre_producto, 
-    cantidad_total
-FROM 
-    VentasMaximas
-WHERE 
-    fila = 1;
-
-SELECT 
-    u.nombre_usuario AS vendedor, 
-	v.fecha_factura,
-    SUM(dv.cantidad) AS cantidad_total,
-    SUM(dv.subtotal) AS importe_total
-FROM 
-    usuarios u
-INNER JOIN 
-    ventas v ON v.id_usuario = u.id_usuario
-INNER JOIN 
-    detalle_ventas dv ON dv.id_venta = v.id_venta
-GROUP BY 
-    u.nombre_usuario
-ORDER BY 
-    importe_total DESC;
-
- SELECT 
-     p.nombre_producto,
-     SUM(dv.cantidad) AS cantidad_total
- FROM 
-     productos p
- INNER JOIN 
-     detalle_ventas dv ON p.id_producto = dv.id_producto
- INNER JOIN 
-     ventas v ON dv.id_venta = v.id_venta
- 
- GROUP BY 
-     p.nombre_producto
-
-	  SELECT 
-     p.nombre_producto,
-     SUM(dv.subtotal) AS monto_total
- FROM 
-     productos p
- INNER JOIN 
-     detalle_ventas dv ON p.id_producto = dv.id_producto
- INNER JOIN 
-     ventas v ON dv.id_venta = v.id_venta
-
- GROUP BY 
-     p.nombre_producto
-	 order by monto_total desc
-
-
-	SELECT 
-    p.nombre_producto,
-     SUM(dv.subtotal) AS monto_total
-FROM 
-    productos p
-INNER JOIN 
-    detalle_ventas dv ON p.id_producto = dv.id_producto
-INNER JOIN 
-    ventas v ON dv.id_venta = v.id_venta
-
-GROUP BY 
-    p.nombre_producto
-    order by monto_total desc
-	select * from PRODUCTOS
-	select * from DETALLE_VENTAS 
-	update DETALLE_VENTAS
-	set subtotal=1000 where id_producto=14
-
-
-	SELECT p.nombre_producto, 
-       SUM(dv.cantidad) AS total_cantidad, 
-       MAX(p.precio_venta) AS precio_venta, 
-       SUM(dv.subtotal) AS total_subtotal,
-       MAX(v.fecha_factura) AS ultima_fecha_factura
-FROM ventas v
-INNER JOIN detalle_ventas dv ON v.id_venta = dv.id_venta
-INNER JOIN productos p ON dv.id_producto = p.id_producto
-
-GROUP BY p.nombre_producto
-        order by total_subtotal desc
-=======
-SELECT v.id_venta, v.importe_total, v.fecha_factura,
-u.nombre_usuario,
-p.apellido, p.nombre, p.dni, p.telefono, p.email,
-d.calle, d.altura, d.manzana, d.casa, d.piso, d.departamento,
-dv.cantidad, prod.nombre_producto, prod.detalle_producto, prod.precio_venta, dv.subtotal
-FROM VENTAS v
-JOIN DETALLE_VENTAS dv ON dv.id_venta = v.id_venta
-JOIN PERSONAS p ON p.id_persona = v.id_cliente
-JOIN USUARIOS u ON u.id_usuario = v.id_usuario
-JOIN PRODUCTOS prod ON prod.id_producto = dv.id_producto
-JOIN DOMICILIOS d ON d.id_persona = v.id_cliente
-where v.id_venta = 17
->>>>>>> rama-matias

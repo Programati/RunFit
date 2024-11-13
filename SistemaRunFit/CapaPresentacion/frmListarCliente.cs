@@ -111,7 +111,7 @@ namespace CapaPresentacion
             {
                 dgvListaClientes.Rows.Add(new object[] {
             CapaPresentacion.Properties.Resources.pencil,
-            item.oPersona.estado == '0' ? CapaPresentacion.Properties.Resources.eliminar_user: CapaPresentacion.Properties.Resources.activar_user,
+            item.oPersona.estado == '0' ? CapaPresentacion.Properties.Resources.activar_user: CapaPresentacion.Properties.Resources.eliminar_user,
             item.oPersona.estado=='0' ? "Inactivo" : "Activo",
             item.oPersona.idPersona,
             item.oPersona.dni,

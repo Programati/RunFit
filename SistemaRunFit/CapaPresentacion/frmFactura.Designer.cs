@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFactura));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlCabeceraFactura = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.lblFacturaNum = new System.Windows.Forms.Label();
@@ -55,7 +55,6 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.btnCerrarFactura = new Guna.UI.WinForms.GunaButton();
             this.pnlDetalleFactura = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgvDetalleFacturaFinal = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +64,8 @@
             this.pnlTotalFactura = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.lblTotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblTotalFactura = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnGuardarPDF = new Guna.UI.WinForms.GunaButton();
+            this.btnCerrarFactura = new Guna.UI.WinForms.GunaButton();
             this.pnlCabeceraFactura.SuspendLayout();
             this.pnlDetalleClienteFactura.SuspendLayout();
             this.pnlDetalleFactura.SuspendLayout();
@@ -339,34 +340,6 @@
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "CLIENTE:";
             // 
-            // btnCerrarFactura
-            // 
-            this.btnCerrarFactura.AnimationHoverSpeed = 0.07F;
-            this.btnCerrarFactura.AnimationSpeed = 0.03F;
-            this.btnCerrarFactura.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarFactura.BaseColor = System.Drawing.Color.White;
-            this.btnCerrarFactura.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
-            this.btnCerrarFactura.BorderSize = 2;
-            this.btnCerrarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarFactura.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnCerrarFactura.FocusedColor = System.Drawing.Color.White;
-            this.btnCerrarFactura.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnCerrarFactura.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarFactura.Image")));
-            this.btnCerrarFactura.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnCerrarFactura.Location = new System.Drawing.Point(688, 466);
-            this.btnCerrarFactura.Name = "btnCerrarFactura";
-            this.btnCerrarFactura.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
-            this.btnCerrarFactura.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnCerrarFactura.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnCerrarFactura.OnHoverImage = null;
-            this.btnCerrarFactura.OnPressedColor = System.Drawing.Color.Black;
-            this.btnCerrarFactura.Radius = 10;
-            this.btnCerrarFactura.Size = new System.Drawing.Size(100, 41);
-            this.btnCerrarFactura.TabIndex = 18;
-            this.btnCerrarFactura.Text = "Cerrar";
-            this.btnCerrarFactura.Click += new System.EventHandler(this.btnCerrarFactura_Click);
-            // 
             // pnlDetalleFactura
             // 
             this.pnlDetalleFactura.BorderColor = System.Drawing.Color.Gray;
@@ -385,16 +358,16 @@
             this.dgvDetalleFacturaFinal.AllowUserToDeleteRows = false;
             this.dgvDetalleFacturaFinal.AllowUserToResizeColumns = false;
             this.dgvDetalleFacturaFinal.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvDetalleFacturaFinal.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleFacturaFinal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvDetalleFacturaFinal.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleFacturaFinal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleFacturaFinal.ColumnHeadersHeight = 35;
             this.dgvDetalleFacturaFinal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvDetalleFacturaFinal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -402,14 +375,14 @@
             this.Descripcion,
             this.PrecioUnitario,
             this.ImporteTotal});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleFacturaFinal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleFacturaFinal.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalleFacturaFinal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetalleFacturaFinal.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dgvDetalleFacturaFinal.Location = new System.Drawing.Point(10, 10);
@@ -477,8 +450,8 @@
             this.pnlTotalFactura.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTotalFactura.Location = new System.Drawing.Point(0, 400);
             this.pnlTotalFactura.Name = "pnlTotalFactura";
-            this.pnlTotalFactura.Padding = new System.Windows.Forms.Padding(5);
-            this.pnlTotalFactura.Size = new System.Drawing.Size(800, 47);
+            this.pnlTotalFactura.Padding = new System.Windows.Forms.Padding(6);
+            this.pnlTotalFactura.Size = new System.Drawing.Size(800, 50);
             this.pnlTotalFactura.TabIndex = 20;
             // 
             // lblTotal
@@ -486,7 +459,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.White;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(621, 5);
+            this.lblTotal.Location = new System.Drawing.Point(620, 6);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(88, 34);
             this.lblTotal.TabIndex = 0;
@@ -498,17 +471,74 @@
             this.lblTotalFactura.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblTotalFactura.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalFactura.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblTotalFactura.Location = new System.Drawing.Point(709, 5);
+            this.lblTotalFactura.Location = new System.Drawing.Point(708, 6);
             this.lblTotalFactura.Name = "lblTotalFactura";
             this.lblTotalFactura.Size = new System.Drawing.Size(86, 34);
             this.lblTotalFactura.TabIndex = 1;
             this.lblTotalFactura.Text = "$00.00";
+            // 
+            // btnGuardarPDF
+            // 
+            this.btnGuardarPDF.AnimationHoverSpeed = 0.07F;
+            this.btnGuardarPDF.AnimationSpeed = 0.03F;
+            this.btnGuardarPDF.BackColor = System.Drawing.Color.Transparent;
+            this.btnGuardarPDF.BaseColor = System.Drawing.Color.White;
+            this.btnGuardarPDF.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnGuardarPDF.BorderSize = 2;
+            this.btnGuardarPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarPDF.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGuardarPDF.FocusedColor = System.Drawing.Color.White;
+            this.btnGuardarPDF.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarPDF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarPDF.Image = global::CapaPresentacion.Properties.Resources.Guardar;
+            this.btnGuardarPDF.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnGuardarPDF.Location = new System.Drawing.Point(552, 466);
+            this.btnGuardarPDF.Name = "btnGuardarPDF";
+            this.btnGuardarPDF.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(163)))), ((int)(((byte)(108)))));
+            this.btnGuardarPDF.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnGuardarPDF.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnGuardarPDF.OnHoverImage = null;
+            this.btnGuardarPDF.OnPressedColor = System.Drawing.Color.Black;
+            this.btnGuardarPDF.Radius = 10;
+            this.btnGuardarPDF.Size = new System.Drawing.Size(130, 41);
+            this.btnGuardarPDF.TabIndex = 21;
+            this.btnGuardarPDF.Text = "Guardar PDF";
+            this.btnGuardarPDF.Click += new System.EventHandler(this.btnGuardarPDF_Click);
+            // 
+            // btnCerrarFactura
+            // 
+            this.btnCerrarFactura.AnimationHoverSpeed = 0.07F;
+            this.btnCerrarFactura.AnimationSpeed = 0.03F;
+            this.btnCerrarFactura.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarFactura.BaseColor = System.Drawing.Color.White;
+            this.btnCerrarFactura.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(71)))), ((int)(((byte)(109)))));
+            this.btnCerrarFactura.BorderSize = 2;
+            this.btnCerrarFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarFactura.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCerrarFactura.FocusedColor = System.Drawing.Color.White;
+            this.btnCerrarFactura.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnCerrarFactura.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarFactura.Image")));
+            this.btnCerrarFactura.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnCerrarFactura.Location = new System.Drawing.Point(688, 466);
+            this.btnCerrarFactura.Name = "btnCerrarFactura";
+            this.btnCerrarFactura.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(32)))));
+            this.btnCerrarFactura.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnCerrarFactura.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnCerrarFactura.OnHoverImage = null;
+            this.btnCerrarFactura.OnPressedColor = System.Drawing.Color.Black;
+            this.btnCerrarFactura.Radius = 10;
+            this.btnCerrarFactura.Size = new System.Drawing.Size(100, 41);
+            this.btnCerrarFactura.TabIndex = 18;
+            this.btnCerrarFactura.Text = "Cerrar";
+            this.btnCerrarFactura.Click += new System.EventHandler(this.btnCerrarFactura_Click);
             // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 510);
+            this.Controls.Add(this.btnGuardarPDF);
             this.Controls.Add(this.pnlTotalFactura);
             this.Controls.Add(this.btnCerrarFactura);
             this.Controls.Add(this.pnlDetalleFactura);
@@ -566,5 +596,6 @@
         private System.Windows.Forms.Label lblFacturaNum;
         private System.Windows.Forms.Label lblVendedorFactura;
         private System.Windows.Forms.Label lblVendedor;
+        private Guna.UI.WinForms.GunaButton btnGuardarPDF;
     }
 }

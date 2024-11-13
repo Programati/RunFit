@@ -30,6 +30,7 @@ namespace CapaPresentacion
 
             // Llamar al método para cargar el último backup
             CargarUltimoBackup();
+
         }
 
         private void CargarUltimoBackup()
@@ -48,7 +49,10 @@ namespace CapaPresentacion
             {
                 lblUltima.Text = "No hay copias disponibles";  // Manejo del caso donde no hay valor
             }
+
         }
+       
+
 
         // Evento del botón que regresa al menú de 'Marca' o al menú principal
         private void btnMenuMarca_Click(object sender, EventArgs e)
@@ -77,10 +81,8 @@ namespace CapaPresentacion
         {
             List<Usuario> TEST = new CN_Usuario().ListarUsuarios();
 
-
-            //Descomentar la linea de abajo, una vez que creaste el superAdmin
-            //Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuario.Text && u.passwordUsuario == Encrypt.GetSHA256(txtContrasena.Text)).FirstOrDefault();
-            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.oRol.nombreRol=="Gerente" &&   u.passwordUsuario == (txtPassBackup.Text)).FirstOrDefault() ;
+                       
+            Usuario ousuario = new CN_Usuario().ListarUsuarios().Where(u => u.nombreUsuario == txtUsuarioBackup.Text && u.oRol.nombreRol=="Gerente" && u.passwordUsuario == Encrypt.GetSHA256(txtPassBackup.Text)).FirstOrDefault();
 
 
             if (ousuario != null)

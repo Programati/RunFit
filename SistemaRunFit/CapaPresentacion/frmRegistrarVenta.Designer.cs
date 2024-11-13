@@ -40,6 +40,7 @@
             this.txtCantidadItenVta = new Guna.UI.WinForms.GunaTextBox();
             this.pnlNumVta = new Guna.UI.WinForms.GunaShadowPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.txtBuscarPtoVta = new Guna.UI.WinForms.GunaTileButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblMarca = new Guna.UI.WinForms.GunaLabel();
@@ -97,7 +98,7 @@
             this.txtNombreProductoVenta.PasswordChar = '\0';
             this.txtNombreProductoVenta.Radius = 10;
             this.txtNombreProductoVenta.SelectedText = "";
-            this.txtNombreProductoVenta.Size = new System.Drawing.Size(278, 26);
+            this.txtNombreProductoVenta.Size = new System.Drawing.Size(278, 29);
             this.txtNombreProductoVenta.TabIndex = 76;
             this.txtNombreProductoVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreProductoVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreProductoVenta_KeyDown);
@@ -119,7 +120,7 @@
             this.txtBuscarCodigoVta.PasswordChar = '\0';
             this.txtBuscarCodigoVta.Radius = 10;
             this.txtBuscarCodigoVta.SelectedText = "";
-            this.txtBuscarCodigoVta.Size = new System.Drawing.Size(98, 26);
+            this.txtBuscarCodigoVta.Size = new System.Drawing.Size(98, 29);
             this.txtBuscarCodigoVta.TabIndex = 3;
             this.txtBuscarCodigoVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarCodigoVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCodigoVta_KeyPress);
@@ -173,7 +174,7 @@
             this.txtCantidadItenVta.PasswordChar = '\0';
             this.txtCantidadItenVta.Radius = 10;
             this.txtCantidadItenVta.SelectedText = "";
-            this.txtCantidadItenVta.Size = new System.Drawing.Size(60, 26);
+            this.txtCantidadItenVta.Size = new System.Drawing.Size(60, 29);
             this.txtCantidadItenVta.TabIndex = 5;
             this.txtCantidadItenVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCantidadItenVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadItenVta_KeyPress);
@@ -196,6 +197,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblPrecio);
             this.groupBox1.Controls.Add(this.txtBuscarCodigoVta);
             this.groupBox1.Controls.Add(this.lblTituloPtosRegVtas);
             this.groupBox1.Controls.Add(this.txtBuscarPtoVta);
@@ -208,6 +210,17 @@
             this.groupBox1.TabIndex = 83;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Producto";
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.Location = new System.Drawing.Point(687, 25);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(58, 19);
+            this.lblPrecio.TabIndex = 77;
+            this.lblPrecio.Text = "$00.00";
             // 
             // txtBuscarPtoVta
             // 
@@ -316,7 +329,7 @@
             this.txtStockRegistrarVenta.PasswordChar = '\0';
             this.txtStockRegistrarVenta.Radius = 10;
             this.txtStockRegistrarVenta.SelectedText = "";
-            this.txtStockRegistrarVenta.Size = new System.Drawing.Size(60, 26);
+            this.txtStockRegistrarVenta.Size = new System.Drawing.Size(60, 29);
             this.txtStockRegistrarVenta.TabIndex = 78;
             this.txtStockRegistrarVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -405,7 +418,7 @@
             this.txtBuscarDniVta.PasswordChar = '\0';
             this.txtBuscarDniVta.Radius = 10;
             this.txtBuscarDniVta.SelectedText = "";
-            this.txtBuscarDniVta.Size = new System.Drawing.Size(153, 26);
+            this.txtBuscarDniVta.Size = new System.Drawing.Size(153, 29);
             this.txtBuscarDniVta.TabIndex = 1;
             this.txtBuscarDniVta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtBuscarDniVta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarDniVta_KeyPress);
@@ -541,6 +554,7 @@
             // 
             this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
             this.Codigo.Width = 111;
@@ -549,6 +563,7 @@
             // 
             this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
             this.Producto.ReadOnly = true;
             this.Producto.Width = 127;
@@ -556,15 +571,17 @@
             // Talle
             // 
             this.Talle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Talle.HeaderText = "Talle";
+            this.Talle.HeaderText = "Detalle";
+            this.Talle.MinimumWidth = 6;
             this.Talle.Name = "Talle";
             this.Talle.ReadOnly = true;
-            this.Talle.Width = 82;
+            this.Talle.Width = 107;
             // 
             // Cantidad
             // 
             this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             this.Cantidad.Width = 132;
@@ -573,6 +590,7 @@
             // 
             this.PrecioUnitario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.PrecioUnitario.HeaderText = "Precio Unit.";
+            this.PrecioUnitario.MinimumWidth = 6;
             this.PrecioUnitario.Name = "PrecioUnitario";
             this.PrecioUnitario.ReadOnly = true;
             this.PrecioUnitario.Width = 149;
@@ -581,6 +599,7 @@
             // 
             this.SubTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.SubTotal.HeaderText = "SUB TOTAL";
+            this.SubTotal.MinimumWidth = 6;
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.ReadOnly = true;
             this.SubTotal.Width = 140;
@@ -591,6 +610,7 @@
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -723,6 +743,7 @@
             this.dataGridViewImageColumn1.HeaderText = "Eliminar";
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -787,6 +808,8 @@
         private Guna.UI.WinForms.GunaLabel lblNombreYApellidoCliente;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI.WinForms.GunaLabel lblCategoria;
+        private Guna.UI.WinForms.GunaLabel lblMarca;
+        private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Talle;
@@ -794,6 +817,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private Guna.UI.WinForms.GunaLabel lblMarca;
     }
 }
