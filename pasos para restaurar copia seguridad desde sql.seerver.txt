@@ -1,0 +1,14 @@
+1-ingresar al sql server
+2-crear una base de datos nueva para probar con el nombre(de preferencia RunFit)
+3-hacer click derecho sobre la nueva base de datos, ir a tareas(task) , restore => database
+se abrira una ventana donde se elegira donde dice "device" y tiene los 3 puntitos "...", seleccionamos el archivo .bak de la ultima copia de seguridad
+4-en destino va el nombre de la nueva base de datos
+5-luego en la parte superiror izquierda entrar en opciones, marcar la casilla que diga sobreescribir  base de datos existente tiene que salir un mensaje que se restauro exitosamente.
+
+6-se tiene que ingresar al programa con el VS en el archivo app.config , y en el mismo cambiar el nombre de la base de datos
+<add name="cadena_conexion" connectionString="Data Source=(local);Initial Catalog=RunFit;Integrated Security=True" providerName="System.Data.SqlClient"/> ,
+ en catalog colocar el nombre de la nueva base donde se restauro el bak, en datasource dependera de como este configurado el sql sever en su equipo, en el caso que no funcione con el que esta en el ejemplo
+podria funcionar con ".\sqlexpress". con esto se estaria en condiciones de ingresar al sistema.
+
+7-para ingresar al sistema todos los password son "123"
+ 
