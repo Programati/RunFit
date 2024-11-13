@@ -1,14 +1,20 @@
-Para el correcto funcionamiento del sistema. Tener en cuenta al momento de ejecutar el script de la Base de Datos
-
-Crear las todas las tablas
-
-En el script hay inserciones iniciales, estan comentadas. Para ingrear por primera vez, con la BD vacia hay que hacer
-esas inserciones mediante SQL
+Pasos para restaurar copia seguridad desde sql.seerver
 
 
-Ingresar mediante SQL los ROLES
-Primero el rol "Sistema"
-Segundo el rol "Gerente"
-Tercero el rol "Vendedor"
-
-Ingresar mediante SQL la PERSONA y el USUARIO que va relacionado con la persona
+1- Ingresar al sql server
+2- Crear una base de datos nueva con el nombre,de preferencia, RunFit.
+3- Hacer click derecho sobre la nueva base de datos, ir a tareas(task) , restore => database (IMPORTANTE ESTAR EN LA MASTER)
+se abrira una ventana donde se elegira donde dice "device" y tiene los 3 puntitos "...", seleccionamos el archivo .bak de la ultima copia de seguridad
+4- En destino va el nombre de la nueva base de datos
+5- Luego en la parte superiror izquierda entrar en opciones, marcar la casilla que diga sobreescribir  base de datos existente tiene que salir un mensaje
+que se restauro exitosamente.
+6- Se tiene que ingresar al programa con el VS en el archivo app.config , y en el mismo cambiar el nombre de la base de datos
+<add name="cadena_conexion" connectionString="Data Source=(local);Initial Catalog=RunFit;Integrated Security=True" providerName="System.Data.SqlClient"/> ,
+ en catalog colocar el nombre de la nueva base donde se restauro el bak, en datasource dependera de como este configurado el sql sever en su equipo,
+en el caso que no funcione con el que esta en el ejemplo podria funcionar con ".\sqlexpress". con esto se estaria en condiciones de ingresar al sistema.
+7- Para ingresar al sistema hay 3 perfiles
+Perfil Sistema => Usuario: matias - Contraseña: 123
+Perfil Gerente => Usuario: ramiro - Contraseña: 123
+Perfil Vendedor =>Usuario: julio - Contraseña: 123
+En el perfil de SISTEMA podra encontrar la lista de usuarios que pueden entrar al sistema, desde alli podrá cambiar las contraseñas de cada uno
+ 
