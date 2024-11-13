@@ -80,11 +80,7 @@ namespace CapaPresentacion
                     }
                     else
                     {
-<<<<<<< HEAD
                         MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está DADO DE BAJA.");
-=======
-                        MessageBox.Show("El cliente con el DNI " + txtBuscarDniVta.Text + " está inactivo.");
->>>>>>> rama-julio
                     }
                 }
                 else
